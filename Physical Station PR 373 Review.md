@@ -17,13 +17,32 @@ This execution keeps room detection and construction ownership unchanged. Door s
 
 Active execution checklist:
 
-- [x] Integrate current master, preserve both branches' changes and replace the removed asset-deletion API. Conflict resolutions are staged and integrated compileJava succeeded. The merge is not committed yet
-- [ ] Prove and implement Auto-seal through observable door behavior, including suppression of automatic reopening and recovery
-- [ ] Make Refresh perform its server-side rescan and remove the unused parallel room-sync path
-- [ ] Verify focused gameplay and GUI scenarios, the full GUI suite, agentVerify and Java analysis
-- [ ] Record completed scope and remaining merge or publication requirements
+- [x] Integrate current master, preserve both branches' changes and replace the removed asset-deletion API. Local merge commit: `34a47513`
+- [x] Prove and implement Auto-seal through observable door behavior, including suppression of automatic reopening and recovery
+- [x] Make Refresh perform its server-side rescan and remove the unused parallel room-sync path
+- [x] Verify the physical-stations group, agentVerify and Java analysis. Per the owner's updated policy, reserve the full Horizon QA suite for opening a PR
+- [x] Record completed scope and remaining merge or publication requirements
 
 Tests must protect player-visible door state or server acceptance of GUI actions through production interfaces. Do not expose private state or test source text. Existing master defects outside this scope remain separate unless they prevent the accepted behavior from working.
+
+Current local evidence: five AirlockGuiGameTests scenarios pass in an integrated client. They cover sustained redstone through breach and repair, the Auto-seal toggle, proximity blocking, manual override with a client-received warning and protection restored after closing, real GUI Refresh input, and reconnection after replacing an airlock controller. The original Auto-seal and Refresh defects were reproduced before their fixes. The manual scenario also caught and verified correction of redstone preventing closure after a manual override.
+
+Room registrations are renewed after successful room checks, not only after an invalid-to-valid transition. This lets a replacement airlock reconnect without dismantling a valid room. It does not change the room-detection algorithm. Refresh requests a server-side airlock check and room updates through the existing machine-update path. The unused room snapshot branch is removed from StationGraphSyncHandler without a compatibility reader, consistent with the pre-release network policy.
+
+### Local Takeover Result
+
+Code is committed on `review-physical-stations-373`. The working tree is clean. With the owner's explicit approval, all four commits were pushed to the existing PR branch `airlock-2-electric-bogaloo`. GitHub confirms head `3247608f0eb40293dcbd7cef35cab4de325245fe`. No PR wording or review comments were changed.
+
+- `34a47513`: integrate master and update the asset-deletion API
+- `45fba27e`: Auto-seal, warned manual override, server Refresh, renewed room registrations, unused sync removal and five client scenarios
+- `dce12375`: mechanically fold the empty airlock casing and panel wrappers into their existing owners
+- `3247608f`: domain-based Horizon QA selection and the current portable launcher
+
+Final checks: `agentVerify` passed with 907 JUnit tests and zero failures or errors. `scripts/run-tests.ps1 -Suite physical-stations` passed all five scenarios with no skips or infrastructure issues. The launcher and runtime JAR were matched to report schema 5. Report directory: `build/horizonqa/physical-stations-group-v5` in the implementation worktree. An earlier full GUI run was incomplete and is not used as passing evidence.
+
+PMD and IntelliJ completed against the behavior changes. No actionable new safety defect was identified in the affected code. Remaining findings concern existing complexity, numeric literals, unused signatures and style. The subsequent mechanical wrapper folding was checked by compilation, unit tests and the focused client group. Retained audit: `C:/Users/Pxx500/AppData/Local/java-pmd-audit/reports/392024c0-5065-4e88-906f-fd8f7d78d28b/audit.json`.
+
+GitHub now reports PR 373 as mergeable, with independent review still required. Build and Horizon QA checks have started and have not yet completed. The unnamed prerequisite checkbox remains unexplained. The changed Wayfinder notes remain uncommitted and unpublished pending the applicable publication approval.
 
 The review below is the pre-fix baseline, not the final state of the takeover.
 
