@@ -1,0 +1,89 @@
+---
+type: wayfinder-ticket
+ticket_type: grilling
+status: resolved
+parent: Galaxia Alpha Wayfinder
+areas:
+  - "[[Area - Destinations]]"
+secondary_areas:
+  - Area - Automation and Infrastructure
+blocked_by: []
+claimed_by:
+tags:
+  - galaxia/alpha
+  - wayfinder/ticket
+  - wayfinder/grilling
+---
+
+# Define Celestial Capability Rules
+
+## Question
+
+Which authored celestial, environmental, surface, atmosphere, gravity, and orbital properties should grant or constrain reusable object-native capabilities such as gas extraction, mining, solar generation, outposts, stations, and transport endpoints?
+
+## Resolution
+
+Object-native capability rules are established by the accepted requirements below. Environmental facts determine eligibility, and asteroid Outposts do not require a Station orbit. Numerical orbit eligibility, solar calibration, and physical implementation remain content and tuning work. They do not reopen the agreed capability model or block the asteroid-specific contract.
+
+Consolidated on 2026-09-12 from existing owner decisions, without approving new numerical rules or certifying implementation.
+
+## Accepted Requirements
+
+- Celestial Objects author physical and domain facts rather than arbitrary per-machine capability flags. Gameplay systems derive their eligibility and behavior from those facts.
+- Gas Siphon and ordinary atmospheric gas collection are separate extraction systems.
+- Gas Siphon is exclusive to Gas Giants and uses their authored atmospheric gas data. It remains a separate machine and access method from ordinary surface collection.
+- A rocky or otherwise solid planet with an atmosphere does not become Gas Siphon-compatible merely because its atmosphere contains useful gases. Any ordinary atmospheric collection uses a separate capability and machine contract.
+- A Gas Siphon is an orbital module of a Celestial Asset associated with the Gas Giant. It is not placed on a fictional gas-giant surface.
+- The capability may be provided by a module on a physical Station or by a module in an Automated Facility. Both reuse the Gas Giant's ordinary authored atmosphere composition and pressure data, while energy, inventory, and logistics follow the owning asset's normal model.
+- Gas Siphon does not introduce a separate deep-resource profile. Its distinction from ordinary atmospheric collection is the eligible object and access method, not a duplicated source of gas composition data.
+- `Solid Surface` is one shared authored property for gameplay that requires accessible stable terrain.
+- A Celestial Object without a Solid Surface cannot support Unprepared Landing, a Silo or Rocket Pad, a physical surface Transport Endpoint, a surface Automated Outpost, ordinary surface mining, or construction that requires terrain.
+- A Celestial Object without a Solid Surface may still support capabilities provided by another valid Body Environment or Eligible Orbit. Gas Giants support orbital Gas Siphon, while minor asteroids support zero-gravity Automated Outposts.
+- Systems use Solid Surface instead of maintaining parallel flags such as `canLand`, `canMine`, `canBuildOutpost`, or `canPlaceSilo`.
+- Baseline solar availability derives from the system's light source and the Celestial Object's position rather than a `goodForSolar` capability flag.
+- Each Celestial Object may also author one general Solar Resource Modifier for balance and exceptional local conditions. The final object-level solar modifier is visible in the Star Map.
+- Asset placement then applies the relevant surface or space environment behavior. Surface generation may experience atmosphere and illumination cycles, while space-based generation avoids ordinary atmospheric loss.
+- Solar presentation separates Daylight Solar Intensity from Average Solar Yield. Overworld daylight intensity is the `1.0x` instantaneous reference, while the complete Overworld day-night cycle is the `1.0x` long-term yield reference.
+- The Star Map presents Average Solar Yield as the primary comparison. Its breakdown includes daylight intensity, light and dark duration, atmosphere, and the authored Solar Resource Modifier.
+- Actual surface production follows local illumination. Day and night duration remain separately visible because equal average yield can create different energy-storage requirements.
+- A Celestial Object's gravitational orbit and a Celestial Asset's Space Environment are separate concepts.
+- A Station requires an Eligible Orbit. Major planets, moons, Gas Giants, and other bodies with sufficient authored orbital facts may host one.
+- Minor asteroids and other bodies with insufficient gravity do not have an Eligible Orbit and cannot host an Automated Station.
+- A minor asteroid instead hosts a body-anchored Automated Outpost. The Outpost operates in zero gravity, may provide a Dock for Spaceships, and combines local extraction with the space-logistics capabilities needed at that body.
+- Allowing a Dock on an asteroid Outpost does not turn the Outpost into a Station and does not claim that the asteroid has an orbit.
+- Direct `canCreateStation` and `canCreateOutpost` flags are not part of the target capability model. Placement derives from reusable Asset Environments and the associated Celestial Object's facts.
+- A Body Environment represents an asset anchored directly to a Celestial Object. A Surface Environment is the Solid Surface form of that environment. A Space Environment represents vacuum and zero-gravity operating conditions and may apply to an orbital Station or to a body-anchored asteroid Outpost.
+- Automated Outposts use a valid Body Environment. Automated Stations require an Eligible Orbit and use a Space Environment.
+- Ordinary atmospheric gas collection requires a physical dimension, positive authored surface pressure, and at least one authored atmosphere ingredient.
+- Ordinary atmospheric collection and Gas Siphon use the same atmosphere composition and pressure facts. Pressure may affect collection throughput or compression cost.
+- Authored planetary and Gas Giant atmospheres are inexhaustible gameplay sources. Collection does not decrease a global atmosphere reservoir or require atmosphere regeneration.
+- Atmosphere extraction is limited by machine throughput, energy, infrastructure, gas concentration, and pressure rather than a finite planetary stock counter.
+- Every Celestial Asset derives one shared set of Environmental Properties from the associated Celestial Object, its Asset Environments, and its own modules or protections.
+- Systems such as Gas Siphon, Solar Generator, Miner, and transport infrastructure read the Environmental Properties they need instead of copying celestial facts or defining machine-specific location flags.
+- `CelestialBodyProperties` is the canonical authored source for environmental facts. Playable-dimension hazards and other runtime environment views derive from it instead of separately authoring the same temperature, pressure, radiation, or atmosphere values.
+- Celestial icon textures, observer-relative sky-body rendering, cubemap skyboxes, and decorative enhanced-sky layers are distinct presentation concerns. A body icon is not automatically a usable sky texture.
+- Every dimension actually registered by Galaxia must resolve to one registered `CelestialObject`. This is a hard registry invariant even when the dimension's gameplay profile is incomplete.
+- Register Tenebrae as a Celestial Object records the completed minimal registration decision. Tenebrae remains a non-playable scaffold until its separate gameplay contract is designed.
+- Minecraft biome temperature such as Mars `0.4F` remains unchanged until its independent vanilla climate behavior is understood. It is not treated as the canonical celestial hazard temperature.
+- Existing skybox, sky-body, and enhanced-sky rendering remain outside the current cleanup because another contributor owns that visual work. The ownership model may be documented without changing their assets or rendering behavior.
+
+## Implementation and Tuning Follow-ups
+
+- Station placement requires a usable orbit. The numerical orbit criterion is not yet established and must be checked against authored bodies during implementation.
+- The existing facts already distinguish body-anchored asteroid Outposts from orbital Stations. `Body Anchor` was proposed in an unanswered question and is not an accepted additional property.
+- Dock access follows vehicle and local environmental conditions. Asteroid Outpost docking is accepted. A new blanket rule requiring a named `Space Environment` flag is not separately approved.
+- Environment names in these notes describe gameplay relationships. Their existence does not require an enum, registry, class hierarchy, or copied property store.
+- Physical surface availability, physical visitability, and a persistent asteroid's abstract body anchor are distinct. Absence of a playable dimension does not mean absence of material to extract.
+- Solar comparison labels are accepted. Surface day/night durations and numerical calibration remain tuning questions. For the current Station-orbit model, the owner assumes a geostationary orbit with continuous full sunlight. Planet-shadow interruptions and an orbital light/dark cycle are not part of the current scope.
+- Continuous sunlight is an explicit gameplay simplification, not a physical consequence guaranteed by a geostationary orbit. It does not set solar output to the same value around every body or remove distance and authored solar modifiers.
+
+## Current Implementation Boundary
+
+Source inspection on 2026-09-12, under `src/main/java/com/gtnewhorizons/galaxia/`:
+
+- `registry/celestial/CelestialBodyProperties.java:20` still exposes direct visitability and Station/Outpost flags, consumed by `core/network/AssetCreateRequestPacket.java:148`. The accepted derived eligibility model is not implemented by those flags.
+- `registry/celestial/asteroid/AsteroidCelestialMaterializer.java:104` marks generated asteroids Station-ineligible and Outpost-eligible. That result agrees with the accepted asteroid facility distinction, without establishing a numerical orbit criterion.
+- `CelestialBodyProperties` owns pressure and atmosphere ingredients but has no accepted Solar Resource Modifier field in the inspected property model. Existing render brightness is not evidence of solar-production implementation.
+- `registry/celestial/CelestialRegistry.java:240` and `:248` still author Mars temperature separately in body properties and dimension effects. The shared environment authority remains an implementation requirement.
+
+These findings do not reopen the resolved gameplay model or certify all placement and extraction paths.

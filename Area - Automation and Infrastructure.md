@@ -1,0 +1,53 @@
+---
+type: wayfinder-area
+status: active
+tags:
+  - galaxia/alpha
+  - wayfinder/area
+---
+
+# Area - Automation and Infrastructure
+
+Persistent tier assets, Automated Facilities, stations, outposts, construction, upkeep, and remote operations.
+
+## Active Tickets
+
+- [[Define Data Processor Machine Topology]]
+- [[Define First Physical Station Contract]]
+- [[Define Module Settings Editing Contract]]
+
+## External Dependencies
+
+- [[Decide Gantry Maintenance Machine Ownership]]
+
+## Deferred Room Design
+
+- [[Define Manual Physical Room Validation]]
+- [[Define Airlock Space Classification]]
+- [[Define Physical Room Validation Recovery]]
+
+## Resolved Decisions
+
+- [[Consolidate Physical Station Architecture]]
+- [[Define Physical Station Change Tracking]]
+- [[Define Physical Station Room Ownership]]
+- [[Resolve Physical Station Controller Succession]]
+- [[Simplify Module Execution Lifecycle]]
+- [[Unify Module Configuration Window Lifecycle]]
+- [[Define Automated Facility Inventory Rules]]
+- [[Define Automated Facility Upkeep Behavior]]
+- [[Define Player Presence and Automation Tradeoffs]]
+- [[Research Current Gantry System]]
+
+## Implementation Issues
+
+- [[Decompose Galaxia Persistence Ownership]]
+- [[Issue - Add Construction Requirement Information Control]]
+- [[Issue - Preserve Assets Across Team Disband]]
+
+## Related Topics
+
+- Area - Destinations
+- Area - Travel and Logistics
+- Area - Observation and Research
+- Galaxia Alpha Wayfinder

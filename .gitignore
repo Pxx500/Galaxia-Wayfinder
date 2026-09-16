@@ -1,0 +1,8 @@
+# Local Obsidian configuration and deleted notes
+/.obsidian/
+/.trash/
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
