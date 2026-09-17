@@ -1,7 +1,7 @@
 ---
 type: consolidation-report
 status: completed
-date: 2026-09-12
+date: 2026-09-17
 tags:
   - galaxia/alpha
   - wayfinder/maintenance
@@ -9,7 +9,60 @@ tags:
 
 # Vault Consolidation
 
-## Scope and Authority
+## Current Reconciliation: 2026-09-17
+
+The owner requested a whole-vault reconciliation to restore broad, independent question rounds. The run inspected the complete Markdown inventory and graph, reviewed the active frontier and remaining fog, and reconciled owning decisions across all six Alpha areas and the separate Star Map Visibility Wayfinder. Two read-only area audits and one mechanical graph audit supported the pass. This is a planning review, not a fresh code audit or a line-by-line revalidation of every historical source.
+
+The local Vault and origin/master were at the same commit after fetching. No open Wayfinder PRs were returned. Existing local changes were preserved. No commits, pushes or public text were published.
+
+### Backup
+
+All 131 root Markdown notes were copied before edits to `C:/Users/Pxx500/AppData/Local/Temp/galaxia-vault-reconciliation-20260917-183739`. This backup covers Markdown notes, not the Vault's Git database, attachments or application configuration.
+
+### Reconciled Navigation And Decisions
+
+- The map and guide now consistently require cross-area batches of independent questions, without manufacturing questions or reviving explicitly deferred work.
+- Removed stale Data Processor hardware, consultation, settings-classification and upkeep wording. Those decisions remain resolved.
+- Qualified endpoint destruction and group scope by the accepted Physical Station succession and Station-local ownership rules. Individual endpoint identity is not Station identity.
+- Qualified the general logistics-infrastructure summary with the already accepted unprepared-landing and construction-supply exceptions.
+- Restored the owning wear note's provisional sampling status rather than promoting a summary into a stronger decision.
+- Kept room redesign, Station merging, notification presentation and Gantry ownership deferred or externally dependent as already agreed.
+- Removed the production-floor-wide blocker from the first Physical Station discussion. Product selection and Station necessity remain coordinated open questions, not an accidental circular interview dependency.
+- Updated the capability-floor context to use completed proposal classifications and project-owner authority. Explicitly deferred individual designs were not revived.
+- Narrowed the opening-mission question to the remaining reusable-vehicle milestone. Satellite payload, map unlock and starting visibility are not new questions.
+- Corrected construction-requirement visibility fog that contradicted the same note's accepted contract.
+- Marked the merged PR review as historical. Its recorded tests and branch work are not new verification from this pass.
+
+### Newly Exposed Frontier
+
+These are open questions with proposals, not accepted decisions:
+
+- [[Define Bulk Fluid Cargo Contract]]
+- [[Define Automated Facility Fluid Capacity]]
+- [[Define Belt Beacon Lifetime]]
+- [[Define Star Map Overlap Priority]]
+
+The next grouped round also uses the existing [[Specify Alpha Opening Mission Flow]] for the reuse milestone and [[Define Alpha Research and Production Floor]] for the first orbital product's use. Numerical tuning, exact recipes and research-dependent ingredient availability do not substitute for those product decisions.
+
+### Preserved Uncertainty
+
+The first Physical Station is still required by its accepted contract, while orbital efficiency benefits alone do not prove that requirement. No optional-station or orbital-exclusivity decision was made. The all-tier route audit remains incomplete. Completed outer-system and extrasolar research intake is retained for classification, not treated as approved Galaxia recipes or a finished exhaustive audit. All unreviewed sources remain linked only through intake.
+
+### Progress
+
+- [x] Check remote master and open PRs, preserve existing local work
+- [x] Back up the Markdown inventory
+- [x] Audit all area frontiers, remaining fog and graph metadata
+- [x] Reconcile already accepted rules and expose precise open questions
+- [x] Complete final graph, diff and source-preservation checks
+
+Final inventory: 135 Markdown notes, with four added, 26 existing notes changed and none deleted relative to the pre-run backup. No broken wikilinks, missing blocker targets, dependency cycles, primary-area omissions or open/resolved hub mismatches were found. All eight unreviewed source notes remain routed through Sources only. SHA-256 comparison confirms that existing source-note bytes were preserved. The Vault diff check passed with line-ending warnings only. These checks do not certify historical code claims or decide any open proposal.
+
+## Historical Code Reconciliation: 2026-09-12
+
+The following records the earlier run. Its code baseline, counts and then-open questions are historical, not the current frontier. Current question status comes from the owning notes and the 2026-09-17 section above.
+
+### Scope and Authority
 
 The owner requested whole-vault reconciliation with current Galaxia code so already answered questions stop occupying the planning frontier. This run covered the full note inventory, active decision questions, dependencies, related accepted contracts, and three read-only code audits.
 

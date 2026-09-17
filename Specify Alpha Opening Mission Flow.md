@@ -8,7 +8,7 @@ areas:
 blocked_by:
   - "[[Define Alpha Transport Roles]]"
   - "[[Define Alpha Celestial Knowledge Layers]]"
-claimed_by:
+claimed_by: local-wayfinder-reconciliation
 tags:
   - galaxia/alpha
   - wayfinder/ticket
@@ -19,7 +19,7 @@ tags:
 
 ## Question
 
-What exact pre-Star-Map player flow, payload, launch result, team ownership behavior, initial visible object set, and failure or retry behavior turns the accepted first observation launch into a complete Alpha opening mission?
+When should the opening progression provide reusable Rocket transport after the accepted first observation launch? The payload, local launch flow, team map unlock and initial visibility rules below are already settled.
 
 ## Accepted Requirements
 

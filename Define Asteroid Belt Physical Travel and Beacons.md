@@ -67,7 +67,7 @@ Asteroid-belt gameplay has two separate layers: persistent Star Map asteroids fo
 ## Remaining Fog
 
 - Exact mapping from a rendered belt point to dimension coordinates and the ring's world geometry.
-- Beacon ownership, final name, limits, removal, destruction, persistence, and team visibility.
+- [[Define Belt Beacon Lifetime]] owns the precise question of what happens to the map point after Beacon destruction. Ownership, sharing, final name and limits remain separate fog.
 - Arrival safety, collision handling, and spawn placement around arbitrary coordinates and Beacons.
 - Whether a first visit may target any belt coordinate or must satisfy scan, range, or trajectory constraints.
 - How Rockets and Spaceships differ when traveling to persistent Star Map asteroids versus physical Belt Coordinates.

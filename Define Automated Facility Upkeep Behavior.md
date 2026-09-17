@@ -21,7 +21,7 @@ How do recurring module upkeep requirements affect an Automated Facility when su
 
 ## Established Input
 
-Define Player Presence and Automation Tradeoffs preserves recurring authored module resources and shutdown on missing supply as a candidate automation cost. Detailed starvation, consumption, and recovery behavior is not yet accepted there. These rules are common to Automated Facilities, not an asteroid-only maintenance system.
+Define Player Presence and Automation Tradeoffs delegates the accepted work-based upkeep and local starvation contract to this decision. These rules are common to Automated Facilities, not an asteroid-only maintenance system.
 
 ## Resolution
 

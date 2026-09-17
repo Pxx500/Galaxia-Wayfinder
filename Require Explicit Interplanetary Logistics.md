@@ -21,7 +21,7 @@ May players bypass Galaxia's interplanetary travel and infrastructure by telepor
 
 ## Resolution
 
-No. Interplanetary movement of players, items, and fluids uses explicit Galaxia travel and logistics systems. Players must maintain the required infrastructure at both ends and move through systems such as Rockets, Spaceships, and Hammer electromagnetic cargo cannons according to their eventual contracts.
+No. Interplanetary movement of players, items, and fluids uses explicit Galaxia travel and logistics systems. Players provide the infrastructure required by the selected transport and mission. Accepted Unprepared Landing and construction-supply bootstrap rules do not require a pre-existing ordinary destination endpoint. Hammer retains its receiver requirement. These are explicit travel contracts, not teleportation exceptions.
 
 No default teleportation exception is assumed. A future exception requires a concrete use case and an explicit Wayfinder decision.
 

@@ -9,7 +9,6 @@ secondary_areas:
   - Area - Observation and Research
 blocked_by:
   - "[[Define Alpha Celestial Knowledge Layers]]"
-  - "[[Define Alpha Research and Production Floor]]"
 claimed_by:
 tags:
   - galaxia/alpha
@@ -36,6 +35,8 @@ What minimum player-accessible capability makes at least one Physical Station ne
 
 ## Accepted Direction
 
+The production floor and this Station contract are coordinated peer decisions. The accepted one-chain minimum does not require closing the entire production-floor ticket before discussing the Station's role. Recipe feasibility and concrete route validation remain evidence needed before final placement in progression.
+
 The first Physical Station should primarily support production that benefits from or requires orbital conditions. It may have several useful roles at once. The concrete process and material remain undecided and must have a defensible environmental reason rather than an arbitrary station-only recipe condition.
 
 ## Orbital Production Candidates and Economic Role
@@ -49,6 +50,8 @@ The owner explicitly welcomed two concrete candidates:
 
 These are retained design candidates, not finalized recipes or confirmed early-tier material availability. Do not infer that all semiconductor manufacturing requires orbit, guarantee commercial superiority, or invent quality variants solely to represent improved yield. Ingredients, products, placement in progression, and numerical benefits require later content and balance work.
 
+[[Define Alpha Research and Production Floor]] sets one complete orbital production chain as the current Alpha minimum, with more chains planned later. Both candidates remain available, but neither is selected by that scope decision. Its production machinery baseline applies here: use existing GT machinery unless a concrete process requirement justifies a custom machine. This is not an unresolved choice between two equally default approaches.
+
 Primary-source findings are preserved in [[Orbital Manufacturing Research]]. The cited NASA reports describe orbital benefits, not physical impossibility of terrestrial production. No quantitative advantage over lunar gravity was established.
 
 Owner accepted the better-recipe direction and expressed strong interest in both candidates in the Wayfinder conversation on 2026-09-10. The separate requirement that a first Physical Station be necessary for progression remains unresolved by an efficiency benefit alone.
@@ -57,7 +60,7 @@ Owner accepted the better-recipe direction and expressed strong interest in both
 
 The owner supports Galaxia adding its own progression and infrastructure materials. Materials may participate in unlocking Automated Facilities, but this does not establish a mandatory dependency on output from a Physical Station specifically.
 
-The owner recalled Space-Grade Alloy as a planned material whose feedstock comes from Luna and whose production requires a vacuum environment. Record this as the current working direction, subject to recipe and source-proposal reconciliation. Do not describe the finished alloy itself as naturally mined ore or freeze its composition from this recollection.
+The owner recalled Space-Grade Alloy as a planned material whose feedstock comes from Luna and whose production requires a vacuum environment. The later accepted item identity, production environment and bulk-material role are owned by [[Review Crater Nodes Proposal]]. Do not describe the finished alloy itself as naturally mined ore or use it as the material gate between technology tiers. Exact feedstock recipes remain open.
 
 Vacuum production is an environmental requirement, not a Station-only requirement. This material therefore does not by itself justify a mandatory orbital manufacturing step when the same required conditions are available on Luna. The exact first-Station production process and progression necessity remain open. Galaxia-specific materials need not remain exclusively useful inside Galaxia.
 

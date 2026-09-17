@@ -66,7 +66,9 @@ Original GTNH research retains its platinum requirement as historical source evi
 
 On 2026-09-11 the owner proposed using Callisto ice as the source of a special coolant that enables higher-tier engines. This is the working Galaxia role for the material rather than copying its original Rocket plating role.
 
-The owner provisionally accepted coolant as a third engine fluid, alongside fuel and oxidizer, above an engine tier still to be chosen. The added supply complexity remains a reason to revisit this choice. Processing, consumption rules, and eligible engines are not finalized.
+The owner provisionally accepted coolant as a third engine fluid, alongside fuel and oxidizer. The added supply complexity remains a reason to revisit this choice. Processing recipes, exact quantities and eligible engine specifications are not finalized.
+
+[[Define Engine Coolant Consumption]] owns the accepted consumable-coolant rule, preserving ongoing demand for extraction and supply.
 
 The owner proposed that a subsequent planet after Callisto have sufficiently high gravity to require higher-thrust engines for landing. Callisto supplies the coolant before that capability is needed at the later destination. The destination, numerical gravity, and required vehicle performance remain open balance choices. This expresses a capability-based progression proposal, not a destination whitelist.
 
@@ -82,6 +84,6 @@ The owner confirmed that europium is required at higher tiers. Its assignment to
 
 ## Decision Boundary
 
-The suggested LuV production requirement for the first coolant-dependent engine has not been answered by the owner. [[Define First Coolant Engine Production Stage]] owns that bounded choice. It is not an accepted tier assignment. Full-route dependencies remain in [[Map Alpha Tier Routes]].
+[[Define First Coolant Engine Production Stage]] places first use roughly after access to the relevant fuel and coolant. No fixed LuV production requirement was accepted. Full-route dependencies remain in [[Map Alpha Tier Routes]].
 
 Extracted from already accepted rounds on 2026-09-12 so the complete Ore Tier audit does not block access to settled baseline decisions.

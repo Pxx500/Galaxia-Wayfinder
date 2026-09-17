@@ -13,6 +13,9 @@ tags:
 
 These inputs remain unclassified. Do not treat them as accepted requirements.
 
+- [[Crater Fluid Subtypes And Scanner Integration Research]]
+- [[Outer System Progression Gate Research]]
+- [[Extrasolar Progression Gate Research]]
 - [[Discord Source - Crater Nodes Proposal]]
 - [[Agent Source - Station Mechanics Phase 2 Conversation]]
 - [[Repo Source - Unknown Ship Event Concept]]

@@ -12,9 +12,10 @@ Star Map activation, celestial discovery, resource knowledge, reconnaissance, sa
 
 ## Active Tickets
 
+- [[Define Star Map Overlap Priority]]
 - [[Specify Alpha Opening Mission Flow]]
 
-## External Dependencies
+## Closed Coordination Dependencies
 
 - [[Collect Data Processor Topology Feedback]]
 

@@ -46,11 +46,10 @@ What Alpha capability converts Raw Prospecting Data into Processed Prospecting D
 - A Data Processor accepts typed data jobs and exposes finite shared processing throughput. Each data-job type may define its own conversion rule, processing cost, and output behavior.
 - Alpha initially requires the Prospecting job that converts Raw Prospecting Data into Processed Prospecting Data. Future Research or other data jobs may reuse the same processing owner without inheriting Prospecting-specific rules.
 - Data Processing requires player-built, network-connected machine infrastructure, but its physical topology is not selected by this ticket.
-- The processing infrastructure consumes EU while working and contains player-installed processor hardware.
-- Total processing throughput derives from both the number of installed processors and their technology tiers.
-- Installed processors are persistent capital hardware rather than per-job consumables.
-- Whether processor hardware belongs to an expandable modular multiblock, a pool of smaller cooperating machines, or another topology is deferred to [[Define Data Processor Machine Topology]] after [[Collect Data Processor Topology Feedback]].
-- Exact slot counts, tier values, throughput curves, EU tuning, and the configuration scope for job priorities depend on that topology and remain open.
+- The processing infrastructure consumes EU while working. The 2026-09-16 direction in [[Define Data Processor Machine Topology]] selects an expandable multiblock intended to operate passively without inserted items.
+- The accepted structural capacity and operating-intensity rules are owned by [[Define Data Processor Machine Topology]], replacing the earlier inserted-processor assumption.
+- Processing capacity is infrastructure rather than a per-job consumable. Its concrete expansion and tier rules are owned by [[Define Data Processor Machine Topology]].
+- Exact tier values, throughput curves and EU tuning remain balance choices. Enabled jobs and priorities are configured per installation under [[Define Data Processor Machine Topology]].
 - Regardless of physical topology, only successfully returned output aggregates in the shared origin pool.
 - Processing work is scheduled by jobs keyed by `SatelliteDataType + origin CelestialObjectKey`.
 - By default, active jobs share available processing throughput. The player may disable a job or change its priority.
@@ -78,7 +77,7 @@ What Alpha capability converts Raw Prospecting Data into Processed Prospecting D
 - Prospecting uses the network path `Prospecting Satellites -> Data Processing -> originating celestial object`; processing may occur anywhere reachable by a complete communication route.
 - Raw and Processed Prospecting Data are non-item, origin-bound network state pooled by `SatelliteDataType + origin CelestialObjectKey`. Data from one object cannot buff another.
 - Prospecting is the first typed job of a general Data Processing capability rather than a separate processing stack.
-- Data Processing consumes EU and scales through persistent processor hardware, but the physical machine topology is split into [[Collect Data Processor Topology Feedback]] and [[Define Data Processor Machine Topology]].
+- Data Processing consumes EU and uses expandable multiblock infrastructure. [[Define Data Processor Machine Topology]] owns structural expansion, operating intensity and installation-local configuration.
 - Small bounded buffers and backpressure prevent the pipeline from becoming data storage or producing backlog bursts.
 - Successfully returned throughput scales both Prospecting effects linearly, floors each to a working one-percentage-point increment, and is evaluated in `20`-tick windows to prevent pulse exploitation.
 - The satellite hover widget shows pooled generated data, successfully returned data, and active bonuses. It does not automatically diagnose the limiting processor, route, or bandwidth.
@@ -99,7 +98,7 @@ These are flow-accounting requirements, not a new persistent demand store or a r
 
 Inspection on 2026-09-12 confirms typed origin keys and concrete-sink delivery in the existing debug-oriented data pipeline. `registry/satellite/SatelliteDataJobService.java:114` drains only accepted data, and `matchingConsumers` at line 151 prioritizes exact-origin consumers. These paths are under `src/main/java/com/gtnewhorizons/galaxia/`.
 
-`SatelliteDataType.java:3` currently contains COMMUNICATION, PROSPECTING, and RESEARCH. The inspected service does not establish the accepted Raw-to-Processed conversion, installed processor hardware, returned-throughput windows, or extraction bonuses. Discovery workers are a separate path. Data Processor topology therefore remains genuinely open, and the full prospecting gameplay pipeline must not be marked implemented merely because data transport exists.
+`SatelliteDataType.java:3` currently contains COMMUNICATION, PROSPECTING, and RESEARCH. The inspected service does not establish the accepted Raw-to-Processed conversion, processing infrastructure, returned-throughput windows, or extraction bonuses. Discovery workers are a separate path. The later multiblock topology decision is design intent, not evidence of implementation. The full prospecting gameplay pipeline must not be marked implemented merely because data transport exists.
 
 - `SatelliteDataKey` already identifies satellite data by `SatelliteDataType` and an optional `CelestialObjectKey origin`.
 - Produced data retains its real origin, while consumers may request either a specific origin or any origin; exact-origin demand is prioritized when both match.

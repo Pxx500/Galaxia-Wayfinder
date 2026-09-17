@@ -20,6 +20,8 @@ Use the area hubs to find current decisions and open questions. Preserve provisi
 
 After recording a resolved round, continue directly with the next unblocked round or ticket in the same conversation response. Do not wait for a separate instruction to continue. The owner explicitly prefers this multi-ticket conversational progression over a one-ticket-per-session limit. Pause only for a real unresolved answer, required external evidence, or a separate authority boundary.
 
+Build discussion rounds across areas, not only from the last topic discussed. On 2026-09-17 the owner requested larger batches of independent questions. Check accepted decisions and their consequences before proposing a question. Graduate precise questions hidden in resolved notes into their own tickets. Keep research, numerical tuning and deliberately deferred systems out of the immediate interview. Do not invent questions to meet a quota.
+
 ## Planning Areas
 
 - [[Area - Alpha Scope]]

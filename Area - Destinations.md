@@ -10,6 +10,10 @@ tags:
 
 Object-native gameplay, available actions, dimensions, regions, and retained celestial content.
 
+## Active Tickets
+
+- [[Define Belt Beacon Lifetime]]
+
 ## Resolved Decisions
 
 - [[Define Celestial Capability Rules]]

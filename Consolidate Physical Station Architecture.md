@@ -21,11 +21,11 @@ Which parts of the construction-centric Station design and the existing physical
 
 ## Owner Direction
 
-On 2026-09-16 the owner requested consolidation, pausing room optimization and leaving the existing room implementation in place for now. The immediate work is to review Bankuz's Airlock 2 electric bogaloo PR, merge it if ready, then potentially continue the separate Station work.
+On 2026-09-16 the owner requested consolidation, pausing room optimization and leaving the existing room implementation in place for now. At that time the work was to review the existing physical-stations PR, merge it if ready, then potentially continue the separate Station work. The PR has since merged as recorded below.
 
 ## Resolution Status
 
-Architecture consolidation completed on 2026-09-16. This resolved status records the selected responsibilities and deferred scope. It does not mean the PR was merged. [[Physical Station PR 373 Review]] records the current merge blockers and verification evidence.
+Architecture consolidation completed on 2026-09-16. This resolved status records the selected responsibilities and deferred scope. The owner subsequently merged PR 373 into Galaxia master as `b1e42710`. [[Physical Station PR 373 Review]] preserves the review findings and verification history, not a current instruction to reopen the merged PR. The merge does not mark the separate construction-centric Station rework as implemented.
 
 ## Consolidated Direction
 
@@ -53,9 +53,9 @@ Deferred owning notes:
 
 ## Integration Boundary
 
-Review the PR for the behavior it adds, not for implementing the later construction-centric redesign. A merge does not certify that the separate local Station rework is integrated or complete. Do not expand Bankuz's PR into that redesign, silently waive functional defects, bypass required reviews or invent the unnamed prerequisite PR mentioned in its body.
+The PR was reviewed for the behavior it added, not for implementing the later construction-centric redesign. Its merge does not certify that the separate local Station rework is integrated into master. These efforts retain distinct scope.
 
-The owner authorized review and merge, subject to actual readiness. Public review text still requires approval of its exact wording under project policy. The PR is not merged merely because its historical CI passed.
+The owner authorized review and merge, subject to readiness, and subsequently reported the merge. Historical CI results alone were not merge authority. Public communication still requires approval of its exact wording under project policy.
 
 ## Provenance
 

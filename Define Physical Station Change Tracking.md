@@ -26,7 +26,7 @@ Owner discussion following commit `fe27e3e5` in the local Galaxia session, recor
 
 ## Resolution
 
-Accepted as the working direction for device connectivity, compact construction data and thread debugging. Room-validation lifecycle and airlock classification now have separate open owning tickets. This resolved status does not mean the entire Station validation design is finished. Measure representative workloads before claiming a performance gain.
+Accepted as the working direction for device connectivity, compact construction data and thread debugging. Room-validation lifecycle and airlock classification have separate deferred owning tickets. This resolved status does not mean the entire Station validation design is finished. Measure representative workloads before claiming a performance gain.
 
 On 2026-09-16, [[Consolidate Physical Station Architecture]] retained this construction-connectivity direction while deferring the room-redesign tickets. Do not read the earlier room-approval references below as requirements for the current airlock PR integration.
 
@@ -51,7 +51,7 @@ Room rules are owned by [[Define Manual Physical Room Validation]] and [[Define 
 - Track device connectivity, room approval and pressure, and functional-device changes separately. Avoid rebuilding unrelated state for every block event. This is not permission to automatically revalidate rooms.
 - Coalesce a series of changes into one pending update. An explosion must not cause a full recomputation for every affected block.
 - Preserve the last confirmed service-connectivity state while recomputation is pending. Do not interrupt energy or inventory access merely because a selected path was cut. Withdraw services only after actual disconnection is confirmed. The owner accepts the short delay in withdrawing services in exchange for avoiding transient outages when another route exists.
-- Room-boundary invalidation, changes inside rooms and pressure propagation are addressed by the open room tickets. Removing a shared boundary must not silently create a newly approved merged room.
+- Room-boundary invalidation, changes inside rooms and pressure propagation are addressed by the deferred room tickets. Their proposed redesign is not a current Alpha integration requirement.
 - A direct spatial ownership index is an optional profiling-driven improvement, not a requirement to create another persistent Station identity store.
 
 ### Compact Construction Coordinates

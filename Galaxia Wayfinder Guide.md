@@ -33,7 +33,7 @@ tags:
 2. Follow the Wayfinder to one area and choose an actionable ticket there.
 3. Choose an open, unclaimed ticket whose listed prerequisites are resolved, completed, or explicitly closed. A populated dependency list alone is not a blocker.
 4. Claim it before work by setting `claimed_by`.
-5. Resolve only that ticket, record the answer in the ticket, and set `status: resolved`.
+5. Work the independent frontier as a grouped discussion round under the map's Working Rules. Record each accepted answer in its owning ticket and set `status: resolved` only when its question is answered. The owner's multi-ticket workflow overrides the generic one-ticket-per-session limit.
 6. Move the resolved ticket under its primary area's resolved decisions.
 7. Create newly visible tickets and wire their `blocked_by` links; leave imprecise future work in Not Yet Specified.
 

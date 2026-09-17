@@ -12,13 +12,14 @@ Ore Tier 1–10 compatibility, tier gates, valid routes, and progression complet
 
 ## Active Tickets
 
-- [[Define First Coolant Engine Production Stage]]
 - [[Verify GTNH Ore Tier Gates]]
 - [[Map Alpha Tier Routes]]
 - [[Define Flight Progression Balance Invariants]]
 
 ## Resolved Decisions
 
+- [[Define First Coolant Engine Production Stage]]
+- [[Define Engine Coolant Consumption]]
 - [[Define Alpha Transport Technology Baseline]]
 - [[Define Automated Facility Introduction]]
 - [[GTNH Ore Progression Baseline]]

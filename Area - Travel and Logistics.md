@@ -12,6 +12,7 @@ Physical access, rockets, spaceships, Hammers, route requirements, cargo movemen
 
 ## Active Tickets
 
+- [[Define Bulk Fluid Cargo Contract]]
 
 ## Deferred Tickets
 

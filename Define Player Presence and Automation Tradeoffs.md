@@ -64,10 +64,10 @@ In the extraction example that surfaced this ambiguity, the intended general con
 
 ## Fog Exposed
 
-- Exact automation unlock tier and prerequisite technology.
+- Concrete prerequisite recipes for the accepted working EV introduction, owned by Define Automated Facility Introduction.
 - Which activity families are player-bound, automatable, or support both strategies.
 - Formal costs and benefits of manual and automated strategies.
-- Module upkeep inputs, consumption cadence, buffers, starvation behavior, and recovery.
+- Module-specific upkeep inputs, cadence and buffer tuning. Starvation and recovery follow the resolved upkeep owner above.
 - How players compare manual and automated options before committing resources.
 - The biological destination's actual research loop and progression role.
 

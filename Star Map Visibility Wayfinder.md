@@ -89,7 +89,7 @@ An important integration dependency was also found: `client/gui/orbitalGUI/Inter
 - Define the global compression curve and its stable calibration range, including how dynamic asteroid population participates without causing visual jumps.
 - Define deterministic kilometre-radius generation for each dynamic asteroid size class and any authored exceptional asteroid.
 - Define the exact fade function based on parent clearance, including the transition from plateau to zero visibility.
-- Define screen-space collision priority for non-parent collisions other than the selected-object override and star protection.
+- [[Define Star Map Overlap Priority]] owns non-parent collision priority, preserving the already accepted selected-object override and star protection.
 - Define labels, hitboxes, and markers during fade and while a selected object overlaps another body.
 - Populate authoritative kilometre radii for all registered celestial objects and remove the renderer's dependence on authored sprite-size values.
 

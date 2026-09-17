@@ -27,8 +27,8 @@ Alpha provides an explicit team-scoped chat operation that atomically replaces o
 
 ## Established Direction
 
-- Destroying a physical endpoint controller permanently removes its backing asset and breaks exact references to that asset.
-- Rebuilding or relocating the machine creates a new asset ID.
+- Destroying a standalone physical endpoint controller removes its backing asset and breaks its exact references. Destroying an individual Station endpoint breaks that endpoint's exact identity, not automatically the owning Station ID. Station-controller succession follows [[Resolve Physical Station Controller Succession]].
+- Rebuilding or relocating the endpoint creates a new Endpoint ID. A machine within a surviving Physical Station retains that Station's routing scope rather than creating a new Station asset.
 - The player identifies the old target and explicitly selects a replacement exact endpoint or Endpoint Group. The operation applies that replacement across all affected team Vehicle Schedules without requiring individual vehicle edits.
 - Replacement is explicit. The system does not silently select another same-named endpoint.
 - Bulk repair applies to broken exact Endpoint ID references. Destroying one member of a still-populated Endpoint Group does not break schedules targeting that group.

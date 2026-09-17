@@ -31,15 +31,14 @@ Which Galaxia-specific capabilities and complete gameplay chains must Alpha cont
 
 Low. This direction is provisionally acceptable, but it is not an accepted product requirement yet.
 
-The current Wayfinder driver did not design most proposed planets and mechanics and does not have enough ownership or detail to declare which of them are core Alpha capabilities. The imported developer proposals are also partly outdated or disputed and cannot be treated as accepted design without review.
+The imported proposals have now been classified by their owning review tickets. Their original authorship does not itself approve them. The project owner can choose the Alpha capability floor from accepted directions, while explicitly deferred content remains deferred. The unresolved work is selecting the required complete chains, not waiting for another generic proposal-review round.
 
 ## Required Input Before Resolution
 
-- Inventory the concrete planet and mechanic proposals made by their responsible designers.
-- Separate current intent from outdated, speculative, or rejected proposals.
+- Use the completed imported-proposal classifications to separate accepted intent from outdated, speculative or rejected content.
 - Identify which proposals express Galaxia's essential product identity and which are optional depth or post-Alpha ambitions.
 - Trace each candidate mandatory capability through a complete input, player decision, consequence, and progression continuation path.
-- Validate the resulting capability floor with the developers who own the relevant designs.
+- Obtain the project owner's approval of the resulting capability floor. Preserve explicit external dependencies on individual topics rather than imposing a blanket consultation blocker.
 
 ## Decision to Produce
 

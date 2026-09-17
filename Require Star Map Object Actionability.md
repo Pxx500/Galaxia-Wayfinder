@@ -74,7 +74,7 @@ Every Star Map Object in Galaxia Alpha must satisfy Star Map Actionability: it m
 
 - Decide whether clicking the `?` information control also opens or pins a persistent detail view for material lists that are too large for a transient hover widget.
 - Define the exact contents and layout of the information hover widget beyond the required material list.
-- Decide whether construction requirements remain visible on the Construction Site after creation; this is currently expected but not yet a finalized UI contract.
+- Construction requirements remain reachable after site creation under the accepted Split-Action Presentation contract above. Their exact layout is implementation work, not a new visibility decision.
 - Whether advisory progression labels such as `LuV-tier materials` are manually authored or derived from another authoritative source.
 - Which reusable object-property rules belong in Alpha and which object-specific mechanics may remain later depth.
 - The exact action set for stars and other extreme celestial objects.

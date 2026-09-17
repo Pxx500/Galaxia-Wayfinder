@@ -1,11 +1,15 @@
 ---
 type: review
-status: in-progress
+status: archived
 tags:
   - galaxia/alpha
 ---
 
 # Physical Station PR 373 Review
+
+## Historical Record
+
+The owner merged PR 373, recorded in [[Consolidate Physical Station Architecture]]. This note preserves the takeover, intermediate findings and verification history. Publication statuses and imperative checklists below refer to their recorded moments, not current instructions to resume the merged PR. No code or test result was reverified during the 2026-09-17 reconciliation.
 
 ## Active Takeover
 
@@ -29,7 +33,19 @@ Current local evidence: five AirlockGuiGameTests scenarios pass in an integrated
 
 Room registrations are renewed after successful room checks, not only after an invalid-to-valid transition. This lets a replacement airlock reconnect without dismantling a valid room. It does not change the room-detection algorithm. Refresh requests a server-side airlock check and room updates through the existing machine-update path. The unused room snapshot branch is removed from StationGraphSyncHandler without a compatibility reader, consistent with the pre-release network policy.
 
-### Local Takeover Result
+### Independent Review Follow-up
+
+The owner requested a fresh Astra high review without inherited conversation context. It reported four source-backed regressions: narrow-doorway proximity bounds, survival construction item metadata, resuming construction past valid panels, and client synchronization of the controller state. The owner authorized fixing all four. Each was subsequently reproduced through public gameplay interfaces before the corresponding fix, with all regression scenarios passing afterward.
+
+Inventory metadata was checked explicitly rather than inferred from its numeric value. Airlock doors use a normal ItemBlock with no declared subtypes, and their creative entry and drops use metadata 0. Metadata 2 and 4 represent placed-block orientations. Construction now names inventory metadata separately, preserves the requested world orientation, and skips valid existing panels.
+
+The owner also supplied sbancuz's Discord screenshots dated 2026-08-27 concerning rotated door textures and requested an adaptation. The door's broad faces retain their connected texture. Thin edges reuse the existing airlock casing texture. CTM matching and connection use the face texture, so rotated edges do not inherit the door's connected pattern. No renderer or bitmap asset was replaced.
+
+Verification: all 10 physical-station client scenarios pass with no skips or infrastructure issues. agentVerify passes with 907 JUnit tests and zero failures or errors. PMD and IntelliJ completed with no new actionable finding in the fixes. Remaining findings are existing style/complexity warnings, including the utility class's coupling metric. Audit: `C:/Users/Pxx500/AppData/Local/java-pmd-audit/reports/4e4cfa91-a8ad-4750-b92b-1df761fcd3ff/audit.json`. Client report and three-axis screenshot: `build/horizonqa/airlock-review-fixes-green` in the implementation worktree.
+
+The follow-up code is committed locally as `a8c1a0ac` and has not been pushed yet. Earlier takeover publication status below refers to head `3247608f`.
+
+### Published Takeover Baseline
 
 Code is committed on `review-physical-stations-373`. The working tree is clean. With the owner's explicit approval, all four commits were pushed to the existing PR branch `airlock-2-electric-bogaloo`. GitHub confirms head `3247608f0eb40293dcbd7cef35cab4de325245fe`. No PR wording or review comments were changed.
 

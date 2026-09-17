@@ -189,7 +189,7 @@ The processed network result describing the same origin as its Raw Prospecting D
 _Avoid_: Transferable planet-neutral bonus, cross-object prospecting data
 
 **Data Processor**:
-A player-built processing capability whose finite throughput depends on installed processor quantity and tier and which consumes energy. Its physical machine topology remains unresolved.
+A player-built, expandable multiblock that uses EU to process typed network data, with capacity determined by its structural computing sections and their tiers. Each installation has its own job settings and a configurable throughput-versus-energy-efficiency tradeoff.
 _Avoid_: Assumed singleton global processor, assumed per-machine topology, Prospecting-only processor stack, unlimited computation, consumable processor per job
 
 **Automated Facility**:
@@ -324,13 +324,31 @@ _Avoid_: Per-tick vehicle simulation when departure and arrival calculations pro
 An item-transfer intention belonging to a vehicle visit or endpoint service, identifying direction, items, and quantity or target.
 _Avoid_: Requiring the vehicle to duplicate the dock's cargo configuration
 
-## Proposed Crater Vocabulary
+## Crater Vocabulary
 
-These terms describe the owner's working proposal in Review Crater Nodes Proposal. They are not accepted shared design while reconciliation with the other developers remains blocked.
+Crater extraction and alloy terms reflect the owner's 2026-09-16 decisions. Size-class and richness tuning remain part of the earlier working proposal.
 
 **Crater Deposit**:
-A finite resource deposit owned by one impact crater. The crater may cross chunk boundaries, and every eligible extractor operating within it draws from the same remaining reserve.
+A resource deposit associated with one generated crater feature, independent of biome or chunk boundaries. Its extractors share a finite ordinary-mining reserve and a subsequent unlimited fracking stage with progressively increasing fluid cost.
 _Avoid_: Per-chunk deposit, independent reserve per extractor
+
+**Crater Extractor**:
+A machine that mines a Crater Deposit's initial ore reserve and then switches to fracking when the required fluid is supplied. This is a working domain name, not a finalized machine name.
+_Avoid_: Assuming separate ordinary-drill and fracking-rig machines
+
+**Space-Grade Alloy**:
+A low-tech, mass-produced bulk material for space equipment and infrastructure, produced only in an atmosphere-free environment. Different feedstock recipes yield the same item rather than distinct material-origin variants.
+_Avoid_: Per-feedstock ingot variants, the material gate between successive technology tiers
+
+**Fracking Fluid**:
+The extraction medium supplied to a Crater Extractor after ordinary mining is exhausted. Processing its enriched output recovers only part of this fluid, requiring ongoing replacement production.
+
+**Enriched Fracking Fluid**:
+The resource-bearing fluid produced by crater fracking and processed downstream to obtain resources and recover part of the extraction medium.
+
+**Fracking Fluid Family**:
+A shared family of fluid variants used by the crater-processing chain. Each subtype has a distinct registered fluid identity so recipe processing and browsing can distinguish it.
+_Avoid_: One Fluid ID distinguished only by NBT
 
 **Crater Size Class**:
 An authored `Small`, `Medium`, or `Large` category defined by a mean diameter and standard deviation. Classes may overlap, so a crater's realized diameter does not uniquely identify the class that generated it.

@@ -1,7 +1,7 @@
 ---
 type: wayfinder-ticket
 ticket_type: grilling
-status: open
+status: resolved
 parent: Galaxia Alpha Wayfinder
 areas:
   - "[[Area - Progression]]"
@@ -26,6 +26,8 @@ The accepted working baseline introduces Callisto-derived coolant for higher-thr
 
 [[Inner Planets Progression Gate Research]] establishes that the original GTNH Tier 4 hull uses LuV-rated assembly alongside IV-rated ice-composite and electronics recipes. That is a comparison point, not a requirement to copy a hull recipe or assign the coolant engine to LuV.
 
-## Pending Recommendation
+## Resolution
 
-The previous recommendation was LuV production. The owner has not answered it. This bounded choice can be discussed using the completed early research without waiting for the complete Ore Tier 1-10 audit. Exact recipe quantities and engine statistics remain later tuning.
+On 2026-09-16 the owner placed use of the first coolant-dependent engine roughly after access to the relevant fuel and coolant. The accepted production-stage constraint is relative to that resource chain, not an explicitly selected voltage tier.
+
+LuV was the preceding recommendation, but this answer did not fix LuV as a requirement. Final recipe voltage, quantities and engine statistics remain content and balance choices constrained by the resource-access ordering. Do not turn the comparison with the original GTNH hull recipe into an accepted Galaxia engine-tier assignment.

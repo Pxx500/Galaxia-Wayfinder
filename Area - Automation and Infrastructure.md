@@ -12,9 +12,8 @@ Persistent tier assets, Automated Facilities, stations, outposts, construction, 
 
 ## Active Tickets
 
-- [[Define Data Processor Machine Topology]]
+- [[Define Automated Facility Fluid Capacity]]
 - [[Define First Physical Station Contract]]
-- [[Define Module Settings Editing Contract]]
 
 ## External Dependencies
 
@@ -26,8 +25,14 @@ Persistent tier assets, Automated Facilities, stations, outposts, construction, 
 - [[Define Airlock Space Classification]]
 - [[Define Physical Room Validation Recovery]]
 
+## Other Deferred Decisions
+
+- [[Define Physical Station Merge Contract]]
+
 ## Resolved Decisions
 
+- [[Define Data Processor Machine Topology]]
+- [[Define Module Settings Editing Contract]]
 - [[Consolidate Physical Station Architecture]]
 - [[Define Physical Station Change Tracking]]
 - [[Define Physical Station Room Ownership]]

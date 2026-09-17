@@ -23,7 +23,7 @@ How do concrete physical and abstract destinations such as Rocket Pads, Docks, a
 
 ## Resolution
 
-Every prepared logistics destination is a Transport Endpoint backed by a team-owned `CelestialAsset`. Manual Unprepared Landing and physical Belt Coordinates have their separately accepted travel contracts. Exact schedule targets use an immutable Endpoint ID, while interchangeable endpoints may be addressed through a symbolic Endpoint Group key scoped by team, celestial object, endpoint kind, and Routing Name. Physical controllers preserve their backing identity across temporary disformation and lose it only on controller destruction. Exact references then require explicit repair, while an Endpoint Group remains a valid waiting target even with no members and resumes automatically when a compatible endpoint recreates the same group key.
+Every prepared logistics destination is a Transport Endpoint owned by a team-owned `CelestialAsset`. Manual Unprepared Landing and physical Belt Coordinates have their separately accepted travel contracts. Exact schedule targets use an immutable Endpoint ID. Interchangeable endpoints use symbolic groups scoped by Station ID for Station members, or by celestial object for standalone endpoints, together with team, compatible endpoint kind and Routing Name. Standalone controllers preserve backing identity across temporary disformation and lose it on destruction. Station identity instead follows the accepted controller-succession contract. Destroyed individual endpoints require explicit repair of exact references, while an empty Endpoint Group remains a valid waiting target and resumes when compatible members recreate the same group key.
 
 ## Established Direction
 
@@ -38,11 +38,11 @@ These Station-local rules override the broader celestial-object group scope and 
 ### General Endpoint Rules
 
 - A vehicle targets one concrete Transport Endpoint or one Endpoint Group, not a celestial object in general.
-- Every routable physical endpoint machine receives a backing `CelestialAsset`. The physical controller stores the backing asset ID, while the asset provides durable identity, team ownership, celestial placement, naming, persistence, and Star Map representation.
+- Every standalone routable physical endpoint machine receives a backing `CelestialAsset`. The physical controller stores the backing asset ID, while the asset provides durable identity, team ownership, celestial placement, naming, persistence, and Star Map representation. Station members instead use the Station-local ownership rule above.
 - A physical endpoint creates its backing `CelestialAsset` when its multiblock successfully forms for the first time, not when the controller block is merely placed.
 - After creation, the controller persists the backing asset ID for its own entire lifetime. Temporary multiblock disformation disables the endpoint but does not delete the asset or release its identity.
 - Reforming the multiblock reconnects to and enables the same backing asset. It never creates a replacement asset while the original controller and stored asset ID remain.
-- Destroying a controller permanently removes its backing asset. Exact schedule references to that asset become broken and require an explicit player repair rather than automatic retargeting.
+- Destroying a standalone endpoint controller permanently removes its backing asset. Exact references become broken and require explicit repair. This does not override Station-controller succession or delete a surviving Station when one of its endpoints is destroyed.
 - Rebuilding or relocating the physical machine creates a new asset ID.
 - The system must support an explicit bulk replacement operation that substitutes one broken endpoint reference with a player-selected replacement across every affected Vehicle Schedule. This requirement is developed in [[Define Bulk Repair of Broken Endpoint References]].
 - A controller that still exists but has a disformed multiblock remains registered as the same endpoint with unavailable status. An unloaded, non-chunkloaded controller follows the same rule.
@@ -61,7 +61,7 @@ These Station-local rules override the broader celestial-object group scope and 
 - Vehicle Schedules target the facility endpoint, and the facility assigns an available slot. All slots use the shared Automated Facility Inventory.
 - The model may later allow one Automated Facility to expose multiple independent Transport Endpoints if a concrete gameplay requirement needs separate per-pad routing or service policies. This extension does not require changing the facility's `CelestialAsset` identity.
 - Every player-built Rocket Pad, Silo, or other physical endpoint has its own stable unique identifier independent of its display or routing name.
-- Exact Vehicle Schedule references use the endpoint's immutable Endpoint ID. For an Alpha physical endpoint or Automated Facility exposing one logical endpoint, its backing `CelestialAsset` ID supplies that identity.
+- Exact Vehicle Schedule references use the endpoint's immutable Endpoint ID. For a standalone physical endpoint or Automated Facility exposing one logical endpoint, its backing `CelestialAsset` ID supplies that identity. Distinct endpoints within one Physical Station cannot all use the Station ID as their individual exact identity.
 - An Endpoint ID is never reused after its endpoint is destroyed. Rebuilding the machine creates a new Endpoint ID even if the player gives it the same Routing Name.
 - Routing Name is mutable, may be shared by compatible endpoints, and must never be used as the stable identity of an exact reference.
 - A new endpoint receives a default unique name such as `Landing Pad #353`. Players may rename endpoints and deliberately reuse a name.

@@ -12,16 +12,13 @@ Alpha scope, baseline content, source review, and the minimum Galaxia-specific c
 
 ## Active Tickets
 
-- [[Review Imported Galaxia Proposals]]
 - [[Define Alpha Galaxia-Specific Capability Floor]]
 - [[Define Alpha Research and Production Floor]]
 
-## External Dependencies
-
-- [[Review Crater Nodes Proposal]]
-
 ## Resolved Decisions
 
+- [[Review Crater Nodes Proposal]]
+- [[Review Imported Galaxia Proposals]]
 - [[Review Theia Design Fragments]]
 - [[Review Research Proposal]]
 - [[Review Galaxia Dev Notes]]

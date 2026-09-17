@@ -23,7 +23,7 @@ What shared draft, Save, Cancel, and target-switch behavior should module settin
 
 Settings editing uses a local draft and an explicit Save. Switching to another module closes the previous configuration and opens the selected module's editor, discarding unsaved changes. No per-module draft retention or additional discard-confirmation flow is required. Typed settings editors retain their own validation and values. Physical operations remain distinct from editing settings.
 
-These are existing accepted rules, consolidated on 2026-09-12. The internal editor interface is implementation work, not another player-facing decision. Remaining copyable-value classification belongs to [[Define Module Settings Editing Contract]].
+These are existing accepted rules, consolidated on 2026-09-12. The internal editor interface is implementation work, not another player-facing decision. Accepted copyable-value classification belongs to [[Define Module Settings Editing Contract]].
 
 ## Current Implementation Boundary
 

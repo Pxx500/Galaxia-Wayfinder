@@ -1,7 +1,7 @@
 ---
 type: wayfinder-ticket
 ticket_type: grilling
-status: open
+status: resolved
 parent: Galaxia Alpha Wayfinder
 areas:
   - "[[Area - Automation and Infrastructure]]"
@@ -32,7 +32,7 @@ Which module values are copyable settings rather than physical properties or run
 - Internal settings code may assume constructed values are valid. Validation remains concentrated at untrusted packet and persistence boundaries.
 - A malformed client submission is rejected and logged without changing authoritative settings. Corrupt pre-release persisted settings may reset the complete settings value to the module default instead of adding field-level recovery or migration logic.
 
-The following accepted behavior was retained from the completed August architecture decisions during the 2026-09-11 cleanup. The remaining settings-classification questions below are still open.
+The following accepted behavior was retained from the completed August architecture decisions during the 2026-09-11 cleanup. The Miner and Hammer decisions below were accepted on 2026-09-16.
 
 ## Accepted Shared Settings and Recipe Editing Rules
 
@@ -47,7 +47,21 @@ The following accepted behavior was retained from the completed August architect
 - Changes are validated against current server state. Concurrent valid saves are applied in server order, with the last accepted complete value winning.
 - A removed target is rejected rather than redirecting the change to a replacement at the same position. Invalid changes have no partial effects. A batch copy validates all targets before changing any.
 
-## Current Implementation Evidence
+## Resolution
+
+On 2026-09-16 the owner accepted one unified Miner settings value containing the selected focus ore and ore blacklist. Both values participate in copying and shared settings groups. Changing the group's selected ore applies to all member Miners. Paid Focus Tier remains a property of each module, and runtime alignment remains local rather than being copied or shared.
+
+The owner also accepted copying and shared settings groups for Hammer shooting mode, its numeric threshold, and route priority as one settings value. The existing private-copy and shared-group rules above apply. Hammer tier and variant remain physical properties. Stored energy and cooldowns remain runtime state.
+
+This resolves the settings-classification contract and the requested Miner and Hammer reuse behavior. It does not certify implementation. The inspected code still separates Miner focus ore from its shared blacklist and does not support Hammer settings groups.
+
+## Classification Boundaries
+
+- Facility logistics reserve, package-size and import/export policies are asset-level configuration, not additional per-Hammer fields. Actual stock, selected dispatch destinations and in-flight cargo are not copied module settings. This decision does not introduce copying or shared groups for whole-facility logistics policies.
+- Debug Data Generator job parameters are configuration, while job progress and consumed totals are runtime state. Its debug-only status is existing code evidence, not a newly imposed product restriction. Adding copy/group tooling for this debug surface is not required by the accepted Miner and Hammer decisions.
+- Switching modules already discards the local draft under Unify Module Configuration Window Lifecycle. Save semantics and internal command naming are not additional open gameplay questions.
+
+## Implementation Evidence From 2026-09-12
 
 Source inspection on 2026-09-12 under `src/main/java/com/gtnewhorizons/galaxia/`:
 
@@ -57,10 +71,16 @@ Source inspection on 2026-09-12 under `src/main/java/com/gtnewhorizons/galaxia/`
 - Shared settings support currently covers Miner and recipe settings. `ModuleMiner.java:211` and `:221` copy focus ore through a component hook, while `MinerSettings.java:9` stores blacklist keys. Focus ore is not the paid Focus Tier.
 - Recipe Save is implemented, but Miner blacklist still sends immediate field edits. Unify Module Configuration Window Lifecycle owns the accepted explicit-Save target and this implementation gap.
 
-## Remaining Decisions
+## Implementation Evidence From 2026-09-16
 
-- Which current Hammer, Miner, Debug, and Logistics values are copyable settings versus physical properties or runtime state.
-- Switching modules discards the local draft as decided in Unify Module Configuration Window Lifecycle. Save semantics and internal command naming are not additional open gameplay questions.
+Read-only inspection of Galaxia master `b1e42710` on 2026-09-16 confirmed the following. These are implementation facts, not newly accepted design decisions.
+
+- Miner blacklist belongs to copied and shared `MinerSettings`. Selected focus ore is copied separately by `ModuleMiner.copySettings`, but is not shared. Changing the selected ore resets that Miner's alignment. Sources: `registry/outpost/station/settings/MinerSettings.java:9`, `registry/outpost/module/types/ModuleMiner.java:211` and `:269`.
+- Hammer exposes shooting mode, its numeric threshold, and route priority. Modes allow unrestricted firing or a limit on delta-v or time of flight. Priority selects delta-v or time of flight. Hammer currently has no settings-group support. Sources: `client/gui/station/HammerConfigModalWidget.java:65`, `registry/outpost/module/FacilityModuleRegistry.java:106`.
+- Hammer destination, cargo and quantity come from dispatch planning against asset-level logistics policies. They are not individually editable Hammer settings. Sources: `registry/outpost/logistics/HammerDispatchPlanner.java:98`, `registry/outpost/LogisticsResourceConfig.java:14`, `client/gui/station/LogisticsConfigModalWidget.java:430`.
+- Debug Data Generator has configurable job parameters and separate runtime progress, but is explicitly debug-only and has no settings-group support. This does not establish a permanent product restriction. Sources: `registry/outpost/module/types/ModuleDebugDataGenerator.java:21`, `registry/outpost/module/FacilityModuleKind.java:139`.
+
+The owner subsequently accepted unified Miner settings and Hammer copying/sharing in the resolution above. Facility-wide logistics reuse and debug tooling must not silently become prerequisites for those changes.
 
 ## Related Topics
 

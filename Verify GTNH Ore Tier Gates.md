@@ -67,6 +67,12 @@ The full Ore Tier 4 resource audit remains unresolved. No final Galaxia material
 
 Full alternative-source and resource-role audits remain incomplete. Ore Tiers 6 through 10 still need investigation. This ticket remains open.
 
+## Current Research Round
+
+On 2026-09-16, research resumed for the remaining outer-system and extrasolar groups at the same GTNH 2.8.0 baseline. The bounded goal is to identify source-backed entry requirements, progression-bearing resources and their concrete downstream consumers. Research does not select Galaxia recipes or certify exhaustive alternative-source coverage.
+
+The bounded pass completed and deposited two source notes in Sources for later Wayfinder classification: Outer System Progression Gate Research and Extrasolar Progression Gate Research. Their intake status does not resolve this ticket. Remaining work includes classification of the evidence and narrowing unresolved resource-role and alternate-source gaps, not repeating the completed source collection.
+
 ## Pinned Research Baseline
 
 The release manifest at [DreamAssemblerXXL, GTNH 2.8.0](https://github.com/GTNewHorizons/DreamAssemblerXXL/blob/035dc34a6199b51114cc142ccc7937e1c6872235/releases/manifests/2.8.0.json) pins the applicable component versions. The local release tags were resolved on 2026-09-10 without changing any checkout.

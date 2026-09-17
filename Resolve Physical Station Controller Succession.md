@@ -41,7 +41,7 @@ Provisionally accepted on 2026-09-13 for implementation and profiling:
 - Destroying the main controller elects a deterministic successor only from the fragment active immediately before destruction. A controller in an already disconnected fragment cannot automatically take over.
 - If no eligible successor remains in the previously active fragment, the Station retains its identity and remains inactive until a player selects a surviving controller with Make Master.
 - Chunk unload and temporary disformation are not destruction and never trigger succession.
-- Joining construction with different Station IDs must not silently merge ownership or choose an arbitrary ID. Explicit merge was discussed as the preferred direction, but its full configuration and reference-rewrite contract still requires confirmation before implementation.
+- Joining construction with different Station IDs must not silently merge ownership or choose an arbitrary ID. Explicit merge was discussed as the preferred direction, but no full merge contract was selected. On 2026-09-16 the owner deferred this low-priority edge case after requesting a check of existing code. [[Define Physical Station Merge Contract]] preserves that scope and evidence without making a new merge feature a prerequisite for current work.
 
 These decisions replace airlock-driven Station membership, not the separate physical room geometry and sealing rules. Performance and world-update coverage must be verified during implementation rather than assumed from the model.
 
