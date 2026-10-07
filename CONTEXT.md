@@ -180,6 +180,10 @@ _Avoid_: Instantaneous daylight output
 The shared operational facts derived for a Celestial Asset from its associated Celestial Object, Asset Environments, and installed protections or modules. Gameplay systems read relevant properties instead of owning copied celestial data or machine-specific location flags.
 _Avoid_: Per-machine copies of gravity, atmosphere, radiation, temperature, or solar facts
 
+**Environment Tag**:
+A checkable environmental condition, such as Microgravity or No Atmosphere. Several tags may describe the same environment and provide independent production requirements.
+_Avoid_: Technology group, team access, per-recipe planet whitelist
+
 **Raw Prospecting Data**:
 A non-item network stream describing its originating Celestial Object, pooled across that object's Prospecting Satellites. It is transient input rather than a durable survey stockpile.
 _Avoid_: Physical data item, originless prospecting data, permanent survey stockpile
@@ -355,7 +359,7 @@ A single-crystal SiGe product used either for electronic wafers or for additiona
 _Avoid_: Pure-germanium monocrystal, Poly SiGe
 
 **Space Grade Solar Panel**:
-A manufactured photovoltaic component using SiGe solar cells and fluoride glass, used to craft Galaxia solar generators of different tiers.
+A manufactured photovoltaic recipe component using SiGe solar cells and fluoride glass, used in satellite and equipment recipes.
 _Avoid_: Existing GT solar cover, finished tiered generator
 
 ## Crater Vocabulary

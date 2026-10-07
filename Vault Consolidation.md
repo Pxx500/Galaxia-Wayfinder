@@ -1,7 +1,7 @@
 ---
 type: consolidation-report
 status: completed
-date: 2026-09-17
+date: 2026-10-08
 tags:
   - galaxia/alpha
   - wayfinder/maintenance
@@ -9,7 +9,52 @@ tags:
 
 # Vault Consolidation
 
-## Current Reconciliation: 2026-09-17
+## Current Reconciliation: 2026-10-08
+
+The owner requested a bedtime wrap-up, whole-vault reconciliation and a short summary of completed and remaining work. This pass audits the complete Markdown graph and reconciles the current recipe, content-ownership and environment-tag decisions. It does not re-audit every historical code claim or external source, and it does not implement gameplay.
+
+The fetched local master and origin/master have no divergent commits. No open Wayfinder PRs were returned. Local planning changes remain uncommitted and unpublished. The full Vault contents, excluding `.git`, were backed up to `C:/Users/Pxx500/AppData/Local/Temp/galaxia-vault-wrapup-20261008-d1293d01dea947f5baccf28250f74620` before reconciliation edits.
+
+### Reconciled Current Decisions
+
+- [[Design Early Orbital Production Recipe Chain]] owns the SiGe seed and crystal cycle, fluoride thermal and drawing chain, satellite recipes and solar-component recipes. Working quantities and unapproved details remain identified as such.
+- Space Grade Solar Panel is a recipe item. Placeable generators, EU output and generator operating rules are outside the current chain scope. The recipe note and glossary now agree.
+- New GT-bound item, material, fluid and recipe content is temporarily grouped under `com.gtnewhorizons.galaxia.gt5` and intended to move to GT5 before Alpha. Galaxia retains space mechanics and environment classification. Small necessary GT infrastructure changes should be separate from the long-running content effort.
+- Pre-Alpha developer worlds need no item-ID preservation, migration or dual registration when content moves. Development targets current GT, not a permanently frozen historical audit version.
+- [[Define Celestial Capability Rules]] owns accepted Environment Tags such as Microgravity and No Atmosphere. They are independent of team Technology Knowledge. Local room conditions are the favored direction, with exact predicates and integration still open.
+- Rocket Automation and Functional Satellites remain likely but unapproved blueprint proposals in the recipe note. [[Define Alpha Technology Knowledge Contract]] retains the accepted knowledge-acquisition behavior without claiming GT enforcement is implemented.
+- Removed stale wording that reopened the already selected separate low-yield germanium route. Removed the completed proposal-review blocker from the production-floor ticket.
+- Agent Briefing now routes GT-bound content work to its ownership and staging decision.
+
+### Evidence And Limits
+
+GT source research identified pre-consumption validation seams for ordinary single blocks and shared-logic multiblocks. Machine owner UUID is available. Recipe metadata alone does not enforce a requirement, and late start hooks run after consumption. Specialized processing paths still need scoped coverage checks. The unreviewed GT research note remains intake through [[Sources]], not an accepted integration design.
+
+Galaxia already supplies celestial gravity and pressure facts and stored room-membership data. Station sealing and oxygen level do not establish a complete local pressure model. Existing position lookup also needs connected-room coverage and cost review before it becomes a shared tag query.
+
+The Galaxia knowledge graph was separately rebuilt from the repository root after a reserved-name `nul` artifact blocked indexing. Graph lookup and source retrieval were verified. The custom server executable was unchanged. The artifact was removed at the owner's request. This maintenance is not gameplay implementation.
+
+### Remaining Work At Handoff
+
+1. Integrate environmental recipe requirements into GT using Galaxia's tags, including local-room semantics and ordinary machine execution paths.
+2. Resolve GT team-knowledge enforcement independently, then revisit the two proposed blueprint groups and their recipes.
+3. Implement the staged content and loaders, preserving selected recipes and reviewing remaining provisional names, details and balance values as a batch.
+4. Verify the production chains in the actual GT/Galaxia environment. First-factory energy supply still needs closure without depending on its own products.
+5. Publish the local Wayfinder changes only after an explicit documentation commit and publication request. No such request was made for this wrap-up.
+
+The wider Alpha map remains open. This pass does not close the complete tier-route audit, production capability floor, remaining opening/satellite questions or the externally blocked Gantry ownership decision.
+
+### Progress
+
+- [x] Back up the Vault and inspect remote master and open PRs
+- [x] Audit the complete link and dependency graph
+- [x] Reconcile current ownership, solar, germanium, blueprint and environment wording
+- [x] Preserve source intake and distinguish accepted decisions from proposals
+- [x] Complete final link, metadata, source-preservation and diff checks
+
+Final inventory: 150 Markdown notes and 80 decision tickets, including 61 resolved, nine open, one blocked and nine deferred. All 548 wikilinks resolve. No missing primary-area entries, invalid primary-area counts, missing blockers, unresolved prerequisites on resolved tickets or dependency cycles were found. The area status routing check found no mismatches. SHA-256 comparison against the pre-reconciliation backup confirms all 40 source notes are unchanged. The new GT research note remains linked only from Sources. The full Vault diff check passed. The Galaxia repository retains only its pre-existing AirlockGuiGameTests change, with no production source changes from this pass.
+
+## Historical Reconciliation: 2026-09-17
 
 The owner requested a whole-vault reconciliation to restore broad, independent question rounds. The run inspected the complete Markdown inventory and graph, reviewed the active frontier and remaining fog, and reconciled owning decisions across all six Alpha areas and the separate Star Map Visibility Wayfinder. Two read-only area audits and one mechanical graph audit supported the pass. This is a planning review, not a fresh code audit or a line-by-line revalidation of every historical source.
 

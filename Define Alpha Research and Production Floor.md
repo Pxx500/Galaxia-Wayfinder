@@ -7,8 +7,7 @@ areas:
   - "[[Area - Alpha Scope]]"
 secondary_areas:
   - Area - Observation and Research
-blocked_by:
-  - "[[Review Imported Galaxia Proposals]]"
+blocked_by: []
 claimed_by: local-wayfinder-production-floor
 tags:
   - galaxia/alpha
@@ -54,15 +53,15 @@ The owner requested a germanium acquisition audit on 2026-09-17. After the verif
 
 - Use sphalerite to obtain small quantities of germanium before the ordinary ABS route becomes available.
 - HV is the owner's proposed early target, matching the opening space stage. Inputs and machine requirements must actually fit that stage rather than relying on a later-tier reagent or component.
-- Preserve a meaningful reason to upgrade to the later ABS method. Exact yield, throughput, reagent and energy comparisons remain balance work, not fixed numbers.
+- Preserve a meaningful reason to upgrade to the later ABS method. [[Design Early Orbital Production Recipe Chain]] records the selected working 8 mB early yield and its comparison with the unchanged ABS route. Remaining balance work does not reopen the choice of a separate early acquisition route.
 - Use existing GT machinery and normal recipe maps under the production baseline. No custom machine is selected by the phrase custom acquisition route.
 - Retain the SiGe crystal direction. The precise early recipe, material form and other orbital feedstocks still require content design.
 
-Before selecting whether to add a separate low-yield route or lower the acquisition tier more directly, the owner requested a consumer audit of germanium and its derived materials. Earlier access must not silently bypass unrelated GTNH progression. No change to existing recipes has been implemented or approved as harmless merely because germanium is obscure.
+The owner requested a consumer audit of germanium and its derived materials before choosing the acquisition direction. The later choice of a separate low-yield route is recorded above. Earlier access must still be checked against unrelated GTNH progression during implementation. No reduction of the existing ABS tier or change to its recipes has been approved merely because germanium is obscure.
 
 ## Remaining Decisions
 
-[[Design Early Orbital Production Recipe Chain]] owns the accepted SiGe seed cycle, fluoride thermal flow with four microgravity operations, revised satellites and Solar Cell, Solar Glass Sheet and Space Grade Solar Panel recipes. It distinguishes selected working recipes from remaining proposals. Solar generators are Galaxia equipment with their tier-conversion recipes still open. The new material route must preserve existing GTNH solar balance.
+[[Design Early Orbital Production Recipe Chain]] owns the accepted SiGe seed cycle, fluoride thermal flow with four microgravity operations, revised satellites and Solar Cell, Solar Glass Sheet and Space Grade Solar Panel recipes. It distinguishes selected working recipes from remaining proposals. The owner clarified on 2026-10-08 that the new solar content consists only of recipe-component items. Placeable generators, EU output and their operating rules are outside the current chain scope. The new material route must preserve existing GTNH solar balance.
 
 Final satellite assembly need not happen in orbit. Exact chemistry and early feedstock availability still require verification. The two-chain Alpha requirement is settled, not another choice between the material families.
 

@@ -60,6 +60,7 @@ These records preserve provenance, not independent approval of every source clai
 - [[Repo Source - GTNH Planet Definition Sources]]
 
 - [[GUI Showcase Screenshots In Build Summaries]]
+- [[GT5 Team Knowledge Recipe Enforcement Research]]
 
 ## Deferred Inputs
 

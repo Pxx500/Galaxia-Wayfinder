@@ -50,7 +50,7 @@ The 2026-10-07 and 2026-10-08 rounds establish the following direction:
 - The opening item is Primitive Telescope Satellite, with four ordinary Glass Lenses in its recipe.
 - Communication and Prospecting Satellite recipes use distinct transmitter and scanning hardware, with the owner's counts in their comparison table below.
 - Satellite recipes include solar hardware alongside their battery. Primitive Telescope Satellite uses an existing ground-made GT panel. Functional satellites use Space Grade Solar Panels. The working panel quantities are listed below.
-- SiGe and fluoride glass also enable cheaper solar hardware for Galaxia. Space Grade Solar Panel is a shared manufactured component for later conversion into Galaxia generators of different tiers. Existing GTNH solar recipes and balance are preserved. Section 7 owns the selected working recipes.
+- SiGe and fluoride glass also enable cheaper solar hardware for Galaxia. Space Grade Solar Panel is a shared recipe-component item, not a placeable generator. Existing GTNH solar recipes and balance are preserved. Section 7 owns the selected working recipes and records generator conversion as future work outside the current scope.
 - Each recipe has its own appropriate operation size. Do not multiply a recipe merely to match the previous output batch or make consecutive recipes exact multiples.
 
 This draft proposes powder processing and seeded growth as the two microgravity-dependent SiGe recipes.
@@ -68,7 +68,7 @@ Fluid quantities are mB. Durations are base times before overclocking. Selector 
 
 Recipe batch sizes are independent. Choose quantities for the process and balance, not to align adjacent operations. Buffering and repeated operations can connect different input and output counts.
 
-All new assembly recipes use the ordinary GT Assembler, not Galaxia's Rocket Module Assembler. The working functional name is Control Logic Circuit, abbreviated CLC. Blank SiGe wafers keep their material name. Engraved electronics become CLC Wafer, Etched CLC Wafer, CLC Chip and CLC Module. These are Galaxia ingredients, not replacements for standard GT circuit tiers, ILCs or CPUs. The satellite battery ingredient is the existing rechargeable HV lithium battery, `ItemList.Battery_RE_HV_Lithium`. HV sensors and emitters use `ItemList.Sensor_HV` and `ItemList.Emitter_HV`. Their presence does not define a new charging or satellite-maintenance mechanic.
+All new assembly recipes use the ordinary GT Assembler, not Galaxia's Rocket Module Assembler. The working functional name is Control Logic Circuit, abbreviated CLC. Blank SiGe wafers keep their material name. Engraved electronics become CLC Wafer, Etched CLC Wafer, CLC Chip and CLC Module. These are ingredients for Galaxia equipment, temporarily staged in Galaxia and ultimately owned by GT, not replacements for standard GT circuit tiers, ILCs or CPUs. The satellite battery ingredient is the existing rechargeable HV lithium battery, `ItemList.Battery_RE_HV_Lithium`. HV sensors and emitters use `ItemList.Sensor_HV` and `ItemList.Emitter_HV`. Their presence does not define a new charging or satellite-maintenance mechanic.
 
 ## 1. Existing Silicon Feedstock
 
@@ -217,9 +217,11 @@ Space-Grade Alloy is deliberately absent from this bootstrap. Requiring a lunar 
 
 ## 6. Proposed Knowledge Recipes
 
-These are two proposed technology groups under the accepted consumed-blueprint mechanism. Each Assembler recipe produces one Technology Blueprint at 480 EU/t for 15 seconds, without an environmental restriction.
+These are likely but unapproved technology groups and recipes under the accepted consumed-blueprint mechanism. On 2026-10-08 the owner explicitly retained both proposals without approving them because enforcing team-knowledge requirements in GT5 machines remains unresolved. Do not treat the proposed unlocks as selected production gates or implemented behavior.
 
-| Blueprint | Inputs | Unlocks |
+Each proposed Assembler recipe produces one Technology Blueprint at 480 EU/t for 15 seconds, without an environmental restriction. The grouping, ingredients and working values below remain provisional until the GT5 production-gating integration is understood and the owner approves the content.
+
+| Blueprint | Inputs | Proposed unlocks |
 | --- | --- | --- |
 | Rocket Automation | 2 CLC Modules + 1 HV circuit + 1 book + 144 mB molten tin | Rocket Automation Controller production |
 | Functional Satellites | 2 CLC Modules + 1 Fluoride Fiber Spool + 1 HV circuit + 1 book + 144 mB molten tin | Communication and Prospecting Satellite production |
@@ -242,14 +244,24 @@ The following working recipes were accepted for recording. Final assembly and fi
 | 3 Solar Glass Sheets | 1 fluoride-glass blank + 100 mB water | Cutting Machine | 120 | 20 s |
 | 1 Space Grade Solar Panel | 2 Solar Cells + 1 Solar Glass Sheet + 1 CLC Module + 4 aluminium plates + 8 fine copper wires + 288 mB molten tin | Assembler | 480 | 60 s |
 
-Space Grade Solar Panel is a common manufactured component. Later recipes convert it into Galaxia solar generators of different tiers. It is not itself the finished HV generator or an alternate recipe for a GT solar cover. Existing GTNH solar recipes and generation parameters remain unchanged.
+Space Grade Solar Panel is an item used as a manufactured recipe component, not a placeable block, generator or alternate recipe for a GT solar cover. On 2026-10-08 the owner clarified that the current scope includes only these items and their recipe uses. It adds no EU generation or operating-environment checks for solar equipment. Existing GTNH solar recipes and generation parameters remain unchanged. Earlier discussion of converting the component into generators of different tiers is future work, not a prerequisite for this chain.
 
-### Remaining Solar Decisions
+### Remaining Production Decisions
 
-- Select the first finished Galaxia generator's recipe. HV with nominal 512 EU/t is the current recommendation, not a selected conversion recipe.
-- Select its operating environment. Atmosphere-free operation with actual sunlight is the current recommendation, not a settled rule. [[Define Celestial Capability Rules]] owns the accepted solar availability and modifier contract.
 - Close first-factory power without requiring its own SiGe and glass products. A conventional GT fuel generator is the proposed bootstrap option. The exact initial supply is not selected.
 - Revisit working panel quantities during balance review if necessary. Satellite hardware now uses an ordinary ground-made panel for Primitive Telescope and the new component for functional satellites. The primitive mission has no orbital-material prerequisite.
+
+## Accepted Content Ownership And Temporary Staging
+
+On 2026-10-08 the owner selected temporary development of the new GT-bound content in Galaxia. GT5-Unofficial is highly active, and a long-lived branch containing all unfinished Galaxia content would create unnecessary integration conflicts.
+
+Group this content under `com.gtnewhorizons.galaxia.gt5`. Everything added to that package is intended to move to GT5 before Alpha. New item, material and fluid definitions, recipe chains and balance belong to GT5 in the final arrangement. Their associated textures and translations move with the content even though Minecraft resources live outside the Java package.
+
+Galaxia retains celestial environments, missions, satellite behavior and research mechanics. Keep the Galaxia-side integration outside the transfer package rather than moving those mechanics into GT or introducing a reverse hard dependency. Use ordinary GT registration and recipe capabilities for staged content. This is a development location, not a parallel production system.
+
+Necessary shared GT infrastructure should be delivered through small, separately reviewable changes when concrete integration needs are established. Do not keep unrelated recipe changes, formatting or refactors on the same long-lived branch. Development targets current GT rather than treating Galaxia's existing dependency declaration as a permanent version choice.
+
+The owner explicitly accepts item loss and broken developer worlds before Alpha. Moving registration requires no old-ID preservation, save migration or dual registration. Remove the temporary Galaxia definitions when their GT replacements become authoritative.
 
 ## Standard Reagents And Components
 

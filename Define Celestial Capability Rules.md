@@ -77,6 +77,16 @@ On 2026-09-17 the owner explicitly separated microgravity from absence of atmosp
 - The existing distinction between physical Station inventories and abstract Automated Facility capabilities remains. A suitable environment does not by itself supply an absent machine or module.
 - Exact thresholds remain tuning. The NASA research motivates the microgravity benefit, while the recipe restriction is an explicit gameplay choice rather than a claim that terrestrial manufacture is physically impossible.
 
+### Accepted Environment Tags
+
+On 2026-10-08 the owner selected checkable tags for every environment. Tags describe environmental conditions such as Microgravity and No Atmosphere, not team membership or Technology Knowledge. An environment may have several tags at once, and recipes declare the environmental tags they require. A recipe may require either example independently or both where justified.
+
+Galaxia owns the environmental facts and the tags exposed from them. GT5 uses those tags to enforce recipe requirements before consuming ingredients. Keep this classification on the Galaxia side when staged items and recipes move to GT5. Tags must remain coherent with the accepted physical-property model rather than becoming independent per-recipe planet whitelists.
+
+This establishes the contract, not an implemented API. Tag representation, cross-mod access and exact enforcement points remain implementation work. The owner favors accounting for local room conditions because Galaxia also owns the Station system. Reuse its existing room membership and state rather than rescanning geometry for each recipe. The exact local tag predicates remain open, and sealing or oxygenation must not be silently equated with a complete pressure model.
+
+Bounded source inspection on 2026-10-08 at Galaxia `a9128e9ef21ff05254648190b4f79f94bdc9669d` found `GalaxiaAPI.getStationAround(World, int, int, int, int):403-422`, `TileStationBase.isInside():182-199` and `ArbitraryShapeDefinition.isInsideStructure():197-204`. The lookup visits Station assets and their controllers, while the arbitrary room membership check reads stored validation data. `TileStation:113-119` exposes oxygenation and oxygen level. `HazardPressure:38-41` treats a sealed room as pressure-safe but does not expose its actual pressure. These are usable inputs, not a complete environment-tag query. Connected rooms and lookup cost still need attention when integrating the query.
+
 ## Implementation and Tuning Follow-ups
 
 - Station placement requires a usable orbit. The numerical orbit criterion is not yet established and must be checked against authored bodies during implementation.

@@ -79,6 +79,10 @@ Owner decision on 2026-09-11. This supersedes the proposed on-site experimental 
 
 ## Current Implementation Boundary
 
+On 2026-10-08 the owner reaffirmed that enforcing knowledge-gated production in GT5 machines remains unresolved. The accepted gameplay requirement to check team knowledge does not establish an integration mechanism. [[Design Early Orbital Production Recipe Chain]] retains Rocket Automation and Functional Satellites as likely but unapproved blueprint proposals pending that investigation and later content approval.
+
+The owner's later clarification separates Environment Tags from Technology Knowledge. The accepted Galaxia-defined tags, such as Microgravity and No Atmosphere, concern recipe environment checks, not team membership or technology access. [[Define Celestial Capability Rules]] owns that contract. It does not resolve knowledge-gated production or approve the proposed blueprint groups.
+
 Source inspection on 2026-09-12 found a reusable assembly design in `registry/items/special/ItemRocketSchematic.java:24` and `registry/rocketmodules/rocket/blueprint/RocketBlueprint.java:16`, not the consumed Technology Blueprint described here. `registry/celestial/knowledge/CelestialKnowledgeFacts.java:11` owns discovery and resource facts, not Technology Knowledge. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`. The inspected owners do not establish implementation of this contract.
 
 ## Provenance
