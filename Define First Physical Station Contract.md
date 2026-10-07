@@ -20,41 +20,47 @@ tags:
 
 ## Question
 
-What minimum player-accessible capability makes at least one Physical Station necessary after the first Moon activity and before the first Mars mission, without hardcoding the station's orbit?
+What concrete orbital production realizes the accepted early Rocket-control upgrade, while allowing manual lunar travel without that upgrade?
 
 ## Established Input
 
 - A Physical Station and an Automated Station are separate entities.
 - Alpha must require at least one player-accessible Physical Station.
-- `Overworld -> Moon -> Physical Station -> Mars` is a provisional ordering.
+- The earlier provisional Luna-before-Station ordering is not mandatory. Orbital control-electronics technology should be obtainable before Luna, while manual lunar travel remains available without it. [[Specify Alpha Opening Mission Flow]] owns this open-progression rule.
 - The station's location must emerge from eligible locations and required capabilities rather than a destination-specific placement rule.
 - The first Moon mission must not require orbital assembly, refuelling, or similarly complex station logistics.
-- Observation, telescopes, and research are candidates, but no exact capability or output is accepted yet.
+- The Station's reusable-Rocket technology role is accepted below. Its exact unlocking activity and orbital production output remain undecided.
 - The Star Map's `Create Station` action must not imply that a physical Station can be created remotely. It should eventually link to a localized `How to build a station` guide explaining controller-first construction.
 - Physical Stations are created through their controller and do not participate in planned asset construction. They have no asset-level construction inventory. Their items and fluids remain in physical inventories connected through the Station graph.
 
 ## Accepted Direction
 
-The production floor and this Station contract are coordinated peer decisions. The accepted one-chain minimum does not require closing the entire production-floor ticket before discussing the Station's role. Recipe feasibility and concrete route validation remain evidence needed before final placement in progression.
+The production floor and this Station contract are coordinated peer decisions. The accepted orbital production minimum does not require closing the entire production-floor ticket before discussing the Station's role. Recipe feasibility and concrete route validation remain evidence needed before final placement in progression.
 
 The first Physical Station should primarily support production that benefits from or requires orbital conditions. It may have several useful roles at once. The concrete process and material remain undecided and must have a defensible environmental reason rather than an arbitrary station-only recipe condition.
 
+On 2026-09-17 the owner selected an additional concrete progression role: early orbital technology develops Rocket transport beyond the first launch. [[Specify Alpha Opening Mission Flow]] owns the milestone and the subsequent clarification separating optional pre-Luna automation from physical reuse. This does not yet equate the unlock with either candidate orbital product or define an automatic reward for placing a controller.
+
+The subsequent clarification selects control electronics as the preferred upgrade to the same Rocket. Orbital production supplies a useful input to that upgrade. Access to the capability is available before lunar travel, but the player need not obtain it to fly manually. Rockets are reusable when their missions permit recovery, not only after the automation upgrade. Exact ingredients and the unrecoverable opening mission's lifecycle remain open. Satellite manufacturing is another consumer under [[Define Satellite Manufacturing and Deployment Progression]].
+
 ## Orbital Production Candidates and Economic Role
 
-Orbital processing may offer a more favorable recipe for the same product that can also be manufactured on a surface. A better usable yield from expensive feedstock can justify the capital and transport cost of the Station. Absolute orbital exclusivity is not required for every process. This does not weaken the separately accepted environmental vacuum requirement for Space-Grade Alloy.
+Production restrictions follow the actual environment. The owner now explicitly requires microgravity for SiGe crystals and specialty fluoride optical fibers, not an orbital-location flag. A location other than orbit can qualify if it provides microgravity and suitable production machinery. Space-Grade Alloy separately requires no atmosphere, without a gravity restriction, so it can be produced on Luna.
+
+Other future processes may still offer better recipes in space while retaining surface alternatives. That earlier general economic direction does not override the specific microgravity requirement now selected for crystals and fibers. [[Define Celestial Capability Rules]] owns the shared environment distinction.
 
 The owner explicitly welcomed two concrete candidates:
 
 - Silicon-germanium crystal growth for optics or electronics, inspired by more uniform growth in microgravity.
 - Specialty fluoride optical fiber drawing, inspired by reduced unwanted crystallization in microgravity.
 
-These are retained design candidates, not finalized recipes or confirmed early-tier material availability. Do not infer that all semiconductor manufacturing requires orbit, guarantee commercial superiority, or invent quality variants solely to represent improved yield. Ingredients, products, placement in progression, and numerical benefits require later content and balance work.
+Both material families are selected for Alpha, but their recipes and complete early-tier feedstock chains are not finalized. Their microgravity restriction is a gameplay requirement. It does not imply that all semiconductor manufacture requires orbit, establish real-world commercial superiority or require quality variants. Ingredients and numerical tuning remain content work.
 
-[[Define Alpha Research and Production Floor]] sets one complete orbital production chain as the current Alpha minimum, with more chains planned later. Both candidates remain available, but neither is selected by that scope decision. Its production machinery baseline applies here: use existing GT machinery unless a concrete process requirement justifies a custom machine. This is not an unresolved choice between two equally default approaches.
+[[Define Alpha Research and Production Floor]] requires both orbital SiGe crystal and specialty fluoride optical-fiber production for Alpha. The owner retained SiGe by selecting an early low-yield germanium route from sphalerite, with HV as the working target and ABS as the better later route. Exact recipes and other early feedstocks remain unselected. Its production machinery baseline applies here: use existing GT machinery unless a concrete process requirement justifies a custom machine. This is not an unresolved choice between two equally default approaches.
 
 Primary-source findings are preserved in [[Orbital Manufacturing Research]]. The cited NASA reports describe orbital benefits, not physical impossibility of terrestrial production. No quantitative advantage over lunar gravity was established.
 
-Owner accepted the better-recipe direction and expressed strong interest in both candidates in the Wayfinder conversation on 2026-09-10. The separate requirement that a first Physical Station be necessary for progression remains unresolved by an efficiency benefit alone.
+The 2026-09-10 better-recipe discussion was subsequently refined into microgravity requirements for these two production chains and a Rocket-automation electronics role. Suitable environments, machinery and ingredient access should determine the route rather than a Station-completion flag. The earlier requirement that a Physical Station itself be unavoidable must not silently prohibit an otherwise qualifying microgravity alternative.
 
 ## Material Progression Boundary
 
@@ -62,7 +68,7 @@ The owner supports Galaxia adding its own progression and infrastructure materia
 
 The owner recalled Space-Grade Alloy as a planned material whose feedstock comes from Luna and whose production requires a vacuum environment. The later accepted item identity, production environment and bulk-material role are owned by [[Review Crater Nodes Proposal]]. Do not describe the finished alloy itself as naturally mined ore or use it as the material gate between technology tiers. Exact feedstock recipes remain open.
 
-Vacuum production is an environmental requirement, not a Station-only requirement. This material therefore does not by itself justify a mandatory orbital manufacturing step when the same required conditions are available on Luna. The exact first-Station production process and progression necessity remain open. Galaxia-specific materials need not remain exclusively useful inside Galaxia.
+Vacuum production is an environmental requirement, not a Station-only requirement. This material therefore does not by itself justify a mandatory orbital manufacturing step when the same required conditions are available on Luna. The first-Station production process remains open, distinct from its accepted reusable-Rocket technology role. Galaxia-specific materials need not remain exclusively useful inside Galaxia.
 
 The owner subsequently confirmed that this vacuum requirement is a location/environment condition. A vacuum chamber constructed on Overworld does not satisfy it in the current scope. Luna and eligible orbital environments can satisfy it. This is a deliberate gameplay abstraction, not a claim that artificial vacuum is physically impossible.
 

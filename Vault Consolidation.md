@@ -46,7 +46,7 @@ The next grouped round also uses the existing [[Specify Alpha Opening Mission Fl
 
 ### Preserved Uncertainty
 
-The first Physical Station is still required by its accepted contract, while orbital efficiency benefits alone do not prove that requirement. No optional-station or orbital-exclusivity decision was made. The all-tier route audit remains incomplete. Completed outer-system and extrasolar research intake is retained for classification, not treated as approved Galaxia recipes or a finished exhaustive audit. All unreviewed sources remain linked only through intake.
+At the end of this reconciliation, the first Physical Station still lacked a concrete required progression role. The subsequent owner discussion selected early reusable-Rocket technology at that Station, recorded in Specify Alpha Opening Mission Flow. Its timing and unlocking activity remain open. Orbital efficiency alone still does not imply recipe exclusivity. The all-tier route audit remains incomplete. Completed outer-system and extrasolar research intake is retained for classification, not treated as approved Galaxia recipes or a finished exhaustive audit. All unreviewed sources remain linked only through intake.
 
 ### Progress
 

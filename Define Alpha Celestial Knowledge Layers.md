@@ -25,6 +25,8 @@ The first object-knowledge level provides orbital information sufficient for imm
 
 ## Accepted Requirements
 
+- The 2026-09-17 opening direction starts with known Overworld resources and an already known Luna whose resources are unknown. The special opening satellite begins a scripted Luna resource survey from Overworld orbit. [[Define Alpha Observation Opening]] owns that bootstrap exception rather than a new global scan-tier system.
+
 - For the currently designed Alpha scope, each modeled fact is either known or unknown.
 - This does not commit the full Alpha milestone to binary knowledge. Additional detail may be introduced later when concrete content or other developer requirements justify it.
 - The first object-knowledge level provides the orbital knowledge needed to plan a flight. Knowing that orbit permits immediate transfer planning without an additional research task.

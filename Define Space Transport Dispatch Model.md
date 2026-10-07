@@ -27,6 +27,14 @@ Alpha uses vehicle-owned, player-authored linear schedules composed of travel bl
 
 ## Established Input
 
+- [[Define Rocket Route Fuel Budgets]] owns route-tile delta-v allowances, conversion of actual fuel into usable delta-v, player-selected flight priorities and approximate availability/waiting guidance. Its accepted forecast model covers periodic, hierarchical and representative asteroid-family cases.
+
+- [[Define Rocket Missions Without Recovery]] defines the accepted terminal outcome for a Rocket plan without a recovery ending and the warning shown while planning it.
+
+- A temporarily occupied destination pad does not prevent departure on an otherwise feasible Rocket mission. The vehicle travels to the destination and waits there before docking, retaining fuel for the remaining maneuver. This capacity case is distinct from an invalid target or physically infeasible route.
+
+- [[Define Bulk Fluid Cargo Contract]] extends cargo handling to direct fluid freight using the same visit and load/unload semantics. Item examples below do not restrict all cargo instructions to items. Propulsion refueling remains distinct from freight transfer.
+
 - This ticket defines the accepted Rocket and Spaceship dispatch contract. Its resolution does not certify an implemented scheduler.
 - Alpha requires at least a minimal vehicle scheduler so Rockets and Spaceships can perform useful transport automation without repeated manual launches.
 - A player selects a concrete persistent vehicle and assigns an ordered sequence of top-level blocks. Travel blocks represent flight between endpoints. Visit blocks represent the vehicle being present at one endpoint and contain visit-specific actions such as unloading, loading, refueling, or expecting maintenance before continuing.

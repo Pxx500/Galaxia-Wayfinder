@@ -13,6 +13,15 @@ tags:
 
 These inputs remain unclassified. Do not treat them as accepted requirements.
 
+- [[SiGe Recipe Chain Research]]
+- [[SiGe Engraving Recipe Research]]
+- [[Fluoride Fiber Recipe Chain Research]]
+- [[Prebaked Forecast Build Contract Research]]
+- [[Prebaked Forecast Coverage Research]]
+- [[Orbital Route Forecast Code Evidence]]
+- [[Factorio Space Platform Schedule Reference]]
+- [[Germanium Uses And Progression Impact Research]]
+- [[Germanium Acquisition And Early Orbital Availability Research]]
 - [[Crater Fluid Subtypes And Scanner Integration Research]]
 - [[Outer System Progression Gate Research]]
 - [[Extrasolar Progression Gate Research]]

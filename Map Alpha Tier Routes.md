@@ -47,7 +47,7 @@ Several blueprints may use materials from the same planet, and one blueprint may
 
 - Assign concrete technologies and parts to the accepted material roles without circular access requirements.
 - [[Define First Coolant Engine Production Stage]] owns the accepted resource-relative introduction stage. Concrete recipes must realize that ordering without treating LuV as a separately accepted requirement.
-- Establish the required Physical Station role and its place in the route without treating a candidate refueling example as approved.
+- Realize orbital control-electronics access before Luna without requiring it for manual lunar travel, under [[Specify Alpha Opening Mission Flow]]. The candidate mandatory refueling example remains unapproved.
 - Complete later Ore Tier portfolios and preserve verified material-processing dependencies and meaningful alternatives.
 - Choose a source of each required material, including allowable alternative sources, before validating full route balance.
 

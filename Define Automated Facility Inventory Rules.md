@@ -39,7 +39,7 @@ Automated Facilities own abstract shared inventory. Physical Stations retain wor
 
 ## Scope
 
-The archived architecture effort left fluid capacity unlimited for that effort. It did not establish a permanent Alpha fluid-capacity balance rule. [[Define Automated Facility Fluid Capacity]] now owns that open product question. This does not prescribe inventory classes, state codecs, network framing, or synchronization algorithms.
+[[Define Automated Facility Fluid Capacity]] now establishes finite fluid capacity with a base allowance and storage-module expansion. The earlier unlimited implementation scope is superseded by that accepted gameplay rule. This does not prescribe inventory classes, state codecs, network framing, or synchronization algorithms.
 
 ## Provenance
 

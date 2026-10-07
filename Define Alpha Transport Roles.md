@@ -25,6 +25,8 @@ Alpha transport methods overlap through capability-based trade-offs instead of e
 
 ## Accepted Requirements
 
+- [[Define Satellite Manufacturing and Deployment Progression]] owns the accepted `Deploy to Orbit` mode for satellite payloads. It targets an orbit rather than a receiver, while ordinary Hammer freight still requires a receiver. The local and Big Hammer deployment ranges remain working balance direction.
+
 - A manual player-carrying Rocket mission may target the surface of a Celestial Object that has no team Transport Endpoint. This is the bootstrap path for first arrival and infrastructure construction.
 - An unmanned Cargo Rocket may use the same Unprepared Landing flow as a manually dispatched one-shot mission. It may deliver bootstrap cargo before the destination has a team Transport Endpoint.
 - The player may optionally provide surface X/Z coordinates for that manual landing. The landing system determines the actual surface height.

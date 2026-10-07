@@ -121,7 +121,7 @@ A selectable point on an asteroid belt's Star Map band that maps to physical coo
 _Avoid_: Persistent Asteroid
 
 **Belt Beacon**:
-A player-placed block inside an asteroid-belt Regional Dimension that registers its coordinates as a persistent, repeatable Star Map travel target.
+A player-placed block inside an asteroid-belt Regional Dimension that maintains a repeatable Star Map coordinate marker. After block destruction, the marker remains until a member of its team explicitly deletes it.
 _Avoid_: Persistent Asteroid, temporary landing point
 
 **Resource Knowledge**:
@@ -153,7 +153,7 @@ The explicit movement of players, items, and fluids between celestial destinatio
 _Avoid_: Teleportation network
 
 **Hammer**:
-A Galaxia cargo-transport method that launches payloads between prepared sending and receiving infrastructure using an electromagnetic cannon. Its route topology, gravity wells, atmosphere, and travel direction determine the cost and feasibility of each shot, with limited direct surface-to-surface routes potentially available between sufficiently close related bodies.
+A Galaxia electromagnetic cargo launcher whose ordinary deliveries require sending and receiving infrastructure, with shot feasibility governed by route and environment. Its explicit satellite-deployment mode targets an orbit instead of a cargo receiver.
 _Avoid_: Teleporter, player transport, unrestricted direct surface-to-surface logistics
 
 **Gas Siphon**:
@@ -209,7 +209,7 @@ An Automated Facility occupying an Eligible Orbit and operating in a Space Envir
 _Avoid_: Automated Outpost
 
 **Space Environment**:
-The vacuum and negligible local gravity conditions used for space operations in gameplay. Both an orbital Station and a low-gravity asteroid Outpost may operate in this environment.
+The vacuum and negligible local gravity conditions used for space operations in gameplay, available at both orbital Stations and suitable low-gravity asteroid Outposts. Production may require either condition independently, so absence of atmosphere does not imply microgravity.
 _Avoid_: Treating Space Environment as proof that the associated object has an orbit
 
 **Eligible Orbit**:
@@ -263,6 +263,18 @@ _Avoid_: Vehicle speed tier, one global burn flag
 **Vehicle Schedule**:
 An ordered linear itinerary owned by one Rocket or Spaceship, containing travel and visits with their own actions. It may run once or repeat.
 _Avoid_: Flight Plan when referring to logistics actions rather than trajectory geometry
+
+**Travel Block**:
+One flight segment between two visits in a Vehicle Schedule.
+_Avoid_: A frozen trajectory or a separate Flight Plan artifact
+
+**Route Delta-V Budget**:
+A player-selected upper limit on the propulsive delta-v expenditure of one scheduled Travel Block.
+_Avoid_: Expected consumption, fuel-volume cap, tank capacity, guaranteed departure availability
+
+**Flight Priority**:
+The player's choice to favor fuel efficiency or speed when selecting eligible routes for a Travel Block.
+_Avoid_: Permission to exceed a delta-v budget or bypass maneuver feasibility
 
 **Transport Endpoint**:
 A prepared, addressable logistics location such as a particular Rocket Pad, Silo, Dock, or eligible Automated Facility. It has a stable identity distinct from its name and associated Celestial Object.
@@ -321,8 +333,30 @@ A Rocket or Spaceship represented by persistent flight data while traveling betw
 _Avoid_: Per-tick vehicle simulation when departure and arrival calculations provide the required behavior
 
 **Cargo Instruction**:
-An item-transfer intention belonging to a vehicle visit or endpoint service, identifying direction, items, and quantity or target.
+An item or bulk-fluid transfer intention belonging to a vehicle visit or endpoint service, identifying direction, resource, and quantity or target. Fluid freight is distinct from propulsion supplies.
 _Avoid_: Requiring the vehicle to duplicate the dock's cargo configuration
+
+## Orbital Production Vocabulary
+
+**SiGe Blend**:
+The unrefined silicon-germanium processing mixture that requires impurity-removal treatment before becoming crystal-growth feedstock.
+_Avoid_: Ready-to-melt SiGe, wafer-grade SiGe
+
+**SiGe Seed**:
+A small SiGe crystal used to initiate further monocrystal growth. Seeds can be obtained by splitting a SiGe Monocrystal or remelted as crystal-growth feedstock.
+_Avoid_: Reusable recipe catalyst, pure-germanium seed
+
+**Poly SiGe**:
+The polycrystalline SiGe output of powder processing, usable only as material for remelting. It is not the crystal used for wafers or seed multiplication.
+_Avoid_: Returned powder, wafer-grade SiGe
+
+**SiGe Monocrystal**:
+A single-crystal SiGe product used either for electronic wafers or for additional SiGe Seeds.
+_Avoid_: Pure-germanium monocrystal, Poly SiGe
+
+**Space Grade Solar Panel**:
+A manufactured photovoltaic component using SiGe solar cells and fluoride glass, used to craft Galaxia solar generators of different tiers.
+_Avoid_: Existing GT solar cover, finished tiered generator
 
 ## Crater Vocabulary
 

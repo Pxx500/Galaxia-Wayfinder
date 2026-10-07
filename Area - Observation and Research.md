@@ -12,7 +12,8 @@ Star Map activation, celestial discovery, resource knowledge, reconnaissance, sa
 
 ## Active Tickets
 
-- [[Define Star Map Overlap Priority]]
+- [[Define Satellite Manufacturing and Deployment Progression]]
+- [[Design Early Orbital Production Recipe Chain]]
 - [[Specify Alpha Opening Mission Flow]]
 
 ## Closed Coordination Dependencies
@@ -21,6 +22,9 @@ Star Map activation, celestial discovery, resource knowledge, reconnaissance, sa
 
 ## Resolved Decisions
 
+- [[Define Rocket Missions Without Recovery]]
+- [[Define Hammer Satellite Deployment Reach]]
+- [[Define Star Map Overlap Priority]]
 - [[Define Alpha Technology Knowledge Contract]]
 - [[Define Alpha Celestial Knowledge Layers]]
 - [[Define Prospecting Data Processing]]

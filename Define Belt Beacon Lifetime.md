@@ -1,13 +1,13 @@
 ---
 type: wayfinder-ticket
 ticket_type: grilling
-status: open
+status: resolved
 parent: Galaxia Alpha Wayfinder
 areas:
   - "[[Area - Destinations]]"
 blocked_by:
   - "[[Define Asteroid Belt Physical Travel and Beacons]]"
-claimed_by: local-wayfinder-reconciliation
+claimed_by:
 tags:
   - galaxia/alpha
   - wayfinder/ticket
@@ -24,10 +24,14 @@ When a Belt Beacon is destroyed, does its known coordinate remain a navigable ma
 
 The resolved belt contract distinguishes physical Belt Coordinates from persistent remote asteroids. A Beacon registers a physical travel anchor, not an Automated Outpost or a guarantee of landing services. Its lifetime was left as fog.
 
-## Discussion Proposal
+## Resolution
 
-Retain the known location as an inactive coordinate marker after loss of the Beacon. Reaching or landing there still follows actual vehicle and site conditions. This proposal is not accepted, and does not preserve destroyed endpoint services or revive their identities.
+Accepted on 2026-09-17: while the physical Beacon exists, it keeps its Star Map marker alive. The marker has no manual deletion action in this state.
+
+When the Beacon is destroyed, its coordinate marker remains on the asteroid map. Its right-click context menu then exposes a `Delete marker` action. Any member of the owning team may use that action to remove the marker for the team. The action is unavailable while the Beacon block still exists.
+
+Retaining known coordinates does not preserve destroyed endpoint services, revive endpoint identities or guarantee a safe arrival. Existing flight and site checks still apply.
 
 ## Remaining Scope
 
-Team ownership, visibility and optional sharing require alignment with the accepted team model. Do not infer a public sharing feature from the lifetime proposal. Exact naming, limits and coordinate mapping remain separate concerns.
+Team-scoped marker deletion is settled. No public or cross-team sharing feature follows from it. Exact Beacon naming, limits and coordinate mapping remain separate concerns.

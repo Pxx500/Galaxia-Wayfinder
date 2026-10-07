@@ -12,7 +12,6 @@ Physical access, rockets, spaceships, Hammers, route requirements, cargo movemen
 
 ## Active Tickets
 
-- [[Define Bulk Fluid Cargo Contract]]
 
 ## Deferred Tickets
 
@@ -22,6 +21,10 @@ Physical access, rockets, spaceships, Hammers, route requirements, cargo movemen
 
 ## Resolved Decisions
 
+- [[Define Rocket Route Fuel Budgets]]
+- [[Define Rocket Missions Without Recovery]]
+- [[Define Hammer Satellite Deployment Reach]]
+- [[Define Bulk Fluid Cargo Contract]]
 - [[Resolve Physical Station Controller Succession]]
 - [[Define In-Flight Delivery Handling for Unavailable Physical Stations]]
 - [[Define Authoritative Orbital Time and Hammer Status]]

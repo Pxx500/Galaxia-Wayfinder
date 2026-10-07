@@ -67,6 +67,16 @@ Consolidated on 2026-09-12 from existing owner decisions, without approving new 
 - Minecraft biome temperature such as Mars `0.4F` remains unchanged until its independent vanilla climate behavior is understood. It is not treated as the canonical celestial hazard temperature.
 - Existing skybox, sky-body, and enhanced-sky rendering remain outside the current cleanup because another contributor owns that visual work. The ownership model may be documented without changing their assets or rendering behavior.
 
+## Production Environment Requirements
+
+On 2026-09-17 the owner explicitly separated microgravity from absence of atmosphere. These are recipe environment conditions, not a generic must-be-on-a-Station or must-be-in-orbit flag.
+
+- Silicon-germanium crystal growth and specialty fluoride optical-fiber production require microgravity in the intended Galaxia gameplay. Orbit is one way to provide those conditions, not the exclusive allowed location.
+- Space-Grade Alloy requires absence of atmosphere and has no microgravity requirement. Luna is an accepted location because it is airless despite having surface gravity.
+- Other production chains may use either condition, both when justified, or neither. Do not impose either requirement on every Galaxia material.
+- The existing distinction between physical Station inventories and abstract Automated Facility capabilities remains. A suitable environment does not by itself supply an absent machine or module.
+- Exact thresholds remain tuning. The NASA research motivates the microgravity benefit, while the recipe restriction is an explicit gameplay choice rather than a claim that terrestrial manufacture is physically impossible.
+
 ## Implementation and Tuning Follow-ups
 
 - Station placement requires a usable orbit. The numerical orbit criterion is not yet established and must be checked against authored bodies during implementation.

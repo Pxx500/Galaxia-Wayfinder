@@ -52,6 +52,8 @@ The existing physical-radius field is Earth-relative, is only populated for a sm
 
 12. The galaxy transition is not a separate arbitrary culling mode. As the camera recedes, each object's visibility resolves through its own screen-space relationship to its parent and the current scene.
 
+13. [[Define Star Map Overlap Priority]] resolves ordinary non-parent overlaps in favor of the physically larger body. Existing selected-object and star protections retain precedence.
+
 ## Target Visibility Resolution
 
 For every renderable object, resolve the following in order:

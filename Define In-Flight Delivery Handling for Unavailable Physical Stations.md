@@ -35,6 +35,7 @@ Temporary unavailability preserves the endpoint identity and the delivery waits 
 - A delivery addressed by Station ID and Routing Name selects its concrete compatible receiver at arrival. Destruction of an earlier group member does not lose the delivery when a matching replacement exists at arrival. [[Define Transport Endpoint Identity and Registration]] owns this rule.
 - A delivery already in flight continues toward its exact endpoint identity while that identity exists.
 - If the delivery arrives while the endpoint is temporarily unavailable, it must wait against that endpoint identity and complete after the controller becomes available again.
+- An occupied destination pad is not a departure blocker for an otherwise feasible planned flight. The Rocket travels to the destination and waits there before docking. Do not reinterpret arrival-side waiting as waiting at the previous endpoint for a destination slot.
 - Reappearance must produce the same arrival result as if the endpoint had been available at the original arrival time.
 - A full destination inventory already retains the undelivered remainder and retries.
 - The design must distinguish temporary unavailability from permanent destruction without introducing a second Station identity registry.
@@ -46,6 +47,7 @@ Temporary unavailability preserves the endpoint identity and the delivery waits 
 - The vehicle maintains an active notification about the lost destination and waits for the player to assign a replacement. It does not silently pick another receiver.
 - Movement to the replacement target obeys ordinary flight requirements. Reassignment does not teleport the vehicle or cargo.
 - Waiting near the destination for a replacement target or resolution of a blocking problem consumes no fuel and causes no module durability loss. Normal flight and maneuver costs resume when the vehicle actually travels. Waiting does not introduce a hidden countdown to vehicle loss.
+- The 2026-09-17 clarification distinguishes waiting for an occupied planned pad from a deliberately truncated mission ending without fuel or a feasible recovery maneuver. A planned, feasible pad arrival waits with its maneuver fuel intact. [[Specify Alpha Opening Mission Flow]] owns the unrecoverable opening-flight example, not an exception that destroys any Rocket facing temporary receiver unavailability.
 - An already launched Hammer package cannot be held or redirected when its exact receiver is permanently destroyed. The package and its cargo are lost.
 - Hammer loss on permanent receiver destruction does not change the accepted waiting behavior for a temporarily unloaded controller, a disformed multiblock with a surviving controller, or a full receiving inventory.
 

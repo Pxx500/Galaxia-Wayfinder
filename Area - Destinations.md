@@ -12,10 +12,10 @@ Object-native gameplay, available actions, dimensions, regions, and retained cel
 
 ## Active Tickets
 
-- [[Define Belt Beacon Lifetime]]
 
 ## Resolved Decisions
 
+- [[Define Belt Beacon Lifetime]]
 - [[Define Celestial Capability Rules]]
 - [[Define Asteroid Automation Contract]]
 - [[Register Tenebrae as a Celestial Object]]
