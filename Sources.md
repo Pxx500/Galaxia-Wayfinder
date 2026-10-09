@@ -61,6 +61,7 @@ These records preserve provenance, not independent approval of every source clai
 
 - [[GUI Showcase Screenshots In Build Summaries]]
 - [[GT5 Team Knowledge Recipe Enforcement Research]]
+- [[GT5 Cleanroom And Low Gravity Requirements Research]]
 
 ## Deferred Inputs
 
