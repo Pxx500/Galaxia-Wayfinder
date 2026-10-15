@@ -85,11 +85,35 @@ Galaxia owns the environmental facts and the tags exposed from them. GT5 uses th
 
 On 2026-10-10 the owner explicitly concentrated environment definitions and evaluation in Galaxia. Do not create a competing environment catalog or an open collection of environment providers in GT. If extensions add tags, they do so through Galaxia's API and remain under its environment model. GT only needs neutral requirement references and the integration needed to check and display them without a reverse runtime dependency.
 
+The owner subsequently restricted the current implementation effort to Galaxia. Do not edit GT5 production sources or initiate upstream changes while this early Galaxia design is still being established. The GT recipe-builder contract is a target for later transfer, not permission to modify GT now. Assess local authoring helpers and narrowly scoped GT instrumentation hosted by Galaxia first. Preserve author convenience without copying the entire GT builder. Distinguish transferable requirement logic from temporary integration code that must be removed or rewritten when GT adopts the contract. Source-local development does not eliminate runtime integration risk.
+
 On 2026-10-10 the owner selected a new optional recipe environment requirement in GT, independent of `mSpecialValue`. A recipe without this requirement has no environmental restriction from this system. A recipe with the requirement must have all of its required tags satisfied at the execution location, subject to the explicitly accepted absent-Galaxia development behavior below. Existing voltage, heat, cleanroom and other recipe requirements remain independent. Do not encode these extra tags through the old special-value sentinels.
 
 The owner requires a readable fluent method on the GT recipe builder to declare this optional requirement, rather than making recipe authors manipulate raw metadata or special values. On 2026-10-10 they delegated technical representation and naming to the developer, with convenient handwritten recipes as the acceptance criterion. The selected authoring direction is `requiresEnvironment(...)` with named, typed tag values exposed as constants. Several supplied tags mean that all are required. A closed Java enum is not required. This preserves enum-like IDE completion without preventing tag registration through Galaxia's API. Neutral references must be usable by GT recipe authors without loading Galaxia classes, while Galaxia owns tag definitions, classification and evaluation. Developers adding an ordinary recipe should only choose the constants, not wire an evaluator or understand room lookup. Exact internal types and wiring are implementation details to derive when execution begins. This records the authoring contract, not an implemented builder method or tag type.
 
-On 2026-10-10 the owner accepted an Alpha room atmosphere state that distinguishes Vacuum from Atmosphere without a full simulation of pressure or gas composition. Galaxia derives No Atmosphere from the actual absence of atmosphere, not from sealing alone or lack of oxygen. Use the Station's existing room membership and local state rather than rescanning geometry for each recipe. The precise transitions that fill or empty a room remain to be defined.
+[[Design Lunar Crater Processing Recipe Chain]] records the owner's 2026-10-11 requirement for No Atmosphere on Space-Grade Alloy processing and recycling, including GT-generated material recipes. The same shared recipe condition must apply to generated recipes, not only manually authored ones. This is a target capability, not an expansion of the separately bounded Galaxia-only environment prototype.
+
+### Accepted Room Pressure Direction
+
+On 2026-10-10 the owner replaced the initially selected binary room atmosphere state with a bounded Room Pressure Level. Zero represents Vacuum and full level represents the room's full atmosphere. The controller presents the current level as a progress bar. The exact numerical storage scale is an implementation choice, not a request for physical pressure units or gas-composition simulation. In the owner's subsequent simplification, only passive atmosphere loss in vacuum is gradual. Other pressure actions may be immediate for this stage, including filling. Do not introduce a timed filling or airflow simulation as a prerequisite.
+
+Room pressure belongs to the physical Room. Multiple controllers serving the same Room must not hold independent pressure copies or duplicate filling and loss. Use existing room membership and local state rather than rescanning geometry for each recipe. Galaxia derives No Atmosphere from actual absence of atmosphere, not sealing alone or lack of breathable oxygen.
+
+- Without an operating oxygenator, a room surrounded by vacuum gradually loses pressure. Stopping oxygenation does not immediately make it Vacuum. This supersedes the proposal of indefinite atmosphere retention. The passive loss rate remains tuning. Immediate filling still requires the oxygenator's normal operating resources and power.
+- The owner explicitly accepted that this gradual loss does not turn a room on an atmospheric world into Vacuum merely because it lacks an oxygenator. Ambient atmosphere remains available. Sealing does not create Vacuum.
+- Opening an airlock between two sealed rooms immediately equalizes their pressure instead of setting both to full atmosphere. A full room connected to a sealed empty room loses some pressure while the empty room gains it. Infrastructure connectivity through walls is not an airflow connection.
+- Destroying a partition between two otherwise enclosed rooms also immediately equalizes pressure. The owner explicitly confirmed that this is not a timed transfer and does not empty both rooms.
+- An actual opening to exterior vacuum immediately empties the rooms connected by that airflow route. Do not simulate a timed breach or rapid decompression. Station infrastructure connectivity alone is not an airflow route.
+
+Equalization must redistribute the existing atmosphere rather than create it. Relative room volume is the coordinator's recommended calculation basis. Exact storage scale and numerical tolerances remain implementation and tuning choices, not reasons for another gameplay interview. There is no equalization transfer rate to tune at this stage because equalization is immediate. Existing deferred room-detection questions remain outside this delivery unless a demonstrated implementation blocker requires a separate scope decision. Missing room data is not proof of an exterior leak.
+
+### Combustion Generation In Space
+
+On 2026-10-10 the owner initially required combustion-based generators to stop without oxygen, then explicitly rejected the coordinator's oxygenated-room exception. For the current space-factory scope, combustion generation is prohibited completely, including inside an oxygenated Station room. The owner's rationale includes exhaust being unsuitable for the room's occupants. Oxygenation does not lift the ban. Do not add ventilation, exhaust treatment or direct oxygen inputs as a workaround in this stage.
+
+Standard GT machinery remains the baseline for non-combustion space power. Do not classify steam, nuclear or other non-combustion generation as combustion merely because it produces EU. Space Grade Solar Panels remain recipe-component items, not generators. Exact GT family coverage and a viable early supply route need source verification. The restriction must not be implemented solely as a local oxygen or No Atmosphere check, since an oxygenated room must remain prohibited. This decision does not select a complete new policy for every planetary installation.
+
+This is a separate generation constraint, not automatic expansion of the currently active recipe-environment implementation task. No generator gate is implemented by this note.
 
 ### Deferred On-Demand Vacuum
 
@@ -102,6 +126,8 @@ This establishes the contract, not an implemented API. Tag representation, cross
 On 2026-10-10 the owner accepted suspending a running recipe when its required environmental conditions cease to hold. Retain its committed ingredients and progress, and resume when the requirements are met again. This is a gameplay contract, not evidence that current GT processing already supports this behavior.
 
 The owner also requested an explicit GT-only development behavior: when Galaxia is absent, hide and silently ignore the additional environmental requirements supplied by Galaxia. This optional-integration behavior is authorized for development convenience. It is not a request to bypass unrelated existing GT requirements such as cleanroom. An unavailable room or unresolved local condition while Galaxia is loaded is a different case, not automatically covered by the absent-mod rule.
+
+On 2026-10-11 the owner clarified that the intended integrated GTNH gameplay includes Galaxia. Running GT without it is a development convenience, not a supported alternative gameplay target. [[Design Lunar Crater Processing Recipe Chain]] owns the selected environment-dependent Recipe Family model and its family-level recipe locks. The owner selected omitting Galaxia-dependent environmental family variants when Galaxia is absent. A family with no remaining variants is not registered or shown in NEI. Do not select an arbitrary outcome or retain a disabled family. This differs from ignoring ordinary environmental requirements, whose earlier development rule remains unchanged.
 
 On 2026-10-10 the owner selected the multiblock controller's position as the observation point for Alpha recipe environment checks. Do not require matching conditions across the whole structure. This deliberately defines the result for a machine crossing a room boundary by its controller's environment. A broader spatial rule can be considered later but is not an Alpha prerequisite.
 
@@ -118,6 +144,8 @@ Bounded source inspection on 2026-10-08 at Galaxia `a9128e9ef21ff05254648190b4f7
 - Continuous sunlight is an explicit gameplay simplification, not a physical consequence guaranteed by a geostationary orbit. It does not set solar output to the same value around every body or remove distance and authored solar modifiers.
 
 ## Current Implementation Boundary
+
+On 2026-10-10 the owner moved implementation to a separate Galaxia project task while this conversation retained Wayfinder decisions and scope coordination. [[Recipe Environment Implementation Handoff]] records the implementation handoff and coordination status. This transfer is not evidence that the feature is implemented.
 
 Source inspection on 2026-09-12, under `src/main/java/com/gtnewhorizons/galaxia/`:
 

@@ -20,6 +20,8 @@ tags:
 
 Deferred on 2026-09-16 under [[Consolidate Physical Station Architecture]]. Do not add a new side-classification or pressure model to the current PR integration. Preserve this discussion without treating its unanswered questions as resolved or its proposed representation as implemented. Existing-code defects are reviewed separately from this deferred redesign.
 
+Later update, 2026-10-10: [[Define Celestial Capability Rules]] now owns the accepted Room Pressure Level and equalization through open airlocks for the new recipe-environment effort. That does not retroactively expand the earlier PR scope or settle this ticket's unresolved side-classification and geometry questions. Its historical statement below that no atmosphere-loss rule was accepted predates the new decision.
+
 ## Question
 
 How do airlock sides identify validated rooms, confirmed exterior space and unresolved space, and what pressure behavior applies when an open side is unresolved?

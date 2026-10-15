@@ -29,6 +29,18 @@ These inputs remain unclassified. Do not treat them as accepted requirements.
 - [[Agent Source - Station Mechanics Phase 2 Conversation]]
 - [[Repo Source - Unknown Ship Event Concept]]
 - [[Repo Source - Module Upgrade System Concept]]
+- [[GT5 Combustion Generator Oxygen Requirements Research]]
+- [[Lunar Fracking And Space Grade Alloy Recipe Draft]]
+- [[Tiered Space Grade Alloy Recipe Proposals]]
+- [[GT5 Lunar Alloy Materials And Processing Research]]
+- [[Aluminium Scandium Alloy And Mineral Source Research]]
+- [[Lunar Fracking And Alloy Economy Options]]
+- [[Lunar Scandium Reagent Recovery Research]]
+- [[GT5 Scandium Acquisition Chain Research]]
+- [[Scandium Industrial Applications Research]]
+- [[GT5 Environment Recipe Variant Feasibility Research]]
+- [[Crater Scandium Processing Recipe Feasibility Research]]
+- [[GTNH Chemical Balance Reference]]
 
 ## Reviewed and Archived Provenance
 

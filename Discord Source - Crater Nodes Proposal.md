@@ -405,3 +405,12 @@ Raw LaTeX:
 y=\left(\left(d-1\right)+\left(83\cdot\min\left(\max\left(x-17280,0\right),1\right)\right)\right)+\left(\left(1.0003\cdot\left(\max\left(\min\left(17280-x,1\right),0\right)\right)\right)+\left(1.0000375\cdot\left(\min\left(\max\left(x-17280,0\right),1\right)\right)\right)\right)^{\left(\max\left(x-2500,\ 0\right)\right)}
   
 The actual simplified version is:
+
+## Recovered Source Links, 2026-10-10
+
+The imported text above preserves the original placeholder labels but lost their hyperlink targets. Read-only inspection of the public Google Docs document returned HTTP 200 and the title Crater Nodes. Its embedded document model still contains both links. The primary agent independently confirmed their presence in the document response.
+
+- The Space-Grade Alloy label `(some data sourced from here)` links to [Chemical composition of the Dhofar 007 meteorite](https://www.researchgate.net/figure/Chemical-composition-of-the-Dhofar-007-meteorite_tbl1_225659906), in document tab `t.jrv0b1me9e7`.
+- The Al-Sc Step 4 label `(source)` links to [the article at PMC8779884](https://pmc.ncbi.nlm.nih.gov/articles/PMC8779884/), in document tab `t.oziaojcis0h5`.
+
+These recovered links establish that the original author attached sources. They do not establish that every recipe, claimed lunar deposit, yield or machine choice is supported by those sources. The raw imported proposal remains unchanged.

@@ -184,6 +184,18 @@ _Avoid_: Per-machine copies of gravity, atmosphere, radiation, temperature, or s
 A checkable environmental condition, such as Microgravity or No Atmosphere. Several tags may describe the same environment and provide independent production requirements.
 _Avoid_: Technology group, team access, per-recipe planet whitelist
 
+**Environment Recipe Variant**:
+An alternative result or operating behavior for the same recipe inputs under different environmental conditions. It is distinct from a requirement that only permits or blocks production.
+_Avoid_: Environment requirement, per-planet recipe identity
+
+**Recipe Family**:
+A single production definition with common inputs and alternative Environment Recipe Variants. Environmental conditions select an outcome within the family, not a separate competing recipe with identical inputs.
+_Avoid_: Recipe Map, different-feedstock recipes
+
+**Room Pressure Level**:
+A bounded measure of a Physical Station Room's atmosphere, from zero for Vacuum to its full atmosphere level. It is distinct from breathability and does not describe gas composition.
+_Avoid_: Oxygen level, room sealing, binary atmosphere state
+
 **Raw Prospecting Data**:
 A non-item network stream describing its originating Celestial Object, pooled across that object's Prospecting Satellites. It is transient input rather than a durable survey stockpile.
 _Avoid_: Physical data item, originless prospecting data, permanent survey stockpile
@@ -375,11 +387,11 @@ A machine that mines a Crater Deposit's initial ore reserve and then switches to
 _Avoid_: Assuming separate ordinary-drill and fracking-rig machines
 
 **Space-Grade Alloy**:
-A low-tech, mass-produced bulk material for space equipment and infrastructure, produced only in an atmosphere-free environment. Different feedstock recipes yield the same item rather than distinct material-origin variants.
-_Avoid_: Per-feedstock ingot variants, the material gate between successive technology tiers
+The common bulk construction material for space equipment and infrastructure, manufactured, processed and recycled without atmosphere. Different feedstock compositions provide different amounts of the same mechanically equivalent material.
+_Avoid_: Per-feedstock material variants, the material gate between successive technology tiers, equating lower recipe output with recoverable waste
 
 **Fracking Fluid**:
-The extraction medium supplied to a Crater Extractor after ordinary mining is exhausted. Processing its enriched output recovers only part of this fluid, requiring ongoing replacement production.
+The extraction medium supplied to a Crater Extractor after ordinary mining is exhausted. Processing its enriched output can initially recover approximately the supplied amount, while continued crater use increases the replacement-fluid requirement.
 
 **Enriched Fracking Fluid**:
 The resource-bearing fluid produced by crater fracking and processed downstream to obtain resources and recover part of the extraction medium.

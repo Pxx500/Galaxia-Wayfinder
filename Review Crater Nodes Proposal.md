@@ -40,9 +40,17 @@ Owner decisions on 2026-09-16 supersede conflicting parts of the original source
 - Craters are world-generation features. Their identity and extraction membership do not depend on creating a Crater biome.
 - After the finite ordinary reserve is exhausted, fracking can continue indefinitely. Its fluid input per operation increases with successive fracking operations on that crater.
 - The fluid-cost curve should rise gradually enough to make continued operation useful, but eventually make supplying the old site inconvenient enough that the player wants to develop a new location. There is no selected numerical curve, operation count or time threshold.
+- On 2026-10-11 the owner selected resource output and usable downstream yield as the starting point for balance. Cost growth depends on the Crater Material Profile, with gentler growth for common iron and faster growth for valuable platinum. Do not give every profile the same cost schedule or start by fixing its operating lifetime.
 - Fracking history belongs to the crater's shared state. Several machines advance the same history rather than each starting a cheaper independent sequence.
-- Fracking consumes fracking fluid and produces a resource-enriched fluid, not the ordinary-mining item output directly. Downstream processing extracts resources and recovers part of the fracking fluid for reuse. Losses require ongoing production of replacement fluid, so the chain is not a closed loop. Exact processing steps, fluid identities and recovery ratios remain undecided.
+- On 2026-10-10 the owner explicitly accepted a fixed enriched-fluid output per operation while input consumption rises. Older-site fluid cost does not proportionally increase mineral output. Exact batch size and the cost curve remain tuning.
+- Fracking consumes fracking fluid and produces a resource-enriched fluid, not the ordinary-mining item output directly. Downstream processing extracts resources and recovers the carrier for reuse. On 2026-10-11 the owner revised initial recovery toward a perfect or slightly lossy loop, with increasing shared use creating a larger replacement-fluid requirement. A permanently closed loop is not selected. Exact processing steps, fluid identities and recovery ratios remain undecided.
 - Enriched fluid is processed in ordinary GregTech machines through their normal recipe maps. This does not select particular machines or chemical recipes yet.
+- On 2026-10-11 the owner provisionally accepted existing GT Drilling Fluid as the carrier, despite lore reservations, as a practical gameplay compromise. Its ordinary GT manufacture remains the supply route. Exact separation, recovery and profile-cost recipes are owned by [[Design Lunar Crater Processing Recipe Chain]].
+- The owner subsequently allowed wet extraction from the beginning of the finite ordinary-mining stage for the Sc-bearing bauxite profile. Without fluid it yields Bauxite and Sc concentrate directly, with a small irreversible resource-efficiency loss. Both alternatives consume one shared reserve, and wet extraction does not start fracking before exhaustion. [[Design Lunar Crater Processing Recipe Chain]] owns the profile's output and loss tuning. This does not automatically redefine every other profile's output.
+
+## Progression Role And Exclusive Resources
+
+On 2026-10-11 the owner required craters to be important to Galaxia progression and selected crater-exclusive primary Scandium acquisition for the newly designed Galaxia supply. The selected Sc-bearing bauxite profile supplies an enriched-fluid processing branch that yields ordinary Bauxite and Sc-bearing products, not a new ore identity. The existing much later Blood Magic meteor source is explicitly retained. [[Design Lunar Crater Processing Recipe Chain]] owns that content direction, rejection of broad Bauxite Slag acquisition and the remaining processing and consumer choices. This does not make canonical bulk SGA itself a technology-tier gate or select a fixed sequence of crater visits.
 
 ## Accepted Fluid Representation
 
@@ -52,11 +60,15 @@ This replaces the tentative single-ID subtype representation. The purpose is to 
 
 ## Accepted Space-Grade Alloy Direction
 
-- Space-Grade Alloy is one canonical item, independent of which feedstock recipe produced it. Do not preserve origin as separate metadata or NBT variants.
+- Space-Grade Alloy is one canonical material, independent of which feedstock recipe produced it. Do not preserve origin as separate metadata or NBT variants. On 2026-10-11 the owner selected GT5 material registration and generated ordinary metal-processing forms rather than a standalone ingot item.
 - Different feedstock recipes produce that same item. Three recipes were the owner's example, not a permanent cap on the general deposit system.
-- Production is allowed only in an atmosphere-free environment. The existing environment requirement is not satisfied merely by an artificial vacuum chamber on an atmospheric world.
+- Production is allowed only in an atmosphere-free environment. On 2026-10-11 the owner extended this requirement to material processing and recycling, including generated GT recipes. The existing environment requirement is not satisfied merely by an artificial vacuum chamber on an atmospheric world.
 - Its role is low-tech, mass-produced bulk material for space equipment and infrastructure. It is not the material that distinguishes or gates successive technology tiers. Recipes still require the appropriate other progression materials.
 - This supersedes the source's proposal for three distinct, ore-dictionary-interchangeable ingots. It does not mean that every space recipe must consume this alloy or select exact compositions and yields.
+
+On 2026-10-10 the owner selected normal GT material/deposit forms around iron, platinum, gold, cobalt and aluminium instead of origin-specific raw variants. Scandium remains uncertain. They also require simple, intermediate and advanced production routes with increasing returns, all producing the same canonical alloy. [[Design Lunar Crater Processing Recipe Chain]] owns those concrete content decisions. Its former flat-yield draft is not the selected final recipe set.
+
+On 2026-10-11 the owner clarified that composition determines mechanically equivalent SGA output, not merely processing waste recovery. The material must support sustained bulk production and ordinary space construction without replacing tiered materials. Full dusts are the selected solid input granularity. Adding the selected normal resources to lunar crater profiles is accepted even where default Moon placement does not supply them. Exact recipes, quantities and Sc acquisition remain with the content ticket.
 
 ## Accepted Scanner Direction
 
@@ -107,6 +119,7 @@ The earlier generation and shared-accounting proposal is retained for context. I
 - `materialSizeResponse` separately controls how strongly that material reacts to above- or below-mean realized diameter.
 - `materialSizeResponse` may be positive, zero, or negative. A negative value reverses the size relationship: above-mean diameter reduces Richness while below-mean diameter increases it.
 - Authored values must keep `richnessMultiplier` positive for valid generated craters.
+- On 2026-10-14 the owner added a bounded approximately plus or minus 10% initial-reserve variation after the size/profile calculation. It is drawn once for the shared deposit, not rerolled for machines or reloads. It does not change profile composition, operation output or fracking cost growth. [[Design Lunar Crater Processing Recipe Chain]] owns the accepted working reserve and cost tables.
 - The formula is intentionally replaceable balance policy and may evolve without changing Crater Deposit identity, generation order, or extraction ownership.
 - Multiple extractors may operate inside one crater, but the Crater Deposit remains the single authority for remaining reserve, cumulative depletion, and depletion-dependent extraction cost.
 - A crater imposes no artificial limit on the number of installed or simultaneously active extractors.
@@ -125,16 +138,16 @@ The earlier generation and shared-accounting proposal is retained for context. I
 
 ## Resolution
 
-Crater extraction is retained as an Alpha gameplay chain under the owner's revised design. One extractor uses a shared finite reserve, then unlimited fracking with progressively increasing fluid cost. Enriched-fluid processing uses normal GT recipe maps and recovers only part of the input fluid. Registered fluid variants have distinct IDs within one family. Existing scanners and map integration expose crater composition and extraction state. Space-Grade Alloy remains one vacuum-produced bulk-material item rather than a tier gate.
+Crater extraction is retained as an Alpha gameplay chain under the owner's revised design. One extractor uses a shared finite reserve, then unlimited fracking with progressively increasing, profile-dependent fluid cost. Enriched-fluid processing uses normal GT recipe maps and approximately closed initial carrier recovery, followed by growing replacement demand. Registered fluid variants have distinct IDs within one family. Existing scanners and map integration expose crater composition and extraction state. Space-Grade Alloy remains one bulk construction material rather than a tier gate, with atmosphere-free production, processing and recycling.
 
 This resolves the proposal review, not implementation or numerical balancing. Conflicting source proposals are superseded only where explicitly stated above. Earlier working generation values remain provisional.
 
 ## Remaining Content And Integration Work
 
-- The concrete enriched-fluid processing chain, required fracking fluids and partial recovery ratios.
+- The concrete enriched-fluid processing chain, required fracking fluids and initial recovery ratio.
 - Verify the accepted registered-fluid variants with normal GT recipe maps and subtype-specific NEI browsing in the target dependency versions.
 - The scanner/map integration's existing data ownership and extension requirements. This is an integration investigation, not another gameplay vote on map refresh policy.
 - Standard deviation for each Size Class.
 - Concrete deposit profiles, output forms, processing recipes and fracking consumables. Exact quantities and generation tuning remain balance work.
 
-The one-machine transition, unlimited fracking with increasing fluid cost, enriched-fluid output with partial fluid recovery, canonical alloy item and scanner information are settled. Do not reopen them while choosing processing recipes and numerical balance. The separately resolved Data Processor design is owned by [[Define Data Processor Machine Topology]].
+The one-machine transition, unlimited fracking with increasing profile-dependent fluid cost, fixed enriched output, approximately closed initial carrier recovery, canonical alloy material and scanner information are settled. Do not reopen them while choosing processing recipes and numerical balance. The separately resolved Data Processor design is owned by [[Define Data Processor Machine Topology]].

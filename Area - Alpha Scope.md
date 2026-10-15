@@ -15,6 +15,7 @@ Alpha scope, baseline content, source review, and the minimum Galaxia-specific c
 - [[Define Alpha Galaxia-Specific Capability Floor]]
 - [[Define Alpha Research and Production Floor]]
 - [[Design Early Orbital Production Recipe Chain]]
+- [[Design Lunar Crater Processing Recipe Chain]]
 
 ## Resolved Decisions
 

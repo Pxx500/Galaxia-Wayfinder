@@ -41,6 +41,7 @@ The 2026-10-07 and 2026-10-08 rounds establish the following direction:
 - The owner changed early germanium output to 8 mB and powder processing to one dust with a 10% chance of one seed and a 90% chance of one Poly SiGe. They explicitly accepted independent rolls, including both outputs on some operations, because average output balances over continued production.
 - Powder processing also removes impurities as a small existing GT ash or slag byproduct. SiGe blend must pass through this EBF step before supplying usable melt. Adding a direct blend-to-molten recipe would bypass that intended treatment.
 - SiGe chips must follow ordinary GTNH's mandatory Laser Engraver stage. The owner permits an HCl wash afterward. The detailed wash and cutting recipes below remain proposed.
+- On 2026-10-10 the owner accepted cleanroom requirements for wafer engraving and final chip cutting. These operations do not require microgravity and may take place in an ordinary surface cleanroom.
 - After engraving, electronic items should be named by their function rather than keeping SiGe as the name of every circuit stage. The working CLC names below answer that request but remain open to redlining.
 - The fluoride chain uses melting, casting, solid preform preparation, softening and drawing. Item names omit the repeated Specialty prefix.
 - Fluoride-glass blanks use two dust units each. The Lathe produces one preform and returns one dust unit for reuse.
@@ -97,12 +98,12 @@ These are existing audited GTNH 2.8 recipes, not additions. Other existing route
 | Crystal growth | 1 SiGe seed + 1,008 mB molten SiGe | 1 SiGe monocrystal | EBF, 1,784 K | 480 | 120 s | Microgravity |
 | Seed multiplication | 1 SiGe monocrystal | 8 SiGe seeds | Forge Hammer | 120 | 10 s | Any |
 | Cutting | 1 SiGe monocrystal + 100 mB water | 16 SiGe wafers | Cutting Machine | 120 | 40 s | Any |
-| Wafer engraving | 1 SiGe wafer + reusable Ruby lens | 1 CLC Wafer | Laser Engraver | 480 | 45 s | Any, cleanroom proposed |
+| Wafer engraving | 1 SiGe wafer + reusable Ruby lens | 1 CLC Wafer | Laser Engraver | 480 | 45 s | Cleanroom, any gravity |
 | Wafer wash | 1 CLC Wafer + 250 mB hydrochloric acid | 1 Etched CLC Wafer | Chemical Bath | 480 | 30 s | Any |
-| Chip cutting | 1 Etched CLC Wafer + 100 mB water | 4 CLC Chips | Cutting Machine | 120 | 45 s | Any, cleanroom proposed |
+| Chip cutting | 1 Etched CLC Wafer + 100 mB water | 4 CLC Chips | Cutting Machine | 120 | 45 s | Cleanroom, any gravity |
 | Packaging | 4 CLC Chips + 2 copper plates + 8 fine copper wires + 144 mB molten tin | 1 CLC Module | Assembler | 480 | 30 s | Any |
 
-The germanium recipe has no selector circuit because sphalerite and carbon fill the single-block reactor's two item-input slots. The growth heat requirement is already represented by existing silicon-boule progression. Ruby lenses are non-consumed tools. A normal Ruby plate-to-lens Lathe route supplies the proposed lens at MV. Chip fabrication keeps the GTNH distinction between blank wafer, patterned wafer and chips. In this draft the HCl wash is a fixed finishing operation after engraving and before chip cutting, not an optional quality branch or a replacement for engraving. Its inclusion, four-chip yield, water use and cleanroom settings are proposed gameplay choices, not claims about exact semiconductor fabrication.
+The germanium recipe has no selector circuit because sphalerite and carbon fill the single-block reactor's two item-input slots. The growth heat requirement is already represented by existing silicon-boule progression. Ruby lenses are non-consumed tools. A normal Ruby plate-to-lens Lathe route supplies the proposed lens at MV. Chip fabrication keeps the GTNH distinction between blank wafer, patterned wafer and chips. In this draft the HCl wash is a fixed finishing operation after engraving and before chip cutting, not an optional quality branch or a replacement for engraving. Its inclusion, four-chip yield and water use remain proposed gameplay choices. The cleanroom requirements for engraving and chip cutting are accepted. This is not a claim about exact semiconductor fabrication.
 
 The owner selected independent 10% seed and 90% Poly SiGe rolls for one input dust. Expected SiGe output is one material unit per operation, excluding the abstract trace-residue byproduct. Both SiGe products occur on 9% of operations and neither occurs on 9%. This per-operation variation is intentional, not a requirement for exclusive outcomes. Growth still consumes one seed and seven molten units because 1,008 mB is seven times 144 mB. The eight-unit monocrystal can be split into eight seeds. Those growth and splitting quantities remain proposed.
 
@@ -246,9 +247,19 @@ The following working recipes were accepted for recording. Final assembly and fi
 
 Space Grade Solar Panel is an item used as a manufactured recipe component, not a placeable block, generator or alternate recipe for a GT solar cover. On 2026-10-08 the owner clarified that the current scope includes only these items and their recipe uses. It adds no EU generation or operating-environment checks for solar equipment. Existing GTNH solar recipes and generation parameters remain unchanged. Earlier discussion of converting the component into generators of different tiers is future work, not a prerequisite for this chain.
 
+### Accepted Factory Power Direction
+
+On 2026-10-10 the owner selected standard GregTech power generation for the orbital factory, then clarified a complete combustion-generator ban in space. The ban also applies inside an oxygenated Station room. Both the unrestricted fuel-generator bootstrap and the coordinator's oxygenator-assisted combustion proposal are superseded. [[Define Celestial Capability Rules]] owns the generation condition. Do not introduce ventilation or new oxygen inputs as an exception at this stage.
+
+Space Grade Solar Panels remain recipe-component items. This decision adds no placeable Galaxia solar generator or change to existing GT solar output. The initial non-combustion supply route is selected provisionally below. Existing steam, nuclear and other non-combustion machinery must not be classified as combustion merely because it is a generator. Actual GT family coverage and early availability need source inspection.
+
+On 2026-10-10 the owner provisionally accepted transported electrical energy as the first-factory bootstrap. Charge ordinary GT batteries on the surface, bring them to the orbital workshop and run its initial production through a standard tier-appropriate GT Battery Buffer. Depleted batteries can return for recharging. No new generator or orbital material is required to establish this power path.
+
+This selects a working initial power route, not an unlimited or self-sufficient energy source. Battery count, charging logistics and measured factory demand remain balance and verification work. Sustained local generation is still open. The existing combustion ban is not relaxed by this choice.
+
 ### Remaining Production Decisions
 
-- Close first-factory power without requiring its own SiGe and glass products. A conventional GT fuel generator is the proposed bootstrap option. The exact initial supply is not selected.
+- Verify the provisionally accepted battery-powered first-factory route against actual component availability, transported charge and recipe demand. Sustained non-combustion generation remains future design work, not a prerequisite for this initial route. There is no pending oxygen-source exception to negotiate.
 - Revisit working panel quantities during balance review if necessary. Satellite hardware now uses an ordinary ground-made panel for Primitive Telescope and the new component for functional satellites. The primitive mission has no orbital-material prerequisite.
 
 ## Accepted Content Ownership And Temporary Staging
@@ -259,7 +270,7 @@ Group this content under `com.gtnewhorizons.galaxia.gt5`. Everything added to th
 
 Galaxia retains celestial environments, missions, satellite behavior and research mechanics. Keep the Galaxia-side integration outside the transfer package rather than moving those mechanics into GT or introducing a reverse hard dependency. Use ordinary GT registration and recipe capabilities for staged content. This is a development location, not a parallel production system.
 
-Necessary shared GT infrastructure should be delivered through small, separately reviewable changes when concrete integration needs are established. Do not keep unrelated recipe changes, formatting or refactors on the same long-lived branch. Development targets current GT rather than treating Galaxia's existing dependency declaration as a permanent version choice.
+The owner's later clarification on 2026-10-10 also keeps the current environment-integration prototype inside Galaxia. GT maintainers have not yet aligned on this early Galaxia effort, so do not start editing or upstreaming GT infrastructure now. After the design is stabilized and coordinated with the relevant maintainers, necessary shared GT infrastructure may move through small, separately reviewable changes. Do not keep unrelated recipe changes, formatting or refactors on the same long-lived branch. Development targets current GT rather than treating Galaxia's existing dependency declaration as a permanent version choice.
 
 The owner explicitly accepts item loss and broken developer worlds before Alpha. Moving registration requires no old-ID preservation, save migration or dual registration. Remove the temporary Galaxia definitions when their GT replacements become authoritative.
 
@@ -275,4 +286,4 @@ Upstream recipes were source-audited against GT5-Unofficial `000a4d9b24d77f40a79
 
 No build or in-game production test was performed. Microgravity and team-knowledge requirements still need actual enforcement through the shared domain capabilities. Inert metadata would not establish them. Current Rocket Module Assembler stock and assembly tasks are not the GT recipes proposed here. The Rocket automation part itself is new content.
 
-The draft is ready for owner redlining as a whole. The recorded rounds select the seed cycle, edited germanium and powder yields, mandatory engraving, fluoride thermal flow and microgravity requirements, revised satellites and the three solar-component recipes. Remaining proposals include residue quantity, wash and chip-cutting details, cleanroom settings, other working recipe values, blueprint costs and the solar decisions listed above. Numerical tuning should not become another series of isolated tier questions. Accepted edits should replace the relevant draft rows before implementation.
+The draft is ready for owner redlining as a whole. The recorded rounds select the seed cycle, edited germanium and powder yields, mandatory engraving and cleanroom finishing, fluoride thermal flow and microgravity requirements, revised satellites and the three solar-component recipes. Remaining proposals include residue quantity, wash and chip-cutting details, other working recipe values, blueprint costs and the power decisions listed above. Numerical tuning should not become another series of isolated tier questions. Accepted edits should replace the relevant draft rows before implementation.
