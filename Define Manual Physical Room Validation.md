@@ -16,83 +16,49 @@ tags:
 
 # Define Manual Physical Room Validation
 
-## Current Scope
 
-Deferred on 2026-09-16 under [[Consolidate Physical Station Architecture]]. Keep the existing room implementation and validation lifecycle for the current PR integration. The earlier manual-only lifecycle below is historical accepted direction, not a requirement to implement during this merge. Surface tracing, interval traversal and room-separation proposals are not selected. The unresolved questions remain unresolved.
+## Scope
+
+Deferred under [[Consolidate Physical Station Architecture]]. Retain the existing room implementation and validation lifecycle. The earlier manual-only direction below is not a requirement for the current integration. Surface tracing, interval traversal and room-separation proposals remain unselected.
 
 ## Question
 
-How is an arbitrary-shaped Physical Station Room manually validated, and which later construction changes invalidate that approval without automatically discovering rooms again?
+How is an arbitrary-shaped Physical Station Room manually validated, and which later construction changes invalidate approval without automatically discovering rooms again?
 
-## Earlier Accepted Direction
+## Retained Design Direction
 
-Owner discussion on 2026-09-13, after the initial physical Station rework:
-
-- Creating or restoring a valid room requires the player to click Validate. Room discovery and revalidation are not automatically repeated after every construction change.
-- The owner requested immediate invalidation after destruction of a required room boundary and manual Validate after repair. The assistant interpreted this as revoking geometric approval. The later shared-wall example exposed uncertainty about the exact consequences, especially pressure. Do not interpret it as approval for automatic atmosphere deletion after every wall change.
-- Room geometry is independent of Station construction connectivity. Keeping the last confirmed device-connectivity state during a thread rebuild does not postpone the separately accepted immediate room invalidation.
-- Room shape is not restricted to a box, a rectangle or another authored template.
-- A valid airlock counts as a geometric boundary regardless of whether its door is currently open. Door openness affects pressure and does not invalidate geometry or a running geometry check. Destruction or structural failure of the airlock can invalidate the boundary.
-- Multiple controllers serving the same physical enclosure must not duplicate room state, volume or costs. Controller changes must not create independent overlapping copies of one room.
+- Creating or restoring a room requires the player to click Validate rather than automatic rediscovery after every construction change.
+- Destruction of a required boundary immediately invalidates geometric approval. This does not itself prove venting or authorize atmosphere deletion.
+- Room geometry is independent of Station construction connectivity. Retaining device service during connectivity recalculation does not postpone room invalidation.
+- Rooms may have arbitrary shapes.
+- A structurally valid airlock is a geometric boundary regardless of door state. Openness affects pressure. Destruction or structural failure may invalidate the boundary.
+- Multiple controllers must not duplicate one enclosure's state, volume or costs.
 
 ## Accepted Search Baseline
 
-The owner accepted bounded room discovery after the Internet research:
+Six-face discovery starts in the intended interior adjacent to the selected controller. Recognized sealing boundaries stop traversal. The complete relevant construction, expanded with an exterior margin, bounds the search rather than prescribing room shape.
 
-- Start in the intended interior adjacent to the selected controller and traverse six-face-connected available space until stopped by recognized sealing boundaries.
-- Bound the search using the complete construction relevant to validation, expanded with an exterior margin. This is a search bound, not a prescribed room shape.
-- Reaching a confirmed exterior margin proves an opening to the exterior. Exhausting the reachable interior without such an opening confirms enclosure only when the required geometry data is complete.
-- Missing or unloaded data is unknown, not automatically empty or exterior. A truncated or exhausted work budget is not proof of a valid room.
-- Use cached geometry for the computation. Multithreaded computation must not read live Minecraft world or Tile Entity state. The immutable-input and result-freshness contract still needs its final policy in [[Define Physical Room Validation Recovery]].
+Reaching a confirmed exterior margin proves an opening. Exhausting reachable interior confirms enclosure only with complete geometry data. Missing or unloaded data is unknown, and an exhausted work budget does not prove enclosure.
 
-## Boundary Data Direction
+Computation uses cached geometry. Background work must not read live Minecraft world or Tile Entity state. Input immutability and result freshness remain under [[Define Physical Room Validation Recovery]].
 
-Discussed to support fast invalidation. The behavioral requirement is accepted, while exact representation remains a design choice:
-
-- Validation records which construction boundaries the room depends on. A reverse relation from boundary position to dependent rooms enables direct invalidation without searching the Station after each removal.
-- A shared wall can belong to multiple rooms. One room may touch several faces of the same block, such as a pillar. Counting distinct room IDs is not equivalent to counting covered faces.
-- Side-aware room relations may be retained where needed for airlock or boundary classification. They need not be represented as full records on every construction block or as new Tile Entities.
-- The earlier single exterior-wall bit is not a sufficient authority for room classification or freshness. The current manual-invalidating contract does not require proving actual exterior exposure every time a certified boundary is destroyed.
+Validation records boundary dependencies so removal can invalidate affected rooms directly. Shared walls may serve several rooms, and a room may touch several faces of one block. Exact storage and side-aware relations remain design choices. A single exterior-wall bit is insufficient.
 
 ## Open Decisions
 
-1. Which placements or replacements inside an already valid room invalidate it? A new sealing partition may divide the space without removing an old boundary. Ordinary furniture or machinery should not accidentally imply the same policy without a decision.
-2. After shared-wall removal, both dependent rooms can become invalid, but the ownership and environmental-state treatment of the space discovered by a later Validate still needs definition. Do not automatically merge and approve rooms merely because a wall vanished.
-3. If several existing controllers validate the same space, what are the user-visible ownership and configuration rules beyond the settled requirement that the physical room is not duplicated?
-4. The owner challenged the interpretation of immediate invalidation: removing a shared internal wall and removing an exterior wall need not have the same pressure consequence. The assistant interpreted required-boundary destruction as revoking geometric approval, not proving venting. Confirm this interpretation and resolve pressure consequences in [[Define Airlock Space Classification]] before implementation. Do not treat all wall changes as immediate atmosphere deletion.
+1. Which placements or replacements invalidate approval? New sealing partitions can divide space, but ordinary furniture and machinery need not follow the same rule.
+2. After shared-wall removal, how does later Validate assign ownership and configuration without automatically merging and approving rooms?
+3. How do multiple controllers validating the same space expose ownership and configuration to the player?
+4. How does geometric invalidation affect pressure when no exterior route is known? [[Define Airlock Space Classification]] owns unresolved-side behavior. [[Define Celestial Capability Rules]] settles equalization of sealed joined rooms and proven vacuum breaches, not every invalidation case.
 
-## Recommendation Awaiting Owner Approval
+Distinguishing topology-changing construction from ordinary contents is a recommendation, not a settled invalidation policy.
 
-Distinguish changes to sealing geometry from ordinary non-sealing contents. Invalidate affected room approvals for topology-changing partitions or boundary replacements, without performing automatic revalidation. Do not treat this recommendation as an accepted requirement yet.
+## Deferred Optimization
 
-## Research Evidence
+Empty-interval traversal is a candidate, not a requirement. Connected spans could avoid per-voxel queues if a complete sealing-obstacle index finds gaps without visiting every empty position. Index maintenance, fragmented layouts, boundary extraction and temporary memory must be measured. Thin walls and one-voxel openings must remain exact.
 
-[[Voxel Room Detection Algorithms Research]] establishes six-face connected-component methods and their assumptions. [[Voxel Game Room Validation Research]] supplies an archived Space Engineers precedent for finite grid bounds and face-based airtightness. These sources do not select Galaxia gameplay policy or guarantee a speedup.
+Establish a correct baseline and measure representative workloads before selecting an optimization. No speedup, persistent global air-voxel map, section-component graph or mandatory interval representation is accepted.
 
-## Potential Optimization: Empty-Interval Traversal
+## Provenance
 
-Status: retained as a candidate, not required for the first implementation. Owner requested this record on 2026-09-13.
-
-- Represent uninterrupted empty stretches along one axis as intervals and search their connections instead of placing every empty voxel in the traversal queue. Overlapping intervals in adjacent rows or slices preserve six-face connectivity.
-- An ordered index of sealing obstacles on each line could identify the entire gap between obstacles without reading every empty coordinate. The expected benefit depends on avoiding per-voxel discovery of those gaps, not merely renaming a voxel loop as a batch.
-- Index construction and maintenance, interval fragmentation, boundary extraction and temporary memory all contribute to cost. Large uniform spaces may benefit, while highly fragmented layouts may not.
-- A missing obstacle entry proves a gap only when the input data is complete. A gap is not automatically exterior. It must connect to the confirmed exterior margin. Thin walls and one-voxel openings must retain exact behavior.
-- This is the scanline or span-traversal family of ideas, not a commitment to a particular library, index, axis arrangement or complexity claim. It does not resolve the separate open pressure and invalidation policies.
-
-## Implementation and Measurement Direction
-
-The owner emphasized moving toward a working implementation, testing representative cases and optimizing measured weaknesses rather than indefinitely designing speculative shortcuts. Establish correct baseline behavior, measure its costs, and compare optional optimizations against that baseline. No unmeasured speedup or mandatory interval representation is accepted.
-
-This instruction records the development approach. It does not silently resolve open gameplay decisions or authorize immediate implementation merely because this candidate has been documented.
-
-## Superseded Proposals
-
-- Continuously discovering every enclosed space after every block change.
-- Treating a single exterior-wall flag or local air-neighbor count as a complete room model.
-- Requiring a persistent global map of every air voxel or a section-component graph before manual validation can work.
-
-The initial code commit predates this manual-validation design. This ticket is not an implementation-completion claim or a deferred implementation checklist.
-
-## Discussion Checkpoint
-
-On 2026-09-13, the owner remained uncertain after proposing a search from a destroyed wall. The proposed automatic leak check is recorded, with its unaccepted status, in [[Define Airlock Space Classification]]. The owner asked to save the discussion and report completion. Room validity versus actual depressurization remains open. No further implementation or automatic-check exception was approved by that request.
+Owner discussion on 2026-09-13, deferred on 2026-09-16. [[Voxel Room Detection Algorithms Research]] and [[Voxel Game Room Validation Research]] supply algorithm evidence, not gameplay policy. The unapproved damage-origin leak-search candidate is owned by [[Define Airlock Space Classification]].

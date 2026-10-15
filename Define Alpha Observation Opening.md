@@ -15,28 +15,27 @@ tags:
 
 # Define Alpha Observation Opening
 
-## Question
+## Accepted Decision
 
-How does Galaxia Alpha first expose the Star Map and celestial discovery to the player?
+The Star Map starts locked. Successfully deploying the Primitive Telescope Satellite from the Silo into Overworld orbit grants the shared launch achievement and opens the team's map. Local orbital deployment works without opening the map first.
 
-## Resolution
+The map reveals objects whose starting visibility is authored in celestial definitions. Only Overworld resources start known. Luna is already a known object with unknown resources. Possessing the achievement provides passive Luna celestial-profile survey progress. Scan completion reveals knowledge, not the launch achievement. This never scans physical Minecraft blocks or deposits.
 
-The Star Map begins unavailable. The team launches a Rocket from its Silo to deploy a special low-tier opening satellite into Overworld orbit. Successful deployment activates the Star Map and exposes the objects whose initial knowledge is authored in their celestial definitions. Only Overworld resources start known. Luna is already known as an object, and this satellite begins its scripted Luna resource survey.
+The opener is a scripted payload and achievement mission, not an unrestricted Prospecting Satellite or a required managed orbital asset. It needs no ordinary satellite worker, maintenance or failure lifecycle.
 
-The 2026-09-17 owner decision replaces the earlier unrestricted ordinary Prospecting payload with this special scripted opening. It does not add general discovery capability tiers or a maintenance/failure lifecycle. [[Define Satellite Manufacturing and Deployment Progression]] owns the achievement and passive scan contract. Sending the satellite grants the achievement, and possessing that achievement provides passive Luna scan progress. Finishing the scan is not required to earn the achievement. This scans celestial-object knowledge, not the physical Minecraft world.
+## Owning Decisions And Status
 
-The owner's later decision uses a personal achievement in Galaxia's planned research and achievement system, with a durable benefit granted to current and future teams, rather than a registered orbital satellite. The owning satellite-progression note records the accepted sharing semantics, including personal achievement credit for all team members. References to the opening satellite here describe the payload and fiction, not a requirement to create an ordinary satellite asset.
+- [[Define Satellite Manufacturing and Deployment Progression]] owns personal achievement credit for all team members, retained team benefits and sharing with future teams
+- [[Specify Alpha Opening Mission Flow]] owns local launch, authored visibility, mission recovery and dated entry-point implementation gaps
+- [[Design Early Orbital Production Recipe Chain]] owns the Primitive Telescope Satellite item and recipe
 
-[[Specify Alpha Opening Mission Flow]] owns the accepted pre-map local launch flow, payload, initial knowledge boundary, and remaining vehicle-return question.
+Accepted opening behavior is not proof of implementation. The earlier ordinary Prospecting payload is superseded.
 
-## Implementation Status
+## Provenance
 
-[[Define Satellite Manufacturing and Deployment Progression]] owns the revised opening payload. The earlier ordinary Prospecting Satellite was superseded by the owner's explicit scripted-satellite direction. This is a design change, not evidence of implementation.
+Owner decisions on 2026-09-10 and 2026-09-17, followed by the selected opener name in the recipe-chain decision.
 
-The current direct Galactic Map item opening path does not enforce the accepted first-satellite prerequisite. Current entry-point evidence is recorded in Specify Alpha Opening Mission Flow. This is implementation work under the resolved decision, not a new question about whether the satellite is required.
+## Related Decisions
 
-## Related Topics
-
-- Define Alpha Celestial Knowledge Layers
-- Area - Observation and Research
-- Galaxia Alpha Wayfinder
+- [[Define Alpha Celestial Knowledge Layers]]
+- [[Area - Observation and Research]]

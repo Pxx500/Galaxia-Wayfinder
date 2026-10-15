@@ -10,7 +10,7 @@ tags:
 
 # Galaxia Theia Design Fragments Research
 
-> Historical or reference record. Read dated outcomes and later corrections before using earlier proposals. This record is not an active instruction to execute its plan, and its code or verification claims have not been revalidated by the 2026-09-10 vault consolidation.
+> Source interpretation, not current design authority. Accepted decision tickets take precedence. Code observations are dated evidence, not current verification.
 
 ## Provenance and Current Boundary
 

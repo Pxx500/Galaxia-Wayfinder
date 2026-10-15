@@ -59,3 +59,5 @@ Windows filenames cannot contain `:`, so implementation notes use `Issue - Title
 Frontmatter is the navigation status. Accepted decisions belong in their owning tickets. Historical source labels and chronological log entries describe their recorded time, not the current frontier or a current implementation certificate. Unreviewed sources remain intake only. Completed execution records are evidence, not instructions to restart their old plans.
 
 Consolidation may repair metadata and reconcile explicit decisions across notes without resolving new gameplay questions. Reports and historical records do not override the owning decision.
+
+Keep accepted rules, useful rationale, source provenance and genuine open questions. Replace chronological append logs with the current contract. Do not retain chat instructions, reconciliation requests, private task coordination, workstation paths or test-run diaries in decision notes. Keep detailed source snapshots in Sources and derive implementation plans when execution begins.

@@ -21,13 +21,9 @@ tags:
 
 What physical machines, ownership boundaries, and module flows currently form Galaxia's Gantry System, and where can automatic Rocket module maintenance integrate without creating a parallel module lifecycle?
 
-## Known Context
-
-- The Gantry System uses physical rail-like infrastructure to move Rocket modules between machines.
-- Known examples include a Silo and a Module Assembler, though their exact current names and implementation state require verification.
-- Automatic maintenance may deepen an existing machine or use a separate Gantry-connected machine.
-
 ## Resolution
+
+The following records source inspection on 2026-09-12. Recheck the current code before implementation. These findings establish integration boundaries, not a maintenance-machine design.
 
 - The implemented physical system consists of the Silo, Module Assembler, Gantry segments, and Gantry Terminals. `GantryAPI` coordinates routing but does not own persistent lifecycle state.
 - The Silo owns the Rocket build order, delivered parts, assembled blueprint, and assembly status until it creates the `EntityRocket`. It is the closest existing owner of physical Rocket turnaround.
@@ -39,6 +35,7 @@ What physical machines, ownership boundaries, and module flows currently form Ga
 - Automatic maintenance should extend the existing Silo and Gantry module lifecycle. The Silo is the natural turnaround coordinator, Gantry remains transport, and a physical production or maintenance machine performs the actual module work.
 - Before Gantry can safely carry valuable worn module instances, its transport needs durable state and confirmed handoff semantics.
 
-## Blocks
+## Follow-Up
 
-- [[Define Automated Rocket Turnaround and Module Wear]]
+- [[Decide Gantry Maintenance Machine Ownership]] selects the repair machine.
+- [[Define Automated Rocket Turnaround and Module Wear]] owns the gameplay lifecycle.

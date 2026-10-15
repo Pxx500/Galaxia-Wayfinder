@@ -41,6 +41,9 @@ These inputs remain unclassified. Do not treat them as accepted requirements.
 - [[GT5 Environment Recipe Variant Feasibility Research]]
 - [[Crater Scandium Processing Recipe Feasibility Research]]
 - [[GTNH Chemical Balance Reference]]
+- [[GUI Showcase Screenshots In Build Summaries]]
+- [[GT5 Team Knowledge Recipe Enforcement Research]]
+- [[GT5 Cleanroom And Low Gravity Requirements Research]]
 
 ## Reviewed and Archived Provenance
 
@@ -70,10 +73,6 @@ These records preserve provenance, not independent approval of every source clai
 - [[Repo Source - Asteroid Belt Ring and Beacons]]
 - [[Repo Source - Celestial Discovery Concept]]
 - [[Repo Source - GTNH Planet Definition Sources]]
-
-- [[GUI Showcase Screenshots In Build Summaries]]
-- [[GT5 Team Knowledge Recipe Enforcement Research]]
-- [[GT5 Cleanroom And Low Gravity Requirements Research]]
 
 ## Deferred Inputs
 

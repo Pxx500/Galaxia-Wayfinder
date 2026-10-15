@@ -18,4 +18,4 @@ tags:
 - [[Optimize Knowledge and Satellite Synchronization]]
 - [[Define Prospecting Effects by Extraction System]]
 - [[Define Prospecting Satellite Range Feedback]]
-- [[Define Celestial Capability Rules#Deferred On-Demand Vacuum|On-Demand Vacuum]]
+- [[Define Celestial Capability Rules#Room Pressure|On-Demand Vacuum]]

@@ -25,12 +25,8 @@ EV is the accepted working balance target for the first Automated Facilities. Ea
 
 The exact construction recipe and whether Space-Grade Alloy is a required ingredient remain later material-chain decisions. This decision concerns the intended introduction stage, not a completed balance validation.
 
-Owner accepted the recommendation in the Wayfinder conversation on 2026-09-10.
-
 ## Established Input
 
-Define Player Presence and Automation Tradeoffs excludes automated facilities from the opening and records EV as a candidate, not an accepted tier. This concerns Star Map-managed Automated Facilities, not ordinary automation with physical GT machines.
+This stage concerns Star Map-managed Automated Facilities, not ordinary automation with physical GT machines. Earlier gameplay is governed by [[Define Player Presence and Automation Tradeoffs]].
 
-Galaxia-specific materials may provide construction prerequisites without requiring a Physical Station specifically. The current Space-Grade Alloy direction uses lunar feedstock and a vacuum environment. Its exact recipe and role remain subject to reconciliation.
-
-The initial question is the target introduction stage. A chosen target is implemented through construction and production requirements, not a player-level check or an arbitrary disabled build button. Exact recipes are not fixed by this ticket before their material inputs are agreed.
+Galaxia materials may supply construction prerequisites without requiring a Physical Station specifically. [[Design Lunar Crater Processing Recipe Chain]] owns the accepted Space-Grade Alloy manufacturing recipes. Whether Facility construction consumes that material remains open.

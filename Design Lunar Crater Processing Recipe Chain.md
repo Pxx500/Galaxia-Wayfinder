@@ -8,9 +8,8 @@ areas:
 secondary_areas:
   - Area - Destinations
   - Area - Automation and Infrastructure
-blocked_by:
-  - "[[Review Crater Nodes Proposal]]"
-claimed_by: local-wayfinder-lunar-recipes
+blocked_by: []
+claimed_by:
 tags:
   - galaxia/alpha
   - wayfinder/ticket
@@ -23,209 +22,204 @@ tags:
 
 Which complete recipes connect lunar crater extraction, Drilling Fluid supply, enriched-fluid processing and carrier recovery to bulk Space-Grade Alloy without bypassing existing material progression?
 
-## Decision Boundary
+## Scope And Ownership
 
-[[Review Crater Nodes Proposal]] owns the accepted shared-deposit, extractor-mode, scanner, fluid-identity and canonical-alloy rules. Do not reopen them. This ticket selects concrete production content under those rules, not machine implementation or another room system.
+[[Review Crater Nodes Proposal]] owns shared deposits, extraction stages, scanner integration and the generation model. This ticket owns lunar profiles, recipes and numerical tuning. [[Define Alpha Research and Production Floor]] supplies the standard GT machinery baseline. Only the crater extractor is a selected custom extraction machine. Downstream work uses normal GT machines and recipe maps unless an unmet requirement justifies an exception.
 
-[[Define Alpha Research and Production Floor]] owns the standard GT machinery baseline. Only the already selected crater extractor is a custom extraction machine. Downstream processing should use normal GT machines and recipe maps unless a demonstrated requirement needs an explicit exception.
+New items, materials, fluids and recipes follow [[Design Early Orbital Production Recipe Chain#Accepted Content Ownership And Temporary Staging]]. The settings below are accepted working content or explicitly unapproved proposals, not implemented recipes or demonstrated whole-chain balance.
 
-## Current Round
+## Accepted Material And Progression Rules
 
-Opened on 2026-10-10 after the owner provisionally accepted battery-powered orbital bootstrap. Prepare the lunar chain as a complete recipe proposal to redline, not a sequence of isolated voltage or quantity questions.
+- Use normal GT mineral and metal forms, without origin-only ores or provenance metadata. Retain ordinary cobalt, platinum, aluminium and titanium refining. Adding the selected resources to lunar crater profiles is accepted even where default Moon ore mixes lack them.
+- Space-Grade Alloy, abbreviated SGA, is one canonical GT5 material with ordinary metal forms and generated basic processing. It supplies mass construction, not technology-tier gates. Different compositions produce mechanically equivalent output, not different grades.
+- A lower SGA output is not automatically processing loss or recoverable slag. Recycling preserves canonical SGA quantity and cannot select a source composition or produce precious metals from the iron route.
+- SGA manufacture, material conversion and recycling require No Atmosphere, including generated recipes. There is no Microgravity requirement. Use shared recipe-environment conditions through the material generator, not machine-specific or SGA-only checks. This does not automatically restrict finished equipment assembly that consumes an SGA component.
+- Use full dusts wherever this lunar chain selects dust. Recipe batches are independent and may accumulate or split between operations.
+- All three compositions need credible uses under different supply, infrastructure or demand conditions. Better material return alone must not make one route universally preferable after automation. No requirement forces every player to build all three.
+- Existing GT Drilling Fluid is the provisional carrier. Reuse its standard manufacture. Fracking keeps fixed enriched output while shared use raises input and replacement-fluid demand.
 
-Verify whether existing GT drilling-fluid production can supply the carrier before inventing another feedstock chain. Propose the processing steps, material forms, recovery loop and alternative recipes for the same Space-Grade Alloy. Example deposit profiles are proposals, not approval of the original Discord profiles or a permanent three-profile limit.
+## Accepted Lunar Profiles And Separation
 
-Ordinary extraction and fluid processing must not silently bypass the existing titanium chain or other progression-relevant refining requirements. Atmosphere-free alloy production does not require microgravity. Numerical settings remain working values until accepted or measured.
+Each profile has a distinct enriched Fluid ID. All four are eligible in every size class. Separation uses a Centrifuge at 120 EU/t for 40 s and returns 16000 mB spent carrier per 16000 mB enriched input.
 
-## Accepted Owner Revisions, 2026-10-10
+| Profile | Solid output per separation batch | Small occurrence | Medium occurrence | Large occurrence |
+| --- | --- | ---: | ---: | ---: |
+| Iron-silica | 8 crushed Banded Iron, 2 crushed Quartzite | 50% | 60% | 70% |
+| Gold-cobalt | 2 crushed Gold, 1 crushed Cobaltite | 20% | 20% | 18% |
+| Sc-bearing bauxite | 8 crushed Bauxite, 1 Sc concentrate dust | 25% | 16% | 10% |
+| Platinum-bearing | 4 crushed Platinum | 5% | 4% | 2% |
 
-The owner prefers the new extraction and recovery direction while retaining more of the original proposal's material variety. This does not approve the initial flat-yield recipe table as a whole.
+Smaller craters are more likely to contain valuable profiles, while larger ones favor bulk feedstock. These are conditional profile probabilities within a size class, not crater density or finished-metal abundance. They sum to 100% in each class. No platinum companion is added to iron-silica.
 
-- Use normal GT deposits and material forms for iron, platinum, gold, cobalt and aluminium as the material direction. Do not create origin-only raw variants such as Rough Asteroidal Gold or Natural Asteroidal Cobalt. Existing normal processing and progression requirements remain in place.
-- Scandium is uncertain, not selected. Investigate the original Al-Sc inspiration, real sources and existing GT acquisition before recommending an advanced route.
-- Fracking produces a fixed amount of enriched output per operation while its input-fluid requirement increases with the crater's shared history. The owner explicitly accepted this behavior. It does not select a 1,000 mB output batch, the initial cost or a growth curve.
-- Space-Grade Alloy needs several ways of entering production with different processing complexity and returns. The simple route is less efficient, the intermediate route is more efficient, and the demanding advanced route offers the best return. These are routes to one product, not different item grades.
-- The iron-based route should be the weakest return. Gold and cobalt are the owner's working intermediate example, not final quantitative recipes. The advanced composition remains open. Do not silently choose aluminium-scandium.
-- The chemistry should have meaningful stages and recovery choices. The previous equally simple, equal-yield Fe/Al/Si alternatives are insufficient as the final content proposal.
+The separate 70% Small, 25% Medium and 5% Large size-class mix remains **unapproved**. Overall crater density, standard deviations and richness-response coefficients remain open. The structural generation model stays in the crater review ticket.
 
-## AFK Design Round
+### Initial Reserves
 
-The owner authorized a broad write-up, parallel investigation and brainstorming while away. Produce a complete comparison of alternative route sets, full proposed recipes, yields, material and energy costs, fracking behavior, real-world inspiration and progression risks. Distinguish existing-code facts from proposed gameplay values. The owner will review the report on return. This authorization does not approve new content choices or implementation.
+A reference portion equals the solid output from one accepted 16000 mB separation batch. These nominal reserves apply at the originating size class's mean diameter.
 
-Use [[Sources]] for unreviewed research intake. The final recommendations remain proposals until reviewed with the owner. Do not turn this round into a stored implementation plan.
+| Profile | Small portions | Medium portions | Large portions |
+| --- | ---: | ---: | ---: |
+| Iron-silica | 2000 | 6000 | 16000 |
+| Gold-cobalt | 1000 | 3000 | 8000 |
+| Sc-bearing bauxite | 500 | 1500 | 4000 |
+| Platinum-bearing | 250 | 750 | 2000 |
 
-[[Lunar Extraction And Alloy Design Report]] contains the AFK proposal packet and the owner's subsequent revisions. The 2026-10-11 direction below supersedes its former primary recovery-ladder recommendation. Historical calculations are not accepted balance or a resolution of this ticket.
+Apply the profile's richness response to actual diameter, then a once-only initial-reserve multiplier of approximately 0.9 to 1.1. The result belongs to the shared crater. Binding, replacement, scanning and reload do not reroll it. Variation affects finite reserve only, not composition, operation output or fracking slope. At mean diameter, Small iron has 1800 to 2200 portions and Small platinum has 225 to 275.
 
-## Accepted Owner Revisions, 2026-10-11
+### Linear Fracking Growth
 
-### Material Role And Feedstock Equivalence
+The accepted working loop starts at 16000 mB Drilling Fluid per reference portion, with 16000 mB enriched output and 16000 mB usable carrier recovered. Startup still requires full circulating inventory. Subsequent input grows linearly with the crater's cumulative fracking portions. Extra input is lost underground, not converted to additional minerals.
 
-- Register Space-Grade Alloy as a GT5 material with ordinary metal forms and generated basic processing, rather than a standalone ingot item. Final content ownership remains GT5 under [[Design Early Orbital Production Recipe Chain]]. This decision selects the intended material and generator capability, not immediate upstream implementation.
-- The alloy is the common bulk construction material for space equipment and infrastructure. Its production must support sustained mass manufacture as the project grows. Do not store speculative megastructure designs or fixed future consumption targets as Alpha requirements.
-- Different feedstock compositions provide different amounts of the same mechanically equivalent construction material. Less capable feedstock needs more input for the same useful SGA output. The lower output is not automatically processing loss or recoverable waste.
-- Independent composition routes are the main design. Slag recovery remains a possible addition, not the mechanism that defines every efficiency band or erases their differences.
-- The owner's examples are 10 Iron + 1 Silicon yielding 2 SGA, 5 Gold + 2 Cobalt yielding 4 SGA, and 10 Aluminium + 1 Scandium yielding 11 SGA. These illustrate equivalent-output ratios, not selected recipe quantities, confirmed chemistry or approval of a Sc supply line.
-- Use full dusts in this lunar alloy and recovery chain. Do not design around tiny or small dust piles. This does not automatically revise unrelated previously recorded production chains.
-- The owner accepts adding the selected normal mineral resources to lunar crater profiles even where the checked default Moon ore mixes do not contain them. Exact abundance, profile composition and operation yields remain open. Missing default placement is no longer an owner-approval blocker.
-- Existing ordinary refining still applies. Do not bypass platinum, cobalt, aluminium or titanium processing by emitting finished metal directly from an enriched fluid.
+| Profile | Preceding fracking portions at 32000 mB input | Input after 1000 preceding portions |
+| --- | ---: | ---: |
+| Iron-silica | 8000 | 18000 mB |
+| Gold-cobalt | 4000 | 20000 mB |
+| Sc-bearing bauxite | 2000 | 24000 mB |
+| Platinum-bearing | 1000 | 32000 mB |
 
-### Generated Material Processing And Recycling
+These costs apply to the next reference portion, not the cumulative average. Growth has no cutoff or reset. Finite mining does not advance fracking history. Multiple extractors claim successive positions in the same history rather than separate cheap starts. At the doubling point, each portion needs 16000 mB replacement carrier. Cleanup machine settings remain unapproved.
 
-- No Atmosphere applies to SGA processing and recycling, including its generated basic metal-processing recipes, not only first alloy manufacture. No gravity requirement is added.
-- The GT material recipe generator must accept environmental requirements and attach them to the recipes it generates for a material. Use the shared recipe-environment condition, not a separate per-machine or hardcoded SGA-only check.
-- The former proposal allowing unrestricted SGA plate-making, remelting or recycling on an atmospheric world is superseded.
-- Material conversion and recycling preserve canonical SGA quantity. Do not decompose the shared material into a chosen source composition or precious metals, since origin is not retained.
-- Concrete form coverage, generator integration and the location of the temporary prototype are implementation concerns under the existing content-staging policy. This discussion does not launch or expand the separate recipe-environment implementation task.
+## Accepted SGA Manufacturing
 
-### Fracking Recovery And Balance Order
+All three recipes use an EBF at 480 EU/t, require No Atmosphere and have no Microgravity requirement. Outputs are canonical SGA ingots. Finished metal inputs preserve ordinary refining and Sc metal finishing.
 
-- Initial fracking should recover approximately as much carrier fluid as it consumes. A perfect initial loop or slight initial loss is acceptable. Progressive shared crater use creates an increasing replacement-fluid requirement while enriched mineral output remains fixed.
-- This supersedes a mandatory continuing fluid loss from the very first operation and the report's proposed 25% initial loss. It does not select an exact zero-loss ratio. The owner subsequently accepted Drilling Fluid provisionally as recorded below.
-- First select normal resource output per extraction operation and downstream usable yield. Then balance fluid cost and deterioration around the value and abundance of that output. Do not begin by choosing a fixed number of operating hours for every crater.
-- Fracking cost growth is profile-dependent. Common iron-bearing material should have gentler growth than valuable platinum-bearing material. A single identical numerical growth schedule for all profiles is not selected.
-- Voltage, duration, battery requirements and processing capacity will be evaluated against actual chosen recipes. The AFK energy and throughput examples are not accepted targets.
+| Route | Inputs | Output | Base time | Heat | Target coil tier |
+| --- | --- | --- | ---: | ---: | --- |
+| Fe-Si | 10 Iron ingots, 1 full Silicon dust | 2 SGA ingots | 40 s | 3600 K | Nichrome |
+| Au-Co | 5 Gold ingots, 2 Cobalt ingots | 4 SGA ingots | 80 s | 4500 K | TP Alloy |
+| Al-Sc | 10 Aluminium ingots, 1 Scandium ingot | 11 SGA ingots | 220 s | 5400 K | HSS-G |
 
-## Scandium Acquisition Investigation
+Use normal GT heat checks, including voltage bonuses, rather than a strict coil-material restriction. The starting infrastructure target is HV. Heat settings do not independently select a material melting point or hot-ingot stage. Material registration and generated processing must remain coherent with the final properties.
 
-The owner recalls an existing Monazite or Bastnasite processing source and requested a GT5, CoreMod and pack acquisition audit. The prior bounded default-ore audit did not establish a source and must not be generalized to all recipe chains. Findings enter [[Sources]] first. Aluminium-scandium remains a composition candidate until its supply line and recipe are reviewed.
+Each route uses 20 base seconds and 192000 thermal EU per SGA before overclocking and heat discounts. Fe-Si trades common supply for high material demand. Au-Co lowers input volume without a Sc refinery but competes with other precious-metal uses. Al-Sc has the best material-equivalence ratio and pays for aluminium refining, Sc chemistry and metal finishing. Supply, transport, competing demand and machine capacity must establish their situational value.
 
-The 2026-10-11 audit found positive acquisition in the pack's Blood Magic Chinfinity meteor profile. It includes endstone Scandium ore, consumes a ZPM Circuit Assembler focus and costs 80,000,000 life essence. Actual ore yield is weighted and random. Normal ore conversion can supply Sc dust, with generated EBF and cooling routes available when metal ingots are needed. This is source evidence, not a demonstrated running-pack summon or approval to require Blood Magic for SGA. [Meteor configuration](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/blob/83b3fb26cd9979e0256c7568bdf8c6f87579b532/config/BloodMagic/meteors/Chinfinity.json#L34-L39), [focus identity](https://github.com/GTNewHorizons/GT5-Unofficial/blob/03f76356146f497c6c8f21d9225fe28de57136a1/src/main/java/gregtech/api/enums/MetaTileEntityIDs.java#L703)
+Optional residue processing may recover real impurities or byproducts. It must define their contents and costs, preserve No Atmosphere for SGA recovery, and avoid repeatedly processing the same residue. No residue identity, recovery ratio or automatic recovery of the input/output deficit is selected.
 
-Direct inspection of the current Monazite/Bastnasite recipe owner found Samarium-related outputs and no named Scandium output in that owner or its material pool. This is bounded current-source evidence, not proof of all-version or all-mod exclusivity. The absolute earliest Sc access and full magic unlock chain were not established. Choose whether an existing high-gate source, a newly authored ordinary-resource source or a non-Sc advanced composition supplies the eventual bulk route. Do not treat source discovery as owner approval of one option.
+## Accepted Sc Supply And Processing Direction
 
-## Follow-Up Owner Direction, 2026-10-11
+New primary Galaxia Sc acquisition is crater-exclusive, starting with lunar Sc-bearing bauxite profiles. This is not a new ore identity. Sc is separated from enriched extraction fluid before ordinary Bauxite follows its unchanged refining line. Ordinary Bauxite Slag, general overworld refining and non-crater ore generation are not additional primary Sc sources. No lunar-origin tags are needed.
 
-The owner reports that Discord review resolved their earlier Scandium/Samarium confusion. Sc is not the progression-critical rare-earth material they had feared changing. The incidental meteor source does not require Galaxia's future bulk alloy chain to inherit its acquisition gate. Consider adding normal lunar Sc feedstock and a short processing line inspired by the original Al-Sc proposal. This is authorization to design the candidate, not approval of exact placement, intermediate identities, yield or recipes. Record the consumer audit's bounded evidence separately rather than asserting that every possible Sc interaction is absent.
+The existing late Blood Magic Chinfinity meteor source remains unchanged. It contains weighted endstone Scandium ore, consumes a ZPM Circuit Assembler focus and costs 80000000 life essence. Its gate does not set the new Galaxia supply gate. The checked Monazite/Bastnasite recipe owner supplies Samarium rather than a named Sc output. The bounded GT/CoreMod consumer audit did not find an authored progression-critical Sc ingredient. Neither finding proves all-mod absence.
 
-The follow-up found no authored Sc ingredient in the checked GT/CoreMod progression recipes. Positive named references are registration, form conversion, display/storage and conditional generic plasma-fuel handling. No active ordinary Sc-to-plasma route was established. This supports removing the assumed unrelated technology-gate blocker, not a guarantee about every external mod or future recipe.
+### Finite Dry And Wet Sc Mining
 
-The coordinator's earlier short-chain candidate uses existing Bauxite Slag from normal bauxite refining, nitric-acid leaching, a proposed Scandium Oxide intermediate and EBF reduction to normal Sc dust. [[Lunar Extraction And Alloy Design Report]] contains the original six-stage comparison and the candidate. No oxide or leach recipe is approved. Following the owner's situational-route requirement below, broad cheap byproduct recovery is an option to compare, not the selected recommendation. Reusing ordinary Bauxite Slag would also permit non-lunar feedstock. Do not add origin metadata to normal bauxite or claim that the existing slag already yields Sc.
+Wet ordinary mining is available from the beginning and supplies enriched fluid. Dry mining directly yields the same accepted batch of 8 crushed Bauxite and 1 Sc concentrate dust, bypassing separation and carrier cleanup. Both consume the shared finite reserve. Dry mining has a 10% chance to consume twice the normal reserve portion and a 90% chance to consume the normal portion, with unchanged output. Its expected reserve cost is 1.1 portions. The penalty affects reserve only, not energy or duration.
 
-Drilling Fluid is accepted as the initial fracking carrier for now. The owner considers it a reasonable gameplay compromise despite reservations about the lore. Reuse its existing standard GT manufacture rather than introducing a parallel replacement-fluid recipe by default. This provisional choice does not approve the older carrier-loss ratio, processing rows or deterioration curve.
+Wet mining is more resource-efficient, not necessarily cheaper in every energy or infrastructure comparison. It cannot start fracking before exhaustion. Once the finite reserve is exhausted, only fluid-dependent fracking continues. Extension of this dry/wet behavior to the other profiles remains unapproved.
 
-The existing three-size generation and profile model remains the starting point for concrete balance. [[Review Crater Nodes Proposal]] owns the recorded Small/Medium/Large distributions, per-size profile weights, richness response and shared reserve accounting. Do not ask the owner to select these structural relationships again when tuning the output of a profile.
-
-## Accepted Situational-Route Goal, 2026-10-11
-
-The owner requires three credible alternative ways to manufacture the same SGA, not a ladder whose highest output universally replaces the others. Feedstock equivalence remains the model, but output ratio alone is not the complete production cost. Each composition should have a meaningful reason to be preferred under different supply, infrastructure or demand conditions. Do not assume players will voluntarily use an inferior route or require every player to build all three.
-
-Sc supply must be considered together with its actual demand. A new Sc line used only for plentiful SGA could make the advanced route an obvious default once automated. Real-world industrial applications are being researched to identify worthwhile competing uses. Such applications are proposals, not permission to add unrelated mandatory Alpha chains.
-
-The owner also requested a check of Sc oxidation as a possible rationale for No Atmosphere processing. Investigate metal, powder and heated processing separately from stable oxides and aqueous compounds. No new Sc environmental restriction is accepted yet. Reactivity could justify selected metal-processing stages, not automatically every recipe with a Sc-containing ingredient. Physical inert-gas protection and vacuum are not assumed to be the same condition.
-
-The owner raised several possible supply constraints: a source outside Luna, later access, low abundance, or rationing between several useful consumers. None is selected merely by being mentioned. Compare their advantages and failure modes before selecting source placement, processing and recipe values. No unsupported claim of unrelated GT progression risk is needed to justify a deliberately constrained Galaxia source.
-
-Late access alone does not establish a continuing role for older routes after unlock. Competing uses alone do not establish scarcity if production scales cheaply. Extra processing steps alone do not establish a meaningful recurring cost once the factory is built. Evaluate complete ingredient, operating and throughput costs with representative local supply conditions.
-
-## Working Satellite And Furnace Variant Direction, 2026-10-11
-
-The owner suggested satellite uses for RF and laser-inspired Sc parts. Treat RF hardware as a candidate for later Communication Satellite components and Sc-containing optics as a candidate for later Prospecting Satellite components. They want scientifically inspired gameplay, not a complete industrial simulation. These are proposed consumers, not approved changes to the established early satellite recipes or new mandatory Alpha chains. Components need an actual selected equipment benefit before becoming mere extra ingredients.
-
-The owner supplied a concrete example for the GT recipe-variant feasibility investigation: blast-processing Sc dust without atmosphere produces Sc ingots, while processing in atmosphere produces some Sc ingots and some Sc oxide that can be electrolyzed back into Sc dust. This is a working alternative to a hard No Atmosphere prohibition for that Sc operation. It does not relax the accepted SGA restriction. The coordinator understands the spoken ABF reference as the Sc EBF discussed in this chain, not a selected different machine.
-
-The output split is not quantified or implemented. Atmospheric processing should retain Sc through the ingot and oxide outputs, with recovery costing extra machine work rather than deleting the element. Oxide quantities must be consistent with the chosen material definition and electrolysis recipe. Equal raw item counts do not establish elemental conservation. Use full dusts, including complete batches for oxide recovery.
-
-The initial read-only feasibility pass recommended two ordinary static variants as the least-change representation for this fixed-input case. The owner subsequently rejected that representation as recorded below. Existing query filtering and multi-candidate storage remain useful evidence about reuse, not approval to admit duplicate recipes. Basic-machine selection, dual-input caches, recipe locks/restoration and retained-operation requirements still need coherent handling. Keep this research separate from the already bounded environment-integration implementation task. Detailed unreviewed evidence remains under [[Sources]].
-
-The owner then clarified the desired lookup model: one common input entry identifies a recipe family, and environmental selection happens only inside that family's subset. They are concerned about avoidable search overhead from independently indexed duplicate recipes, not proposing global recipe mutation or choosing outputs only after processing. Shared input matching, variant selection and operation execution are separate responsibilities. This is a design requirement to evaluate against the existing GT index, not approval of a new recipe store or a native GT implementation.
-
-The follow-up confirms that ordinary GT lookup already reuses normalized input paths and leaf candidate lists. More recipe objects do not inherently imply a full-map scan. An explicit family adds common-input ownership, once-per-family validation and clearer cache/profile semantics, rather than merely inventing indexing that GT lacks. It is a larger native GT data-model change than the earlier ordinary-variant option. The performance requirement remains a local choice within the found family, with no separate feature-local search system. No speedup or lag claim is benchmarked.
-
-### Accepted Recipe Family Direction, 2026-10-11
-
-The owner selected a first-class Recipe Family with common production inputs and explicitly represented environmental variants. Do not implement this as independent same-input recipes admitted through collision suppression, or as an authoring wrapper that expands into those entries. Such duplicate registration is unacceptable to the owner, including when optional recipe deduplication is enabled.
-
-The family is one logical input registration with local variant selection. This does not promise exactly one physical trie node, since existing alias indexing can create several paths. Reuse the existing GT ingredient index and recipe ownership rather than creating a parallel Galaxia search system. The reason for this choice is explicit ownership and compatibility with collision and deduplication handling, not a demonstrated need to replace the optimized lookup.
-
-Select the complete applicable variant before output protection and input consumption. A display may expose alternative outcomes without turning them into independent colliding production registrations. Family support must preserve intentional alternatives through collision and deduplication handling. The optional deduplication implementation was not inspected in the preceding research, so that compatibility is a requirement to verify, not an established implementation fact.
-
-The owner accepted locking the family, not the currently selected environmental variant. A lock preserves the production definition while each new operation selects an applicable variant from current conditions. This does not authorize replacing the outputs of an operation that has already committed its inputs. Ambiguous eligible variants remain an unresolved selection constraint. The absent-Galaxia development case is settled below. This decision approves the model, not implementation, a new GT modification scope or exact Sc recipe values.
-
-### GT-Only Development Boundary, 2026-10-11
-
-The owner clarified the intended deployment: Galaxia depends on GT, and the intended GTNH gameplay includes Galaxia. Playing this future integrated pack without Galaxia is not a supported gameplay target. This is an intended deployment boundary, not a claim that current GTNH releases already require Galaxia.
-
-GT must still be convenient to develop and launch without Galaxia. The owner selected omission of Galaxia-dependent environmental family variants in that case. Do not register those variants for production or recipe display. If no variants remain, omit the family itself rather than retaining an empty or disabled entry. This is registration-time omission, not removal of source definitions or a runtime switch.
-
-No synthetic environment, substitute output, per-family development default or visible-but-disabled family is required. Testing those variants requires Galaxia. The earlier absent-mod rule for ordinary environmental requirements remains distinct and unchanged. Unresolved environmental data while Galaxia is present must not trigger this omission rule.
-
-## Accepted Crater Progression And Sc Supply, 2026-10-11
-
-The owner requires crater extraction to be important to Galaxia progression, not merely an optional source of cheap construction feedstock. Scandium is selected as a crater-exclusive primary resource. Selected lunar crater profiles are the current starting source direction. This does not restrict every future Sc-bearing crater to Luna or approve numerical abundance, operation yields or the Al-Sc recipe ratio.
-
-Do not add primary Sc acquisition from ordinary Bauxite Slag, general overworld refining or non-crater ore generation. The former broad slag-recovery candidate is rejected under this source rule, not still awaiting an economic comparison. Processing, oxide recovery and recycling of already acquired Sc remain valid and must not create additional elemental Sc. No lunar-origin metadata or separate origin-labelled Sc material is wanted.
-
-The owner explicitly excluded the existing Blood Magic Chinfinity meteor from this source restriction. Its acquisition is much later than the planned Galaxia Sc access, so it is irrelevant to the intended early progression gate. Leave that source unchanged. Crater-exclusive acquisition applies to the newly designed Galaxia supply routes, not an absolute prohibition on every later external source in the pack.
-
-Crater-specific resources must have actual selected progression uses. Exact research, equipment or technology consumers remain to be chosen. Do not make SGA itself a technology-tier gate, require every player to use every alloy composition, or turn all Galaxia progression into one fixed crater itinerary. Shared reserve and fracking history remain the cost model. Source exclusivity alone does not establish continuing economic balance between the three SGA routes.
-
-### Accepted Sc-Bearing Bauxite Profile
-
-The owner selected a crater deposit concept described as scandium-rich bauxite without creating a new ore block or origin-specific raw item. Its resource-enriched extraction fluid is processed into ordinary Bauxite and Sc-bearing products. The deposit composition is represented by the Crater Material Profile and its distinct enriched-fluid identity, not by tagging ordinary Bauxite with its origin.
-
-Recover Sc from that fluid before the normal Bauxite branch. Ordinary Bauxite and its normal refining remain unchanged and do not become generic Sc sources. Do not substitute direct Sc ore output for the selected fluid-processing branch or revive the rejected global Bauxite Slag recovery route. Chemical intermediates with an actual processing role remain possible, but their identities, recipes and yields are not selected by this decision.
-
-The owner selected two alternatives during finite ordinary mining of this profile. With Drilling Fluid, the extractor produces enriched fluid and uses the crater reserve efficiently. Without the fluid, it directly produces ordinary Bauxite and Sc concentrate, with a small irreversible loss of useful deposit material. The dry branch joins the accepted chemistry after mineral separation. It does not require a new ore identity or yield directly usable Sc metal.
-
-Both alternatives consume the same shared initial reserve. Dry mining must reduce usable yield per unit of reserve, not merely run more slowly while eventually recovering the same material. Wet extraction is available from the beginning but does not bypass exhaustion or begin unlimited fracking early. After the finite reserve is exhausted, dry extraction cannot continue, and the existing fluid-dependent fracking stage with increasing input cost remains.
-
-On 2026-10-12 the owner selected a 10% chance for a dry ordinary-mining operation to consume twice its normal share of the crater reserve. The other 90% consume the normal share. Output is unchanged in either outcome. The doubled charge applies to reserve consumption, not energy, duration or output, and replaces the coordinator's proposed fixed 1.1 multiplier. It gives an expected reserve cost of 1.1 times the normal charge. This is accepted working tuning, not an implemented feature.
-
-Operation quantities remain open. The coordinator's same-solid-batch proposal is still a proposal. Compare the saved separator and carrier-cleanup work with the cost of using up the site sooner. The owner selected better resource efficiency for wet mining, not a requirement that it dominate every energy or infrastructure comparison.
-
-### Accepted Sc Processing Skeleton
-
-The owner accepted the following four-stage processing direction. It replaces the prior broad Bauxite Slag acquisition candidate. It does not approve quantities, voltage, duration, exact material definitions or selected recipe maps.
+### Accepted Chemistry Skeleton
 
 | Stage | Inputs | Outputs |
 | --- | --- | --- |
-| Mineral separation | Enriched Sc-bearing bauxite extraction fluid | Ordinary Bauxite, Sc concentrate and spent carrier |
-| Leaching | Sc concentrate and Diluted Nitric Acid | Sc solution and mineral residue |
-| Precipitation | Sc solution and Sodium Hydroxide | Scandium Oxide and spent solution |
-| Reduction | Scandium Oxide and Calcium | Normal Scandium dust and Quicklime |
+| Mineral separation | Enriched Sc-bearing bauxite fluid | Ordinary Bauxite, Sc concentrate, spent carrier |
+| Leaching | Sc concentrate, Diluted Nitric Acid | Sc solution, mineral residue |
+| Precipitation | Sc solution, Sodium Hydroxide | Scandium Oxide, spent solution |
+| Calcium reduction | Scandium Oxide, Calcium | Normal Scandium dust, Quicklime |
 
-The concentrate is a useful production intermediate, not a new ore identity. The ordinary Bauxite branch retains its existing aluminium processing. Carrier cleanup is separate from the four Sc stages. Chemical residues and reagent recovery must be accounted for in concrete recipes, not silently treated as perfectly recycled.
+Use one canonical Scandium Oxide. Oxide electrolysis is also a recovery option, including oxide from precipitation. Calcium reduction is an alternative, not an artificially mandatory final step. Metal ingot production remains separate. No blanket environmental prohibition is selected for every Sc chemical stage.
 
-The selected skeleton can supply Sc dust to alloy manufacture and other parts. Metal ingot production remains distinct and may use the discussed environmental EBF family. Do not add another environmental prohibition to every chemical stage merely because the chain contains Sc. Detailed recipes must use full dust batches and remain coherent with GT material units and any generated compound processing.
+Defined compounds follow [GTNH Chemical Balance](https://wiki.gtnewhorizons.com/wiki/Chemical_Balance), including its different solid, fluid and compound rules. Undefined extraction mixtures have tunable concentrations, not invented formula-derived coefficients. Chemistry, carrier recovery and upstream reagent supply need separate accounting.
 
-The earlier oxide-to-Sc electrolysis direction also applies to oxide from precipitation. Use one canonical Scandium Oxide rather than provenance variants. Calcium reduction is therefore an alternative metal-recovery route, not an artificially mandatory final step. Compare its operating cost and capacity with electrolysis when proposing concrete recipes. This consequence does not select energy or throughput values.
+### Quantitative Sc Refinery Proposal, Unapproved
 
-The owner clarified that the quantitative draft needs finetuning, not rejection of its recipes or their order. Retain the original separation, leaching, precipitation and recovery direction. Larger useful output batches can require larger fluid input batches. The owner's example of 10000 mB for eight Bauxite and a Sc-bearing product is illustrative, not a chosen volume or output form. The coordinator's rejected-table status and proposed one-mineral-per-operation cap are withdrawn in [[Lunar Extraction And Alloy Design Report]].
+The processing sequence is accepted. The following downstream quantities, costs, machines and unspecified mixture compositions remain proposals. The separation recipe above is already accepted and is not included as a proposal here.
 
-Input and output batches need not be identical, small or matched directly between consecutive recipes. Accumulation and splitting are allowed. For materials with defined chemical formulas, follow [GTNH Chemical Balance](https://wiki.gtnewhorizons.com/wiki/Chemical_Balance), including its different solid, fluid and bracketed-compound rules. The owner explicitly excludes undefined mixtures such as scandium-rich bauxite from fixed formula-derived coefficients. Their concentrations and extraction yields are design and tuning choices. This does not approve any particular number or turn raw mineral extraction into a closed material-creation loop.
+| Operation | Inputs | Outputs | Machine | Base EU/t | Base time |
+| --- | --- | --- | --- | ---: | ---: |
+| Leaching | 12 Sc concentrate dust, 6000 mB Nitric Acid, 3000 mB Water | 9000 mB Sc solution, 10 Stone dust | LCR | 480 | 60 s |
+| Precipitation | 9000 mB Sc solution, 18 Sodium Hydroxide dust | 5 Scandium Oxide dust, 9000 mB spent leach solution | Chemical Reactor | 120 | 30 s |
+| Calcium reduction | 5 Scandium Oxide dust, 3 Calcium dust | 2 Scandium dust, 6 Quicklime dust | EBF, proposed 1814 K | 120 | 24 s |
+| Direct electrolysis | 5 Scandium Oxide dust | 2 Scandium dust, 3000 mB Oxygen | Electrolyzer | 120 | 80 s |
 
-### Accepted Initial Sc Components And Wider Use Goal
+Twelve separation batches supply the proposed two Sc dust alongside 96 crushed Bauxite from 192000 mB enriched fluid. This is a dilute coproduct yield, not a chemical formula or a proof of economic balance.
 
-The owner accepted RF Resonator for upgraded Communication Satellites and Laser Crystal for upgraded Prospecting Satellites as the initial component-design direction. Established first-satellite recipes remain unchanged and do not gain a Sc prerequisite. Exact component compositions, device benefits, recipes and upgrade availability remain open.
+Existing Quicklime electrolysis can recycle Calcium. Three 30 EU/t, 56-tick operations recover the six Quicklime from reduction. Proposed reduction plus recycling uses 62640 EU per two Sc dust, compared with 192000 EU for direct electrolysis, before overclocking. The tradeoff is circulating Calcium and more machinery. No Sc is deliberately destroyed.
 
-These two parts are not the desired limit of Sc use. The owner wants additional meaningful Sc applications, including recipes outside Galaxia-specific content. Future proposals should compare actual consumers, benefits and supply impact rather than adding arbitrary Sc ingredients. This direction does not authorize immediate GT source changes, replacement of unrelated progression gates or every suggested industrial application. Existing content-staging and maintainer-coordination boundaries remain in force.
+The direct electrolysis cost is authored. It must not coexist with a cheaper accidental generated duplicate. Default source-derived generation would predict 30 EU/t for 6.5 s. Which generator behavior and costs to use remains open. Fluid hatch capacities and actual throughput also need verification.
 
-### Accepted Reagent Supply And Recycling Requirement
+### Accepted Reagent Recovery
 
-The owner requires accounting for upstream reagent production and local lunar supply, not just energy used by the Sc refinery. They identify lunar SaltWater as an available source for NaOH, but require at least some reagent recycling. No recovery ratio is selected by that requirement.
+Recover approximately 90% of Nitric Acid and NaOH as initial working tuning. Lunar SaltWater is an accepted supply input for NaOH. Preserve existing pure-material reactions. Recovery loss belongs to separation of the undefined contaminated solution, not reduced outputs in existing chemistry.
 
-Nitric Acid supply is a greater concern because Luna lacks atmosphere and ammonia production is expensive. Prefer investigating recovery of nitrogen-bearing spent chemistry and reuse of existing GT recipes before assuming continuous fresh acid manufacture or adding another parallel reagent chain. This does not claim that every existing Nitric Acid recipe requires ammonia or an atmospheric location. Gas acquisition, processing and transport remain separate costs to verify.
+| Status | Inputs | Outputs | Machine | Base EU/t | Base time |
+| --- | --- | --- | --- | ---: | ---: |
+| Accepted new recipe | 9000 mB spent Sc leach solution | 27 existing BartWorks Sodium Nitrate dust, 6000 mB Water | Distillery | 120 | 90 s |
+| Existing acid exchange | 10 Sodium Nitrate dust, 1000 mB Sulfuric Acid, selector 1 | 2000 mB Nitric Acid, 7 Sodium Sulfate dust | Chemical Reactor or LCR | 480 | 10 s |
+| Existing sulfate recovery | 7 Sodium Sulfate dust, 2 Hydrogen cells | 2 Sodium dust, 1000 mB Sulfuric Acid, 2 empty cells | Chemical Reactor or LCR | 30 | 1.5 s |
+| Existing NaOH recovery | 1 Sodium dust, 1000 mB Water, selector 1 | 3 Sodium Hydroxide dust, 1000 mB Hydrogen | Chemical Reactor or LCR | 30 | 10 s |
 
-The prior proposed once-through acid and NaOH handling is superseded by the owner's accepted recovery direction below. Preserve chemical-balance rules for defined compounds and do not change existing pure-material recovery recipes merely to enforce a lower yield. Inefficiency is represented in separating usable compounds from the new undefined contaminated solution.
+Use the existing BartWorks nitrate and sulfate identities. Sulfuric Acid and Hydrogen circulate as startup inventories. Sulfate recovery consumes filled cells and returns empties. Sodium hydration returns gas, so ordinary filling or LCR cell conversion must handle it.
 
-The owner accepted the nitrate recovery loop with approximately 90% recovery of both Nitric Acid and NaOH as the initial working tuning. The new Distillery step processes 9000 mB spent Sc solution into 27 existing BartWorks Sodium Nitrate dust and 6000 mB Water at 120 EU/t for 90 s. Reuse the existing nitrate-to-acid, sulfate-to-sodium and sodium-to-NaOH recipes without changing their outputs. Sulfuric Acid and Hydrogen are circulating startup stocks, with gas/cell handling supplied by ordinary GT capabilities. These are accepted content settings to test, not implemented or immutable balance.
+With the current proposed refinery batches, ten batches yield twenty Sc dust and consume 60000 mB acid plus 180 NaOH dust before recovery. The loop returns 54000 mB acid and 162 NaOH dust, leaving 6000 mB acid and 18 full NaOH dust as replacement demand. Buffer whole reaction batches rather than using fractional dust. The three missing nitrate-dust equivalents per refinery batch are discarded contamination, not a repeatedly recoverable output.
 
-For ten current refinery batches producing twenty Sc dust, working replacement demand is 6000 mB Nitric Acid and 18 full NaOH dust rather than 60000 mB acid and 180 dust. Recipe batching and buffered leftovers remain independent. [[Lunar Extraction And Alloy Design Report]] retains the full recipe table and arithmetic. No new ammonia-free lunar gas source or unconditional energy-saving claim is selected by this recovery decision.
+Fresh acid still needs a supply route. An existing LCR recipe uses 3000 mB Hydrogen, 1000 mB Nitrogen and 4000 mB Oxygen for 1000 mB Nitric Acid and 1000 mB Water at 480 EU/t for 16 s. The ammonia-input acid recipe is 30 EU/t for 16 s before feedstock costs. Neither establishes local lunar Nitrogen or an unconditional energy advantage. Gas acquisition, transport and recovery capacity remain costs to verify.
 
-## Remaining Content Decisions
+## Accepted Recipe Family Model
 
-On 2026-10-14 the owner accepted the complete three-recipe SGA manufacturing packet in [[Lunar Extraction And Alloy Design Report]] as working content settings. Fe-Si uses 10 Iron ingots and 1 full Silicon dust for 2 SGA at 3600 K for 40 s. Au-Co uses 5 Gold ingots and 2 Cobalt ingots for 4 SGA at 4500 K for 80 s. Al-Sc uses 10 Aluminium ingots and 1 Scandium ingot for 11 SGA at 5400 K for 220 s. All use the EBF at 480 EU/t with No Atmosphere and no Microgravity requirement. Target coil tiers are Nichrome, TP Alloy and HSS-G, using normal GT heat checks rather than a new coil-material restriction. These settings are accepted for testing and tuning, not implemented or demonstrated whole-chain balance.
+Environmental alternatives belong to a first-class Recipe Family with common production inputs, one logical input registration and local variant selection. Reuse GT ingredient indexing and recipe ownership. Do not expand the family into independently colliding same-input recipes or rely on collision suppression and optional deduplication to admit them.
 
-On 2026-10-14 the owner also accepted the revised four-profile lunar packet in that report. Per 16000 mB enriched fluid, separation yields eight crushed Banded Iron and two crushed Quartzite, two crushed Gold and one crushed Cobaltite, eight crushed Bauxite and one Sc concentrate, or four crushed Platinum respectively. Each uses the Centrifuge at 120 EU/t for 40 s and outputs 16000 mB spent carrier. The qualitative abundance order and eligibility in all three size classes are selected. These are working settings, not verified final balance. The matching dry Sc solid batch is selected under the existing loss rule. Numeric occurrence weights, initial reserves, extraction timing and fracking deterioration remain open.
+Select the complete immutable effective recipe before output protection and input consumption. A display may show alternatives without separate production registrations. Lock the family, not the current environmental variant. Each new operation selects from current conditions, while committed operations retain their selected outcome. Ambiguous eligible variants remain an open selection constraint. Collision, deduplication, cache and lock handling must preserve the family contract.
 
-On 2026-10-14 the owner accepted that report's nominal initial-reserve table and linear profile-dependent fracking growth as working tuning. The four profiles start at 2000/1000/500/250 reference portions for Small, 6000/3000/1500/750 for Medium and 16000/8000/4000/2000 for Large. Input begins at 16000 mB per reference portion and reaches 32000 mB after 8000/4000/2000/1000 shared fracking portions respectively, while recovered carrier and mineral output stay fixed. The owner added approximately plus or minus 10% random initial reserve variation. Apply it once to the size/profile-adjusted reserve, shared by all extractors, without rerolls or variation in operation outputs and fracking slopes. Exact cleanup and extractor settings still require review.
+GT-only development omits Galaxia-dependent environmental variants from registration and recipe display. A family with no remaining variants is omitted too. No substitute outcome or synthetic environment is selected. This registration rule does not apply to unresolved environmental data while Galaxia is present. The intended integrated gameplay includes Galaxia, while GT must still launch conveniently without it for development.
 
-The current round proposes relative class and per-class material occurrence weights in that report. Overall crater density and richness response coefficients remain separate open tuning. Preserve the selected shared-state, initial-reserve and fracking-cost rules.
+### Sc EBF Variant Proposal, Unapproved
 
-- Complete carrier cleanup and extractor operation settings around the accepted mineral separation recipes and provisionally accepted Drilling Fluid supply.
-- Select numeric occurrence weights, overall generation density, richness response and extraction throughput for the four accepted profiles, preserving ordinary processing and the selected dry Sc batch.
-- Complete enriched-fluid carrier cleanup around the accepted initially closed loop and linear progressive loss. Increased fracking input creates a higher continuing supply burden rather than proportionally duplicating resource output.
-- Evaluate the accepted three alloy recipes against concrete feedstock supply and actual construction uses. Any supplementary residue processing must preserve their different equivalent-output ratios and the alloy's non-tier-gate role.
-- Select crater Sc abundance, processing and useful competing consumers, then demonstrate why the three compositions can remain situationally preferable after automation. Primary Galaxia crater sourcing is selected and broad Bauxite Slag recovery is rejected. The existing late Blood Magic meteor is explicitly retained.
+The proposed example uses common Sc dust inputs. No Atmosphere produces pure metal. Atmosphere produces some metal plus Sc oxide, recoverable by electrolysis. Preserve elemental Sc and normal hot-ingot cooling. Oxide may also supply selected optical or ceramic consumers. Output split, unit definition, energy and duration remain open. No new blanket Sc restriction or relaxation of the SGA rule follows from this example.
 
-No new recipes are accepted or implemented by opening this ticket.
+## Initial Sc Components And Wider Demand
+
+RF Resonator for upgraded Communication Satellites and Laser Crystal for upgraded Prospecting Satellites are accepted component-design directions. Their compositions, benefits, recipes and availability remain open. First-satellite recipes stay unchanged without Sc.
+
+Additional meaningful Sc uses, including non-Galaxia equipment, are wanted. Current unapproved candidates include reusing these RF and optical parts, oxide ceramics for selected high-temperature or electrochemical hardware, and Al-Sc structural hardware with a concrete benefit. Each needs an actual consumer and demand comparison. Installed components do not need arbitrary continuous Sc consumption. Broader use is not approval to replace unrelated GT progression gates.
+
+RF targets, oxide ceramics, laser hosts and lightweight structural alloys provide scientific inspiration, not selected recipes. Metallic Sc reactivity may inform hot-metal handling or deposition. It does not justify restricting stable oxides, aqueous chemistry or installed equipment. Inert protection and vacuum are not physically identical.
+
+## Extractor And Carrier Cleanup Proposal, Unapproved
+
+This entire operation packet remains unapproved, including extension of the Sc dry/wet choice and 10% double-reserve rule to all four profiles. Accepted separation outputs, reserves and fracking slopes do not approve its power or duration.
+
+| Operation | Inputs | Outputs | Machine | Base EU/t | Base time |
+| --- | --- | --- | --- | ---: | ---: |
+| Dry ordinary mining | One reference portion, with dry loss rule | Profile's accepted solid batch | Crater Extractor | 480 | 30 s |
+| Wet ordinary mining | One reference portion, 16000 mB Drilling Fluid | 16000 mB profile-specific enriched fluid | Crater Extractor | 480 | 30 s |
+| Fracking after exhaustion | Current profile-dependent Drilling Fluid input | 16000 mB profile-specific enriched fluid | Crater Extractor | 480 | 60 s |
+| Carrier cleanup | 4000 mB spent carrier | 4000 mB Drilling Fluid | Centrifuge | 30 | 8 s |
+| Controller manufacture | 1 HV hull, 2 HV motors, 1 HV pump, 2 HV pistons, 2 HV circuits, 4 steel plates, 144 mB molten tin | 1 Crater Extractor Controller | Assembler | 480 | 45 s |
+
+Controller manufacture needs no lunar SGA. Multiblock geometry remains open. Cleanup runs four times per separator batch. These are base values before overclocking, not a claim that one downstream machine keeps pace with an overclocked extractor.
+
+Existing carrier manufacture is 5 water cells, 1 Stone dust and 20 mB Lubricant for 5000 mB Drilling Fluid plus five empty cells in a Mixer at 15 EU/t for 3.2 s. Startup needs full committed input and pipeline inventory, not only net makeup. Cleanup does not need an invented Stone coproduct.
+
+## Construction Consumer Proposals, Unapproved
+
+Later bulk construction must preserve the first Station's non-SGA bootstrap and expansion route.
+
+| Recipe | Machine | EU/t | Base time | Environment |
+| --- | --- | ---: | ---: | --- |
+| 1 SGA ingot -> 1 SGA plate | Generated Bender candidate | Open | Open | No Atmosphere |
+| 8 SGA plates + 4 Steel rods -> 4 Space Station Blocks | Assembler | 120 | 10 s | Any |
+| 4 SGA plates + 2 Steel rods -> 8 Space Station Panels | Assembler | 120 | 10 s | Any |
+
+The blocks and panels already have registry entries, not demonstrated recipes. These are alternative bulk recipes, not mandatory replacements. Compare their prices with actual construction demand and existing recipes.
+
+## Existing Processing And Evidence
+
+Retain ordinary mineral-to-metal paths. Banded Iron can smelt to Iron. Cobaltite roasting and reduction use MV, 1200 K EBF recipes. Platinum processing produces Metallic Powder and supports both efficient chemistry and an existing low-return option: 3 Platinum Metallic Powder dust -> 2 Platinum nuggets at MV, 2041 K for 30 s. [Platinum recipes](https://github.com/GTNewHorizons/GT5-Unofficial/blob/bc7a940f5e6583b5c79d049635d1586c8f4ad764/src/main/java/bartworks/system/material/gtenhancement/PlatinumSludgeRecipes.java#L299-L393)
+
+Existing aluminium reductions are 10 Alumina dust + 3 Carbon dust -> 4 Aluminium ingots + 3000 mB CO2 at 120 EU/t, 60 s, 2054 K, or 10 Alumina dust + 5 Cryolite dust -> 4 ingots at 120 EU/t, 80 s, 963 K. [CoreMod recipes](https://github.com/GTNewHorizons/NewHorizonsCoreMod/blob/9aa0afc8711f3efbe3afc0d11ec44dcbf5b87442/src/main/java/com/dreammaster/gthandler/recipes/BlastFurnaceRecipes.java#L438-L468)
+
+Source-derived Sc metal processing uses an EBF at 120 EU/t, 1814 K for 90.7 s, then Vacuum Freezer cooling. [Meteor source](https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/blob/83b3fb26cd9979e0256c7568bdf8c6f87579b532/config/BloodMagic/meteors/Chinfinity.json#L34-L39), [focus identity](https://github.com/GTNewHorizons/GT5-Unofficial/blob/03f76356146f497c6c8f21d9225fe28de57136a1/src/main/java/gregtech/api/enums/MetaTileEntityIDs.java#L703), [carrier manufacture](https://github.com/GTNewHorizons/GT5-Unofficial/blob/2259bc64244f9f7fc58e039d8e89ca40dd17c929/src/main/java/gregtech/loaders/postload/recipes/MixerRecipes.java#L641-L649)
+
+The [original nitric-acid research](https://pmc.ncbi.nlm.nih.gov/articles/PMC8779884/) concerns specially prepared red mud. It does not prove the game yields or concentrated lunar deposits. Commercial [Al-Sc specifications](https://nikon-slm-solutions.com/wp-content/uploads/2024/07/mds5143.pdf), [RF targets](https://www.materion.com/en/insights/blog/materions-aluminum-scandium-sputtering-targets-power-rf-mobile-and-broadband-devices), [oxide ceramics](https://infinitamaterials.com/material/scandia-stabilized-zirconia-alumina/), [laser-host research](https://link.springer.com/article/10.1007/s00340-013-5433-2) and [Sc properties](https://periodic-table.rsc.org/element/21/Scandium) ground candidate functions, not mandatory Alpha content. Detailed research remains intake under [[Sources]]. Source checks are not a running-pack production test.
+
+## Remaining Decisions
+
+- Review the extractor, cleanup and controller packet, including whether other profiles gain the Sc dry/wet rule
+- Select size-class mix, spatial density, diameter deviations and richness-response tuning
+- Tune the quantitative Sc refinery and oxide recovery alternatives around accepted separation and reagent recovery
+- Select RF Resonator, Laser Crystal and wider Sc consumers with actual benefits and demand
+- Select construction recipes and demonstrate situational roles for all three SGA compositions
+- Verify complete reagent availability, capacities, throughput and energy against actual recipes and the provisional transported-battery power route
+- Resolve ambiguous environmental family variants and verify coherent collision, deduplication and operation-state handling
+
+Sustained non-combustion generation remains a separate open power question. Existing HV lithium batteries have a nominal 1.6 million EU capacity, not an accepted factory battery count. No content or generator work starts merely because this design ticket records it.

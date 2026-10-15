@@ -37,10 +37,6 @@ This closes the asteroid-specific planning contract from existing owner decision
 - Each Outpost has its own modules, its own shared facility inventory, and its own logistics configuration. Multiple Outposts do not imply a shared asteroid-wide inventory.
 - With effectively inexhaustible resources, the player may scale extraction on one suitable asteroid by adding Outposts. Different resource composition and location can motivate using other asteroids, rather than a mandatory relocation rule.
 
-## Provenance
-
-The owner accepted both construction-supply and multiple-Outpost recommendations in the Wayfinder conversation on 2026-09-10.
-
 ## Remaining Scope
 
 The common capability relationship is resolved. Numerical orbit criteria for other bodies do not block the already accepted asteroid Outpost model. These decisions do not define numerical resource generation or balance coefficients.

@@ -18,66 +18,49 @@ tags:
 
 # Define In-Flight Delivery Handling for Unavailable Physical Stations
 
-## Question
+## Accepted Decision
 
-How should an in-flight logistics delivery behave when its physical Station endpoint still has a durable identity but its controller is temporarily unloaded, unavailable, reformed, or permanently destroyed?
+Temporary physical endpoint unavailability preserves identity and waits. Permanent destruction breaks exact identity, with different consequences for powered vehicles and Hammer packages. Abstract Automated Facilities remain represented by their authoritative asset state.
 
-## Resolution
+| Condition | Required behavior |
+| --- | --- |
+| Surviving controller unloaded or multiblock disformed | Preserve identity and in-flight delivery, wait at arrival, complete after availability returns |
+| Occupied planned Rocket pad | Depart if the mission is otherwise feasible, reach the destination, then wait before docking with maneuver fuel intact |
+| Full receiving inventory | Retain undelivered remainder and retry |
+| Exact Rocket/Spaceship receiver destroyed | Reach the original body's vicinity with cargo intact, notify and await an explicitly assigned replacement |
+| Exact Hammer receiver permanently destroyed | Lose package and cargo, since it cannot hold position or redirect |
+| Station controller succeeds another | Preserve Station identity under [[Resolve Physical Station Controller Succession]] |
+| Named Station group changes members | Select a compatible receiver at arrival under [[Define Transport Endpoint Identity and Registration]] |
 
-Temporary unavailability preserves the endpoint identity and the delivery waits for that endpoint to become available again. Permanent destruction ends the identity and has vehicle-specific consequences. A Rocket or Spaceship completes travel to the destination object's vicinity, retains its cargo, and waits for the player to assign a new destination. A Hammer package targeting a permanently destroyed receiver is lost because it cannot navigate, hold position, or redirect itself.
+Destroying an individual endpoint does not automatically destroy its Station. A same-name replacement can serve a symbolic Station target, but it does not restore an exact destroyed Endpoint ID.
 
-## Accepted Requirements
+## Waiting And Redirection
 
-- The problem is specific to physical Stations. Abstract Automated Facilities remain continuously represented by their authoritative asset state.
-- A Physical Station retains its backing `CelestialAsset.ID` through controller succession as defined in [[Resolve Physical Station Controller Succession]].
-- Chunk unload and temporary multiblock disformation do not end that identity.
-- Destroying the main controller does not end Station identity when another controller takes over. Destroying an individual endpoint still ends that endpoint's exact identity.
-- A delivery addressed by Station ID and Routing Name selects its concrete compatible receiver at arrival. Destruction of an earlier group member does not lose the delivery when a matching replacement exists at arrival. [[Define Transport Endpoint Identity and Registration]] owns this rule.
-- A delivery already in flight continues toward its exact endpoint identity while that identity exists.
-- If the delivery arrives while the endpoint is temporarily unavailable, it must wait against that endpoint identity and complete after the controller becomes available again.
-- An occupied destination pad is not a departure blocker for an otherwise feasible planned flight. The Rocket travels to the destination and waits there before docking. Do not reinterpret arrival-side waiting as waiting at the previous endpoint for a destination slot.
-- Reappearance must produce the same arrival result as if the endpoint had been available at the original arrival time.
-- A full destination inventory already retains the undelivered remainder and retries.
-- The design must distinguish temporary unavailability from permanent destruction without introducing a second Station identity registry.
-- The implementation should deepen the existing Station asset and logistics owners with the smallest practical production-code increase.
-- Requiring explicit decommission as the only deletion path is unsafe because a player may destroy a controller and leave an unreachable identity permanently registered.
-- Physical item and fluid contents remain in dimension-backed inventories. Controller destruction primarily risks logical identity, display and logistics configuration, construction state, in-flight delivery targets, and other exact references rather than deleting the physical inventories themselves.
-- A Rocket or Spaceship whose exact destination is destroyed does not disappear with that endpoint. It still reaches the destination object's vicinity and remains represented by flight-system data with its cargo intact.
-- The waiting location can be described as orbit or nearby space as appropriate for the object. It does not require inventing an Eligible Orbit around a low-gravity asteroid or creating a physical entity or landing site.
-- The vehicle maintains an active notification about the lost destination and waits for the player to assign a replacement. It does not silently pick another receiver.
-- Movement to the replacement target obeys ordinary flight requirements. Reassignment does not teleport the vehicle or cargo.
-- Waiting near the destination for a replacement target or resolution of a blocking problem consumes no fuel and causes no module durability loss. Normal flight and maneuver costs resume when the vehicle actually travels. Waiting does not introduce a hidden countdown to vehicle loss.
-- The 2026-09-17 clarification distinguishes waiting for an occupied planned pad from a deliberately truncated mission ending without fuel or a feasible recovery maneuver. A planned, feasible pad arrival waits with its maneuver fuel intact. [[Specify Alpha Opening Mission Flow]] owns the unrecoverable opening-flight example, not an exception that destroys any Rocket facing temporary receiver unavailability.
-- An already launched Hammer package cannot be held or redirected when its exact receiver is permanently destroyed. The package and its cargo are lost.
-- Hammer loss on permanent receiver destruction does not change the accepted waiting behavior for a temporarily unloaded controller, a disformed multiblock with a surviving controller, or a full receiving inventory.
+- A waiting Rocket/Spaceship remains flight-system data, not necessarily a physical entity, landing site or invented Eligible Orbit around a low-gravity asteroid.
+- Waiting near the destination consumes no fuel and causes no module wear. There is no hidden loss countdown. Actual further travel resumes normal maneuver and wear costs.
+- Maintain one active notification for a lost exact target. Do not silently choose another receiver or teleport vehicle/cargo.
+- Reassigning or bulk-repairing a target leaves active travel intact. Complete travel to the original object's vicinity, then calculate the journey from that actual location to the replacement using normal fuel, propulsion, time and safety checks. Infeasible onward travel waits.
+- A feasible recovery action blocked only by occupancy is not an intentional mission ending. [[Define Rocket Missions Without Recovery]] owns deliberate disposal with warning.
+- Reappearance must yield the same delivery result as availability at the original arrival time. Hammer's permanent-loss rule does not apply to temporary unload, disformation or inventory fullness.
+
+Physical contents stay in dimension-backed inventories. Controller loss primarily threatens identity, logistics configuration, construction state and references, not automatic deletion of those inventories. Use the existing Station/logistics owners rather than a second identity registry. Deletion cannot rely solely on explicit decommission while a destroyed controller leaves unreachable identity behind.
 
 ## Logistics Source Availability
 
-A physical Station without an available live controller emits no current logistics supply or demand signal. This does not delete the Station's persistent identity or cancel its in-flight deliveries. Signals retain their source identity, are visible only to the owning team, and do not retain stale contributions after a source becomes unavailable or the client session is cleared.
+A Station without an available live controller emits no current supply/demand signal. Persistent identity and in-flight deliveries survive. Signals retain source identity, are team-only and drop stale contributions when a source becomes unavailable or the client session clears.
 
-Retained from the September 2026 logistics decisions during the 2026-09-11 cleanup. The rule does not prescribe a snapshot cache, packet shape, or per-tick implementation.
+General route-change notifications and any acknowledgement belong to [[Define Team Notification System]]. Their presentation does not change physical feasibility.
 
-## Current Implementation Evidence
+## Implementation Evidence And Provenance
 
-Read-only inspection on 2026-09-12 under `src/main/java/com/gtnewhorizons/galaxia/` answered the delivery ownership checks:
+Read-only inspection on 2026-09-12 found that `registry/outpost/logistics/LogisticStore.java:84,114,185` retains undelivered cargo, retries insertion and accounts for pending inbound demand. `handlers/CelestialEventHandler.java:53,66` drives delivery updates and `core/persistence/FacilityPersistenceManager.java:194,247` persists delivery identity/time/trajectory. `registry/celestial/station/Station.java:56` exposes no inventory while its controller is unavailable. Missing destination assets follow a loss path. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`.
 
-- `registry/outpost/logistics/LogisticStore.java:84` and `:114` retain arrived cargo that cannot be inserted and retry the remaining amount without creating another inventory. Pending inbound amounts also reduce further demand at line 185.
-- `handlers/CelestialEventHandler.java:53` and `:66` drive server delivery updates. `core/persistence/FacilityPersistenceManager.java:194` and `:247` restore and save delivery time, identities, amounts, and trajectory data.
-- `registry/celestial/station/Station.java:56` exposes no inventory children while its controller is unavailable. A zero insertion leaves cargo pending. A missing destination asset follows the delivery-loss path in `LogisticStore`.
+This supports the existing Hammer path, not implemented Rocket/Spaceship waiting or verified controller-reload parity. Station-controller identity transfer does not preserve destroyed individual endpoint identity.
 
-This is evidence for the existing Hammer delivery path, not implementation of Rocket or Spaceship waiting and rerouting. Temporary-controller reload parity still needs runtime verification.
+Owner decision on 2026-09-10 establishes powered-vehicle cargo retention and Hammer loss. The 2026-09-17 clarification establishes arrival-side occupancy waiting and distinguishes deliberate unrecoverable mission endings.
 
-`registry/celestial/station/TileStation.java:587` can transfer the same backing asset ID to a successor controller. [[Resolve Physical Station Controller Succession]] accepts this continuity for the Station. It does not preserve the exact identity of a destroyed Silo or other individual endpoint.
+## Related Decisions
 
-Define Bulk Repair of Broken Endpoint References establishes that bulk replacement preserves a flight already in progress. The vehicle reaches the original object's vicinity before recalculating travel to the replacement. Notification and any acknowledgement use the general team notification system, whose detailed presentation remains deferred.
-
-## Provenance
-
-Owner decision in the Wayfinder conversation on 2026-09-10: the Rocket arrives near its destination, waits for a new target, and keeps its cargo. Hammer packages are lost because they are unguided launched objects without propulsion for recovery.
-
-## Related Topics
-
-- [[Define Transport Endpoint Identity and Registration]]
+- [[Define Bulk Repair of Broken Endpoint References]]
 - [[Define Space Transport Dispatch Model]]
 - [[Evaluate Team-Scoped Logistics Ledger]]
-- [[Area - Travel and Logistics]]

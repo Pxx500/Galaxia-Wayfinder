@@ -17,95 +17,63 @@ tags:
 
 # Define Prospecting Data Processing
 
-## Question
+## Accepted Decision
 
-What Alpha capability converts Raw Prospecting Data into Processed Prospecting Data, which facilities may host it, and which costs and throughput constraints make local versus centralized processing a meaningful player choice?
+Prospecting is a sustained network pipeline: `Prospecting Satellites -> Data Processing -> originating celestial object`. It is not permanent accumulated survey progress. Processing may be centralized or distributed anywhere a complete communication route exists. These requirements do not certify an implemented bonus pipeline.
 
-## Established Input
+## Data And Processing Ownership
 
-- A Prospecting Satellite generates Raw Prospecting Data about the celestial object it orbits.
-- Raw data travels through the communication network to a processing capability.
-- Processed Prospecting Data must return through the network to the originating celestial object before mining there receives an efficiency benefit.
-- The processing implementation may be a computer, dedicated Data Processor, facility module, or another concept selected by this ticket.
-- Each satellite produces a fixed Raw Prospecting Data rate. Sustained processed-and-returned throughput is measured in satellite-equivalent streams.
-- Working Alpha tuning grants `+10%` planet-wide miner speed and `+5%` expected ore output per sustained satellite-equivalent stream.
-- Expected ore output uses uncapped stochastic rounding: the integer part of the multiplier is guaranteed and its fractional part is the chance for one additional output batch.
-- Satellite Raw Prospecting Data buffers are bounded. Prospecting is an ongoing scan and computation pipeline whose sustained end-to-end uptime determines the active bonus; it is not permanent accumulated survey progress.
-- Prospecting is intended to affect all Galaxia extraction systems and relevant GT5 integrations, but machine-specific effects are deferred to [[Define Prospecting Effects by Extraction System]].
+- Each satellite produces a fixed Raw Prospecting Data rate for its orbital body. Raw and processed data are typed network state in small bounded buffers, never physical items or freight.
+- Pool data by `SatelliteDataType + origin CelestialObjectKey`, not individual satellite. All satellites at one origin contribute to its shared raw pool. Processing and successfully returned output aggregate for that origin, without satellite-to-satellite pairing.
+- Data from one object cannot benefit another. Planetary bonus consumers must request exact-origin processed data. Any-origin demand may serve other consumers.
+- Use the general Data Processor capability, not a separate Prospecting-only machine/path. It accepts typed jobs with finite shared throughput and per-job conversion, costs and output rules. Alpha first needs Raw-to-Processed Prospecting conversion.
+- [[Define Data Processor Machine Topology]] owns expandable EU-powered multiblocks, structural capacity, tiers, operating intensity and installation-local configuration. Multiple installations are allowed. No inserted processor-item requirement is implied.
+- Jobs are keyed by type and origin. Active jobs share throughput by default. Players may disable jobs and change priority. Higher priority is served first, while equal-priority jobs share the remainder rather than using insertion order.
 
-## Decisions in Progress
+## Working Effects And Measurement
 
-- Prospecting processing is a network-wide capability rather than a local requirement at the scanned celestial object.
-- Any eligible processor connected through a complete communication route may process incoming Raw Prospecting Data, allowing centralized or distributed processing layouts.
-- The complete active route is `Prospecting Satellite -> processing capability -> originating celestial object`.
-- Raw and processed Prospecting Data are origin-bound. Data generated about one celestial object may only contribute to the prospecting bonus on that same object.
-- A Prospecting Satellite therefore cannot consume or apply Prospecting Data originating from another planet, moon, asteroid, or other celestial object.
-- Raw and processed Prospecting Data exist only as typed network state in bounded buffers. They cannot be extracted, transported, or stored as physical items.
-- Planetary prospecting bonuses require exact-origin data consumption. A generic any-origin demand may exist for other data consumers, but it cannot apply a prospecting bonus to a different celestial object.
-- Processing belongs to a general Data Processor capability rather than a Prospecting-only machine or parallel processing path.
-- A Data Processor accepts typed data jobs and exposes finite shared processing throughput. Each data-job type may define its own conversion rule, processing cost, and output behavior.
-- Alpha initially requires the Prospecting job that converts Raw Prospecting Data into Processed Prospecting Data. Future Research or other data jobs may reuse the same processing owner without inheriting Prospecting-specific rules.
-- Data Processing requires player-built, network-connected machine infrastructure, but its physical topology is not selected by this ticket.
-- The processing infrastructure consumes EU while working. The 2026-09-16 direction in [[Define Data Processor Machine Topology]] selects an expandable multiblock intended to operate passively without inserted items.
-- The accepted structural capacity and operating-intensity rules are owned by [[Define Data Processor Machine Topology]], replacing the earlier inserted-processor assumption.
-- Processing capacity is infrastructure rather than a per-job consumable. Its concrete expansion and tier rules are owned by [[Define Data Processor Machine Topology]].
-- Exact tier values, throughput curves and EU tuning remain balance choices. Enabled jobs and priorities are configured per installation under [[Define Data Processor Machine Topology]].
-- Regardless of physical topology, only successfully returned output aggregates in the shared origin pool.
-- Processing work is scheduled by jobs keyed by `SatelliteDataType + origin CelestialObjectKey`.
-- By default, active jobs share available processing throughput. The player may disable a job or change its priority.
-- Higher-priority jobs receive available throughput before lower-priority jobs. Jobs at the same priority share the remaining throughput rather than depending on insertion order.
-- Returned exact-origin Prospecting throughput is normalized into fractional satellite-equivalent streams and every prospecting effect scales linearly from that value.
-- Each resulting effect percentage is rounded down to a configurable sensible increment before application and display. The working Alpha increment is one percentage point.
-- Rounding is applied independently to miner speed and expected output. For example, `0.5` satellite-equivalent produces raw effects of `+5%` speed and `+2.5%` expected output, which become `+5%` and `+2%` with a one-point increment.
-- A raw effect below the configured increment contributes `0%`; rounding never increases the benefit above sustained returned throughput.
-- Network transfer, buffering, and processing continue at tick granularity, while applied Prospecting effects use a working measurement window of `20` ticks.
-- During each window, the system accumulates Processed Prospecting Data successfully returned to each exact origin object. At the boundary it computes and floors that object's effects, then holds them constant for the following window.
-- No additional interpolation is required. The window length remains a tuning value, with one second as the Alpha default.
-- Windowed evaluation prevents pulse exploitation: enabling processing only on an extraction machine's work tick cannot grant the full bonus because the machine uses the result of the preceding complete measurement window.
-- Satellite data is pooled by `SatelliteDataType + origin CelestialObjectKey`, not tracked per producing satellite.
-- All Prospecting Satellites orbiting the same celestial object contribute Raw Prospecting Data to one shared origin pool. Processing demand and returned Processed Prospecting Data are likewise aggregated for that origin.
-- Planet-wide effects depend on the origin pool's total successfully processed-and-returned throughput; no source-satellite-to-receiver-satellite pairing exists.
-- The data ecosystem must remain a bounded-flow pipeline rather than a storage system. Satellites, Data Processors, and relevant network endpoints expose only small local buffers sized to absorb short timing differences.
-- Every stage applies backpressure before its downstream buffer overflows. A Data Processor does not consume Raw Prospecting Data unless it can place its result into the bounded processed-output path.
-- When a producing stage has no downstream capacity, new work pauses or is skipped rather than growing an unbounded queue. Exact buffer sizes and pause mechanics are implementation and balance tuning.
-- Buffered backlog must never create a returned-throughput bonus above the actual bounded pipeline rate; data storage is not a source of burst prospecting power.
-- The satellite hover widget for a celestial object presents the pooled Prospecting result: Raw Data generated by its satellites, Processed Data successfully received back, and the currently applied planet-wide bonuses.
-- The UI does not diagnose a global bottleneck or assume one Data Processor. When returned data is below generated data, the player determines whether the limitation is network bandwidth, processing capacity, routing, or local machine configuration by inspecting those systems.
+Sustained processed-and-returned throughput is normalized into fractional satellite-equivalent streams. All effects scale linearly.
 
-## Resolution
+| Working Alpha setting | Value |
+| --- | --- |
+| Miner speed per sustained satellite-equivalent | +10% |
+| Expected ore output per sustained satellite-equivalent | +5% |
+| Floor increment for each effect | One percentage point, configurable |
+| Measurement window | 20 ticks, one second at 20 TPS |
 
-- Prospecting uses the network path `Prospecting Satellites -> Data Processing -> originating celestial object`; processing may occur anywhere reachable by a complete communication route.
-- Raw and Processed Prospecting Data are non-item, origin-bound network state pooled by `SatelliteDataType + origin CelestialObjectKey`. Data from one object cannot buff another.
-- Prospecting is the first typed job of a general Data Processing capability rather than a separate processing stack.
-- Data Processing consumes EU and uses expandable multiblock infrastructure. [[Define Data Processor Machine Topology]] owns structural expansion, operating intensity and installation-local configuration.
-- Small bounded buffers and backpressure prevent the pipeline from becoming data storage or producing backlog bursts.
-- Successfully returned throughput scales both Prospecting effects linearly, floors each to a working one-percentage-point increment, and is evaluated in `20`-tick windows to prevent pulse exploitation.
-- The satellite hover widget shows pooled generated data, successfully returned data, and active bonuses. It does not automatically diagnose the limiting processor, route, or bandwidth.
-- `SatelliteDataKey` already provides the required data-type and origin-object identity; planetary bonus demand must use the exact origin.
+Floor speed and expected output independently. For example, 0.5 satellite-equivalent gives raw +5% speed and +2.5% output, applied as +5% and +2% with the one-point increment. Below-increment effects become zero, never round up.
 
-## Data Delivery Accounting
+Expected output uses uncapped stochastic rounding. The multiplier's integer part guarantees that many batches, while the fractional part is the chance of one extra batch.
 
-Retained from the September 2026 satellite-runtime decisions during the 2026-09-11 cleanup:
+Network transfer, buffering and processing remain tick-granular. Accumulate successfully returned exact-origin processed data over a complete window, calculate/floor effects at its boundary and hold them for the following window. No interpolation is required. Using the previous full window prevents full bonuses from enabling processing only on an extraction work tick.
 
-- A delivered amount is credited only once. Several matching consumers must not each receive the full amount of one transfer.
-- Each concrete consumer's finite demand is shared across all sources serving it. Local delivery obeys the same accounting even when it uses no satellite bandwidth.
-- Only accepted data leaves a source buffer. Unaccepted produced data stays within the bounded-buffer and backpressure rules above.
-- Disabling, removing, or reconfiguring a consumer updates its eligible demand. Data and delivery state remain isolated between teams.
+[[Define Prospecting Effects by Extraction System]] owns how this applies to all Galaxia extraction and relevant GT5 integrations. Specific machine behavior is deferred there, not inferred from generic miner wording.
 
-These are flow-accounting requirements, not a new persistent demand store or a replacement for the accepted origin pools.
+## Bounded Flow And Delivery Accounting
 
-## Verified Implementation Alignment
+- Small local buffers absorb short timing differences, not long-term data storage. Every stage applies backpressure before downstream overflow.
+- Do not consume raw input unless the processed result fits the bounded output path. When downstream capacity is absent, pause or skip new work rather than building unbounded queues.
+- Backlog must not create bonuses above the actual bounded pipeline rate.
+- Credit delivered amounts only once. Several matching consumers cannot each receive one transfer's full amount.
+- A concrete consumer's finite demand is shared across all sources, including local delivery that consumes no satellite bandwidth.
+- Only accepted data leaves source buffers. Other data remains subject to bounded storage/backpressure.
+- Disable/remove/reconfigure updates eligible demand. Data and deliveries remain team-isolated.
 
-Inspection on 2026-09-12 confirms typed origin keys and concrete-sink delivery in the existing debug-oriented data pipeline. `registry/satellite/SatelliteDataJobService.java:114` drains only accepted data, and `matchingConsumers` at line 151 prioritizes exact-origin consumers. These paths are under `src/main/java/com/gtnewhorizons/galaxia/`.
+## Presentation And Open Tuning
 
-`SatelliteDataType.java:3` currently contains COMMUNICATION, PROSPECTING, and RESEARCH. The inspected service does not establish the accepted Raw-to-Processed conversion, processing infrastructure, returned-throughput windows, or extraction bonuses. Discovery workers are a separate path. The later multiblock topology decision is design intent, not evidence of implementation. The full prospecting gameplay pipeline must not be marked implemented merely because data transport exists.
+The body's satellite hover shows pooled raw generation, processed data successfully returned and currently applied bonuses. It does not assume one processor or diagnose the global bottleneck. Players inspect routing, bandwidth, processing and local configuration themselves.
 
-- `SatelliteDataKey` already identifies satellite data by `SatelliteDataType` and an optional `CelestialObjectKey origin`.
-- Produced data retains its real origin, while consumers may request either a specific origin or any origin; exact-origin demand is prioritized when both match.
-- This existing origin key supports the decided same-object bonus contract, but the bonus consumer must use exact-origin demand.
+Buffer sizes, exact pause mechanics, throughput/tier/EU curves, measurement-window length and rounding increment remain tuning. The table records working Alpha values, not immutable balance.
 
-## Related Topics
+## Implementation Evidence And Provenance
 
-- Audit Galaxia Concept Map
-- Define Alpha Research and Production Floor
-- Define Alpha Celestial Knowledge Layers
+Read-only inspection on 2026-09-12 found typed origin keys and concrete-sink delivery in `registry/satellite/SatelliteDataJobService.java:114,151`, under `src/main/java/com/gtnewhorizons/galaxia/`. Only accepted data was drained and exact-origin demand was prioritized. `SatelliteDataKey` carried type and optional origin. `SatelliteDataType` contained COMMUNICATION, PROSPECTING and RESEARCH.
+
+Those debug-oriented transport paths do not establish Raw-to-Processed conversion, production machinery, returned-throughput windows or extraction bonuses. Discovery workers are a separate path.
+
+The flow-accounting rules originate in September 2026 satellite-runtime decisions. The 2026-09-16 machine-topology direction supersedes inserted-processor assumptions.
+
+## Related Decisions
+
+- [[Define Alpha Research and Production Floor]]
+- [[Define Alpha Celestial Knowledge Layers]]

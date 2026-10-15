@@ -1,7 +1,7 @@
 ---
 type: wayfinder-ticket
 ticket_type: grilling
-status: open
+status: resolved
 parent: Galaxia Alpha Wayfinder
 areas:
   - "[[Area - Observation and Research]]"
@@ -9,7 +9,7 @@ secondary_areas:
   - Area - Travel and Logistics
   - Area - Alpha Scope
 blocked_by: []
-claimed_by: local-wayfinder-satellite-progression
+claimed_by: null
 tags:
   - galaxia/alpha
   - wayfinder/ticket
@@ -18,78 +18,46 @@ tags:
 
 # Define Satellite Manufacturing and Deployment Progression
 
-## Question
+## Accepted Decision
 
-How should starting-world map access lead into orbital-material-based functional satellites, and which Rocket and Hammer deployment capabilities belong in Alpha?
+The Primitive Telescope Satellite is a limited scripted opening payload made from starting-world materials. Functional satellites follow orbital-material production. Rocket automation comes from upgraded electronics, not a new inherent reusability class. This is accepted design, not implemented satellite/achievement progression.
 
-## Accepted Direction
+## Opening Achievement And Survey
 
-On 2026-09-17 the owner refined the following direction. The special opening satellite, both orbital material chains and the explicit Hammer deployment mode are accepted design intent. On 2026-10-07 the owner also resolved Hammer deployment origin and reach in [[Define Hammer Satellite Deployment Reach]]. Exact recipes and numerical balance remain open. Accepted intent is not implemented or verified behavior.
+- Successful Overworld-orbit deployment grants the persistent personal launch achievement to every current team member, not only the launcher. Building the item or starting launch does not count.
+- The achievement unlocks the team's Star Map and provides passive progress toward Luna's celestial resource/profile knowledge. The achievement is granted before the scan finishes. Initially only Overworld resources are known. Luna is already known as an object.
+- This is planetary knowledge, not scanning physical blocks, generated terrain or Minecraft ore deposits.
+- The team retains the benefit when members leave, and each awarded member keeps the personal achievement.
+- An awarded member joining another team gives that team the benefit and shares the achievement with its members. This intentional duplication is not a unique-resource transfer.
+- Do not erase known results or restart completed surveys on membership changes. The sharing decision does not automatically transfer every technology or blueprint.
+- The payload remains an item and launch objective. It requires no registered orbital asset, ordinary satellite worker or managed satellite lifecycle.
 
-- The opening satellite is a special, easier, scripted one-off mission rather than an unrestricted normal satellite. Sending it into Overworld orbit grants the shared launch achievement. Possessing that achievement provides passive progress toward scanning Luna's resources. Initially only Overworld resources are known. Luna is already known as an object, but its resources are unknown.
-- Later functional satellites use orbital SiGe crystal and specialty fluoride optical-fiber production, both required in Alpha because progression uses them. This supersedes the earlier one-chain minimum. The owner retained SiGe by approving an early low-yield sphalerite-to-germanium route under [[Define Alpha Research and Production Floor]], while the existing ABS route remains better later. Space-Grade Alloy remains an additional candidate satellite construction material.
-- Only the relevant input materials need orbital production. Satellite assembly itself may happen on a planet or elsewhere. Do not add an orbital-only final satellite-crafting rule.
-- The existing Rocket can gain automatic flight and control through upgraded electronics using orbital production, rather than necessarily being replaced by a new vehicle.
-- Rockets can deploy satellites from a surface or carry them to another body's orbit.
-- [[Define Hammer Satellite Deployment Reach]] owns the accepted atmosphere-free surface deployment, same-orbit local deployment and whole-star-system Big Hammer reach.
+[[Specify Alpha Opening Mission Flow]] owns local pre-map launch, authored starting visibility and recovery. [[Define Alpha Celestial Knowledge Layers]] owns general disclosure.
 
-## Hammer Satellite Deployment Mode
+## Functional Satellites And Rocket Control
 
-When the Hammer payload slot contains a satellite, its interface exposes a `Deploy to Orbit` checkbox. Enabling it changes the destination from a receiving installation to an orbit and performs satellite deployment. This is distinct from carrying a satellite item as ordinary cargo to a receiver. The deployment operation does not require a cargo receiver at the destination orbit.
+Both SiGe crystal and specialty fluoride optical-fiber chains are required in Alpha. Their selected production operations require Microgravity, not an orbit-specific location flag. Final satellite assembly may happen on a planet or elsewhere.
 
-Ordinary Hammer freight still requires receiving infrastructure. Deployment origin and reach follow [[Define Hammer Satellite Deployment Reach]]. Exact deployment costs remain balance work. Final UI copy must use the normal localization system.
+[[Define Alpha Research and Production Floor]] records the accepted early low-yield sphalerite-to-germanium route supporting SiGe. The existing ABS route remains better later.
 
-## Existing Contracts To Reconcile
+Upgraded orbital-material electronics add automatic flight/control to the existing Rocket. Manual Luna travel remains possible without that upgrade. Rockets can deploy from a surface or carry satellites to another body's orbit.
 
-- [[Define Alpha Observation Opening]] now uses the special opening satellite, replacing the earlier ordinary Prospecting Satellite payload without removing the successful-launch map prerequisite.
-- [[Define Alpha Research and Production Floor]] now requires both orbital material chains, without selecting exact recipes.
-- [[Define Alpha Transport Roles]] retains receivers for ordinary freight. The explicit deployment mode is a scoped exception, not a general receiver-free cargo route.
-- Routine freight remains governed by its own endpoint and route rules. Exact satellite-deployment costs, payload form and mission accounting remain unselected.
+[[Design Early Orbital Production Recipe Chain]] owns the selected payload name, materials, recipes, technologies and their acceptance/tuning status. Space-Grade Alloy is not part of the current bootstrap and must not become an implicit pre-Luna requirement.
 
-## Opening Milestone And Team Sharing
+## Hammer Deployment
 
-On 2026-09-17 the owner selected a successful-launch achievement in Galaxia's planned research and achievement system as the representation of opening progress. The opening payload remains an item, without requiring a registered satellite, orbital Celestial Asset, or normal satellite worker. The intended gameplay semantics are:
+With a satellite in the payload slot, the Hammer exposes a localized `Deploy to Orbit` checkbox. Enabled deployment targets an orbit and needs no cargo receiver. Disabled, the satellite item remains ordinary cargo and requires a receiver.
 
-- Successful deployment grants the persistent personal launch achievement to every member of the team, not just the player who launched the mission. Merely starting a launch does not complete it.
-- The team receives the milestone's benefit and retains it when members leave. Every awarded member keeps their personal achievement after leaving.
-- When an awarded player joins another team, the new team receives the benefit and its members receive the shared achievement. This duplication is intentional, not a unique resource transfer to prevent.
-- Possessing the achievement provides passive Luna scan progress for a team whose Luna resource knowledge is incomplete. Completing the scan is an effect of the achievement, never a prerequisite for awarding it. Existing knowledge is not erased or surveyed repeatedly merely because membership changes.
-- The opening payload need not appear as a managed satellite in the ordinary satellite ecosystem. It remains a real launch objective in the player's fiction, not a new satellite type with a simulated lifecycle.
+[[Define Hammer Satellite Deployment Reach]] owns atmosphere-free surface launch, same-orbit local reach and whole-star-system Big Hammer reach. Ordinary freight retains [[Define Alpha Transport Roles]] endpoint rules. Deployment is a scoped exception, not general receiver-free freight.
 
-The recommended responsibility split is personal achievement records for earned shared accomplishments and team research/knowledge for the durable team benefit and Luna survey. Apply the benefit on achievement completion and relevant membership changes, without repeatedly granting it or revoking it from former teams. The owner confirmed that achievements are shared with all team members. This does not by itself establish automatic transfer of every technology or blueprint.
+## Proposals And Open Tuning
 
-Existing code has team celestial knowledge and team-data transfer hooks, but that does not mean personal achievement persistence or the scripted Luna survey is already implemented. Keep the new behavior with its domain owners rather than adding a fake satellite or scattered flag checks. Exact APIs and storage are implementation decisions, not a deferred implementation specification.
+The opener's detailed presentation remains content work. Proposed elaborations include a tunable non-instant survey duration, a fixed non-retargetable task without recurring prospecting-bonus data, persistent results without maintenance, and warning that duplicate launches are unnecessary rather than imposing a global one-item crafting limit. These details are not all settled by acceptance of the achievement mission.
 
-The owner's explicit answer resolves the sharing question in favor of all team members receiving the achievement. The earlier launcher-only recommendation is superseded.
+Numerical Hammer deployment costs and detailed mission accounting remain balance work. Concrete orbital feedstock, processing, payload and electronics recipes live in their recipe owner rather than this note.
 
-## Accepted Opening Scan Contract
+## Implementation Boundary And Provenance
 
-Sending the opening satellite grants the achievement to the team members. The achievement unlocks the Star Map and supplies passive Luna scan progress until the relevant celestial knowledge is complete. The achievement already exists while that scan is progressing. Scan completion reveals the result, not the launch achievement.
+Existing team knowledge and membership-transfer hooks do not establish personal achievement persistence or the scripted Luna survey. Keep achievement records and durable team knowledge with their respective domain owners, not a fake satellite or scattered flags.
 
-This is a celestial-object scan using the planetary knowledge system. It does not scan blocks, generated terrain, or physical deposits in the Minecraft world. Comparing it with local scanner output is not a gameplay choice to reopen.
-
-## Remaining Opening Content Proposals
-
-The owner liked the limited scripted mission and requested more detail. The following elaboration is a proposal, not a finalized contract:
-
-- Craft an opening survey satellite from starting-world materials at the early space stage. It needs no products from the production chain it is meant to unlock.
-- Launch it through the existing pre-map local-orbit deployment flow. Satellite deployment and Rocket recovery remain separate mission actions.
-- Present survey progress and then publish its result through the existing team celestial-knowledge presentation. Use a tunable survey duration rather than an instant full-profile reward.
-- The target and task are fixed. This opening instrument cannot be retargeted to other bodies or produce recurring prospecting-bonus data. It does not replace the later general-purpose satellite ecosystem.
-- After the scan, the team's knowledge remains. No routine maintenance or continued output is required.
-- Additional copies do not unlock new targets or multiply the result. A duplicate should be identified as unnecessary before launch, without requiring a new global one-item crafting limit.
-
-This is a deliberately authored opening mission, not a new general technology-score system. Exact item names, timings and duplicate handling remain content details.
-
-## Next Decisions
-
-[[Design Early Orbital Production Recipe Chain]] supplies the proposed complete material, payload and control-electronics recipes. These are not accepted merely because their high-level uses are settled.
-
-- Numerical Hammer deployment costs consistent with the accepted reach and infrastructure progression.
-- Concrete orbital feedstock, processing and satellite recipes consistent with the early progression.
-
-## Provenance
-
-Owner's 2026-09-17 discussion of fluid storage, optional pre-Luna automation, orbital electronics and satellite deployment. This is direct planning input, not an externally imported proposal.
-
-Owner's 2026-10-07 answers resolve the Hammer deployment origin and reach in [[Define Hammer Satellite Deployment Reach]].
+Direct owner discussion on 2026-09-17 establishes shared personal achievements, the scripted opener, optional pre-Luna automation and both orbital chains. The owner's 2026-10-07 answers resolve Hammer deployment origin/reach. Later recipe decisions name Primitive Telescope Satellite.

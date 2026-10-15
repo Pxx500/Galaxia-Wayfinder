@@ -15,37 +15,34 @@ tags:
 
 # Define Vehicle Capability and Route Requirements
 
-## Question
+## Accepted Decision
 
-What is the smallest physics-informed, balance-authored model that can derive modular vehicle capability and route requirements from vehicle assembly, endpoints, atmosphere, gravity, travel time, and infrastructure without becoming a literal aerospace simulator or a destination whitelist?
+Evaluate the concrete assembled vehicle and scheduled mission using structural/propellant mass, thrust, usable delta-v, local gravity/atmosphere, maneuver timing, duration, endpoint compatibility and existing infrastructure. Explain failures through missing capabilities rather than a destination whitelist. Accepted design is not an implemented or balanced propulsion model.
 
-## Resolution
+## Vehicle And Cargo
 
-Alpha evaluates each concrete mission from the assembled single-stage vehicle, its structural and propellant mass, engine thrust, available delta-v, endpoint compatibility, local gravity and atmosphere, maneuver timing, mission duration, and existing infrastructure. Surface ascent, orbital maneuvers, landing, and endpoint handling remain separate checks with concrete failure reasons. Route summaries expose transfer time, required delta-v, propellant use, and an on-demand factor breakdown. Cargo contents do not change vehicle mass, and nested portable item containers are rejected to prevent recursive capacity. Exact formulas and separate fuel or oxidizer design are later propulsion and implementation-prototype decisions rather than blockers for this capability contract.
+- Alpha Rockets have one main propulsion stage. Detachable boosters and multi-stage vehicles are outside Alpha.
+- Cargo contents never add mass under the accepted model, not only as an Alpha shortcut. Cargo Modules contribute their structural mass whether full or empty.
+- Ordinary non-container items are accepted. Container rejection includes nested storage and packaged-fluid bypasses. [[Define Bulk Fluid Cargo Contract]] owns exact coverage and blacklist/whitelist choices.
+- Bulk fluids use general dedicated freight capacity, not separate gas/liquid modules. Freight is distinct from propulsion supplies.
+- Actual tanks contain real resources. Propellant types may give different delta-v per liter. Provisional ownership assigns thrust to engines and fuel performance to propellants, with mass and volume affecting the resulting capability. Oxidizer and exact engine/propellant rules remain open.
+- Costs include scheduled propellant consumption and module repair/replacement. [[Define Automated Rocket Turnaround and Module Wear]] owns bounded wear, expected-value presentation, failure consequences and automated service.
 
-## Accepted Requirements
+## Mission And Presentation
 
-The route and vehicle contract is accepted. Numerical tuning and the propulsion representation remain implementation-time work, not evidence of completed balance.
+Surface ascent, orbital burns, landing and endpoint handling are separate checks. [[Define Destination Access Levels]] owns physical/environmental constraints and the provisional finite-burn model.
 
-- Alpha Rockets use one propulsion stage representing the main Rocket. Multi-stage vehicles and detachable boosters are outside the Alpha capability model.
-- Vehicle eligibility and route cost derive from multiple endpoint, environment, and vehicle variables rather than atmosphere alone or a hardcoded destination whitelist.
-- Before the player commits to a route, the interface must explain the derived result in accessible terms: contributing cost factors, satisfied capabilities, unmet requirements, and the practical consequence for the selected vehicle.
-- Explainability is part of the route model's product contract. An internally correct calculation presented only as an opaque total or disabled action is insufficient.
-- The default route summary presents transfer time, required delta-v and usable delta-v derived from actual Rocket propulsion supplies. [[Define Rocket Route Fuel Budgets]] owns the 2026-10-07 decision to use delta-v for mission allowances and selectable fuel-efficiency or speed priority.
-- Physical tanks still store real propellant. Volume and tank-capacity information remains available for servicing and resource inspection, while the primary mission-budget comparison uses delta-v rather than liters.
-- Route values are calculated for the concrete scheduled flight segment or mission sequence. Unscheduled return travel is not included, and planned refueling separates the propellant requirements of later flight segments.
-- Different propellants may provide different available delta-v per liter. Oxidizer requirements and the exact engine-propellant interaction remain open for the later propulsion design.
-- The provisional capability split treats the engine as the source of thrust and the propellant as the source of available delta-v per stored volume. Stored volume and total vehicle mass still contribute to the resulting vehicle capability.
-- Cargo inventory contents do not contribute mass to the accepted model. This is not merely an Alpha limitation. A Cargo Module contributes only its own structural module mass, whether its inventory is empty or full.
-- Rocket cargo is intended to reject container items, including nested storage and packaged-fluid bypasses, while accepting ordinary non-container items. [[Define Bulk Fluid Cargo Contract]] owns the 2026-09-17 clarification and the deferred choice of exact coverage, blacklist or whitelist. The earlier item-storage-only blacklist is not the complete final policy.
-- Bulk fluid freight uses dedicated general fluid capacity, without separate gas and liquid cargo modules. Freight is distinct from engine propellant.
-- Rocket operating cost includes propellant consumed by the scheduled mission and module-specific repair or replacement costs. Module wear must integrate with automated turnaround rather than require repeated manual servicing.
-- Module wear is statistically variable around one player-visible expected value derived from mission duration, relevant exposures, and module-specific coefficients. Sampling timing and the precise bounded safety guarantee retain the provisional status recorded in [[Define Automated Rocket Turnaround and Module Wear]]. A module that reaches zero durability during transit loses its capability and applies its module-specific failure consequence.
-- A small adjacent `?` information control exposes a hover summary of how each factor influenced the total. The factor breakdown is available on demand rather than occupying the primary route interface.
-- When the selected vehicle cannot perform the route, the summary displays `Route impossible` instead of a misleading total cost. The same `?` control lists the concrete blocking capabilities or endpoint constraints.
+- Evaluate only scheduled segments/actions. Do not include an unscheduled return. Planned replenishment separates later propellant requirements.
+- Before commitment, explain cost factors, satisfied capabilities, unmet requirements and practical consequences. An opaque total or disabled action is insufficient.
+- The default summary shows transfer time, required delta-v and usable delta-v from actual supplies. [[Define Rocket Route Fuel Budgets]] owns allowances and fuel-efficiency/speed selection.
+- Physical volume/capacity remains available for servicing and resource inspection rather than the primary budget comparison.
+- An adjacent small `?` control provides a hover factor breakdown instead of occupying the main interface.
+- For an infeasible route show the localized equivalent of `Route impossible`, not a misleading cost. The same control names concrete vehicle or endpoint blockers.
 
-## Current Prototype Boundary
+Exact formulas, propulsion representation and numerical tuning remain implementation/prototype choices.
 
-Read-only inspection on 2026-09-12 found that the current Rocket analyzer is not the accepted capability model. `registry/rocketmodules/rocket/analysis/RocketAnalyzer.java:23` partitions decoupler-based stages and checks launch thrust against mass using a fixed multiplier. `registry/rocketmodules/rocket/analysis/RocketStage.java:26` uses fixed Isp 300 and nominal fuel-capacity-based dry mass. These paths do not establish destination-aware gravity, propellant, or finite-burn feasibility. `registry/orbital/OrbitalTransferPlanner.java:124` accepts bodies, time, and route priority rather than vehicle propulsion. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`.
+## Implementation Evidence
 
-The current staging prototype does not approve staging for Alpha. The accepted single-stage and environment-aware requirements remain resolved design with implementation work outstanding.
+Read-only inspection on 2026-09-12 found that `registry/rocketmodules/rocket/analysis/RocketAnalyzer.java:23` partitioned decoupler stages and checked thrust using a fixed mass multiplier. `RocketStage.java:26` used fixed Isp 300 and nominal-capacity-based dry mass. `registry/orbital/OrbitalTransferPlanner.java:124` did not accept vehicle propulsion. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`.
+
+These prototypes do not establish destination-aware gravity, real-propellant or finite-burn feasibility. Their staging does not approve staging for Alpha.

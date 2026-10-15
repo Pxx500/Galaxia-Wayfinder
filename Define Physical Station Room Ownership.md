@@ -18,32 +18,33 @@ tags:
 
 # Define Physical Station Room Ownership
 
+
 ## Question
 
-When Station construction connects several controllers, what defines a physical Room and owns its volume, environmental state, devices and energy consumption without counting one space more than once?
-
-## Accepted Constraints
-
-- Station membership propagates through face-connected construction independently of airlocks.
-- Multiple controllers can belong to one Station and can be built before airlocks.
-- Airlocks still affect physical sealing independently of Station identity.
-- The main controller selects the active Station fragment.
-
-## Historical Implementation Evidence
-
-The first real-world integration scenario for the rework failed while waiting for two connected enclosed rooms to become one active Station. The failure occurred before the split or manual takeover steps.
-
-The pre-rework `compat/structure/ArbitraryShapeDefinition.java` flooded connected boundary blocks, including diagonal neighbors, at line 466 in that baseline. Its `addControllerBlock` builder at line 746 accepted only the current controller's coordinates. This was not the same model as the newly accepted Station-wide face connectivity. These are historical findings, not claims about the current branch.
-
-Simply accepting all controllers as boundary blocks would not by itself establish unique ownership of room volume, environmental devices or energy consumption. That behavior must not be inferred from the Station identity decision.
+When connected Station construction contains several controllers, what owns one physical Room's volume, environmental state, devices and energy cost?
 
 ## Resolution
 
-Accepted on 2026-09-13. A Room is a physical enclosed space, not one copy per controller. Multiple controllers must not duplicate the same Room's environmental effects or energy demand. Station membership and Room ownership remain distinct concepts. The owner confirmed this as an obvious consequence of the intended physical model and authorized continued implementation.
+A Room is one physical enclosed space, not one copy per controller. Multiple controllers must not duplicate its environmental effects, volume or energy demand. Station membership and Room ownership are separate.
 
-This resolves shared room ownership only. Manual validation, boundary invalidation, airlock-side classification and startup recovery were discussed later and remain separate decisions. The implementation evidence for the initial rework does not certify those later features as implemented.
+Station membership propagates through face-connected construction independently of airlocks. Several controllers can join one Station before airlocks exist. Airlocks affect sealing, and the main controller selects the active Station fragment.
+
+This resolves ownership only. Manual validation, boundary invalidation, airlock-side classification and startup recovery remain in their deferred owning notes.
+
+## Implementation Boundary
+
+The initial rework's first integration scenario failed before split or takeover checks, while joining two enclosed rooms into one active Station. The pre-rework boundary flood used diagonal neighbors and accepted only the current controller position in `ArbitraryShapeDefinition`. Those historical findings explain why accepting more controllers as boundaries alone cannot prove unique ownership.
+
+They do not establish the current branch's behavior or implementation of later room-lifecycle decisions.
+
+## Provenance
+
+Accepted on 2026-09-13.
 
 ## Related Topics
 
 - [[Resolve Physical Station Controller Succession]]
 - [[Define First Physical Station Contract]]
+- [[Define Manual Physical Room Validation]]
+- [[Define Airlock Space Classification]]
+- [[Define Physical Room Validation Recovery]]

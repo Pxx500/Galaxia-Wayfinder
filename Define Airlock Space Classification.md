@@ -16,65 +16,40 @@ tags:
 
 # Define Airlock Space Classification
 
-## Current Scope
 
-Deferred on 2026-09-16 under [[Consolidate Physical Station Architecture]]. Do not add a new side-classification or pressure model to the current PR integration. Preserve this discussion without treating its unanswered questions as resolved or its proposed representation as implemented. Existing-code defects are reviewed separately from this deferred redesign.
+## Scope
 
-Later update, 2026-10-10: [[Define Celestial Capability Rules]] now owns the accepted Room Pressure Level and equalization through open airlocks for the new recipe-environment effort. That does not retroactively expand the earlier PR scope or settle this ticket's unresolved side-classification and geometry questions. Its historical statement below that no atmosphere-loss rule was accepted predates the new decision.
+Deferred under [[Consolidate Physical Station Architecture]]. The existing room lifecycle remains the baseline. Side classification, geometry redesign and automatic leak detection are not selected for implementation.
+
+[[Define Celestial Capability Rules]] owns the later accepted pressure rules. Those rules settle equalization and proven vacuum breaches, not the unresolved classification cases below.
 
 ## Question
 
-How do airlock sides identify validated rooms, confirmed exterior space and unresolved space, and what pressure behavior applies when an open side is unresolved?
+How do airlock sides distinguish validated rooms, confirmed exterior and unresolved space, and what pressure behavior applies when an open side is unresolved?
 
-## Accepted Constraints
+## Constraints
 
-- Opening or closing a structurally valid airlock does not invalidate room geometry. Pressure behavior uses the current door state, including when a geometry validation finishes.
-- A missing room assignment is not proof of exterior space. The far side may be an unvalidated but enclosed space.
-- A room search stopped by a geometric airlock boundary has not automatically explored the space beyond that boundary.
-- A pillar can touch the same room on several faces. Room-count and adjacent-air-count equality is not a reliable classification rule.
+- A structurally valid airlock is a geometric room boundary whether open or closed. Door state affects pressure, including when validation finishes, not geometry approval.
+- Missing room membership is not proof of exterior. The far side may be an enclosed but unvalidated space.
+- A search stopped at an airlock has not explored its far side.
+- Distinct room counts cannot substitute for face coverage. A pillar can touch one room on several faces.
+- Boundary-to-room dependencies identify affected approvals, not demonstrated leaks. Removing a shared wall differs from opening a room to exterior vacuum.
 
-## Proposed Representation
+## Unaccepted Design Candidates
 
-Awaiting final confirmation of the behavior, not a settled storage format:
+Side-aware relations could distinguish a validated room reference, confirmed exterior and unresolved space. Validation could establish room-side relations, while exterior classification would require reachability evidence. Dependent results would need invalidation when their supporting geometry changes. Neither this storage model nor a Station-wide geometry revision is selected.
 
-- Identify each airlock's two physical sides and relate them to known room boundaries.
-- Represent a side as a validated room reference, confirmed exterior or unresolved space. Keep a closed but unvalidated enclosure unresolved unless a distinct gameplay status is selected.
-- Known room-side relations come from validation reaching the airlock from that side. Exterior classification needs a separate reachability result, not an absent room ID.
-- Invalidation removes or invalidates relations that depended on the affected approval. Stale results must not remain authoritative indefinitely.
+A damage-origin six-face leak search could test the opening created by boundary damage using current airlock openness. Reaching a confirmed exterior margin would prove a leak. Finding a controller would not prove enclosure, and missing data or a work limit would be inconclusive. Events could be batched, but the search might still traverse all connected air space. Automatic leak detection would be an exception to the earlier manual-check direction and remains unapproved.
 
 ## Open Decisions
 
-1. What happens to pressure when an open airlock leads to unresolved space? This includes a closed but unvalidated neighboring room and temporarily missing data.
-2. What player action requests recognition of an unassigned airlock side? Does room Validate include checking the other side, or is there a separate explicit action?
-3. What invalidates a previously confirmed exterior result when remote construction closes that space? A Station-wide geometry revision was proposed as a conservative mechanism, not accepted as a final policy.
-4. What happens to stored atmosphere when a room approval is invalidated without a proven route to exterior? Geometry invalidation and physically demonstrated venting must not be silently equated.
+1. What happens to pressure when an open side is unresolved, including a closed unvalidated enclosure or temporarily missing data? An unresolved warning is proposed, but neither retention nor removal is selected.
+2. Which player action recognizes an unassigned side? Does Validate inspect both sides?
+3. What invalidates confirmed exterior classification after remote construction closes the space?
+4. What happens to stored atmosphere when approval is invalidated without a proven route to exterior?
 
-## Recommendation Awaiting Owner Approval
-
-An open unresolved side should prevent claiming that the connected space can maintain pressure and should display a clear unresolved-space warning. It must not be falsely labelled confirmed exterior. Whether atmosphere is immediately removed, retained or evolves while unresolved needs a separate explicit rule.
-
-## Latest Exploratory Proposal: Damage-Origin Leak Search
-
-Status: not accepted. The owner suggested searching from a destroyed boundary position toward a controller or the exterior box. The assistant proposed refining this into a separate automatic leak check. The owner remained unsure and requested recording the discussion, not implementation.
-
-- Start a six-face air-space search at the opening created by boundary damage.
-- Reaching a confirmed exterior margin establishes an escape route. Finding a controller does not establish enclosure because the controller's space may itself have another opening.
-- Exhausting the reachable space without exterior access establishes no escape route only for complete, current geometry data. Missing data or a search limit is inconclusive.
-- Unlike geometric room validation, a leak search would use current airlock openness. An open airlock permits airflow, while a closed airtight airlock blocks it.
-- Group related destruction events rather than starting one search per destroyed block. Such a search can still cover the entire connected air space. It is not guaranteed to be cheap or local.
-- This proposal would make leak detection automatic while room creation and reapproval remain manual. That is an exception to the earlier manual-check direction and needs explicit owner approval.
-
-No pressure update rate, atmosphere-loss rule, unresolved-result behavior or automatic leak-search requirement has been accepted. Do not implement this candidate or treat it as the chosen solution on the strength of this note.
-
-## Concrete Cases To Resolve
-
-- Removing a wall between two otherwise enclosed rooms invalidates the old boundary description but does not alone prove an escape route to exterior.
-- Removing a wall from a room to confirmed exterior changes both geometry and exterior reachability.
-- Removing a wall to an unvalidated space cannot be classified by absent room IDs alone.
-- The boundary-to-room index identifies affected approvals. It is not, by itself, a proof of depressurization.
+Immediate equalization between sealed joined rooms and immediate emptying through a proven vacuum breach are accepted. These do not settle unknown geometry or make missing room data proof of a leak.
 
 ## Provenance
 
-Owner discussion on 2026-09-13. The last assistant proposal described side relations and a geometry revision, but the owner requested consolidation before accepting the outstanding behavior. Do not turn those proposals into approved gameplay by recording them here.
-
-Research comparison: [[Voxel Game Room Validation Research]]. Its archived and 2D implementations are evidence, not adopted behavior.
+Owner discussion on 2026-09-13, deferred on 2026-09-16. Later pressure decisions are in [[Define Celestial Capability Rules]]. [[Voxel Game Room Validation Research]] supplies comparison evidence, not adopted policy.

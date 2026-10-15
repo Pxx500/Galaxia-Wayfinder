@@ -35,10 +35,6 @@ Missing upkeep resources temporarily stop only the affected module and produce i
 - A module supplying a continuous effect is doing work while that effect is provided. Work-based upkeep is not limited to discrete item recipes.
 - Exact resource inputs, amounts, accounting cadence, and balance remain module-specific implementation and tuning work. This decision does not prescribe per-tick accounting.
 
-## Implementation Evidence and Provenance
+## Implementation Evidence
 
-The owner accepted both rules in the Wayfinder conversation on 2026-09-10.
-
-Read-only source inspection on 2026-09-12 confirms per-module shortage blocking and recovery in `registry/outpost/AutomatedFacility.java:1032`, `:1068`, and `:1075`, under `src/main/java/com/gtnewhorizons/galaxia/`.
-
-Work-based accounting is not implemented by the inspected path. `AutomatedFacility.java:1445` settles upkeep every 1200 ticks, and `registry/outpost/upkeep/UpkeepLedger.java:42` counts enabled, structurally operational modules without checking actual work. A Miner unable to insert output still meets that predicate. This is an implementation gap against the resolved rule, not a reason to ask again whether idle modules should pay upkeep.
+Source inspection on 2026-09-12 found per-module shortage blocking, but upkeep accounting still counted enabled modules rather than actual work. The inspected owners were `AutomatedFacility` and `UpkeepLedger`. Recheck their current behavior when implementing work-based upkeep, including idle Miners blocked by full output.

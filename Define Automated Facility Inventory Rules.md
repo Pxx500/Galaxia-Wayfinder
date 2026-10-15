@@ -40,9 +40,3 @@ Automated Facilities own abstract shared inventory. Physical Stations retain wor
 ## Scope
 
 [[Define Automated Facility Fluid Capacity]] now establishes finite fluid capacity with a base allowance and storage-module expansion. The earlier unlimited implementation scope is superseded by that accepted gameplay rule. This does not prescribe inventory classes, state codecs, network framing, or synchronization algorithms.
-
-## Provenance
-
-These requirements were extracted from the approved August architecture decisions and the completed physical inventory-filter correction during the owner-authorized cleanup on 2026-09-11. No new gameplay behavior was approved by the cleanup, and current implementation was not reverified.
-
-The original records are recoverable from the external archive `D:/ObsidianVaults/Galaxia Consolidation Backups/Galaxia-before-engineering-cleanup-20260911.zip`.

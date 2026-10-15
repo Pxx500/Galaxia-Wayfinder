@@ -15,6 +15,12 @@ Wayfinder guides planning by resolving decisions before implementation. This rep
 3. Start from [Galaxia Alpha Command Center](00%20-%20Galaxia%20Alpha%20Command%20Center.md) and follow the links to the relevant map, area, and decision ticket.
 4. Use [CONTEXT](CONTEXT.md) for the project's domain terminology.
 
-Imported source material is not accepted design until it has been reviewed through the Wayfinder workflow. Accepted decisions live in their owning tickets.
+## Reading decisions
+
+- Accepted requirements live in their owning decision tickets. `Resolved` means the design question is answered, not that the feature is implemented.
+- Open tickets distinguish accepted inputs from proposals and remaining questions. Working balance values can still change after testing.
+- [Sources](Sources.md) contains background material. Unreviewed inputs and historical reports do not override current decisions.
+
+Decision notes describe the current contract and relevant rationale, not the history of planning sessions. Maps and area hubs are navigation indexes rather than duplicate specifications.
 
 Local Obsidian settings and trash are excluded from version control.

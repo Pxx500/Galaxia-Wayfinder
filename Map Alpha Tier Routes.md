@@ -24,12 +24,12 @@ For each Ore Tier from 1 through 10, which retained destinations, prerequisite c
 
 ## Early Route Working Outline
 
-Partial progress as of 2026-09-11. This is a working route outline, not a verified complete Alpha progression or final recipe assignment. Verify GTNH Ore Tier Gates owns the version-pinned evidence.
+This is a partial route outline, not verified complete Alpha progression. [[Verify GTNH Ore Tier Gates]] owns version-specific evidence for original GTNH progression.
 
 | Step | GTNH 2.8.0 evidence | Accepted Galaxia direction | Still needed |
 | --- | --- | --- | --- |
 | Overworld to Luna | Ordinary late-HV Moon access precedes the EV material step | Observation-satellite deployment opens the Star Map, then vehicle capabilities determine access to Luna | Concrete early Rocket parts, costs, and route balance |
-| Lunar activity | Bauxite or ilmenite provides titanium feedstock, with further chemical and machine processing required | Preserve material-backed progression and the existing titanium-chain direction. Planet-unlocked materials can supply technology-blueprint recipes | Reconciled lunar extraction and Space-Grade Alloy content |
+| Lunar activity | Bauxite or ilmenite provides titanium feedstock, with further chemical and machine processing required | Preserve the titanium chain. Lunar craters and Space-Grade Alloy recipes follow [[Design Lunar Crater Processing Recipe Chain]] | Complete remaining Sc/extractor settings and validate resource throughput and downstream uses |
 | Develop later vehicle parts | Tier 2 plating uses meteoric iron and pre-Mars tungstensteel, with EV manufacturing requirements | A Technology Blueprint can unlock a related group of part recipes. Physical capability replaces a Rocket-tier destination whitelist | Which Galaxia parts and technology recipes preserve the intended material progression |
 | Continue to Mars | Original route includes a lunar dungeon schematic and Tier 2 Rocket access | Planetary bosses and dungeons are optional, not mandatory progression gates | A concrete vehicle and supply chain that can perform the trip without a hidden progression bypass |
 

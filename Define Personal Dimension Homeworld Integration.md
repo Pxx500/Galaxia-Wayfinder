@@ -19,11 +19,6 @@ tags:
 
 Does Alpha support launching from GTNH Personal Dimensions, and if so, how are the launch origin, homeworld, and safe return represented without treating every arbitrary dimension as a separate Star Map Object?
 
-## Established Input
-
-- The reviewed main planning document proposes that a rocket remembers its launch dimension as its homeworld and return destination.
-- This behavior is not yet accepted and no matching implemented integration was verified during source review.
-
 ## Resolution
 
 Galaxia Alpha does not support launching from or returning to GTNH Personal Dimensions.

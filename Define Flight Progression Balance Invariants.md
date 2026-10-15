@@ -23,6 +23,6 @@ tags:
 
 Which invariants prevent early modular vehicles and physically valid trajectories from bypassing Ore Tier 1–10 progression, including difficult off-sequence missions and long but delta-v-cheap outer-system transfers?
 
-## Consolidation Scope
+## Validation Boundary
 
-Accepted qualitative travel rules do not yet demonstrate a closed progression balance. Check representative routes against actual propulsion and celestial values during implementation. Crater reconciliation should block only decisions that need its resource model, not unrelated travel feasibility work.
+Accepted qualitative travel rules do not yet demonstrate closed progression balance. Validate representative routes against actual propulsion, celestial properties and required material-processing capabilities. Lunar resource decisions constrain routes that depend on those resources, not unrelated travel feasibility.

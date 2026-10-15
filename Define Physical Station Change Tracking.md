@@ -16,82 +16,56 @@ tags:
 
 # Define Physical Station Change Tracking
 
+
 ## Question
 
-How should Physical Stations avoid unnecessary device-connectivity recomputation while keeping construction data compact and inspectable?
-
-## Provenance
-
-Owner discussion following commit `fe27e3e5` in the local Galaxia session, recorded on 2026-09-13. The owner requested recording the decisions in Wayfinder before further implementation. This ticket records design intent, not completed optimization work.
+How can Physical Stations avoid unnecessary connectivity recomputation while keeping construction data compact and inspectable?
 
 ## Resolution
 
-Accepted as the working direction for device connectivity, compact construction data and thread debugging. Room-validation lifecycle and airlock classification have separate deferred owning tickets. This resolved status does not mean the entire Station validation design is finished. Measure representative workloads before claiming a performance gain.
+Use a connected construction-path witness, compact section-local coordinates and batched updates. This is accepted design intent, not measured optimization or completed implementation. Room validation and airlock classification remain separately deferred under [[Consolidate Physical Station Architecture]].
 
-On 2026-09-16, [[Consolidate Physical Station Architecture]] retained this construction-connectivity direction while deferring the room-redesign tickets. Do not read the earlier room-approval references below as requirements for the current airlock PR integration.
+## Connectivity Witness
 
-### Connectivity Witness
+- Connect all registered functional points, including the main controller, through one branching network of actual construction paths. Structural blocks can carry paths without becoming destinations.
+- Prefer short paths heuristically. New points may join any reachable part of the connected witness. Independent nearest-neighbor pairs must not leave disconnected groups.
+- Store path membership, not persistent parent pointers, per-device routes or incremental tree repair.
+- Removing an unmarked structural block preserves the selected connections. Removing a marked block triggers full connectivity and marker recomputation. A cut witness does not prove disconnection because another route may exist.
+- Retained Station IDs do not give disconnected fragments service. Adding a functional object there must establish connectivity before enabling Station-dependent functions.
+- Registration changes, main-controller changes and reconnection must update or invalidate the witness. New destinations can extend it. Obsolete marks after removal may wait for a rebuild because they cause extra invalidation, not false connectivity.
 
-- Build one connected, branching network of actual construction paths joining all required functional points, including the main controller. The conversational name is the invisible thread.
-- Every functional object registered with the Station must participate in path generation. Structural blocks can carry paths without becoming required destinations themselves.
-- Prefer short connections heuristically. A new destination can join the nearest reachable part of the existing connected path network, not only another machine. Independent nearest-neighbor pairs must not leave disconnected groups.
-- Store only a path-membership marker at construction positions. Persistent parent pointers, per-device route records and incremental tree repair are not required.
-- Removing an unmarked structural block leaves the selected functional connections intact. Removing a marked block invalidates the witness and triggers full connectivity and path-marker recomputation.
-- A cut witness means recomputation is required, not that devices are necessarily disconnected. Another valid route may exist.
-- A disconnected fragment retaining its Station ID does not gain service merely from that ID. Adding a functional object there must establish connectivity before enabling its Station-dependent functions.
-- Device registration changes, main-controller changes and reconnection of inactive construction must update or invalidate the witness as appropriate.
-- Attaching a new functional point can extend the existing witness. Obsolete path marks after device removal may remain until a later rebuild because they only cause extra invalidations, not false connectivity.
+## Targeted Updates
 
-### Room Boundary Evidence
+Track device connectivity, room approval and pressure, and functional changes separately. Coalesce edits so an explosion does not trigger one full recomputation per block.
 
-Room rules are owned by [[Define Manual Physical Room Validation]] and [[Define Airlock Space Classification]]. The earlier proposal that a single exterior-wall bit could independently resolve sealing was superseded by the manual-validation discussion. A connectivity witness does not prove room sealing, and an unknown airlock side is not automatically exterior.
+Keep the last confirmed service state while connectivity recomputation is pending. Withdraw energy or inventory access only after actual disconnection is confirmed. The accepted short delay avoids outages when an alternate path exists.
 
-### Targeted Updates
+A connectivity witness does not prove sealing or authorize automatic room revalidation. Boundary dependencies and unknown airlock sides follow [[Define Manual Physical Room Validation]] and [[Define Airlock Space Classification]]. A direct spatial ownership index is optional and profiling-driven.
 
-- Track device connectivity, room approval and pressure, and functional-device changes separately. Avoid rebuilding unrelated state for every block event. This is not permission to automatically revalidate rooms.
-- Coalesce a series of changes into one pending update. An explosion must not cause a full recomputation for every affected block.
-- Preserve the last confirmed service-connectivity state while recomputation is pending. Do not interrupt energy or inventory access merely because a selected path was cut. Withdraw services only after actual disconnection is confirmed. The owner accepts the short delay in withdrawing services in exchange for avoiding transient outages when another route exists.
-- Room-boundary invalidation, changes inside rooms and pressure propagation are addressed by the deferred room tickets. Their proposed redesign is not a current Alpha integration requirement.
-- A direct spatial ownership index is an optional profiling-driven improvement, not a requirement to create another persistent Station identity store.
+## Compact Construction Data
 
-### Compact Construction Coordinates
+Group positions into 16 by 16 by 16 chunk sections. Store the section once and pack four local coordinate bits per axis into a 16-bit entry. The remaining four bits can hold small markers such as witness membership.
 
-- Group recorded construction positions by 16 by 16 by 16 chunk sections. Store the section position once and use local coordinates within that section.
-- The accepted simple representation uses 12 coordinate bits, four per axis, inside a 16-bit entry. The remaining four bits can hold small markers such as path membership. Specific room flags must follow the current room design, not the superseded single-bit exterior test.
-- Do not repeat Station identity in every entry when ownership is already expressed by the containing collection. Richer information applies only to the positions that need it, rather than mandatory empty fields on every block.
-- Omitting a false field does not automatically save a bit. Collection membership can encode classification, while packed flags can be cheaper than separate coordinate lists. The later accepted section-local representation is the preferred baseline, not a requirement to duplicate positions into several lists.
-- The estimate of approximately 200 kB for 100,000 two-byte entries excludes section headers, room associations, functional data, container overhead and Java heap overhead. It is not a measured file size or RAM claim.
-- Additional room references and face associations need separate storage where present. Two bytes per construction entry is not a promise that all Station validation data fits in two bytes per block. The later 1 to 3 MB estimate for a sample Station was also illustrative and excluded room-interior representation, worker snapshots, Minecraft world data and inventories.
+Do not repeat Station identity where the containing collection already owns it. Richer room references and face associations need separate data only where required. A single exterior-wall bit cannot establish sealing.
 
-### Derived Data Lifecycle
+Two bytes per position describes the packed entry, not total memory or file size. Section headers, collections, room interiors and associations, functional data, worker snapshots, world data and inventories add cost.
 
-- Do not persist the connectivity witness or derived wall markers. Recompute them when the world or server starts, rather than trusting an old optimization cache from disk.
-- This does not remove persistent Station identity or room environmental state. Rebuilding derived data at startup reduces stale-cache risk but does not replace correct handling of live world changes.
-- Startup reconstruction must account for unloaded chunks. Its interaction with later manual room validation is unresolved in [[Define Physical Room Validation Recovery]]. Do not infer that every room must be manually revalidated after a restart or that every room can automatically resume without checking.
+## Derived Data Lifecycle
 
-### In-World Thread Debug View
+Rebuild connectivity witnesses and derived wall markers at startup rather than persisting optimization caches. Preserve persistent Station identity and room environmental state. Unloaded chunks and interaction with manual approval remain unresolved in [[Define Physical Room Validation Recovery]].
 
-- Provide a switchable in-world debug visualization that highlights all construction blocks marked as part of the selected Station's connectivity witness.
-- The owner must be able to enter the world, enable this debug view and inspect the actual thread layout and branches on the physical Station.
-- Visualize the same path-membership data used by connectivity invalidation, not a separately generated approximate network.
-- This is a diagnostic overlay, not a modification of physical blocks. Exact activation controls and rendering choices remain implementation details. The visualization has not yet been implemented.
+## Thread Debug View
 
-## Rejected or Superseded Directions
+Provide a switchable in-world overlay of the selected Station's actual witness marks and branches. It must visualize the same membership data used by invalidation, not an approximate separately generated network. Activation and rendering are implementation choices. The overlay is not yet implemented.
 
-- Maintaining parent pointers and repairing individual tree branches was unnecessary complexity for the owner's intended marker-and-rebuild design.
-- Connecting every functional destination independently to the main controller is not required. Destinations may connect to any reachable part of the existing connected witness.
-- Marking a spanning tree of every structural block would remove the intended benefit. The witness connects required functional points through a subset of construction.
-- A coordinate slice containing other blocks is not proof of connectivity. Actual construction paths provide that proof.
-- A bounded local connectivity search, such as a small cube around a removed block, was discussed earlier. It is not an additional mandatory layer on top of the accepted witness scheme.
-- A geometrically awkward Station is a performance workload, not inherently player abuse. Missing placement or destruction callbacks are world-integration defects, not a flaw unique to this optimization.
-- Automatic per-change room rediscovery, a mandatory persistent air-space graph and a single exterior-wall bit as sole authority were explored but are not the current accepted room model.
+## Algorithm and Measurement Boundary
 
-## Remaining Implementation Evidence
+Measure generation cost, witness density, rebuild frequency, room-check cost and memory separately on ordinary walls, shared boundaries, detached fragments and edit batches.
 
-No measured speedup has been established. Evaluate path-generation cost, witness density, full-rebuild frequency, room-check cost and memory independently. Ordinary walls, shared boundaries, detached fragments and batches of edits matter more than speculative adversarial geometry.
+[[Station Construction Pathfinding Research]] supports exact BFS for unit-cost six-face movement and identifies A* to any marked target as another candidate. It does not validate ordinary 2D JPS for this 3D graph or select an algorithm.
 
-Exact pathfinding heuristics, compact-storage containers and invalidation scheduling remain implementation choices to derive when work begins. There is no accepted mandatory global spatial index, per-air-block store or exact performance target.
+No mandatory global spatial index, per-air-block store, local cube-search layer or exact performance target is accepted. A spanning tree covering every structural block would defeat the intended selective witness.
 
-[[Station Construction Pathfinding Research]] was reviewed as source evidence. Unit-cost six-face movement permits exact BFS. A* to any marked target is another candidate, but its heuristic cost and worst-case exploration must be counted. The source set does not establish that standard 2D JPS is valid for our 3D construction graph or select a final path-generation algorithm.
+## Provenance
 
-This decision does not authorize silently changing service semantics or claiming optimization of room checks from connectivity markers alone. It is not an implementation task list or a save-format specification.
+Owner discussion following `fe27e3e5` on 2026-09-13. The connectivity direction was retained on 2026-09-16 while room redesign was deferred.

@@ -48,7 +48,7 @@ Asteroid-belt gameplay has two separate layers: persistent Star Map asteroids fo
 - The player will place a working-name `Beacon` block inside the Regional Dimension.
 - Placing a Beacon will register its dimension coordinates as a persistent Star Map travel point.
 - The player can then target that point for reliable return flights.
-- `Beacon` is the current preferred name; `Flag` remains an unselected alternative.
+- `Beacon` is the working name.
 
 ## Current Code Boundary
 
@@ -67,7 +67,7 @@ Asteroid-belt gameplay has two separate layers: persistent Star Map asteroids fo
 ## Remaining Fog
 
 - Exact mapping from a rendered belt point to dimension coordinates and the ring's world geometry.
-- [[Define Belt Beacon Lifetime]] owns the precise question of what happens to the map point after Beacon destruction. Ownership, sharing, final name and limits remain separate fog.
+- [[Define Belt Beacon Lifetime]] owns retained markers and team-scoped deletion after Beacon destruction. Broader sharing, final naming and limits remain open.
 - Arrival safety, collision handling, and spawn placement around arbitrary coordinates and Beacons.
 - Whether a first visit may target any belt coordinate or must satisfy scan, range, or trajectory constraints.
 - How Rockets and Spaceships differ when traveling to persistent Star Map asteroids versus physical Belt Coordinates.

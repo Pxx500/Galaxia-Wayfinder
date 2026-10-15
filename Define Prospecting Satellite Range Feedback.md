@@ -38,5 +38,3 @@ When disabled, the overlay performs no coverage preparation or rendering. When e
 ## Evidence and Provenance
 
 Inspection on 2026-09-12 identified the inner scan radius in `registry/satellite/SatelliteDiscoveryWorkerSource.java:21` (`PROSPECTING_SCAN_RADIUS`) and its use by `prospectingScope` at line 57. Eligible Prospecting Satellites contribute through `prospectingWorkers` at line 26. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`. The outer visibility radius was not established by this bounded audit. Existing scan authority does not prove that the normal-map overlay is implemented.
-
-The 2026-09-10 consolidation retained the behavioral contract and removed speculative algorithms, cache layouts, and implementation checklists. The pre-consolidation backup preserves the original note.

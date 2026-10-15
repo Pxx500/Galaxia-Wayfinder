@@ -17,32 +17,38 @@ tags:
 
 # Define Physical Station Merge Contract
 
+
 ## Question
 
-How should an explicit merge of Physical Stations handle construction contact, surviving Station identity, controllers and logistics references without silently changing ownership or routing?
+How should joining independently identified Physical Stations handle surviving identity, ownership, controllers and logistics references?
 
-## Established Input
+## Deferred Direction
 
-Station membership and controller succession are already accepted. Joining construction with different Station IDs must not silently merge the Stations or select an arbitrary identity. Explicit merge was the preferred direction, but the complete contract was left unconfirmed.
+Joining construction with different Station IDs must not silently merge ownership or select an arbitrary identity. Placing a connecting block is already a manual action. No separate command, confirmation or explicit merge interaction is accepted.
 
-Station-local named endpoint groups are scoped by Station identity. Individual endpoint identities and shared Routing Names are distinct. Controller succession and splitting an existing Station must not be reopened as part of this discussion.
+This is a low-priority edge case and must not block current work. If revisited, decide identity, ownership and reference handling together. Station-local endpoint groups are scoped by Station identity, while endpoint identities and shared Routing Names remain distinct. Controller succession and splitting an existing Station are already settled elsewhere.
 
-## Owner Direction
+## Historical Implementation Evidence
 
-On 2026-09-16 the owner asked to inspect existing behavior rather than design an additional merge interaction. Placing the connecting block is itself a manual player action. The phrase "manual connection" must not imply that a separate command or confirmation has been accepted.
+Read-only inspection of master `b1e42710` on 2026-09-16 found airlock-based membership in `TileStation.attemptBoot` and `StationGraph.connectPiece/rebuild`. That is not a construction-based merge of independent Station assets and routing references.
 
-The owner considers merging two independently identified Stations a low-priority edge case. A missing merge feature may remain deferred and must not block the current Wayfinder work. The preceding proposals to reject the connecting placement, choose a surviving Station and rewrite references were not accepted.
+The separate `station-construction-identity` rework guarded conflicting ownership:
 
-## Current Implementation Evidence
+- `Station.blockAdded` claimed a new block only when its six neighbors identified exactly one Station. With two IDs, the block stayed placed but unclaimed, without a notification.
+- `claimConnectedConstruction` stopped before applying additions on encountering another Station.
+- A controller touching different Station identities refused boot.
 
-Read-only inspection of Galaxia master `b1e42710` on 2026-09-16 found airlock-based membership. `TileStation.attemptBoot` at line 222 adopts an existing graph through registered airlocks. `StationGraph.connectPiece` at line 195 and `rebuild` at line 244 traverse airlock controller registrations, not face-connected construction blocks. A structural bridge is therefore not the proposed construction-based identity merge operation. Connecting graph pieces is not evidence of a complete merge of independent assets and their routing references.
+Paths are under `src/main/java/com/gtnewhorizons/galaxia/registry/celestial/station/`. These inspected guards are not an accepted final merge design or evidence that the rework is integrated into master.
 
-Sources are under `src/main/java/com/gtnewhorizons/galaxia/registry/celestial/station/`. This is source inspection, not a new in-game reproduction.
+## Unselected Behavior
 
-The separate local `station-construction-identity` rework already detects conflicting construction ownership. In its `Station.blockAdded` at line 334, a new structural block is claimed only when its six neighbors identify exactly one Station. With two Station IDs, the block remains physically placed but unclaimed. This path neither merges identities nor removes the block, drops an item or notifies the player. `claimConnectedConstruction` at line 365 also stops without applying collected additions when it encounters another Station's construction. A new controller touching different Station identities refuses boot in `TileStation.attemptBoot` at line 237. No complete identity/reference merge was found in the inspected rework paths.
+Rejecting placement, choosing a surviving Station, rewriting references, automatic merging and a separate confirmation were not accepted. Room discovery and optimization remain separately deferred.
 
-These local conflict guards are existing implementation facts, not owner approval of an unclaimed bridge as the final design. The rework is separate from master and was inspected without modification.
+## Provenance
 
-## Deferred Scope
+Owner direction on 2026-09-16.
 
-If this case becomes relevant, revisit identity, ownership and reference handling together with the actual construction implementation. No new command, confirmation, automatic merge or reference-rewrite behavior is selected now. Room discovery and validation optimization remain separately deferred.
+## Related Topics
+
+- [[Resolve Physical Station Controller Succession]]
+- [[Define Transport Endpoint Identity and Registration]]
