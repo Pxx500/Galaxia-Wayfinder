@@ -26,9 +26,9 @@ This resolves the gameplay proposal, not implementation or numerical balance. [[
 
 ## Extraction Contract
 
-- One crater-extraction machine has ordinary-mining and fracking modes. Its final name and geometry remain open
+- One crater-extraction machine has ordinary-mining and fracking modes. A dedicated controller recipe is provisionally accepted, but an existing modpack multiblock miner may host the behavior instead. Final machine choice, name and geometry remain open
 - Ordinary mining consumes the crater's finite initial reserve. Fracking is available only after exhaustion and requires fluid. Supplying fluid early does not bypass that transition
-- Sc-bearing bauxite additionally supports wet ordinary mining from the beginning, or dry ordinary mining with lower resource efficiency. Both consume the same reserve. Its accepted outputs and dry-loss rule live in the recipe-chain ticket. Extending this behavior to other profiles remains unapproved
+- All four selected lunar profiles support wet ordinary mining from the beginning, or dry ordinary mining with lower resource efficiency. Both consume the same reserve. The recipe-chain ticket owns the accepted outputs and 25% chance of double reserve consumption during dry mining
 - After exhaustion, fracking can continue indefinitely. Enriched output per operation stays fixed while input increases with shared fracking history. Additional input does not increase mineral output
 - Initial carrier recovery is approximately closed. Progressive use creates increasing replacement demand. The accepted working lunar tuning starts perfectly closed and uses profile-dependent linear growth
 - Existing GT Drilling Fluid is the provisional carrier. Its ordinary GT manufacture remains the supply route. Downstream separation and recovery use ordinary GT machines and recipe maps

@@ -9,7 +9,7 @@ secondary_areas:
   - Area - Destinations
   - Area - Automation and Infrastructure
 blocked_by: []
-claimed_by:
+claimed_by: wayfinder
 tags:
   - galaxia/alpha
   - wayfinder/ticket
@@ -24,7 +24,7 @@ Which complete recipes connect lunar crater extraction, Drilling Fluid supply, e
 
 ## Scope And Ownership
 
-[[Review Crater Nodes Proposal]] owns shared deposits, extraction stages, scanner integration and the generation model. This ticket owns lunar profiles, recipes and numerical tuning. [[Define Alpha Research and Production Floor]] supplies the standard GT machinery baseline. Only the crater extractor is a selected custom extraction machine. Downstream work uses normal GT machines and recipe maps unless an unmet requirement justifies an exception.
+[[Review Crater Nodes Proposal]] owns shared deposits, extraction stages, scanner integration and the generation model. This ticket owns lunar profiles, recipes and numerical tuning. [[Define Alpha Research and Production Floor]] supplies the standard GT machinery baseline. Crater extraction has an accepted operating contract, but its host remains provisional: a dedicated extractor may be replaced by integration into an existing modpack multiblock miner. Downstream work uses normal GT machines and recipe maps unless an unmet requirement justifies an exception.
 
 New items, materials, fluids and recipes follow [[Design Early Orbital Production Recipe Chain#Accepted Content Ownership And Temporary Staging]]. The settings below are accepted working content or explicitly unapproved proposals, not implemented recipes or demonstrated whole-chain balance.
 
@@ -77,7 +77,7 @@ The accepted working loop starts at 16000 mB Drilling Fluid per reference portio
 | Sc-bearing bauxite | 2000 | 24000 mB |
 | Platinum-bearing | 1000 | 32000 mB |
 
-These costs apply to the next reference portion, not the cumulative average. Growth has no cutoff or reset. Finite mining does not advance fracking history. Multiple extractors claim successive positions in the same history rather than separate cheap starts. At the doubling point, each portion needs 16000 mB replacement carrier. Cleanup machine settings remain unapproved.
+These costs apply to the next reference portion, not the cumulative average. Growth has no cutoff or reset. Finite mining does not advance fracking history. Multiple extractors claim successive positions in the same history rather than separate cheap starts. At the doubling point, each portion needs 16000 mB replacement carrier. Accepted carrier-cleanup settings are recorded below.
 
 ## Accepted SGA Manufacturing
 
@@ -101,11 +101,11 @@ New primary Galaxia Sc acquisition is crater-exclusive, starting with lunar Sc-b
 
 The existing late Blood Magic Chinfinity meteor source remains unchanged. It contains weighted endstone Scandium ore, consumes a ZPM Circuit Assembler focus and costs 80000000 life essence. Its gate does not set the new Galaxia supply gate. The checked Monazite/Bastnasite recipe owner supplies Samarium rather than a named Sc output. The bounded GT/CoreMod consumer audit did not find an authored progression-critical Sc ingredient. Neither finding proves all-mod absence.
 
-### Finite Dry And Wet Sc Mining
+### Finite Dry And Wet Mining
 
-Wet ordinary mining is available from the beginning and supplies enriched fluid. Dry mining directly yields the same accepted batch of 8 crushed Bauxite and 1 Sc concentrate dust, bypassing separation and carrier cleanup. Both consume the shared finite reserve. Dry mining has a 10% chance to consume twice the normal reserve portion and a 90% chance to consume the normal portion, with unchanged output. Its expected reserve cost is 1.1 portions. The penalty affects reserve only, not energy or duration.
+All four profiles support wet ordinary mining from the beginning and direct solid output without fluid. Dry mining yields the profile's accepted solid batch, such as 8 crushed Bauxite and 1 Sc concentrate dust, bypassing separation and carrier cleanup. Both modes consume the shared finite reserve. Dry mining has a 25% chance to consume twice the normal reserve portion and a 75% chance to consume the normal portion, with unchanged output. Its expected reserve cost is 1.25 portions. The penalty affects reserve only, not energy or duration.
 
-Wet mining is more resource-efficient, not necessarily cheaper in every energy or infrastructure comparison. It cannot start fracking before exhaustion. Once the finite reserve is exhausted, only fluid-dependent fracking continues. Extension of this dry/wet behavior to the other profiles remains unapproved.
+Wet mining is more resource-efficient, not necessarily cheaper in every energy or infrastructure comparison. It cannot start fracking before exhaustion. Once the finite reserve is exhausted, only fluid-dependent fracking continues. Both finite mining modes use the same accepted 5 s base cycle.
 
 ### Accepted Chemistry Skeleton
 
@@ -122,18 +122,20 @@ Defined compounds follow [GTNH Chemical Balance](https://wiki.gtnewhorizons.com/
 
 ### Quantitative Sc Refinery Proposal, Unapproved
 
-The processing sequence is accepted. The following downstream quantities, costs, machines and unspecified mixture compositions remain proposals. The separation recipe above is already accepted and is not included as a proposal here.
+The processing sequence is accepted. The following downstream quantities, costs, machines and unspecified mixture compositions remain proposals except for the selected 12 s EBF reduction duration and five-Quicklime output. The shorter duration favors the Calcium route over direct electrolysis, while the reduced Quicklime output creates continuing Calcium makeup. These choices do not approve all other refinery settings. The separation recipe above is already accepted and is not included as a proposal here.
 
 | Operation | Inputs | Outputs | Machine | Base EU/t | Base time |
 | --- | --- | --- | --- | ---: | ---: |
 | Leaching | 12 Sc concentrate dust, 6000 mB Nitric Acid, 3000 mB Water | 9000 mB Sc solution, 10 Stone dust | LCR | 480 | 60 s |
 | Precipitation | 9000 mB Sc solution, 18 Sodium Hydroxide dust | 5 Scandium Oxide dust, 9000 mB spent leach solution | Chemical Reactor | 120 | 30 s |
-| Calcium reduction | 5 Scandium Oxide dust, 3 Calcium dust | 2 Scandium dust, 6 Quicklime dust | EBF, proposed 1814 K | 120 | 24 s |
+| Calcium reduction | 5 Scandium Oxide dust, 3 Calcium dust | 2 Scandium dust, 5 Quicklime dust | EBF, proposed 1814 K | 120 | 12 s |
 | Direct electrolysis | 5 Scandium Oxide dust | 2 Scandium dust, 3000 mB Oxygen | Electrolyzer | 120 | 80 s |
 
 Twelve separation batches supply the proposed two Sc dust alongside 96 crushed Bauxite from 192000 mB enriched fluid. This is a dilute coproduct yield, not a chemical formula or a proof of economic balance.
 
-Existing Quicklime electrolysis can recycle Calcium. Three 30 EU/t, 56-tick operations recover the six Quicklime from reduction. Proposed reduction plus recycling uses 62640 EU per two Sc dust, compared with 192000 EU for direct electrolysis, before overclocking. The tradeoff is circulating Calcium and more machinery. No Sc is deliberately destroyed.
+Existing Quicklime electrolysis remains unchanged. Two EBF batches consume six Calcium dust and produce ten Quicklime dust. Five existing 30 EU/t, 56-tick recycling operations return five Calcium dust, leaving one full Calcium dust of makeup demand per two EBF batches. Calcium recovery is therefore approximately 83.3%, not a closed startup-only loop. The lower Quicklime yield is deliberate unrecovered processing loss, not loss of Sc or a new residue item.
+
+At the current recipe settings, those two EBF batches and Quicklime recycling use 66000 EU for four Sc dust before overclocking, excluding fresh Calcium production. Direct oxide electrolysis would use 384000 EU for the same Sc output. These figures compare only metal recovery and do not establish the full supply-chain energy advantage. Buffer whole dust batches rather than introducing fractional or small dust recipes.
 
 The direct electrolysis cost is authored. It must not coexist with a cheaper accidental generated duplicate. Default source-derived generation would predict 30 EU/t for 6.5 s. Which generator behavior and costs to use remains open. Fluid hatch capacities and actual throughput also need verification.
 
@@ -164,29 +166,53 @@ GT-only development omits Galaxia-dependent environmental variants from registra
 
 ### Sc EBF Variant Proposal, Unapproved
 
-The proposed example uses common Sc dust inputs. No Atmosphere produces pure metal. Atmosphere produces some metal plus Sc oxide, recoverable by electrolysis. Preserve elemental Sc and normal hot-ingot cooling. Oxide may also supply selected optical or ceramic consumers. Output split, unit definition, energy and duration remain open. No new blanket Sc restriction or relaxation of the SGA rule follows from this example.
+The packet uses four full Scandium dust as the proposed common input. Both environmental variants require the selected EV base power of 1920 EU/t and 3650 K heat. Duration remains proposed at 40 s. Nichrome provides 3601 K base heat and reaches 3701 K with the normal HV-input temperature bonus, so the intended power/coil combination is EV recipe power with Nichrome coils, not a requirement for TP Alloy coils. Multiple lower-tier energy hatches may supply the required power. Heat and electrical power remain independent checks. This decision applies to dust-to-hot-ingot processing, not the separate oxide-to-dust reduction at 120 EU/t for 12 s. It does not change Scandium's material melting point or establish implemented GT recipes.
+
+| Environment | Common input | Proposed outputs |
+| --- | --- | --- |
+| No Atmosphere | 4 Scandium dust | 4 hot Scandium ingots |
+| Atmosphere | 4 Scandium dust | 2 hot Scandium ingots, 5 Scandium Oxide dust |
+
+Five full oxide dust contain two Sc units under the GT material convention, so both variants preserve four Sc units. Oxidation in atmosphere is an environmental gameplay abstraction, not a fully specified reaction with every ambient gas composition. Oxide returns through either recovery option and does not preserve its origin. Normal Vacuum Freezer cooling remains a separate existing operation. No tiny or small dusts are needed.
+
+This family would replace the corresponding ordinary Sc dust-to-hot-ingot EBF entry, not coexist as colliding same-input recipes. It does not change the preceding oxide-to-dust reduction or the SGA No Atmosphere requirement. Oxide may also supply selected optical or ceramic consumers. EV power and 3650 K heat are selected. The input batch, output split and time remain proposals.
 
 ## Initial Sc Components And Wider Demand
 
 RF Resonator for upgraded Communication Satellites and Laser Crystal for upgraded Prospecting Satellites are accepted component-design directions. Their compositions, benefits, recipes and availability remain open. First-satellite recipes stay unchanged without Sc.
 
+### Satellite Consumer Proposal, Unapproved
+
+Use Sc components for stronger functional satellites rather than replacing the first satellite recipes. Proposed upgraded assembly uses EV power, with ordinary first-satellite inputs retained except for the changes below. No new deployment mechanic is implied.
+
+| Consumer | Proposed recipe change | Proposed benefit |
+| --- | --- | --- |
+| Upgraded Communication Satellite | Add 2 RF Resonators to the basic Communication Satellite's ingredient list | Twice the basic raw communication bandwidth, with unchanged distance-quality costs |
+| Upgraded Prospecting Satellite | Replace its 2 Diamond Lenses with 2 Laser Crystals | Twice the basic Raw Prospecting Data rate for the same origin |
+
+The prospecting improvement still requires corresponding network and Data Processor capacity. It does not grant an unconditional mining bonus or directly double extraction. The Communication recipe has nine distinct item types after this addition, while the Prospecting recipe retains eight. The proposed EV assembly setting is 1920 EU/t for 60 s. These are manufacturing recipes, not recipes consuming an already deployed satellite.
+
+Metallic Sc and nitrogen-bearing thin-film manufacture provide the RF branch's inspiration. The optical branch should start from Scandium Oxide rather than reducing and then reoxidizing it. Exact feedstocks and component recipes remain open. A research laser host's rare-earth ingredients must not silently impose an unverified later progression gate.
+
 Additional meaningful Sc uses, including non-Galaxia equipment, are wanted. Current unapproved candidates include reusing these RF and optical parts, oxide ceramics for selected high-temperature or electrochemical hardware, and Al-Sc structural hardware with a concrete benefit. Each needs an actual consumer and demand comparison. Installed components do not need arbitrary continuous Sc consumption. Broader use is not approval to replace unrelated GT progression gates.
 
 RF targets, oxide ceramics, laser hosts and lightweight structural alloys provide scientific inspiration, not selected recipes. Metallic Sc reactivity may inform hot-metal handling or deposition. It does not justify restricting stable oxides, aqueous chemistry or installed equipment. Inert protection and vacuum are not physically identical.
 
-## Extractor And Carrier Cleanup Proposal, Unapproved
+## Working Extractor And Carrier Cleanup Settings
 
-This entire operation packet remains unapproved, including extension of the Sc dry/wet choice and 10% double-reserve rule to all four profiles. Accepted separation outputs, reserves and fracking slopes do not approve its power or duration.
+Dry/wet behavior applies to all four profiles. Both finite mining modes, fracking and carrier cleanup have accepted working costs and times. These are base settings before overclocking, not verified running-machine performance.
 
 | Operation | Inputs | Outputs | Machine | Base EU/t | Base time |
 | --- | --- | --- | --- | ---: | ---: |
-| Dry ordinary mining | One reference portion, with dry loss rule | Profile's accepted solid batch | Crater Extractor | 480 | 30 s |
-| Wet ordinary mining | One reference portion, 16000 mB Drilling Fluid | 16000 mB profile-specific enriched fluid | Crater Extractor | 480 | 30 s |
-| Fracking after exhaustion | Current profile-dependent Drilling Fluid input | 16000 mB profile-specific enriched fluid | Crater Extractor | 480 | 60 s |
-| Carrier cleanup | 4000 mB spent carrier | 4000 mB Drilling Fluid | Centrifuge | 30 | 8 s |
+| Dry ordinary mining | One reference portion, with dry loss rule | Profile's accepted solid batch | Crater Extractor | 480 | 5 s |
+| Wet ordinary mining | One reference portion, 16000 mB Drilling Fluid | 16000 mB profile-specific enriched fluid | Crater Extractor | 480 | 5 s |
+| Fracking after exhaustion | Current profile-dependent Drilling Fluid input | 16000 mB profile-specific enriched fluid | Crater Extractor | 480 | 10 s |
+| Carrier cleanup | 4000 mB spent carrier | 4000 mB Drilling Fluid | Centrifuge | 120 | 8 s |
 | Controller manufacture | 1 HV hull, 2 HV motors, 1 HV pump, 2 HV pistons, 2 HV circuits, 4 steel plates, 144 mB molten tin | 1 Crater Extractor Controller | Assembler | 480 | 45 s |
 
-Controller manufacture needs no lunar SGA. Multiblock geometry remains open. Cleanup runs four times per separator batch. These are base values before overclocking, not a claim that one downstream machine keeps pace with an overclocked extractor.
+The controller recipe is provisionally accepted. It needs no lunar SGA. A dedicated machine is not final: investigate extending an existing modpack multiblock miner before committing to a separate extractor. Machine identity, geometry and integration remain open, and reuse may change the controller recipe. Preserve the accepted crater behavior and balance when comparing hosts.
+
+Cleanup runs four times per separator batch. This is distinct from mineral separation, which remains 16000 mB at 120 EU/t for 40 s. The faster extractor settings do not imply one downstream machine keeps pace.
 
 Existing carrier manufacture is 5 water cells, 1 Stone dust and 20 mB Lubricant for 5000 mB Drilling Fluid plus five empty cells in a Mixer at 15 EU/t for 3.2 s. Startup needs full committed input and pipeline inventory, not only net makeup. Cleanup does not need an invented Stone coproduct.
 
@@ -214,7 +240,7 @@ The [original nitric-acid research](https://pmc.ncbi.nlm.nih.gov/articles/PMC877
 
 ## Remaining Decisions
 
-- Review the extractor, cleanup and controller packet, including whether other profiles gain the Sc dry/wet rule
+- Evaluate existing multiblock miners against the accepted extraction contract before finalizing a dedicated machine
 - Select size-class mix, spatial density, diameter deviations and richness-response tuning
 - Tune the quantitative Sc refinery and oxide recovery alternatives around accepted separation and reagent recovery
 - Select RF Resonator, Laser Crystal and wider Sc consumers with actual benefits and demand
