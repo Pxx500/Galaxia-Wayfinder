@@ -27,7 +27,11 @@ Which Galaxia-specific capabilities and complete gameplay chains must Alpha cont
 - Require the systems that define Galaxia's product identity to operate in complete gameplay chains; let the number of destinations that must be redesigned emerge from those requirements.
 - Do not use the amount of custom celestial content as a proxy for product completeness.
 
-## Confidence
+## Accepted Individual Scope Decisions
+
+- [[Define Remote Android Body Lifecycle]] establishes remote-controlled android bodies as Alpha scope. Core gameplay and the operator/body architecture are accepted. Production recipes and verification remain outstanding.
+
+## Overall Floor Confidence
 
 Low. This direction is provisionally acceptable, but it is not an accepted product requirement yet.
 

@@ -8,7 +8,7 @@ areas:
 secondary_areas:
   - Area - Observation and Research
 blocked_by: []
-claimed_by:
+claimed_by: wayfinder
 tags:
   - galaxia/alpha
   - wayfinder/ticket
@@ -126,7 +126,7 @@ Microgravity is a gameplay restriction inspired by reduced crystallization, sedi
 
 ## Parts And Payload Recipes
 
-The following parts are working proposals unless selected explicitly below. Each produces one item in an ordinary Assembler at 480 EU/t, without an environmental restriction.
+The Satellite Frame, Satellite Dish and Primitive Telescope Satellite recipes below are accepted working recipes, including quantities, duration and 480 EU/t. The Rocket Automation Controller recipe remains a working proposal. Each produces one item in an ordinary Assembler without an environmental restriction.
 
 | Output | Inputs | Time |
 | --- | --- | ---: |
@@ -152,17 +152,17 @@ The following functional-satellite compositions are selected, with working Assem
 
 Communication uses antennas and transmission hardware, while Prospecting uses optics and sensors. Both use control electronics and optical routing, consuming 32 and 16 fibers respectively. Primitive Telescope uses the existing ground-made `ItemList.Cover_SolarPanel`. Batteries remain separate inputs. These ingredients do not introduce satellite EU generation, charging or maintenance simulation.
 
-Use `ItemList.Battery_RE_HV_Lithium`, `ItemList.Sensor_HV` and `ItemList.Emitter_HV` for the named GT components. The dish reuses `GalaxiaItemList.SATELLITE_DISH`, registered as `parts/satellite_dish`. Its registration is not an existing production recipe. The pinned HV Assembler has nine item slots. Primitive Telescope uses seven distinct item types, and each functional satellite uses eight, with tin in the fluid slot.
+Use `ItemList.Battery_RE_HV_Lithium` for the named battery. Functional satellites use `ItemList.Sensor_HV` and `ItemList.Emitter_HV`. The accepted Primitive Telescope recipe instead uses an MV Sensor, and the dish recipe uses an MV Emitter. The dish reuses `GalaxiaItemList.SATELLITE_DISH`, registered as `parts/satellite_dish`. Its registration is not an existing production recipe. The pinned HV Assembler has nine item slots. Primitive Telescope uses seven distinct item types, and each functional satellite uses eight, with tin in the fluid slot.
 
 The opening payload remains a limited achievement mission that grants Star Map access and passive Luna resource-scan progress, not a cheap retargetable Prospecting Satellite or physical block scan. The controller adds automation to the same reusable Rocket. Manual Luna flights remain possible without it. Lunar SGA is absent from this pre-Luna bootstrap.
 
-## Knowledge Recipe Proposals, Unapproved
+## Accepted Technology Groups And Proposed Blueprint Costs
 
-The technology grouping, costs and unlocks below remain unapproved pending GT5 team-knowledge production-gating integration. The consumed-blueprint mechanism itself is accepted.
+The Rocket Automation and Functional Satellites groups and the unlocks below are accepted. Their blueprint ingredient quantities, manufacturing costs and GT production-enforcement integration are not approved by that grouping decision. The consumed-blueprint mechanism itself is accepted.
 
-Each recipe produces one Technology Blueprint in an Assembler at 480 EU/t for 15 s, without an environmental restriction.
+The proposed recipes each produce one Technology Blueprint in an Assembler at 480 EU/t for 15 s, without an environmental restriction.
 
-| Blueprint | Inputs | Proposed unlocks |
+| Blueprint | Proposed inputs | Accepted unlocks |
 | --- | --- | --- |
 | Rocket Automation | 2 CLC Modules + 1 HV circuit + 1 book + 144 mB molten Tin | Rocket Automation Controller production |
 | Functional Satellites | 2 CLC Modules + 1 Fluoride Fiber Spool + 1 HV circuit + 1 book + 144 mB molten Tin | Communication and Prospecting Satellite production |
@@ -209,7 +209,7 @@ The existing recipes were audited against GT5-Unofficial `000a4d9b24d77f40a79da7
 
 - Review unapproved working quantities, power and durations, especially the residue, growth cycle, wash and chip-cutting details
 - Select final CLC and fiber/preform names
-- Resolve GT5 team-knowledge production enforcement before approving the two blueprint proposals
+- Select the two blueprint recipes and resolve GT team-knowledge production enforcement, preserving the accepted groups and unlocks
 - Verify early feedstock and component availability, environmental enforcement and complete production throughput
 - Verify transported battery power against actual charge demand and logistics, then design sustained non-combustion supply separately
 - Tune working panel quantities if needed while preserving the ground-made opening payload

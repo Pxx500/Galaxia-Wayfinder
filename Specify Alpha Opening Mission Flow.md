@@ -21,9 +21,11 @@ tags:
 
 The Silo can deploy a satellite into its current world's orbit without opening the Star Map or choosing another celestial destination. This remains an ordinary local launch capability after the opener.
 
+The opening is a scenario of the ordinary persistent Rocket, payload and Vehicle Schedule systems. It must not use a separate scripted launch executor or an opening-only transport model. The Factorio Space Age-inspired place, action and generated-route flow follows [[Define Space Transport Dispatch Model]] and [[Define Rocket Route Fuel Budgets]]. A pre-map local editor must preserve the same execution semantics even when it exposes fewer destinations.
+
 1. Build the Primitive Telescope Satellite from starting-world materials under [[Design Early Orbital Production Recipe Chain]].
 2. Successfully deploy it into Overworld orbit. Building the item or starting launch is insufficient.
-3. Grant the shared launch achievement and unlock the team's Star Map immediately. The achievement supplies passive Luna celestial-profile scan progress, rather than waiting for scan completion.
+3. Grant the Galaxia team launch achievement and unlock the team's Star Map immediately. The achievement supplies passive Luna celestial-profile scan progress, rather than waiting for scan completion.
 
 [[Define Satellite Manufacturing and Deployment Progression]] owns achievement sharing and the scripted survey. The payload does not require a registered satellite asset, worker or simulated lifecycle and does not scan physical-world blocks or ore deposits.
 

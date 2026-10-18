@@ -37,6 +37,7 @@ Star Map activation, celestial discovery, resource knowledge, reconnaissance, sa
 
 ## Deferred
 
+- [[Define Modular Satellite Construction]]
 - [[Define Prospecting Effects by Extraction System]]
 - [[Optimize Knowledge and Satellite Synchronization]]
 

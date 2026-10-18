@@ -179,18 +179,11 @@ This family would replace the corresponding ordinary Sc dust-to-hot-ingot EBF en
 
 ## Initial Sc Components And Wider Demand
 
-RF Resonator for upgraded Communication Satellites and Laser Crystal for upgraded Prospecting Satellites are accepted component-design directions. Their compositions, benefits, recipes and availability remain open. First-satellite recipes stay unchanged without Sc.
+RF Resonator for communication hardware and Laser Crystal for prospecting or optical hardware are retained component-design directions. Their compositions, benefits, recipes and availability remain open. Their proposed advanced or modular satellite consumers are deferred, not Alpha requirements. The opening progression must not acquire an implicit Sc requirement.
 
-### Satellite Consumer Proposal, Unapproved
+### Satellite Consumer Direction
 
-Use Sc components for stronger functional satellites rather than replacing the first satellite recipes. Proposed upgraded assembly uses EV power, with ordinary first-satellite inputs retained except for the changes below. No new deployment mechanic is implied.
-
-| Consumer | Proposed recipe change | Proposed benefit |
-| --- | --- | --- |
-| Upgraded Communication Satellite | Add 2 RF Resonators to the basic Communication Satellite's ingredient list | Twice the basic raw communication bandwidth, with unchanged distance-quality costs |
-| Upgraded Prospecting Satellite | Replace its 2 Diamond Lenses with 2 Laser Crystals | Twice the basic Raw Prospecting Data rate for the same origin |
-
-The prospecting improvement still requires corresponding network and Data Processor capacity. It does not grant an unconditional mining bonus or directly double extraction. The Communication recipe has nine distinct item types after this addition, while the Prospecting recipe retains eight. The proposed EV assembly setting is 1920 EU/t for 60 s. These are manufacturing recipes, not recipes consuming an already deployed satellite.
+The owner retained both component concepts but did not accept the proposed pair of fixed EV satellite upgrades with doubled output. [[Define Modular Satellite Construction]] preserves the deferred component-based construction direction. Current Alpha scope is one basic Communication Satellite type and one basic Prospecting Satellite type. Do not use the former upgrade recipes, their multipliers or modular construction as accepted lunar-chain prerequisites.
 
 Metallic Sc and nitrogen-bearing thin-film manufacture provide the RF branch's inspiration. The optical branch should start from Scandium Oxide rather than reducing and then reoxidizing it. Exact feedstocks and component recipes remain open. A research laser host's rare-earth ingredients must not silently impose an unverified later progression gate.
 
@@ -243,7 +236,7 @@ The [original nitric-acid research](https://pmc.ncbi.nlm.nih.gov/articles/PMC877
 - Evaluate existing multiblock miners against the accepted extraction contract before finalizing a dedicated machine
 - Select size-class mix, spatial density, diameter deviations and richness-response tuning
 - Tune the quantitative Sc refinery and oxide recovery alternatives around accepted separation and reagent recovery
-- Select RF Resonator, Laser Crystal and wider Sc consumers with actual benefits and demand
+- Assess wider Sc demand through concrete consumers without making deferred modular satellites a prerequisite for this chain
 - Select construction recipes and demonstrate situational roles for all three SGA compositions
 - Verify complete reagent availability, capacities, throughput and energy against actual recipes and the provisional transported-battery power route
 - Resolve ambiguous environmental family variants and verify coherent collision, deduplication and operation-state handling

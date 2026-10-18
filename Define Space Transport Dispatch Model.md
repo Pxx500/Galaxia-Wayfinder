@@ -21,6 +21,8 @@ tags:
 
 Alpha Rockets and Spaceships execute player-authored, vehicle-owned linear schedules. Top-level Travel Blocks connect endpoint Visit Blocks, whose actions are local to that occurrence. Modes are `Run once` and `Loop`. This is the accepted minimal scheduler contract, not an implemented scheduler or central fleet queue.
 
+The Factorio Space Age-inspired tile editor and its scheduler are the actual Rocket system, not optional infrastructure added after a separate opening-only executor. The first satellite deployment uses this same vehicle, resource and action ownership. [[Define Rocket Route Fuel Budgets]] extends places and generated routes, while prepared servicing visits retain the endpoint rules below. An orbital payload-deployment action does not require a fabricated receiver endpoint. The Factorio reference is inspiration, not approval of its entire condition catalogue or circuit-network integration.
+
 ## Schedule Ownership And Execution
 
 - Each persistent vehicle stores its schedule, mode, current block/nested action and execution state. The Star Map observes and edits it.

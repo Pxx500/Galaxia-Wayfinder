@@ -38,6 +38,10 @@ Physical access, rockets, spaceships, Hammers, route requirements, cargo movemen
 - [[Define Player Flight Interaction Model]]
 - [[Define Vehicle Capability and Route Requirements]]
 
+## Implementation Issues
+
+- [[Issue - Enforce Interplanetary Resource Transfer Restrictions]]
+
 ## Related Topics
 
 - Area - Progression

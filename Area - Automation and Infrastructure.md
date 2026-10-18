@@ -30,6 +30,7 @@ Persistent tier assets, Automated Facilities, stations, outposts, construction, 
 
 ## Resolved Decisions
 
+- [[Define Remote Android Body Lifecycle]]
 - [[Define Automated Facility Fluid Capacity]]
 - [[Define Data Processor Machine Topology]]
 - [[Define Module Settings Editing Contract]]

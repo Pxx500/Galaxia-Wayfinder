@@ -30,6 +30,15 @@ Rocket Blueprints are separate reusable assembly designs. They do not grant Tech
 
 ## Knowledge-Gated Production
 
+### Accepted Initial Groups
+
+| Technology | Gated production |
+| --- | --- |
+| Rocket Automation | Rocket Automation Controller |
+| Functional Satellites | Basic Communication Satellite and Prospecting Satellite |
+
+Material processing, SiGe, fluoride-glass production, frames, dishes and Primitive Telescope production do not require these two technologies. Neither technology gates manual Rocket dispatch or manual Luna travel. This selects the first groups, not their blueprint ingredient quantities or every later technology.
+
 - One blueprint may unlock a coherent technology group of recipes, components and part variants. Neither one blueprint per item nor one bundle per planet is required.
 - Production checks the relevant team's knowledge before executing a gated recipe. Automated machines use their owner's team.
 - Knowledge does not replace ongoing material consumption in parts whose properties depend on that material. Not every unlocked recipe must use the same material.
@@ -45,9 +54,9 @@ Apply these rules to the relevant technology/module selection surface when defin
 
 ## Implementation Boundary and Open Content
 
-The exact gated set and GT5 enforcement integration remain unresolved. Silo assembly, Module Assembler production and external recipe processing need distinct treatment. Do not infer that the Silo already crafts recipe parts or checks knowledge.
+The first two gated groups are selected above. Later gated content and GT enforcement integration remain unresolved. Silo assembly, Module Assembler production and external recipe processing need distinct treatment. Do not infer that the Silo already crafts recipe parts or checks knowledge.
 
-[[Design Early Orbital Production Recipe Chain]] retains Rocket Automation and Functional Satellites as unapproved blueprint proposals. Environment Tags in [[Define Celestial Capability Rules]] describe local conditions, not team knowledge, and do not resolve technology enforcement.
+[[Design Early Orbital Production Recipe Chain]] owns proposed blueprint costs for the accepted Rocket Automation and Functional Satellites groups. Environment Tags in [[Define Celestial Capability Rules]] describe local conditions, not team knowledge, and do not resolve technology enforcement.
 
 Inspection on 2026-09-12 found reusable designs in `registry/items/special/ItemRocketSchematic.java` and `registry/rocketmodules/rocket/blueprint/RocketBlueprint.java`. `registry/celestial/knowledge/CelestialKnowledgeFacts.java` held discovery/resource facts, not Technology Knowledge. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`. This does not establish implementation of the accepted blueprint contract.
 

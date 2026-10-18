@@ -34,6 +34,10 @@ Cosmetic-only edits use the ModularUI2 Preview workflow in AGENTS.md unless they
 - When investigating resize failures, inspect loaded module paths, not just names containing `Overwolf`. Known injected modules include `OWClient.dll`, `OWExplorer.dll`, `GEPPlugin64.dll`, `gep_minecraft.dll`, `libowgameevents64.dll` and `ow-graphics-hook64.dll`
 - Screenshots support diagnosis and presentation, not proof of correct behavior
 
+## Manual Client Display Defaults
+
+Start every Galaxia Horizon QA manual client with GUI scale 2, Quake Pro FOV (110 degrees), and clouds disabled. Pass -PhorizonQaManual=true so the Galaxia runClient manual profile applies these options in the isolated game directory before startup. Automated scenarios can deliberately override settings for their own coverage. Keep existing game sessions untouched.
+
 ## Repository Entry Points
 
 | Need | Location |

@@ -9,6 +9,7 @@ tags:
 
 # Deferred
 
+- [[Define Modular Satellite Construction]]
 - [[Define Physical Station Merge Contract]]
 - [[Agent Source - Patched Conics Transfer Rework]]
 - [[Repo Source - Vael Star System Notes]]

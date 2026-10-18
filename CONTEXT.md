@@ -12,6 +12,28 @@ Galaxia is GTNH's space-progression hub. Its player-facing systems connect techn
 
 ## Language
 
+**Biological Body**:
+The player's original physical body, which remains in a powered control capsule during remote android operation.
+_Avoid_: Remote body, android
+
+**Android Body**:
+A manufactured, electrically powered body that a player controls remotely through the satellite network. It has its own inventory and is bound to its associated dock's dimension.
+_Avoid_: Autonomous worker, teleported biological body
+
+**Control Capsule**:
+The powered control and life-support installation that holds the biological body during remote android operation.
+
+**Android Dock**:
+The physical installation associated with an android's manufacture, charging and repair. Its dimension is the android's permitted operating dimension.
+
+**Galaxia Achievement**:
+A persistent milestone earned by a team in Galaxia's own achievement system. It is distinct from an individual player's Minecraft achievement and from Technology Knowledge.
+_Avoid_: Personal achievement, Minecraft achievement, technology unlock
+
+**Special Scripted Achievement**:
+A designated Galaxia Achievement whose scripted benefits are copied to the receiving team when a member changes teams, while the previous team retains them. This selective sharing does not apply to ordinary achievements.
+_Avoid_: Copying all achievements, personal achievement history
+
 **Technology Knowledge**:
 A team's acquired knowledge that can be required to produce particular parts or use particular recipes. It is separate from knowledge of celestial objects and from a Rocket's assembly design.
 _Avoid_: Rocket Blueprint, Celestial Discovery
@@ -129,7 +151,7 @@ The team's information about resources associated with a celestial object. It is
 _Avoid_: Object discovery
 
 **Star Map Activation**:
-The team milestone established by deploying its first Prospecting Satellite into the starting world's orbit, making the Star Map available. Activation exposes developer-authored initial object knowledge without itself granting detailed scans.
+The team milestone established by successfully deploying the Primitive Telescope Satellite into Overworld orbit and earning the opening Galaxia Achievement. It immediately opens the Star Map, exposing authored initial object knowledge while Luna's profile survey progresses separately.
 _Avoid_: Celestial Discovery, universal discovery
 
 **Ore Tier**:
@@ -353,6 +375,14 @@ An item or bulk-fluid transfer intention belonging to a vehicle visit or endpoin
 _Avoid_: Requiring the vehicle to duplicate the dock's cargo configuration
 
 ## Orbital Production Vocabulary
+
+**Satellite Assembler**:
+The deferred machine concept for assembling a satellite from a chassis and a selected configuration of Satellite Modules.
+_Avoid_: Assuming the ordinary GT Assembler or a finalized multiblock structure
+
+**Satellite Module**:
+A functional assembly in the deferred modular-satellite concept, installed in a satellite's slots to supply or support capabilities. It is distinct from manufacturing components and an Automated Facility Module.
+_Avoid_: One registered satellite model per module combination
 
 **SiGe Blend**:
 The unrefined silicon-germanium processing mixture that requires impurity-removal treatment before becoming crystal-growth feedstock.

@@ -25,6 +25,18 @@ No. Interplanetary movement of players, items, and fluids uses explicit Galaxia 
 
 No default teleportation exception is assumed. A future exception requires a concrete use case and an explicit Wayfinder decision.
 
+## Remote Storage And Mod Integrations
+
+Ender Chests, Ender Tanks, AE2 and other shared or remote storage mechanisms must not provide an alternative interplanetary item or fluid transfer path. The restriction concerns the actual resource path, including automatic transfers, not only the GUI or the identity of the player opening it.
+
+Remote android operation does not create an exception. Keeping the operator's account identity must not expose cross-destination personal storage or material-transfer channels that bypass explicit Galaxia logistics. Blocking an android's interaction alone is insufficient if the same placed infrastructure continues transferring automatically or remains usable by the biological player.
+
+The exact integration surfaces and supported-mod coverage require investigation. This decision does not certify that enforcement exists. It does not silently remove accepted Galaxia transport roles such as Hammer.
+
+Ordinary same-destination AE2 storage, crafting and automation remain available, including use by androids. AE2 Quantum Ring connections must not bridge celestial destinations. Local AE2 may supply and receive Rocket cargo, but cannot replace the transport between destinations. The policy restricts interplanetary transfer paths, not the entire AE2 mod.
+
+[[Issue - Enforce Interplanetary Resource Transfer Restrictions]] tracks the required implementation. The resolved gameplay policy is not evidence that these integrations are already enforced.
+
 ## Related Topics
 
 - Define Alpha Transport Roles
