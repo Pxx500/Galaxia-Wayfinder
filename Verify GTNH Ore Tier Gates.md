@@ -65,7 +65,7 @@ The full Ore Tier 4 resource audit remains unresolved. No final Galaxia material
 - Initial europium has a documented fusion route and is consumed by the next Rocket hull. That hull has a ZPM-rated recipe, while its computer recipe is LuV-rated.
 - Boss schematics, fixed Rocket destination tiers, exact old hull recipes, and fuel-grade whitelists remain original GTNH provenance, not automatic Galaxia requirements.
 
-Full alternative-source and resource-role audits remain incomplete. Ore Tiers 6 through 10 still need investigation. This ticket remains open.
+Full alternative-source and resource-role audits remain incomplete. The later source-collection round below covers Ore Tiers 6 through 10, but its evidence still needs classification and targeted gap checks. This ticket remains open.
 
 ## Current Research Round
 

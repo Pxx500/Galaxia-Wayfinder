@@ -15,6 +15,8 @@ Imported: 2026-10-10
 
 ## Source Snapshot
 
+> Current-use note, 2026-10-23: the Al-Sc route and crater Scandium direction are now selected in Design Lunar Crater Processing Recipe Chain. Unresolved labels below describe the earlier research context. Keep the original recipe/source evidence separate from subsequent gameplay decisions.
+
 ### Scope And Provenance
 
 This is factual intake for a proposed low, medium and advanced Space-Grade Alloy production family. The owner selected normal existing materials and deposits around iron, platinum, gold, cobalt and aluminium, not origin-specific replacement raw ores. Iron is the working low route, gold-cobalt is the working medium route, and aluminium-scandium remains unresolved. One canonical alloy, atmosphere-free production, ordinary GT downstream machines and preservation of titanium processing remain accepted context. New functional intermediates are proposals, not existing code facts.

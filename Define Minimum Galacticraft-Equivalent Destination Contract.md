@@ -33,7 +33,7 @@ This contract describes a physically visited Galacticraft-equivalent destination
 - **Travel in:** the player can reach and enter the destination using the capabilities available on its intended Ore Tier route.
 - **Playable dimension:** the destination has a functioning player dimension with the basic terrain, world generation, and environmental rules needed for normal play.
 - **Intended operation:** the player can survive and perform the destination's basic activity using equipment available at the intended progression stage.
-- **Required ore access:** the destination generates and exposes the ores it must contribute to its Tier Destination Portfolio and Ore-Backed Tier Gate.
+- **Required resource access:** the destination exposes the ores and any other required feedstocks it contributes to its Tier Destination Portfolio. Ore placement alone cannot close a route that also needs biological materials, fluids or other local products.
 - **Complete extraction activity:** the player can locate, acquire, and carry or export the required material through a real gameplay interaction rather than receiving it from a placeholder or debug path.
 - **Travel out:** the player can leave the destination and return the extracted result to the place where its progression processing continues.
 - **Progression continuation:** the extracted and processed result participates in a Valid Tier Route and advances a Closed Tier Cycle without creating a dead end.

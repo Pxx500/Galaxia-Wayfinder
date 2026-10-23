@@ -12,6 +12,7 @@ Star Map activation, celestial discovery, resource knowledge, reconnaissance, sa
 
 ## Active Tickets
 
+- [[Define Prospecting Data Processing]]
 - [[Design Early Orbital Production Recipe Chain]]
 
 ## Closed Coordination Dependencies
@@ -27,16 +28,15 @@ Star Map activation, celestial discovery, resource knowledge, reconnaissance, sa
 - [[Define Star Map Overlap Priority]]
 - [[Define Alpha Technology Knowledge Contract]]
 - [[Define Alpha Celestial Knowledge Layers]]
-- [[Define Prospecting Data Processing]]
 - [[Define Alpha Observation Opening]]
 
 ## Implementation Issues
 
-- [[Define Prospecting Satellite Range Feedback]]
 - [[Define Satellite Link Distance Quality]]
 
 ## Deferred
 
+- [[Define Prospecting Satellite Range Feedback]]
 - [[Define Modular Satellite Construction]]
 - [[Define Prospecting Effects by Extraction System]]
 - [[Optimize Knowledge and Satellite Synchronization]]

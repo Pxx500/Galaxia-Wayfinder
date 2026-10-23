@@ -13,6 +13,8 @@ Imported: 2026-10-10
 
 ## Source Snapshot
 
+> Current-use note, 2026-10-23: Review Crater Nodes Proposal and Design Lunar Crater Processing Recipe Chain supersede the interruption, Scandium and numerical economy assumptions below. Native GT failure is required. Finite reserve and fracking history advance only on successful completion. Preserve this report as the original comparison, not current balance.
+
 This is an economic comparison for owner redlining. It is not accepted balance, a scientific material specification, an implementation plan, or a playable-pack verification. Every new number is a fictional balance example unless identified as an existing recipe. The report deliberately does not select scandium, a final alloy composition, or a new technology gate.
 
 ### Recommendation

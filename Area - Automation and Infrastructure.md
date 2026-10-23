@@ -12,11 +12,9 @@ Persistent tier assets, Automated Facilities, stations, outposts, construction, 
 
 ## Active Tickets
 
+- [[Define Data Processor Machine Topology]]
+- [[Define Space Factory Power Supply]]
 - [[Define First Physical Station Contract]]
-
-## External Dependencies
-
-- [[Decide Gantry Maintenance Machine Ownership]]
 
 ## Deferred Room Design
 
@@ -30,9 +28,9 @@ Persistent tier assets, Automated Facilities, stations, outposts, construction, 
 
 ## Resolved Decisions
 
+- [[Decide Gantry Maintenance Machine Ownership]]
 - [[Define Remote Android Body Lifecycle]]
 - [[Define Automated Facility Fluid Capacity]]
-- [[Define Data Processor Machine Topology]]
 - [[Define Module Settings Editing Contract]]
 - [[Consolidate Physical Station Architecture]]
 - [[Define Physical Station Change Tracking]]
@@ -47,6 +45,7 @@ Persistent tier assets, Automated Facilities, stations, outposts, construction, 
 
 ## Implementation Issues
 
+- [[Recipe Environment Implementation Handoff]]
 - [[Decompose Galaxia Persistence Ownership]]
 - [[Issue - Add Construction Requirement Information Control]]
 - [[Issue - Preserve Assets Across Team Disband]]

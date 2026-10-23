@@ -187,7 +187,7 @@ Standard GT power infrastructure is the baseline. Combustion generation is prohi
 
 Transported electrical energy is the provisional first-factory bootstrap. Charge ordinary GT batteries on the surface, bring them to the workshop and use a tier-appropriate GT Battery Buffer. Return depleted batteries for recharge. No orbital material or new generator is required to start this route.
 
-Battery count, charge logistics and actual recipe demand still need verification. Sustained local non-combustion generation remains open, not a prerequisite for this initial route or permission to add a placeable Space Grade Solar Panel.
+Battery count, charge logistics and actual recipe demand still need verification. [[Define Space Factory Power Supply]] owns the accepted solar-generator direction, current prohibition on interplanetary wireless EU and remaining generation-equipment choices. Sustained local generation is not an accepted prerequisite for the initial battery route. Space Grade Solar Panel remains a component item, distinct from the placeable array hardware.
 
 ## Accepted Content Ownership And Temporary Staging
 

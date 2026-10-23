@@ -1,12 +1,16 @@
 ---
 type: source
-status: unreviewed
+status: reviewed
 tags:
   - galaxia/alpha
   - wayfinder/source
 ---
 
 # Remote Android Implementation Findings
+
+## Classification
+
+Reviewed for reconciliation on 2026-10-22. Explicit owner decisions on portal retreat, cold and activity energy costs, low pressure, selection and player feedback are incorporated into Define Remote Android Body Lifecycle. The separate global transfer-enforcement scope is reflected in Issue - Enforce Interplanetary Resource Transfer Restrictions. Implementation details, test counts and local branch status below remain dated evidence. Laboratory settings and cosmetic tuning are not new Alpha capability requirements. Historical intake labels below describe their original recording time.
 
 Source: Galaxia implementation conversation and local `remote-android-bodies` branch, based on `a9128e9ef21ff05254648190b4f79f94bdc9669d`
 Imported: 2026-10-18

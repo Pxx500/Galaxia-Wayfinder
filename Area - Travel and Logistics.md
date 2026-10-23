@@ -12,6 +12,9 @@ Physical access, rockets, spaceships, Hammers, route requirements, cargo movemen
 
 ## Active Tickets
 
+## End-Of-Alpha Decisions
+
+- [[Define Late Interplanetary Network Access]]
 
 ## Deferred Tickets
 

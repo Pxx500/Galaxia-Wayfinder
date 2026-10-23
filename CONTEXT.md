@@ -195,7 +195,7 @@ The instantaneous solar output available while illuminated, normalized so Overwo
 _Avoid_: Full-cycle average yield
 
 **Average Solar Yield**:
-The long-term solar output across the local light and dark cycle, normalized so a complete Overworld cycle is `1.0x`. Light and dark duration remain separate because equal averages can require different storage.
+The long-term solar output across the local light and dark cycle, expressed against the same Overworld-daylight `1.0x` reference as Daylight Solar Intensity. Light and dark duration remain separate because equal averages can require different storage.
 _Avoid_: Instantaneous daylight output
 
 **Environmental Properties**:
@@ -227,8 +227,24 @@ The processed network result describing the same origin as its Raw Prospecting D
 _Avoid_: Transferable planet-neutral bonus, cross-object prospecting data
 
 **Data Processor**:
-A player-built, expandable multiblock that uses EU to process typed network data, with capacity determined by its structural computing sections and their tiers. Each installation has its own job settings and a configurable throughput-versus-energy-efficiency tradeoff.
-_Avoid_: Assumed singleton global processor, assumed per-machine topology, Prospecting-only processor stack, unlimited computation, consumable processor per job
+A Computer operating as a converter of typed Galaxia network data. Its jobs define input, output and any origin restrictions, while producers and consumers may occupy different locations.
+_Avoid_: Prospecting-only machine, assuming all results return to their producer, permanent research stockpile
+
+**Computer**:
+The working name for a modular Galaxia data-processing installation with one main controller multiblock and information-cable-connected Computing Clusters. The controller consumes coordination power, while connected clusters provide processing capacity.
+_Avoid_: Quantum Link, a single compulsory elongated structure, unlimited computation
+
+**Computing Rack**:
+A craftable single-block unit of computing hardware installed within a Computing Cluster. Its hardware tier determines its processing capability.
+_Avoid_: A complete cluster multiblock, a consumable processor item
+
+**Computing Cluster**:
+A bounded multiblock subsection of a Computer containing multiple Computing Rack blocks, with its own electrical supply, chilled-to-ordinary coolant flow and dedicated information connection to the main controller.
+_Avoid_: A single rack block, the whole Computer installation
+
+**TecTech Computation**:
+The computation service exchanged with compatible TecTech machines, distinct from typed Galaxia input data or processed results.
+_Avoid_: Satellite bandwidth, Assembly Line recipe knowledge, EU
 
 **Automated Facility**:
 A Star Map-managed Celestial Asset without direct physical player access. Automated Outposts and Automated Stations are its two placement forms.
@@ -401,8 +417,16 @@ A single-crystal SiGe product used either for electronic wafers or for additiona
 _Avoid_: Pure-germanium monocrystal, Poly SiGe
 
 **Space Grade Solar Panel**:
-A manufactured photovoltaic recipe component using SiGe solar cells and fluoride glass, used in satellite and equipment recipes.
+A manufactured photovoltaic recipe component used in satellite and equipment recipes, including placeable solar equipment. Efficient manufacture uses SiGe solar cells and fluoride glass, while an expensive ground-accessible route supplies bootstrap hardware.
 _Avoid_: Existing GT solar cover, finished tiered generator
+
+**Solar Array**:
+A bounded plane of passive panel blocks whose connected subset supplies one rear Solar Energy Dynamo, with coverage determined by the collector tier. Its orientation follows the environment, horizontal on planetary surfaces and vertical toward the fixed Sun in orbital dimensions.
+_Avoid_: The Space Grade Solar Panel recipe-component item, a Computing Cluster
+
+**Solar Energy Dynamo**:
+The working name for an array's rear collector and sole active generator, with tier-dependent panel coverage. It exports current solar generation without accumulating energy beyond a one-tick transfer buffer.
+_Avoid_: Battery, Computer controller, burst-energy store
 
 ## Crater Vocabulary
 
