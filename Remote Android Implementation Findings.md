@@ -130,3 +130,10 @@ Source: developer showcase feedback and native regression, 2026-10-18
 Android control reserves communication bandwidth without consuming satellites. Satellite assets and network mirrors belong to the server connection, so switching dimensions must preserve them. They are cleared on disconnect or an authoritative server reset. The previous world-load cleanup discarded the client mirror while server publication cursors prevented unchanged assets from being resent.
 
 Only operational communication satellites contribute usable capacity. Disabled satellites remain deployed and visible. If normal route revalidation cannot retain an android reservation, the operator returns to the biological body and receives one localized connection-loss message. A native regression covers Mars transfer, visible satellites, reserved endpoint/link bandwidth and a real satellite shutdown. The updated skin-layer runtime also passed the focused native renderer smoke. This note remains unreviewed source intake.
+
+
+## Desktop Closure Review Findings
+
+Source: developer laptop-transfer request and Astra review,2026-10-18
+
+The remote-android-bodies branch is pushed with reviewed corrections for native riding relationships, biological residence inside upright capsules and server denial of unsupported personal Galacticraft equipment access. Robot hurt/death audio reuses vanilla iron-golem assets. No new media was generated. Existing global EnderStorage transfer work remains deferred. Fullpack Galacticraft runtime coverage is unavailable in the isolated laboratory. Two StarMap verification scenarios remain unresolved and are recorded in the local handoff. The developer froze further desktop work for a move to the laptop. This remains unreviewed source intake.
