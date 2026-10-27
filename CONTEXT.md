@@ -441,7 +441,7 @@ A machine that mines a Crater Deposit's initial ore reserve and then switches to
 _Avoid_: Assuming separate ordinary-drill and fracking-rig machines
 
 **Space-Grade Alloy**:
-The common bulk construction material for space equipment and infrastructure, manufactured, processed and recycled without atmosphere. Different feedstock compositions provide different amounts of the same mechanically equivalent material.
+The common bulk construction material for space equipment and infrastructure, alloyed, melted and cast without atmosphere. Finished cast parts can be assembled without automatically inheriting that requirement. Different feedstock compositions provide different amounts of the same mechanically equivalent material.
 _Avoid_: Per-feedstock material variants, the material gate between successive technology tiers, equating lower recipe output with recoverable waste
 
 **Fracking Fluid**:

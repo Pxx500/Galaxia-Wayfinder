@@ -34,14 +34,16 @@ New items, materials, fluids and recipes follow [[Design Early Orbital Productio
 
 Use the canonical material name `SpaceGradeAlloy` for standard GT form lookup, including `plateSpaceGradeAlloy`, `frameGtSpaceGradeAlloy` and `foilSpaceGradeAlloy`. These names identify one material, not separate component registrations or approval to substitute another alloy. The Computer recipe delivery consumes these forms. Material registration and generated processing remain the lunar material responsibility, staged under the existing GT-bound content convention.
 
+Prioritize the new MaterialLib-backed GT material model rather than preserving compatibility with the old `Materials` implementation on master. The environment integration work targets GT Material Unification (`mu`, PR 8414). This is an implementation target, not a claim that its APIs are released or verified here. Material and content ownership remain with lunar industry, while the shared environment API belongs to its integration work.
+
 Lunar industry implementation is assigned, with SGA and its usable forms as the first integration milestone for Computer hardware. The 2026-10-23 pre-delivery inventory found no material implementation in the local main checkout and eight registered worktrees. Assignment does not establish a ready integration commit. Recipes that are skipped because their required OreDictionary input is absent do not establish a craftable survival feature.
 
 ### Material And Processing Rules
 
 - Use normal GT mineral and metal forms, without origin-only ores or provenance metadata. Retain ordinary cobalt, platinum, aluminium and titanium refining. Adding the selected resources to lunar crater profiles is accepted even where default Moon ore mixes lack them.
-- Space-Grade Alloy, abbreviated SGA, is one canonical GT5 material with ordinary metal forms and generated basic processing. It supplies mass construction, not technology-tier gates. Different compositions produce mechanically equivalent output, not different grades.
+- Space-Grade Alloy, abbreviated SGA, is one canonical material with normal GT metal forms and a selected melt-and-cast processing route. Do not enable the unrestricted default metal-conversion recipe set. It supplies mass construction, not technology-tier gates. Different compositions produce mechanically equivalent output, not different grades.
 - A lower SGA output is not automatically processing loss or recoverable slag. Recycling preserves canonical SGA quantity and cannot select a source composition or produce precious metals from the iron route.
-- SGA manufacture, material conversion and recycling require No Atmosphere, including generated recipes. There is no Microgravity requirement. Use shared recipe-environment conditions through the material generator, not machine-specific or SGA-only checks. This does not automatically restrict finished equipment assembly that consumes an SGA component.
+- SGA alloying, melting, casting and material recovery require No Atmosphere, including generated recipes for those operations. There is no Microgravity requirement. Direct bender, extruder and equivalent manual shape conversions are disabled. Frames are assembled from cast parts without an automatic vacuum requirement. Finished equipment assembly likewise does not inherit the requirement merely from consuming an SGA component. Use the shared environment mechanism rather than a separate SGA-specific condition checker.
 - Use full dusts wherever this lunar chain selects dust. Recipe batches are independent and may accumulate or split between operations.
 - All three compositions need credible uses under different supply, infrastructure or demand conditions. Better material return alone must not make one route universally preferable after automation. No requirement forces every player to build all three.
 - Existing GT Drilling Fluid is the provisional carrier. Reuse its standard manufacture. Fracking keeps fixed enriched output while shared use raises input and replacement-fluid demand.
@@ -89,17 +91,25 @@ These costs apply to the next reference portion, not the cumulative average. Gro
 
 ## Accepted SGA Manufacturing
 
-All three recipes use an EBF at 480 EU/t, require No Atmosphere and have no Microgravity requirement. Outputs are canonical SGA ingots. Finished metal inputs preserve ordinary refining and Sc metal finishing.
+All three recipes use an EBF at 480 EU/t, require No Atmosphere and have no Microgravity requirement. They output molten SGA, superseding the earlier direct-ingot outputs. Finished metal inputs preserve ordinary refining and Sc metal finishing.
 
 | Route | Inputs | Output | Base time | Heat | Target coil tier |
 | --- | --- | --- | ---: | ---: | --- |
-| Fe-Si | 10 Iron ingots, 1 full Silicon dust | 2 SGA ingots | 40 s | 3600 K | Nichrome |
-| Au-Co | 5 Gold ingots, 2 Cobalt ingots | 4 SGA ingots | 80 s | 4500 K | TP Alloy |
-| Al-Sc | 10 Aluminium ingots, 1 Scandium ingot | 11 SGA ingots | 220 s | 5400 K | HSS-G |
+| Fe-Si | 10 Iron ingots, 1 full Silicon dust | 288 mB molten SGA | 40 s | 3600 K | Nichrome |
+| Au-Co | 5 Gold ingots, 2 Cobalt ingots | 576 mB molten SGA | 80 s | 4500 K | TP Alloy |
+| Al-Sc | 10 Aluminium ingots, 1 Scandium ingot | 1584 mB molten SGA | 220 s | 5400 K | HSS-G |
 
 Use normal GT heat checks, including voltage bonuses, rather than a strict coil-material restriction. The starting infrastructure target is HV. Heat settings do not independently select a material melting point or hot-ingot stage. Material registration and generated processing must remain coherent with the final properties.
 
-Each route uses 20 base seconds and 192000 EU per SGA before overclocking and heat discounts. Fe-Si trades common supply for high material demand. Au-Co lowers input volume without a Sc refinery but competes with other precious-metal uses. Al-Sc has the best material-equivalence ratio and pays for aluminium refining, Sc chemistry and metal finishing. Supply, transport, competing demand and machine capacity must establish their situational value.
+Each route uses 20 base seconds and 192000 EU per 144 mB SGA ingot-equivalent before overclocking and heat discounts, excluding subsequent casting. Fe-Si trades common supply for high material demand. Au-Co lowers input volume without a Sc refinery but competes with other precious-metal uses. Al-Sc has the best material-equivalence ratio and pays for aluminium refining, Sc chemistry and metal finishing. Supply, transport, competing demand and machine capacity must establish their situational value.
+
+### Accepted Melt-And-Cast Forming
+
+Cast plates and rods from molten SGA using the appropriate forms. Ingots may be cast for storage, but later shape changes return through melting and casting. Disable direct bender/extruder conversions and their manual equivalents so they cannot bypass this route. Both melting and casting require No Atmosphere.
+
+Produce foil in the existing Fluid Solidifier: 144 mB molten SGA with a new non-consumed thin-strip mold yields four SGA foils under No Atmosphere. This is a gameplay abstraction inspired by melt spinning, not a new dedicated machine. The mold's crafting cost and the new casting recipes' times and EU/t remain unspecified.
+
+Frames remain assembly of cast rods and plates, not casting of an entire frame or a requirement to remelt parts merely to join them. Frame assembly and final equipment assembly do not automatically require No Atmosphere. The owner accepted this forming direction on 2026-10-23 in the environment-integration discussion.
 
 Optional residue processing may recover real impurities or byproducts. It must define their contents and costs, preserve No Atmosphere for SGA recovery, and avoid repeatedly processing the same residue. No residue identity, recovery ratio or automatic recovery of the input/output deficit is selected.
 
@@ -229,7 +239,6 @@ Later bulk construction must preserve the first Station's non-SGA bootstrap and 
 
 | Recipe | Machine | EU/t | Base time | Environment |
 | --- | --- | ---: | ---: | --- |
-| 1 SGA ingot -> 1 SGA plate | Generated Bender candidate | Open | Open | No Atmosphere |
 | 8 SGA plates + 4 Steel rods -> 4 Space Station Blocks | Assembler | 120 | 10 s | Any |
 | 4 SGA plates + 2 Steel rods -> 8 Space Station Panels | Assembler | 120 | 10 s | Any |
 

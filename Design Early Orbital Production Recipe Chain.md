@@ -195,7 +195,7 @@ Temporarily develop GT-bound content under `com.gtnewhorizons.galaxia.gt5`. New 
 
 Galaxia retains celestial environments, missions, satellite behavior and research mechanics. Keep that integration outside the transfer package. Use normal GT registration and recipe capabilities, without a parallel production system or reverse hard dependency.
 
-The environment-integration prototype also stays in Galaxia for now. Shared GT infrastructure changes require design stabilization and maintainer coordination before upstream work begins. Development targets current GT, not a permanently frozen dependency declaration. This staging decision does not authorize immediate GT infrastructure edits.
+The initial environment prototype was hosted in Galaxia. The owner subsequently authorized native GT environment API work in the separate integration delivery, with MaterialLib-backed material compatibility as its priority. This does not move ownership of content definitions or authorize independent GT infrastructure changes by each content task. Coordinate API adoption with that delivery and use its verified dependency target rather than inventing a parallel integration.
 
 Developer worlds may break before Alpha. Transfers need no old-ID preservation, dual registration or save migration. Remove temporary Galaxia definitions when GT replacements become authoritative.
 

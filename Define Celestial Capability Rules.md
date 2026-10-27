@@ -76,7 +76,7 @@ The accepted Alpha orbital convention places the parent planet below the player 
 Microgravity and No Atmosphere are independent requirements, not generic Station or orbit flags:
 
 - SiGe crystal growth and specialty fluoride optical-fiber production require microgravity.
-- Space-Grade Alloy processing and recycling require No Atmosphere, including generated material recipes. Luna qualifies despite surface gravity.
+- Space-Grade Alloy alloying, melting, casting and material recovery require No Atmosphere, including generated recipes for those operations. Assembly of cast parts does not automatically inherit that requirement. The lunar recipe owner defines the melt-and-cast route. Luna qualifies despite surface gravity.
 - Other processes may need either, both or neither. A suitable environment does not supply missing machinery or Automated Facility modules.
 
 These are gameplay choices motivated by research, not claims that terrestrial manufacture is physically impossible. Thresholds remain tuning.
@@ -120,7 +120,7 @@ Exact GT family coverage and an early power route need verification. This is a s
 
 ## Integration Scope and Absent-Galaxia Development
 
-The immediate implementation scope is Galaxia-only. Do not edit GT5 production sources or initiate upstream work. Prefer local authoring helpers and narrowly scoped Galaxia-hosted instrumentation without copying the whole GT builder. Separate transferable logic from temporary integration that later GT adoption must replace. Local source ownership does not eliminate runtime integration risk.
+The initial Galaxia-only prototype is no longer the exclusive implementation target. On 2026-10-23 the owner authorized native GT recipe-environment API work, with cleanroom as a native GT use case and unchanged cleanroom gameplay. Prioritize compatibility with MaterialLib-backed GT material unification for material-generated requirements. Galaxia retains its celestial and room-condition definitions. This scoped authorization belongs to the environment integration delivery, not permission for every content task to independently modify GT infrastructure. Existing prototype evidence does not certify the new API or material integration.
 
 Native GT recipe metadata, fluent authoring and environment-dependent Recipe Families are the eventual direction, not implemented APIs established by these notes. [[Design Lunar Crater Processing Recipe Chain]] owns family-level locks and generated-recipe coverage.
 

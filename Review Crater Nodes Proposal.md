@@ -72,9 +72,9 @@ Enriched fluids form one family with separate registered Fluid IDs for each subt
 
 New primary Galaxia Sc acquisition is crater-exclusive, starting with lunar Sc-bearing bauxite. Enriched fluid yields ordinary Bauxite and Sc-bearing products without a new ore identity. Ordinary bauxite refining is not a general Sc source. The much later existing Blood Magic Chinfinity meteor source remains unchanged. The recipe-chain ticket owns the chemistry and useful consumers.
 
-Crater-specific resources need real progression uses, but this does not make SGA itself a tier gate or force a fixed crater itinerary. SGA is one canonical GT5 material with normal metal forms and generated processing. Feedstock composition changes equivalent construction output, not material identity or grade. Full dusts are the selected granularity wherever the lunar chain uses dust.
+Crater-specific resources need real progression uses, but this does not make SGA itself a tier gate or force a fixed crater itinerary. SGA is one canonical material with normal GT metal forms. Its selected forming route is melting and casting, not unrestricted default metal conversions. Feedstock composition changes equivalent construction output, not material identity or grade. Full dusts are the selected granularity wherever the lunar chain uses dust.
 
-SGA manufacture, material processing and recycling require No Atmosphere, without a gravity requirement. An artificial vacuum chamber on an atmospheric world does not satisfy that environment rule. Different alloy routes produce the same material without origin metadata. Ordinary space recipes still need their appropriate progression materials and need not all consume SGA.
+SGA alloying, melting, casting and material recovery require No Atmosphere, without a gravity requirement. Assembly from finished cast parts does not automatically inherit that restriction. The recipe-chain owner defines permitted forms and disabled direct conversions. An artificial vacuum chamber on an atmospheric world does not satisfy that environment rule. Different alloy routes produce the same material without origin metadata. Ordinary space recipes still need their appropriate progression materials and need not all consume SGA.
 
 ## Scanner Contract
 
