@@ -23,7 +23,7 @@ What constraints and preferences do the other Galaxia developers provide for cho
 
 ## Resolution
 
-Consultation is no longer a prerequisite. [[Define Data Processor Machine Topology]] owns the accepted expandable-multiblock design. This closed task must not block its implementation.
+Consultation is no longer a prerequisite. [[Define Data Processor Machine Topology]] owns the current physical arrangement and remaining specification choices. This closed consultation task must not block that work or imply that the full Computer specification is resolved.
 
 ## Related Topics
 

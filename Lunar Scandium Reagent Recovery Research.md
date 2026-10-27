@@ -13,6 +13,8 @@ Imported: 2026-10-11
 
 ## Source Snapshot
 
+> Current-use note, 2026-10-23: Design Lunar Crater Processing Recipe Chain owns the selected reagent-recovery direction and initial recipe balance. This earlier audit remains source evidence, not a competing set of current quantities.
+
 Bounded read-only reagent audit. No recipes, ratios, machines or costs were selected, and no production files, dependencies, builds, tests, commits or public text were changed. Both repositories were fully reindexed for graph discovery. Evidence uses already checked immutable GT `2856a652b29ecf17dd5529880d589bea92a83b9f` and CoreMod `38b12ce3d59f8061742e47a63c6f1f29b7959313`. New cited GT raw excerpts returned HTTP 200. These are inspected revisions, not a fresh latest-head claim.
 The known GitHub current-head API 403 was not retried. Context Mode's first ChemicalRecipes raw read timed out after 15 seconds. One longer bounded retry succeeded. A snippet request for the wrong `PowderLoader.run` symbol returned symbol-not-found, then graph-discovered `DustLoader` was read successfully. Both failures were reported immediately.
 The owner supplies lunar SaltWater availability and wants partial reagent recovery. This audit does not verify celestial resource placement, practical power demand or an exact loss ratio. The accepted chemical function remains nitric leaching and NaOH precipitation.

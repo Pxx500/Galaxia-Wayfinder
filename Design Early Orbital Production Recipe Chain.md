@@ -187,7 +187,7 @@ Standard GT power infrastructure is the baseline. Combustion generation is prohi
 
 Transported electrical energy is the provisional first-factory bootstrap. Charge ordinary GT batteries on the surface, bring them to the workshop and use a tier-appropriate GT Battery Buffer. Return depleted batteries for recharge. No orbital material or new generator is required to start this route.
 
-Battery count, charge logistics and actual recipe demand still need verification. Sustained local non-combustion generation remains open, not a prerequisite for this initial route or permission to add a placeable Space Grade Solar Panel.
+Battery count, charge logistics and actual recipe demand still need verification. [[Define Space Factory Power Supply]] owns the accepted solar-generator direction, current prohibition on interplanetary wireless EU and remaining generation-equipment choices. Sustained local generation is not an accepted prerequisite for the initial battery route. Space Grade Solar Panel remains a component item, distinct from the placeable array hardware.
 
 ## Accepted Content Ownership And Temporary Staging
 
@@ -195,7 +195,7 @@ Temporarily develop GT-bound content under `com.gtnewhorizons.galaxia.gt5`. New 
 
 Galaxia retains celestial environments, missions, satellite behavior and research mechanics. Keep that integration outside the transfer package. Use normal GT registration and recipe capabilities, without a parallel production system or reverse hard dependency.
 
-The environment-integration prototype also stays in Galaxia for now. Shared GT infrastructure changes require design stabilization and maintainer coordination before upstream work begins. Development targets current GT, not a permanently frozen dependency declaration. This staging decision does not authorize immediate GT infrastructure edits.
+The initial environment prototype was hosted in Galaxia. The owner subsequently authorized native GT environment API work in the separate integration delivery, with MaterialLib-backed material compatibility as its priority. This does not move ownership of content definitions or authorize independent GT infrastructure changes by each content task. Coordinate API adoption with that delivery and use its verified dependency target rather than inventing a parallel integration.
 
 Developer worlds may break before Alpha. Transfers need no old-ID preservation, dual registration or save migration. Remove temporary Galaxia definitions when GT replacements become authoritative.
 

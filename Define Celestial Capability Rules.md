@@ -61,21 +61,29 @@ Planetary and Gas Giant atmospheres are inexhaustible gameplay sources. Throughp
 
 Baseline availability follows the system's light source and the object's position. Each object may add one authored Solar Resource Modifier for balance or exceptional conditions, visible in the Star Map.
 
-Distinguish Daylight Solar Intensity from Average Solar Yield. Overworld daylight is the instantaneous `1.0x` reference, while its full day-night cycle is the long-term `1.0x` yield reference. Average yield is the primary Star Map comparison, with daylight intensity, light/dark duration, atmosphere and authored modifier in its breakdown.
+Use Overworld surface daylight as the common solar-output reference of `1.0x` or 100%, with zero solar output at night. Daylight Solar Intensity is instantaneous available output. Average Solar Yield averages output over the local light/dark cycle using that same reference, not a second normalization that makes a full Overworld cycle equal to 100%. Keep daylight intensity, light/dark duration, atmosphere and authored modifier visible in the comparison. This single-reference clarification supersedes the earlier dual-reference presentation.
 
 Surface generation follows actual illumination and atmospheric effects. Separate day/night durations expose storage needs even at equal average yield. Space avoids ordinary atmospheric loss.
 
-The current Station-orbit model assumes geostationary placement with continuous full sunlight. Planet shadows and orbital light/dark cycles are out of scope. This gameplay simplification does not equalize output across bodies or remove distance and authored modifiers.
+Derive solar output from source distance, atmospheric transmission and illumination through the shared environmental model, not a hardcoded dimension-to-percentage table. Suitable orbital generation should be substantially more productive than Overworld daylight, in addition to avoiding nighttime downtime. The discussed 200% or 300% for Overworld orbit are illustrative calibration targets, not selected constants. Any retained authored Solar Resource Modifier is an explicit adjustment to the derived model, not its replacement.
+
+The accepted Alpha orbital convention places the parent planet below the player and the Sun in a fixed horizontal direction. Orbital dimensions retain microgravity and continuous sunlight, without periodic planetary eclipses. Down identifies the planet-facing world direction, not a gravity force. This is a gameplay and rendering convention, not a claim of geostationary orbital mechanics. It does not equalize output across bodies or remove distance and authored modifiers.
+
+[[Define Space Factory Power Supply]] develops directional solar walls and radiator exposure using the same fixed horizontal light direction as the rendered Sun. Local construction shading is distinct from the excluded planet-shadow orbital cycle, and its exact checks remain open.
 
 ## Recipe Environment Contract
 
 Microgravity and No Atmosphere are independent requirements, not generic Station or orbit flags:
 
 - SiGe crystal growth and specialty fluoride optical-fiber production require microgravity.
-- Space-Grade Alloy processing and recycling require No Atmosphere, including generated material recipes. Luna qualifies despite surface gravity.
+- Space-Grade Alloy alloying, melting, casting and material recovery require No Atmosphere, including generated recipes for those operations. Assembly of cast parts does not automatically inherit that requirement. The lunar recipe owner defines the melt-and-cast route. Luna qualifies despite surface gravity.
 - Other processes may need either, both or neither. A suitable environment does not supply missing machinery or Automated Facility modules.
 
 These are gameplay choices motivated by research, not claims that terrestrial manufacture is physically impossible. Thresholds remain tuning.
+
+The current player-facing progression assumes the required microgravity is available in orbital dimensions. This is content availability, not permission to add an orbit whitelist to recipes. Earlier zero-gravity asteroid Outpost concepts do not by themselves establish an accessible physical production alternative. Validate belt and Outpost content against this assumption when implementing their production capabilities. If another accessible environment truly meets the conditions, the same recipe rule must accept it.
+
+An environment restriction may naturally leave only one accessible choice. Do not invent alternatives to meet a quota, or choose a unique pressure or temperature value merely to encode a planet ID.
 
 Galaxia owns tag definitions, classification and evaluation. Extensions register through Galaxia's API, not a competing GT catalog or open provider collection. Tags describe conditions, not team membership or Technology Knowledge.
 
@@ -83,7 +91,7 @@ Recipes may declare an optional requirement independent of `mSpecialValue`. All 
 
 The accepted authoring target is a readable `requiresEnvironment(...)` fluent method with named typed constants and IDE completion. A closed enum is not required. GT authors should use neutral references without loading Galaxia classes or wiring evaluators. Exact types and wiring remain implementation choices.
 
-For Alpha, observe the multiblock controller's position, not every block of its structure. If conditions fail during a recipe, suspend it with committed ingredients and progress retained, then resume when conditions return.
+For Alpha, observe the multiblock controller's position, not every block of its structure. If a required environment fails during a recipe, use the machine's native GT failure path and its ordinary consequences. Do not retain work in a custom environment-pause state or resume a canceled operation when conditions return. [[Define Alpha Research and Production Floor#Native GT Machine Failure Semantics]] owns this shared rule.
 
 ## Room Pressure
 
@@ -98,7 +106,7 @@ Use existing membership and local state rather than rescan geometry for every re
 - An actual opening to exterior vacuum immediately empties rooms connected through that airflow route.
 - Infrastructure connectivity through walls is not airflow connectivity.
 
-Only passive loss is gradual. There is no timed equalization or breach simulation. Missing room data is not evidence of a leak. [[Define Airlock Space Classification]] retains unresolved-side questions. Geometry optimization remains deferred.
+Only passive loss is gradual. There is no timed equalization or breach simulation. Rooms require controllers under the accepted current room model. Removing a room's controller removes its modeled room and atmosphere data, even if the shell remains closed. Preserving a controllerless room is not required for environment integration. This does not turn arbitrary unavailable runtime data into a valid environment result. [[Define Airlock Space Classification]] retains other unresolved-side questions. Geometry optimization remains deferred.
 
 Deliberate evacuation and vacuum-on-demand are out of current Alpha scope. Do not add a pump, evacuation mode or Overworld artificial-vacuum workaround for this integration.
 
@@ -112,7 +120,7 @@ Exact GT family coverage and an early power route need verification. This is a s
 
 ## Integration Scope and Absent-Galaxia Development
 
-The immediate implementation scope is Galaxia-only. Do not edit GT5 production sources or initiate upstream work. Prefer local authoring helpers and narrowly scoped Galaxia-hosted instrumentation without copying the whole GT builder. Separate transferable logic from temporary integration that later GT adoption must replace. Local source ownership does not eliminate runtime integration risk.
+The initial Galaxia-only prototype is no longer the exclusive implementation target. On 2026-10-23 the owner authorized native GT recipe-environment API work, with cleanroom as a native GT use case and unchanged cleanroom gameplay. Prioritize compatibility with MaterialLib-backed GT material unification for material-generated requirements. Galaxia retains its celestial and room-condition definitions. This scoped authorization belongs to the environment integration delivery, not permission for every content task to independently modify GT infrastructure. Existing prototype evidence does not certify the new API or material integration.
 
 Native GT recipe metadata, fluent authoring and environment-dependent Recipe Families are the eventual direction, not implemented APIs established by these notes. [[Design Lunar Crater Processing Recipe Chain]] owns family-level locks and generated-recipe coverage.
 

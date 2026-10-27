@@ -1,12 +1,16 @@
 ---
 type: source
-status: unreviewed
+status: reviewed
 tags:
   - galaxia/alpha
   - wayfinder/source
 ---
 
 # Rocket Gantry Throughput And Starmap Selection Feedback
+
+## Classification
+
+Reviewed on 2026-10-22. Module Assembler repair ownership and concurrent physical servicing are incorporated into Decide Gantry Maintenance Machine Ownership and Define Automated Rocket Turnaround and Module Wear. Star Map selection and shared GUI integration remain implementation feedback for the existing Rocket work. Showcase geometry and the approximate speed adjustment do not establish universal gameplay balance.
 
 Source: direct developer feedback in the rocket implementation conversation
 Imported: 2026-10-18

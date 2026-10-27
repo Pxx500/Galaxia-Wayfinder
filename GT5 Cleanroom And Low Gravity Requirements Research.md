@@ -15,6 +15,8 @@ Imported: 2026-10-10
 
 ## Source Snapshot
 
+> Current-use note, 2026-10-23: the retained-work pause requirement below was withdrawn. Native GT machine-specific failure behavior is now required by Define Alpha Research and Production Floor. Preserve the dated code findings, but do not implement the superseded pause proposal.
+
 ### Scope And Provenance
 
 This is research, not an accepted architecture decision or an implementation plan. It covers ordinary recipe-backed singleblocks, common multiblock processing, the EBF as a concrete heat-owning multiblock, cleanroom references and NEI display. It is not an exhaustive audit of custom controllers, every recipe registration or all machines in the modpack.

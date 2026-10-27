@@ -33,9 +33,11 @@ Rocket modules accumulate persistent, statistically variable but bounded wear. R
 
 ## Physical Servicing
 
-Physical machines repair the Rocket item through ordinary item automation using supplied maintenance materials. The flight system neither discovers nor commands those machines and does not infer their missing materials. Module transport must preserve concrete worn state and confirm handoff.
+Physical departure rises visibly from the Silo before switching to abstract transit. Arrival materializes above the Landing Pad and visibly descends before disassembly. A landing animation does not replace departure presentation.
 
-Maintenance deepens the existing Silo, Module Assembler and Gantry ecosystem. [[Research Current Gantry System]] identifies the Silo as the closest turnaround owner, the Module Assembler as production and Gantry as transport. [[Decide Gantry Maintenance Machine Ownership]] owns the unresolved choice of repair machine.
+Physical machines service concrete Rocket modules using supplied maintenance materials. The landing and Gantry workflow sends modules needing repair to available Module Assemblers, while healthy modules may go directly to the Silo. Module transport preserves concrete worn state and confirms handoff. The flight schedule declares expected service and reads actual durability before departure.
+
+Maintenance deepens the existing Silo, Module Assembler and Gantry ecosystem. [[Decide Gantry Maintenance Machine Ownership]] selects the existing Module Assembler as repair owner. [[Research Current Gantry System]] preserves earlier code evidence, not the current branch's completion status.
 
 Repair proceeds toward full durability while materials are available. Full durability is not required to launch, but the next Maintenance Cycle must pass the configured safety policy. An endpoint without service infrastructure may still be a valid stop.
 
@@ -56,7 +58,7 @@ The initial reserve is 10%, intended to protect against statistical variance. Th
 
 Departure sampling of total per-module wear from a stable journey seed, deriving and persisting a mid-flight failure point when it exceeds remaining durability, then applying the stored loss on successful arrival is a candidate realization. Event-based updates and preflight estimates are accepted. Exact sampling/failure timing requires confirmation with module consequences.
 
-Open choices are the repair machine, material costs including zero-durability restoration, module coefficients/distributions and precise reserve calculation.
+Open choices are material costs including zero-durability restoration, module coefficients/distributions and precise reserve calculation.
 
 ## Implementation Evidence And Provenance
 

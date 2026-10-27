@@ -34,21 +34,29 @@ What complete lifecycle lets a player operate a manufactured android remotely wi
 - Remote control requires a suitable satellite connection and reserves part of the shared communication bandwidth. Loss of that connection interrupts control.
 - Active sessions keep their reserved bandwidth. New data jobs use the remaining capacity rather than displacing an operator. Loss of the connection or a reduction below the required capacity interrupts the session.
 - After connection loss, the android stays inactive at its last position with its inventory. It does not automatically return or resume control when the connection recovers. Inactivity does not make it invulnerable.
-- Any departure from the dock's dimension triggers permanent self-destruction, regardless of the transfer mechanism. This rule is not specific to Rockets. The android's manufacturing materials are lost and remote control ends.
+- Dimension departure is forbidden regardless of the transfer mechanism. A generic transfer attempt arms permanent self-destruction before transfer. Portal contact instead starts the reversible warning described below. Completed destruction loses the android's manufacturing materials and ends control.
 - Destruction drops the android's carried items locally rather than deleting them. For a dimension-transfer attempt, destruction and drops occur on the departure side before the body or its inventory can cross dimensions.
 - Android destruction ends control and returns the operator to the biological body without killing the player. Voluntarily ending control also leaves the android at its current location.
 - Self-destruction uses a short countdown, a non-damaging visual explosion from the android's perspective, a brief viewing interval, return to the biological body and removal of the destroyed chassis. Dimension departure is blocked as soon as self-destruction is armed. The presentation cannot move the body or its items across dimensions.
 - Androids do not breathe and can operate in vacuum without oxygen. Zero-gravity operation still requires suitable EVA equipment and consumes more electrical energy. The specific equipment and energy multiplier remain to be established.
-- Vacuum operation adds an electrical load independently of the zero-gravity load. Both apply when operating in vacuum and zero gravity. Their numerical combination remains tuning.
-- Androids remain subject to ordinary damage, including combat, falls, fire and lava. Being robotic does not grant automatic protection from temperature or radiation. Appropriate equipment supplies protection where required.
+- Low pressure alone adds no android penalty. Connected bodies consume a base electrical load, with additional walking, sprinting, jumping and zero-gravity costs. Exact rates remain tuning.
+- Cold exposure increases battery use for heating instead of causing biological cold damage or freezing debuffs. Androids remain subject to ordinary damage, including combat, falls, fire and lava. This specific cold rule does not grant general heat or radiation immunity.
 - Health is restored by material-consuming repairs at the dock, not by natural player regeneration. Charging replenishes the battery but does not repair damage. The chassis does not passively wear out during normal operation, and random failures are not part of this balancing direction.
 - An android is a remotely controlled player body, not an autonomous worker.
 
 ## Self-Destruct Presentation
 
-The countdown is irreversible. Logout, restart or loss of control does not restore a usable chassis. Loss of capsule power or the satellite connection still interrupts control immediately, even during the countdown. The armed body remains destined for destruction without requiring the operator to stay connected.
+Portal contact starts a warning countdown while retaining ordinary movement and blocking dimension transfer. Leaving the portal before zero cancels that warning. Staying until zero causes destruction. A generic non-portal transfer attempt remains irreversible. Logout, restart or loss of control cannot cancel an irreversibly armed destruction. Loss of capsule power or the satellite connection interrupts control immediately without restoring the armed chassis.
 
 The visible explosion does not damage the operator, other entities or surrounding blocks. Items are settled locally once. About three seconds of countdown and two ticks of viewing time are initial tuning values, not fixed contract limits. A focused in-game check must establish that the effect is actually visible before the return.
+
+The physical android emits one positional explosion sound. Actual damage to the biological capsule occupant warns its remote operator with a short red screen effect without damaging the android.
+
+## Selection And Feedback
+
+The capsule offers Change selection and Connect. Change selection opens the Star Map, replacing the previous GUI and its child windows. Right-clicking a planet lists its androids directly in the map's context menu. Selecting a body does not connect automatically. Team-owned android names persist and can be edited there.
+
+Low and critical battery warnings appear prominently at the center of the screen. Initial thresholds of 10% and 5% remain tuning. The body returns to its associated dock and disconnects for charging. Brief boot and biological-return effects do not delay gameplay control.
 
 ## Resource Transfer Boundary
 
@@ -90,11 +98,13 @@ Construction, charging and repair recipes for the provisional EV introduction re
 
 ## Not Yet Specified
 
-The exact mapping of mod attachments to body or operator state requires implementation investigation. Existing accepted damage and dock-repair rules govern the baseline. No additional biological-effect immunity or alternative healing route is approved. Interactions with activities that specifically require a biological body remain unspecified. Numerical battery capacity, warning thresholds, environmental loads and charging rates remain tuning. No invulnerability, automatic item recovery, autonomous behavior or continued operation without a player is implied.
+The exact mapping of mod attachments to body or operator state requires implementation verification. Accepted cold handling, other damage and dock-repair rules govern the baseline. Interactions with activities that specifically require a biological body remain unspecified. Numerical battery capacity, warning thresholds, activity loads and charging rates remain tuning. No invulnerability, automatic item recovery, autonomous behavior or continued operation without a player is implied.
 
 ## Provenance
 
 The project lead proposed remote android bodies and accepted the lifecycle rules on 2026-10-18. The separate architecture discussion supplied the approved countdown and visual-explosion presentation. The owner then approved the one-player operator/body architecture after reconciliation. The original proposal and Remote Android Body Architecture Feasibility Research are retained through Sources as reviewed provenance. Unselected research suggestions do not become requirements through that approval.
+
+Later owner feedback in Remote Android Implementation Findings supersedes the earlier universal irreversibility, vacuum-load and biological cold-damage wording. Its selection and feedback decisions are incorporated above. Branch results remain dated source evidence, not verification of the current checkout or every supported mod integration.
 
 ## Related Topics
 

@@ -28,5 +28,5 @@ Do the isolated Theia fragments describe a destination that belongs in Galaxia A
 - The Moon remains mandatory through the GTNH `Overworld -> Moon -> Mars` baseline.
 - `Theia`, its lore, and its bespoke destination mechanics remain deferred until the inactive owning developer returns or ownership is explicitly reassigned.
 - Radiation, gravity, magnetism, dust, and terrain are candidate inputs to [[Define Celestial Capability Rules]], not accepted Moon requirements.
-- Impact-crater deposits corroborate the proposal family already owned by [[Review Crater Nodes Proposal]] without resolving that blocked ticket.
+- Impact-crater deposits corroborate the proposal family owned by the now-resolved [[Review Crater Nodes Proposal]]. Its later owner decisions govern lunar extraction without accepting the other Theia proposals.
 - `Moon bugs`, magic, and Blood Moon are too ambiguous to route as mechanics without their designer's clarification.

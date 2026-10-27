@@ -25,6 +25,10 @@ No. Interplanetary movement of players, items, and fluids uses explicit Galaxia 
 
 No default teleportation exception is assumed. A future exception requires a concrete use case and an explicit Wayfinder decision.
 
+[[Define Late Interplanetary Network Access]] schedules remote resource and energy transfer design for the end of Alpha development, still within Alpha scope. Ordinary early communication capacity is not sufficient justification for material or energy teleportation. No final access contract or in-game introduction tier has been selected, so the current restriction remains the interim planning baseline.
+
+Wireless EU transfer between planets is also prohibited. Energy must be generated locally or supplied through physically transported energy stores or inputs for permitted generation. This does not impose a blanket prohibition on local power networks.
+
 ## Remote Storage And Mod Integrations
 
 Ender Chests, Ender Tanks, AE2 and other shared or remote storage mechanisms must not provide an alternative interplanetary item or fluid transfer path. The restriction concerns the actual resource path, including automatic transfers, not only the GUI or the identity of the player opening it.

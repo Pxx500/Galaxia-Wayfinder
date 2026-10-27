@@ -27,6 +27,8 @@ Define Player Presence and Automation Tradeoffs delegates the accepted work-base
 
 Missing upkeep resources temporarily stop only the affected module and produce its warning. Other modules are unaffected except through real operating dependencies. Resource upkeep is charged for actual work, not mere existence.
 
+This describes module availability, not a promise to preserve an interrupted recipe. GT-like machine or recipe execution follows [[Define Alpha Research and Production Floor#Native GT Machine Failure Semantics]]. Do not create a second retained-work pause engine for those operations. Non-recipe module availability and idle-work accounting remain unchanged.
+
 ## Accepted Requirements
 
 - A module without its required upkeep resources temporarily stops. Supply starvation does not itself destroy the module.

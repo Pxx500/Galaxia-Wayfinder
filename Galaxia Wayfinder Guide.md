@@ -60,4 +60,6 @@ Frontmatter is the navigation status. Accepted decisions belong in their owning 
 
 Consolidation may repair metadata and reconcile explicit decisions across notes without resolving new gameplay questions. Reports and historical records do not override the owning decision.
 
+Use complete player outcomes to group discussion rounds. Separate new gameplay choices from recipe tuning, code investigation and verification. A resolved contract may still need implementation, while a broad open ticket does not invalidate its settled subcontracts. Present consequential choices together with recommendations. Do not return routine implementation details to the owner as another sequence of isolated design questions.
+
 Keep accepted rules, useful rationale, source provenance and genuine open questions. Replace chronological append logs with the current contract. Do not retain chat instructions, reconciliation requests, private task coordination, workstation paths or test-run diaries in decision notes. Keep detailed source snapshots in Sources and derive implementation plans when execution begins.

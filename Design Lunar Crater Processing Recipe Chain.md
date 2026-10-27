@@ -24,16 +24,26 @@ Which complete recipes connect lunar crater extraction, Drilling Fluid supply, e
 
 ## Scope And Ownership
 
-[[Review Crater Nodes Proposal]] owns shared deposits, extraction stages, scanner integration and the generation model. This ticket owns lunar profiles, recipes and numerical tuning. [[Define Alpha Research and Production Floor]] supplies the standard GT machinery baseline. Crater extraction has an accepted operating contract, but its host remains provisional: a dedicated extractor may be replaced by integration into an existing modpack multiblock miner. Downstream work uses normal GT machines and recipe maps unless an unmet requirement justifies an exception.
+[[Review Crater Nodes Proposal]] owns shared deposits, extraction stages, scanner integration and the generation model. This ticket owns lunar profiles, recipes and numerical tuning. [[Define Alpha Research and Production Floor]] supplies the standard GT machinery baseline. On 2026-10-23 the owner finalized a dedicated Crater Extractor reusing suitable GT infrastructure, without replacing existing miners. Downstream work uses normal GT machines and recipe maps unless an unmet requirement justifies an exception.
 
 New items, materials, fluids and recipes follow [[Design Early Orbital Production Recipe Chain#Accepted Content Ownership And Temporary Staging]]. The settings below are accepted working content or explicitly unapproved proposals, not implemented recipes or demonstrated whole-chain balance.
 
 ## Accepted Material And Progression Rules
 
+### Material Integration Contract
+
+Use the canonical material name `SpaceGradeAlloy` for standard GT form lookup, including `plateSpaceGradeAlloy`, `frameGtSpaceGradeAlloy` and `foilSpaceGradeAlloy`. These names identify one material, not separate component registrations or approval to substitute another alloy. The Computer recipe delivery consumes these forms. Material registration and generated processing remain the lunar material responsibility, staged under the existing GT-bound content convention.
+
+Prioritize the new MaterialLib-backed GT material model rather than preserving compatibility with the old `Materials` implementation on master. The environment integration work targets GT Material Unification (`mu`, PR 8414). This is an implementation target, not a claim that its APIs are released or verified here. Material and content ownership remain with lunar industry, while the shared environment API belongs to its integration work.
+
+Lunar industry implementation is assigned, with SGA and its usable forms as the first integration milestone for Computer hardware. The 2026-10-23 pre-delivery inventory found no material implementation in the local main checkout and eight registered worktrees. Assignment does not establish a ready integration commit. Recipes that are skipped because their required OreDictionary input is absent do not establish a craftable survival feature.
+
+### Material And Processing Rules
+
 - Use normal GT mineral and metal forms, without origin-only ores or provenance metadata. Retain ordinary cobalt, platinum, aluminium and titanium refining. Adding the selected resources to lunar crater profiles is accepted even where default Moon ore mixes lack them.
-- Space-Grade Alloy, abbreviated SGA, is one canonical GT5 material with ordinary metal forms and generated basic processing. It supplies mass construction, not technology-tier gates. Different compositions produce mechanically equivalent output, not different grades.
+- Space-Grade Alloy, abbreviated SGA, is one canonical material with normal GT metal forms and a selected melt-and-cast processing route. Do not enable the unrestricted default metal-conversion recipe set. It supplies mass construction, not technology-tier gates. Different compositions produce mechanically equivalent output, not different grades.
 - A lower SGA output is not automatically processing loss or recoverable slag. Recycling preserves canonical SGA quantity and cannot select a source composition or produce precious metals from the iron route.
-- SGA manufacture, material conversion and recycling require No Atmosphere, including generated recipes. There is no Microgravity requirement. Use shared recipe-environment conditions through the material generator, not machine-specific or SGA-only checks. This does not automatically restrict finished equipment assembly that consumes an SGA component.
+- SGA alloying, melting, casting and material recovery require No Atmosphere, including generated recipes for those operations. There is no Microgravity requirement. Direct bender, extruder and equivalent manual shape conversions are disabled. Frames are assembled from cast parts without an automatic vacuum requirement. Finished equipment assembly likewise does not inherit the requirement merely from consuming an SGA component. Use the shared environment mechanism rather than a separate SGA-specific condition checker.
 - Use full dusts wherever this lunar chain selects dust. Recipe batches are independent and may accumulate or split between operations.
 - All three compositions need credible uses under different supply, infrastructure or demand conditions. Better material return alone must not make one route universally preferable after automation. No requirement forces every player to build all three.
 - Existing GT Drilling Fluid is the provisional carrier. Reuse its standard manufacture. Fracking keeps fixed enriched output while shared use raises input and replacement-fluid demand.
@@ -77,21 +87,29 @@ The accepted working loop starts at 16000 mB Drilling Fluid per reference portio
 | Sc-bearing bauxite | 2000 | 24000 mB |
 | Platinum-bearing | 1000 | 32000 mB |
 
-These costs apply to the next reference portion, not the cumulative average. Growth has no cutoff or reset. Finite mining does not advance fracking history. Multiple extractors claim successive positions in the same history rather than separate cheap starts. At the doubling point, each portion needs 16000 mB replacement carrier. Accepted carrier-cleanup settings are recorded below.
+These costs apply to the next reference portion, not the cumulative average. Growth has no cutoff or reset. Finite mining does not advance fracking history. Multiple extractors share one history rather than independent cheap starts. Only successfully completed fracking advances the cost history. Failed work loses consumed inputs without increasing future cost, under [[Review Crater Nodes Proposal]]. At the doubling point, each portion needs 16000 mB replacement carrier. Accepted carrier-cleanup settings are recorded below.
 
 ## Accepted SGA Manufacturing
 
-All three recipes use an EBF at 480 EU/t, require No Atmosphere and have no Microgravity requirement. Outputs are canonical SGA ingots. Finished metal inputs preserve ordinary refining and Sc metal finishing.
+All three recipes use an EBF at 480 EU/t, require No Atmosphere and have no Microgravity requirement. They output molten SGA, superseding the earlier direct-ingot outputs. Finished metal inputs preserve ordinary refining and Sc metal finishing.
 
 | Route | Inputs | Output | Base time | Heat | Target coil tier |
 | --- | --- | --- | ---: | ---: | --- |
-| Fe-Si | 10 Iron ingots, 1 full Silicon dust | 2 SGA ingots | 40 s | 3600 K | Nichrome |
-| Au-Co | 5 Gold ingots, 2 Cobalt ingots | 4 SGA ingots | 80 s | 4500 K | TP Alloy |
-| Al-Sc | 10 Aluminium ingots, 1 Scandium ingot | 11 SGA ingots | 220 s | 5400 K | HSS-G |
+| Fe-Si | 10 Iron ingots, 1 full Silicon dust | 288 mB molten SGA | 40 s | 3600 K | Nichrome |
+| Au-Co | 5 Gold ingots, 2 Cobalt ingots | 576 mB molten SGA | 80 s | 4500 K | TP Alloy |
+| Al-Sc | 10 Aluminium ingots, 1 Scandium ingot | 1584 mB molten SGA | 220 s | 5400 K | HSS-G |
 
 Use normal GT heat checks, including voltage bonuses, rather than a strict coil-material restriction. The starting infrastructure target is HV. Heat settings do not independently select a material melting point or hot-ingot stage. Material registration and generated processing must remain coherent with the final properties.
 
-Each route uses 20 base seconds and 192000 thermal EU per SGA before overclocking and heat discounts. Fe-Si trades common supply for high material demand. Au-Co lowers input volume without a Sc refinery but competes with other precious-metal uses. Al-Sc has the best material-equivalence ratio and pays for aluminium refining, Sc chemistry and metal finishing. Supply, transport, competing demand and machine capacity must establish their situational value.
+Each route uses 20 base seconds and 192000 EU per 144 mB SGA ingot-equivalent before overclocking and heat discounts, excluding subsequent casting. Fe-Si trades common supply for high material demand. Au-Co lowers input volume without a Sc refinery but competes with other precious-metal uses. Al-Sc has the best material-equivalence ratio and pays for aluminium refining, Sc chemistry and metal finishing. Supply, transport, competing demand and machine capacity must establish their situational value.
+
+### Accepted Melt-And-Cast Forming
+
+Cast plates and rods from molten SGA using the appropriate forms. Ingots may be cast for storage, but later shape changes return through melting and casting. Disable direct bender/extruder conversions and their manual equivalents so they cannot bypass this route. Both melting and casting require No Atmosphere.
+
+Produce foil in the existing Fluid Solidifier: 144 mB molten SGA with a new non-consumed thin-strip mold yields four SGA foils under No Atmosphere. This is a gameplay abstraction inspired by melt spinning, not a new dedicated machine. The mold's crafting cost and the new casting recipes' times and EU/t remain unspecified.
+
+Frames remain assembly of cast rods and plates, not casting of an entire frame or a requirement to remelt parts merely to join them. Frame assembly and final equipment assembly do not automatically require No Atmosphere. The owner accepted this forming direction on 2026-10-23 in the environment-integration discussion.
 
 Optional residue processing may recover real impurities or byproducts. It must define their contents and costs, preserve No Atmosphere for SGA recovery, and avoid repeatedly processing the same residue. No residue identity, recovery ratio or automatic recovery of the input/output deficit is selected.
 
@@ -120,9 +138,9 @@ Use one canonical Scandium Oxide. Oxide electrolysis is also a recovery option, 
 
 Defined compounds follow [GTNH Chemical Balance](https://wiki.gtnewhorizons.com/wiki/Chemical_Balance), including its different solid, fluid and compound rules. Undefined extraction mixtures have tunable concentrations, not invented formula-derived coefficients. Chemistry, carrier recovery and upstream reagent supply need separate accounting.
 
-### Quantitative Sc Refinery Proposal, Unapproved
+### Accepted Initial Sc Refinery Balance
 
-The processing sequence is accepted. The following downstream quantities, costs, machines and unspecified mixture compositions remain proposals except for the selected 12 s EBF reduction duration and five-Quicklime output. The shorter duration favors the Calcium route over direct electrolysis, while the reduced Quicklime output creates continuing Calcium makeup. These choices do not approve all other refinery settings. The separation recipe above is already accepted and is not included as a proposal here.
+On 2026-10-23 the owner accepted the presented input/output quantities, machines, EU/t and durations as initial balance, subject to later adjustment. The 12 s reduction and five-Quicklime output were already selected. The shorter duration favors the Calcium route over direct electrolysis, while the reduced Quicklime output creates continuing Calcium makeup. The reduction heat remains a technical tuning proposal distinct from the already selected 3650 K metal-finishing requirement.
 
 | Operation | Inputs | Outputs | Machine | Base EU/t | Base time |
 | --- | --- | --- | --- | ---: | ---: |
@@ -131,13 +149,13 @@ The processing sequence is accepted. The following downstream quantities, costs,
 | Calcium reduction | 5 Scandium Oxide dust, 3 Calcium dust | 2 Scandium dust, 5 Quicklime dust | EBF, proposed 1814 K | 120 | 12 s |
 | Direct electrolysis | 5 Scandium Oxide dust | 2 Scandium dust, 3000 mB Oxygen | Electrolyzer | 120 | 80 s |
 
-Twelve separation batches supply the proposed two Sc dust alongside 96 crushed Bauxite from 192000 mB enriched fluid. This is a dilute coproduct yield, not a chemical formula or a proof of economic balance.
+Twelve separation batches supply two Sc dust alongside 96 crushed Bauxite from 192000 mB enriched fluid under the accepted initial quantities. This is a dilute coproduct yield, not a chemical formula or a proof of economic balance.
 
 Existing Quicklime electrolysis remains unchanged. Two EBF batches consume six Calcium dust and produce ten Quicklime dust. Five existing 30 EU/t, 56-tick recycling operations return five Calcium dust, leaving one full Calcium dust of makeup demand per two EBF batches. Calcium recovery is therefore approximately 83.3%, not a closed startup-only loop. The lower Quicklime yield is deliberate unrecovered processing loss, not loss of Sc or a new residue item.
 
 At the current recipe settings, those two EBF batches and Quicklime recycling use 66000 EU for four Sc dust before overclocking, excluding fresh Calcium production. Direct oxide electrolysis would use 384000 EU for the same Sc output. These figures compare only metal recovery and do not establish the full supply-chain energy advantage. Buffer whole dust batches rather than introducing fractional or small dust recipes.
 
-The direct electrolysis cost is authored. It must not coexist with a cheaper accidental generated duplicate. Default source-derived generation would predict 30 EU/t for 6.5 s. Which generator behavior and costs to use remains open. Fluid hatch capacities and actual throughput also need verification.
+The direct electrolysis cost is authored. It must not coexist with a cheaper accidental generated duplicate. Default source-derived generation would predict 30 EU/t for 6.5 s. Implementation must reconcile material generation with the accepted authored recipe. Fluid hatch capacities and actual throughput also need verification.
 
 ### Accepted Reagent Recovery
 
@@ -152,7 +170,7 @@ Recover approximately 90% of Nitric Acid and NaOH as initial working tuning. Lun
 
 Use the existing BartWorks nitrate and sulfate identities. Sulfuric Acid and Hydrogen circulate as startup inventories. Sulfate recovery consumes filled cells and returns empties. Sodium hydration returns gas, so ordinary filling or LCR cell conversion must handle it.
 
-With the current proposed refinery batches, ten batches yield twenty Sc dust and consume 60000 mB acid plus 180 NaOH dust before recovery. The loop returns 54000 mB acid and 162 NaOH dust, leaving 6000 mB acid and 18 full NaOH dust as replacement demand. Buffer whole reaction batches rather than using fractional dust. The three missing nitrate-dust equivalents per refinery batch are discarded contamination, not a repeatedly recoverable output.
+With the accepted initial refinery batches, ten batches yield twenty Sc dust and consume 60000 mB acid plus 180 NaOH dust before recovery. The loop returns 54000 mB acid and 162 NaOH dust, leaving 6000 mB acid and 18 full NaOH dust as replacement demand. Buffer whole reaction batches rather than using fractional dust. The three missing nitrate-dust equivalents per refinery batch are discarded contamination, not a repeatedly recoverable output.
 
 Fresh acid still needs a supply route. An existing LCR recipe uses 3000 mB Hydrogen, 1000 mB Nitrogen and 4000 mB Oxygen for 1000 mB Nitric Acid and 1000 mB Water at 480 EU/t for 16 s. The ammonia-input acid recipe is 30 EU/t for 16 s before feedstock costs. Neither establishes local lunar Nitrogen or an unconditional energy advantage. Gas acquisition, transport and recovery capacity remain costs to verify.
 
@@ -164,18 +182,18 @@ Select the complete immutable effective recipe before output protection and inpu
 
 GT-only development omits Galaxia-dependent environmental variants from registration and recipe display. A family with no remaining variants is omitted too. No substitute outcome or synthetic environment is selected. This registration rule does not apply to unresolved environmental data while Galaxia is present. The intended integrated gameplay includes Galaxia, while GT must still launch conveniently without it for development.
 
-### Sc EBF Variant Proposal, Unapproved
+### Accepted Initial Sc EBF Variants
 
-The packet uses four full Scandium dust as the proposed common input. Both environmental variants require the selected EV base power of 1920 EU/t and 3650 K heat. Duration remains proposed at 40 s. Nichrome provides 3601 K base heat and reaches 3701 K with the normal HV-input temperature bonus, so the intended power/coil combination is EV recipe power with Nichrome coils, not a requirement for TP Alloy coils. Multiple lower-tier energy hatches may supply the required power. Heat and electrical power remain independent checks. This decision applies to dust-to-hot-ingot processing, not the separate oxide-to-dust reduction at 120 EU/t for 12 s. It does not change Scandium's material melting point or establish implemented GT recipes.
+The accepted initial batch uses four full Scandium dust as the common input and a 40 s duration. Both variants require the previously selected EV base power of 1920 EU/t and 3650 K heat. Nichrome provides 3601 K base heat and reaches 3701 K with the normal HV-input temperature bonus, so the intended combination is EV recipe power with Nichrome coils, not a requirement for TP Alloy coils. Multiple lower-tier energy hatches may supply the required power. Heat and electrical power remain independent checks. This applies to dust-to-hot-ingot processing, not the separate oxide-to-dust reduction at 120 EU/t for 12 s. It does not change Scandium's material melting point or establish implemented recipes.
 
-| Environment | Common input | Proposed outputs |
+| Environment | Common input | Accepted initial outputs |
 | --- | --- | --- |
 | No Atmosphere | 4 Scandium dust | 4 hot Scandium ingots |
 | Atmosphere | 4 Scandium dust | 2 hot Scandium ingots, 5 Scandium Oxide dust |
 
 Five full oxide dust contain two Sc units under the GT material convention, so both variants preserve four Sc units. Oxidation in atmosphere is an environmental gameplay abstraction, not a fully specified reaction with every ambient gas composition. Oxide returns through either recovery option and does not preserve its origin. Normal Vacuum Freezer cooling remains a separate existing operation. No tiny or small dusts are needed.
 
-This family would replace the corresponding ordinary Sc dust-to-hot-ingot EBF entry, not coexist as colliding same-input recipes. It does not change the preceding oxide-to-dust reduction or the SGA No Atmosphere requirement. Oxide may also supply selected optical or ceramic consumers. EV power and 3650 K heat are selected. The input batch, output split and time remain proposals.
+This family replaces the corresponding ordinary Sc dust-to-hot-ingot EBF entry, rather than coexisting as colliding same-input recipes. It does not change the preceding oxide-to-dust reduction or the SGA No Atmosphere requirement. Oxide may also supply future selected optical or ceramic consumers. The owner accepted the batch, output split and time as initial balance on 2026-10-23.
 
 ## Initial Sc Components And Wider Demand
 
@@ -203,19 +221,24 @@ Dry/wet behavior applies to all four profiles. Both finite mining modes, frackin
 | Carrier cleanup | 4000 mB spent carrier | 4000 mB Drilling Fluid | Centrifuge | 120 | 8 s |
 | Controller manufacture | 1 HV hull, 2 HV motors, 1 HV pump, 2 HV pistons, 2 HV circuits, 4 steel plates, 144 mB molten tin | 1 Crater Extractor Controller | Assembler | 480 | 45 s |
 
-The controller recipe is provisionally accepted. It needs no lunar SGA. A dedicated machine is not final: investigate extending an existing modpack multiblock miner before committing to a separate extractor. Machine identity, geometry and integration remain open, and reuse may change the controller recipe. Preserve the accepted crater behavior and balance when comparing hosts.
+The controller recipe remains the working baseline and needs no lunar SGA. The dedicated Crater Extractor identity is now selected after comparing existing miner hosts. Reuse appropriate GT support without inheriting incompatible physical-ore or underground-fluid behavior. Geometry and integration remain open. Powerfail and finite-reserve completion accounting follow [[Review Crater Nodes Proposal]].
 
 Cleanup runs four times per separator batch. This is distinct from mineral separation, which remains 16000 mB at 120 EU/t for 40 s. The faster extractor settings do not imply one downstream machine keeps pace.
 
 Existing carrier manufacture is 5 water cells, 1 Stone dust and 20 mB Lubricant for 5000 mB Drilling Fluid plus five empty cells in a Mixer at 15 EU/t for 3.2 s. Startup needs full committed input and pipeline inventory, not only net makeup. Cleanup does not need an invented Stone coproduct.
 
-## Construction Consumer Proposals, Unapproved
+## Accepted Construction Material Policy
+
+Automated Stations and Automated Outposts are both built primarily from bulk SGA, with smaller amounts of specialist electronics and components. The owner accepted this on 2026-10-23. Exact bills of materials and quantities may differ by Facility type. Functional modules retain their separate function-appropriate costs. This does not require SGA in the first physical Station kit or turn SGA into a replacement for tiered vehicle materials.
+
+SGA, Sc and fluoride products are reusable intermediates for Galaxia's expanding equipment catalogue. Additional applications may arrive with later vehicles, machinery and infrastructure. Do not invent immediate consumers for every intermediate as a prerequisite for the first complete progression path. Tiered androids, tiered Stations and megastructures are future possibilities, not new Alpha commitments.
 
 Later bulk construction must preserve the first Station's non-SGA bootstrap and expansion route.
 
+### Proposed Construction Recipes, Unapproved
+
 | Recipe | Machine | EU/t | Base time | Environment |
 | --- | --- | ---: | ---: | --- |
-| 1 SGA ingot -> 1 SGA plate | Generated Bender candidate | Open | Open | No Atmosphere |
 | 8 SGA plates + 4 Steel rods -> 4 Space Station Blocks | Assembler | 120 | 10 s | Any |
 | 4 SGA plates + 2 Steel rods -> 8 Space Station Panels | Assembler | 120 | 10 s | Any |
 
@@ -233,9 +256,19 @@ The [original nitric-acid research](https://pmc.ncbi.nlm.nih.gov/articles/PMC877
 
 ## Remaining Decisions
 
-- Evaluate existing multiblock miners against the accepted extraction contract before finalizing a dedicated machine
+### Proposed Economy And Consumer Package, Awaiting Approval
+
+Balance the complete extraction site around a choice between maintaining an established crater with rising fluid demand and investing in another site. Dry startup, wet reserve conservation and indefinite fracking already supply the mechanics. Extra extractors increase throughput while sharing depletion and cost history.
+
+Give the SGA routes different supply advantages: Fe-Si for common feedstock and lower initial heat requirements, Au-Co where those inputs are available without a Sc refinery, and Al-Sc for material-efficient production supported by chemical infrastructure. These are target economic roles, not demonstrated balance. In particular, the middle route needs a concrete situation in which its total supply cost is competitive.
+
+Use SGA as an economical bulk option for Station expansion and Automated Facility construction while preserving the non-SGA bootstrap. Assess Sc demand beyond SGA through two concrete candidates: an alternative emitter/sensor manufacturing route using RF components, and oxide ceramics in Data Processor computing sections. Neither candidate is an accepted recipe or a replacement for existing GT progression gates. Compare actual consumers before committing new intermediates. Laser Crystal remains a future direction until it has a selected consumer.
+
+The RF and processor-ceramic suggestions remain optional candidates, not prerequisites for closing the first complete progression path. Broader material demand may grow with later equipment. Evaluate actual consumers when tuning that economy. Installed parts do not gain arbitrary ongoing Sc consumption.
+
+- Implement the selected dedicated extractor using appropriate GT support and the updated powerfail/finite-reserve contract
 - Select size-class mix, spatial density, diameter deviations and richness-response tuning
-- Tune the quantitative Sc refinery and oxide recovery alternatives around accepted separation and reagent recovery
+- Validate the accepted initial Sc refinery and oxide recovery balance against actual registrations, capacities and throughput
 - Assess wider Sc demand through concrete consumers without making deferred modular satellites a prerequisite for this chain
 - Select construction recipes and demonstrate situational roles for all three SGA compositions
 - Verify complete reagent availability, capacities, throughput and energy against actual recipes and the provisional transported-battery power route

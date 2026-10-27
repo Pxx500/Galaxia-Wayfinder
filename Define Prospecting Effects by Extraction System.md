@@ -32,6 +32,16 @@ Which Galaxia and integrated GT5 extraction systems receive prospecting benefits
 
 The participating extraction systems and GT5 integration surfaces are sufficiently defined to compare their balance roles.
 
+## Proposed Bounded Alpha Consumer Package, Awaiting Approval
+
+The accepted data-processing pipeline needs at least one selected consumer to become complete gameplay. Consider reopening only its first Galaxia integrations while keeping wider GT coverage for later work.
+
+Start with crater extraction speed and Automated Facility miner speed and mineral output. Crater speed changes actual operation throughput without multiplying enriched or recovered carrier fluid, changing the reserve charge per operation or resetting fracking cost history. Faster operation still consumes its ordinary inputs more frequently. The Automated Facility mineral-output bonus applies to actual mineral output, not unrelated inventory contents.
+
+This deliberately does not assume that one generic output multiplier can safely apply to both ore and extraction fluids. Bonuses remain optional, sustained and exact-origin under [[Define Prospecting Data Processing]]. No scan or data requirement is introduced for starting ordinary extraction. Coefficients and actual integration need verification.
+
+This proposal does not reopen modular satellites or authorize all-mod machine support. The existing broad ticket remains deferred until the owner selects the bounded consumer scope.
+
 ## Related Topics
 
 - Audit Galaxia Concept Map

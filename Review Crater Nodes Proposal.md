@@ -26,7 +26,7 @@ This resolves the gameplay proposal, not implementation or numerical balance. [[
 
 ## Extraction Contract
 
-- One crater-extraction machine has ordinary-mining and fracking modes. A dedicated controller recipe is provisionally accepted, but an existing modpack multiblock miner may host the behavior instead. Final machine choice, name and geometry remain open
+- A dedicated Crater Extractor has ordinary-mining and fracking modes. The owner finalized the separate machine identity on 2026-10-23. Reuse suitable GT multiblock, hatch and energy infrastructure rather than changing existing miners. Geometry and integration remain implementation work
 - Ordinary mining consumes the crater's finite initial reserve. Fracking is available only after exhaustion and requires fluid. Supplying fluid early does not bypass that transition
 - All four selected lunar profiles support wet ordinary mining from the beginning, or dry ordinary mining with lower resource efficiency. Both consume the same reserve. The recipe-chain ticket owns the accepted outputs and 25% chance of double reserve consumption during dry mining
 - After exhaustion, fracking can continue indefinitely. Enriched output per operation stays fixed while input increases with shared fracking history. Additional input does not increase mineral output
@@ -39,11 +39,15 @@ This resolves the gameplay proposal, not implementation or numerical balance. [[
 
 Each world-generated crater owns one Crater Deposit even across chunk boundaries. Membership uses the geometric footprint, not a biome or chunk ownership. A chunk index narrows spatial lookup to candidate craters, followed by exact containment. An extractor resolves and persistently remembers its Crater ID when binding. Routine extraction does not repeat that lookup.
 
-The deposit is the single authority for finite reserve and fracking history. Ordinary mining permanently claims its portion at operation start. Fracking claims the next shared cost position at operation start. The next extractor sees the updated state before completion, so concurrent work cannot reuse a cheaper position.
+The deposit is the single authority for finite reserve and fracking history. Ordinary mining permanently consumes its reserve portion only on successful completion. Starting or power-failing an operation does not deplete the finite reserve. Concurrent extractors must still avoid producing the same last portion more than once. Temporary reservations or completion-time admission are implementation choices, not a second source of reserve ownership.
 
-The started operation records its claimed batch, cost and progress. Power loss or chunk unloading pauses it. Resumption never claims again, and completion never debits a second time. Destroying or explicitly discarding the operation loses its already claimed portion and consumed inputs. This bounded loss is accepted. It requires no particular locking mechanism or persistence layout.
+Power failure follows ordinary GT multiblock behavior: reset the operation, discard pending outputs and do not refund consumed recipe inputs or energy. Do not retain a custom resumable operation across power failure. On 2026-10-23 the owner superseded the earlier start-time permanent reserve debit and retained-work power-loss contract. Normal save/load and chunk lifecycle follow supported GT behavior rather than treating unloading itself as a power failure. Failed operations produce no output and do not permanently consume the finite reserve.
+
+Fracking costs come from shared history, not a machine-local counter. Only successfully completed fracking advances that history. A failed operation loses its consumed inputs but does not make the next operation more expensive. Concurrent-operation pricing and admission must preserve shared accounting without duplicating output, resetting established history or counting failed attempts as completed portions. Exact reservation and commit mechanics remain implementation work. This completion-only rule was explicitly confirmed on 2026-10-23.
 
 ## Generation And Richness Model
+
+The selected target is easy discovery of visible crater terrain. The main cost of switching deposits is relocating or extending extraction, power, processing and logistics, not a long search for another crater. Analysis should be inexpensive and use existing GT prospectors. This does not guarantee every profile next to a landing site. Derive density and size distribution from sample terrain and this relocation loop.
 
 Craters use authored Small, Medium and Large size classes. Each destination has class occurrence weights. Each class has a mean diameter and standard deviation, with diameter sampled from its normal distribution. The distributions can overlap, so physical diameter does not uniquely identify or reclassify a crater. Working Moon means are approximately one, three and eight chunks. Standard deviations remain tuning.
 
@@ -68,15 +72,16 @@ Enriched fluids form one family with separate registered Fluid IDs for each subt
 
 New primary Galaxia Sc acquisition is crater-exclusive, starting with lunar Sc-bearing bauxite. Enriched fluid yields ordinary Bauxite and Sc-bearing products without a new ore identity. Ordinary bauxite refining is not a general Sc source. The much later existing Blood Magic Chinfinity meteor source remains unchanged. The recipe-chain ticket owns the chemistry and useful consumers.
 
-Crater-specific resources need real progression uses, but this does not make SGA itself a tier gate or force a fixed crater itinerary. SGA is one canonical GT5 material with normal metal forms and generated processing. Feedstock composition changes equivalent construction output, not material identity or grade. Full dusts are the selected granularity wherever the lunar chain uses dust.
+Crater-specific resources need real progression uses, but this does not make SGA itself a tier gate or force a fixed crater itinerary. SGA is one canonical material with normal GT metal forms. Its selected forming route is melting and casting, not unrestricted default metal conversions. Feedstock composition changes equivalent construction output, not material identity or grade. Full dusts are the selected granularity wherever the lunar chain uses dust.
 
-SGA manufacture, material processing and recycling require No Atmosphere, without a gravity requirement. An artificial vacuum chamber on an atmospheric world does not satisfy that environment rule. Different alloy routes produce the same material without origin metadata. Ordinary space recipes still need their appropriate progression materials and need not all consume SGA.
+SGA alloying, melting, casting and material recovery require No Atmosphere, without a gravity requirement. Assembly from finished cast parts does not automatically inherit that restriction. The recipe-chain owner defines permitted forms and disabled direct conversions. An artificial vacuum chamber on an atmospheric world does not satisfy that environment rule. Different alloy routes produce the same material without origin metadata. Ordinary space recipes still need their appropriate progression materials and need not all consume SGA.
 
 ## Scanner Contract
 
 Reuse existing GT ore scanners and extend their prospecting/minimap integration rather than adding a Galaxia scanner machine.
 
 - Scan from inside the crater's geometric footprint. The visible terrain feature lets players locate it before scanning
+- A normal supported GT prospector scan performed within that footprint also analyzes the crater. No separate expensive survey machine or new Galaxia scanner item is required
 - Show deposit composition, remaining ordinary reserve, fracking state and current fluid input per operation
 - Existing scanner/map integration owns record storage and refresh behavior. A scan-time-only snapshot policy is not selected
 - Scanning is not an accepted prerequisite for extraction

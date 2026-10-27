@@ -27,7 +27,7 @@ Does every Ore Tier correspond to one required celestial destination, or can mul
 
 An Ore Tier is defined by a **Tier Destination Portfolio**, not by one planet. Galaxia authors the portfolio's destinations, capabilities, activities, rewards, prerequisites, and Tier Gate requirements; the player constructs a **Valid Tier Route** through that ecosystem.
 
-The system constrains the order of broad progression, but it does not prescribe one fixed itinerary inside each tier. Each portfolio must contain enough Progression-Bearing Destinations to support at least one valid route and should provide meaningful route choice where the content permits it.
+The system constrains the order of broad progression through consistent world and production rules. Each portfolio must contain enough Progression-Bearing Destinations to support at least one valid route. Multiple alternatives are welcome when the content supplies them, not a quota that every objective must satisfy.
 
 ## Portfolio Structure
 
@@ -74,7 +74,7 @@ The current code search did not surface a complete compressor or production inte
 - Destination consolidation must be checked against progression-critical earliest access and meaningful route alternatives, not only against total ore availability.
 - Alpha does not require every available destination to be used, visited, or implemented.
 - The exact number of destinations per tier is a content decision, not a global invariant.
-- A portfolio that technically offers several destinations but funnels every meaningful decision into one authored itinerary does not satisfy the Progression Ecosystem goal unless that restriction is deliberately required by the tier's progression constraints.
+- A single available route is valid when it follows from meaningful resources, environment and capabilities. Do not create interchangeable alternatives merely to avoid a unique destination. Conversely, an exact environmental value chosen only as a disguised planet identifier does not make a location lock meaningful.
 - Under the current Alpha default, every Valid Tier Route also depends on [[Require Persistent Tier Infrastructure|Persistent Tier Infrastructure]], although the asset may be surface-based, orbital, or elsewhere in space and later tier-specific exceptions may be added deliberately.
 - The minimum required depth of destination-specific infrastructure remains a separate Wayfinder question.
 

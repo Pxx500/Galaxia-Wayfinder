@@ -27,5 +27,5 @@ Which parts of the isolated Research Proposal should influence Alpha's research 
 - The complete classification is recorded in [[Galaxia Research Proposal Research]].
 - Environmental interaction, flexible objective routes, naturally chained activities, and protection against completionist luck-gates are useful design inputs.
 - A universal `0–400` Research score and mandatory `100`-point progression gate are not accepted Alpha direction. Research may gate concrete justified activities, while Ore-Backed Tier Gates remain primary.
-- Exact scoring, rewards, ownership, persistence, Research Station form, procedural fairness, and the need for any advancement-like Alpha loop remain open inside [[Define Alpha Research and Production Floor]].
+- Later decisions select team Technology Blueprints and the scripted opening achievement. [[Define Alpha Research and Production Floor]] owns additional required chains. The source's scoring system and Research Station are not unresolved prerequisites for those selected mechanisms.
 - Satellite, telescope, Station, biological, and destination examples were routed to their existing planning owners rather than copied into a parallel Research system.

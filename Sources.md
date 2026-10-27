@@ -13,7 +13,6 @@ tags:
 
 These inputs remain unclassified. Do not treat them as accepted requirements.
 
-- [[Remote Android Implementation Findings]]
 - [[SiGe Recipe Chain Research]]
 - [[SiGe Engraving Recipe Research]]
 - [[Fluoride Fiber Recipe Chain Research]]
@@ -50,6 +49,9 @@ These inputs remain unclassified. Do not treat them as accepted requirements.
 
 These records preserve provenance, not independent approval of every source claim.
 
+- [[Remote Android Implementation Findings]]
+- [[Rocket Gantry Throughput And Starmap Selection Feedback]]
+- [[Selective Rocket Repair And Visible Landing Showcase Feedback]]
 - [[Remote Android Body Architecture Feasibility Research]]
 - [[Project Lead Remote Android Bodies Proposal]]
 - [[Physical Station PR 373 Comparison and Room Separation Proposal]]

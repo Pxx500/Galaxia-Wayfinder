@@ -1,7 +1,7 @@
 ---
 type: wayfinder-ticket
 ticket_type: grilling
-status: blocked
+status: resolved
 parent: Galaxia Alpha Wayfinder
 areas:
   - "[[Area - Automation and Infrastructure]]"
@@ -21,11 +21,11 @@ tags:
 
 Should automatic Rocket module repair deepen the existing Module Assembler, use a specialized subtype, or belong to a separate Gantry-connected maintenance machine?
 
-## Requires
+## Resolution
 
-Agreement with the developers responsible for the existing Gantry, Silo, and Module Assembler systems.
+Use the existing Module Assembler for material-consuming repair of concrete Rocket modules. The Landing Pad dispatches worn modules through Gantry to available, supplied Assemblers. Healthy modules may bypass repair and travel to the Silo. Several Assemblers may service modules concurrently and return them to the same Silo for reassembly.
 
-This is an external design dependency. The current code audit does not supply that agreement.
+The owner selected this workflow in the later Rocket implementation discussion. The old external consultation blocker is superseded. This resolves the machine owner, not the implementation or numerical repair costs.
 
 ## Established Constraints
 
@@ -40,13 +40,11 @@ This is an external design dependency. The current code audit does not supply th
 
 Read-only inspection on 2026-09-12 found definition and placement data but no per-instance wear in `registry/rocketmodules/rocket/blueprint/RocketPartInstance.java:7`. `registry/rocketmodules/tileentities/TileEntityModuleAssembler.java:119` still handles definition-based stock and assembly timing. `registry/rocketmodules/tileentities/gantry/GantryAPI.java:80` supports returning transport but does not return a delivery acknowledgement. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`.
 
-Neither an existing assembler nor a returning Gantry direction establishes a finished repair owner. Developer reconciliation remains genuinely necessary.
+This historical inspection predates the selected workflow and does not describe the current Rocket branch. It explains why concrete module state and confirmed handoff must be verified during implementation.
 
-## Options to Discuss
+## Provenance
 
-- Extend the existing Module Assembler with repair behavior.
-- Add a specialized Module Assembler subtype.
-- Add a separate Gantry-connected maintenance machine.
+The 2026-10-18 owner feedback preserved in Rocket Gantry Throughput And Starmap Selection Feedback and Selective Rocket Repair And Visible Landing Showcase Feedback selects existing Assemblers, concurrent servicing and bypass of healthy modules. Sources retains the original records. Demonstration speed, laboratory layout and reported rendering defects are not additional gameplay requirements.
 
 ## Related Topics
 

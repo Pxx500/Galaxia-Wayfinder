@@ -13,6 +13,8 @@ Imported: 2026-10-11
 
 ## Source Snapshot
 
+> Current-use note, 2026-10-23: retained-work pause is no longer an accepted requirement. Define Alpha Research and Production Floor now requires native GT failure behavior. The owner also selected first-class Recipe Families in Design Lunar Crater Processing Recipe Chain, not independently registered colliding recipes. The dated findings below remain historical feasibility evidence, not the current contract.
+
 This is read-only feasibility research. It does not approve a new GT capability, material, recipe or lifecycle policy. No production source, dependency, build, test, commit or publication was changed.
 
 The local GT checkout was clean at `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. Its graph was fully reindexed at the start of this investigation. Graph search, snippets and call traces identified the existing owners. GitHub's commits API returned current upstream `03f76356146f497c6c8f21d9225fe28de57136a1`, dated 2026-10-10 19:19:48 UTC. The decisive source excerpts below were fetched successfully with HTTP 200 at that immutable upstream SHA. The local index is discovery evidence, not a claim that its older checkout is current. [Inspected upstream commit][commit]

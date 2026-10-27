@@ -26,7 +26,7 @@ What orbital production supplies the early Rocket-control upgrade while preservi
 ## Established Contract
 
 - Physical Stations and Automated Stations are different entities.
-- Alpha's earlier scope requires a player-accessible Physical Station. Later environment-based eligibility must not silently exclude qualifying microgravity alternatives. Their effect on that earlier mandatory-Station scope is not settled here.
+- Alpha includes a player-accessible Physical Station. Building one is not a direct progression permission requirement. The current content assumption places the player-accessible microgravity needed by progression in orbital dimensions, so orbital work follows from the environment requirement.
 - [[Specify Alpha Opening Mission Flow]] permits control-electronics technology before Luna without making it necessary for manual lunar travel. The first Moon mission must not require orbital assembly, refuelling or complex Station logistics.
 - Placement follows eligible locations and required capabilities, not a destination-specific Station rule.
 - A Physical Station registers through its controller. It does not use planned asset construction or an asset-level construction inventory. Items and fluids stay in connected physical inventories.
@@ -38,7 +38,9 @@ The first Station primarily supports production with a defensible environmental 
 
 Rocket recovery and reuse do not depend on the automation upgrade. [[Design Early Orbital Production Recipe Chain]] owns the proposed upgrade recipe and its acceptance status. [[Define Rocket Missions Without Recovery]] owns deliberate mission disposal. [[Define Satellite Manufacturing and Deployment Progression]] owns the satellite consumers.
 
-Both SiGe crystal growth and specialty fluoride optical-fiber production are selected for Alpha and require microgravity. Orbit is one qualifying location, not a universal location lock. Other qualifying environments still need suitable machinery. Selected recipes and remaining feedstock proposals live in [[Design Early Orbital Production Recipe Chain]].
+Both SiGe crystal growth and specialty fluoride optical-fiber production are selected for Alpha and require microgravity. The current player-facing production route therefore requires working in an orbital dimension. The recipe checks the environment, not a completed Station or a list of permitted planet IDs. If another accessible environment actually qualifies, the shared rule must not reject it solely for its location. Selected recipes and remaining feedstock proposals live in [[Design Early Orbital Production Recipe Chain]].
+
+A Station makes orbital production sustainable through automation infrastructure and a maintained survival environment. A player may initially operate with carried oxygen and manual support. Station construction earns practical value rather than granting an arbitrary unlock. Exact automation services belong to the machinery contract, not an inferred blanket ban on GT machines outside a registered Station.
 
 [[Define Alpha Research and Production Floor]] retains an early low-yield germanium route from sphalerite, with HV as the working target and ABS as the better later route. Use existing GT machinery unless a concrete process requirement justifies a custom machine.
 
@@ -80,7 +82,11 @@ No automatic replacement-site search, platform shifting or partial rollback is r
 
 ## Open Content and Provenance
 
-The Station's mandatory Alpha role versus qualifying non-orbital environments still needs an explicit scope decision. Kit layout, construction recipe and route feasibility also remain open. Product recipes stay with their production-chain owner. The broader production floor does not block this Station discussion.
+### Accepted Scope Resolution
+
+Provide the Physical Station workshop as an Alpha capability. Orbital work is naturally required by the currently available progression-relevant microgravity, while a registered Station is not a direct unlock. Its automation and survival services make it the practical long-term choice. Manual lunar travel remains independent of the Rocket automation upgrade.
+
+The Station scope distinction is settled. Kit layout, construction recipe, viable power and route feasibility remain open. Product recipes stay with their production-chain owner. The broader production floor does not block this Station discussion.
 
 Owner decisions on 2026-09-10 established production, kit deployment and shared placement. Later decisions refined the products to microgravity requirements and the upgrade to optional pre-Luna automation.
 
