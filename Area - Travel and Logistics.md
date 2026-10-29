@@ -6,48 +6,38 @@ tags:
   - wayfinder/area
 ---
 
-# Area - Travel and Logistics
+# Travel and Logistics
 
 Physical access, rockets, spaceships, Hammers, route requirements, cargo movement, and flight balance.
 
-## Active Tickets
+## Vehicles And Missions
 
-## End-Of-Alpha Decisions
+- [[Define Rocket Route Fuel Budgets|Rocket Route Fuel Budgets]]
+- [[Define Rocket Missions Without Recovery|Rocket Missions Without Recovery]]
+- [[Define Authoritative Orbital Time and Hammer Status|Authoritative Orbital Time and Hammer Status]]
+- [[Define Space Transport Dispatch Model|Space Transport Dispatch Model]]
+- [[Define Alpha Transport Roles|Alpha Transport Roles]]
+- [[Define Player Flight Interaction Model|Player Flight Interaction Model]]
+- [[Define Vehicle Capability and Route Requirements|Vehicle Capability and Route Requirements]]
 
-- [[Define Late Interplanetary Network Access]]
+## Cargo And Endpoints
 
-## Deferred Tickets
+- [[Define Hammer Satellite Deployment Reach|Hammer Satellite Deployment Reach]]
+- [[Define Bulk Fluid Cargo Contract|Bulk Fluid Cargo Contract]]
+- [[Resolve Physical Station Controller Succession|Physical Station Controller Succession]]
+- [[Define In-Flight Delivery Handling for Unavailable Physical Stations|In-Flight Delivery Handling for Unavailable Physical Stations]]
+- [[Define Automated Rocket Turnaround and Module Wear|Automated Rocket Turnaround and Module Wear]]
+- [[Define Transport Endpoint Identity and Registration|Transport Endpoint Identity and Registration]]
+- [[Define Bulk Repair of Broken Endpoint References|Bulk Repair of Broken Endpoint References]]
 
-- [[Explore Automated Reusable Rocket Staging]]
-- [[Define Team Notification System]]
-- [[Evaluate Team-Scoped Logistics Ledger]]
+## Network Boundaries And Later Design
 
-## Resolved Decisions
+- [[Define Late Interplanetary Network Access|Late Interplanetary Network Access]] (deferred)
+- [[Explore Automated Reusable Rocket Staging|Explore Automated Reusable Rocket Staging]] (deferred)
+- [[Define Team Notification System|Team Notification System]] (deferred)
+- [[Evaluate Team-Scoped Logistics Ledger|Evaluate Team-Scoped Logistics Ledger]] (deferred)
+- [[Require Explicit Interplanetary Logistics|Explicit Interplanetary Logistics]]
+- [[Define Personal Dimension Homeworld Integration|Personal Dimension Homeworld Integration]]
+- [[Issue - Enforce Interplanetary Resource Transfer Restrictions|Enforce Interplanetary Resource Transfer Restrictions]]
 
-- [[Define Rocket Route Fuel Budgets]]
-- [[Define Rocket Missions Without Recovery]]
-- [[Define Hammer Satellite Deployment Reach]]
-- [[Define Bulk Fluid Cargo Contract]]
-- [[Resolve Physical Station Controller Succession]]
-- [[Define In-Flight Delivery Handling for Unavailable Physical Stations]]
-- [[Define Authoritative Orbital Time and Hammer Status]]
-- [[Require Explicit Interplanetary Logistics]]
-- [[Define Personal Dimension Homeworld Integration]]
-- [[Define Space Transport Dispatch Model]]
-- [[Define Automated Rocket Turnaround and Module Wear]]
-- [[Define Transport Endpoint Identity and Registration]]
-- [[Define Bulk Repair of Broken Endpoint References]]
-- [[Define Alpha Transport Roles]]
-- [[Define Player Flight Interaction Model]]
-- [[Define Vehicle Capability and Route Requirements]]
-
-## Implementation Issues
-
-- [[Issue - Enforce Interplanetary Resource Transfer Restrictions]]
-
-## Related Topics
-
-- Area - Progression
-- Area - Destinations
-- Area - Automation and Infrastructure
-- Galaxia Alpha Wayfinder
+[[00 - Galaxia Alpha Command Center|All topics]] · [[Galaxia Alpha Wayfinder|Open design packages]]

@@ -19,6 +19,7 @@ Repository paths below are relative to the checkout you are working in
 | Implement power, environment or cooling failure for a GT-like machine | [[Define Alpha Research and Production Floor#Native GT Machine Failure Semantics]] |
 | Add new GT-bound items, materials, fluids or recipes | Accepted Content Ownership And Temporary Staging in [[Design Early Orbital Production Recipe Chain]] |
 | Find accepted gameplay requirements or resolve design questions | [[Galaxia Alpha Wayfinder]], then the relevant area and owning decision |
+| Write or consolidate planning notes | [[Galaxia Wayfinder Guide#Decision Notes]] for concise domain rules and a final Gameplay Flow |
 
 Keep this briefing limited to actionable guidance and conditional links
 Add guidance only when it changes how an agent implements or verifies work

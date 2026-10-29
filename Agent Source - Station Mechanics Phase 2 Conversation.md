@@ -12,49 +12,15 @@ Captured: 2026-07-31
 Scope: Station Mechanics Phase 2, automated stations, and thermal-management planning
 Review disposition: source-only capture. This note is intentionally not linked to Wayfinder maps, areas, tickets, or implementation modules until reviewed by the project owner.
 
-## Purpose
+## Scope
 
-This file preserves the current agent conversation and decisions about expanding Galaxia station mechanics. It is not an accepted specification, implementation plan, or ticket map. Use it later as a source note when deciding whether to continue, reshape, or abandon this direction.
+This 2026-07-31 conversation captures a thermal-management direction and possible Station Mechanics Phase 2 work. It is review material, not an accepted specification or implementation plan. Older documents and the code observations below may no longer describe the current project.
 
-## Active Branch And Workspace Context
+Historical project references: `AI/StationMechanicsArchitecture.md`, `AI/Current/ModuleRegistryArchitecture.md` and `docs/station-module-operations-design.md`. These identify the architecture context at capture time, not current file locations or instructions.
 
-- A dedicated worktree was created for this direction at `C:/Users/Pxx500/Documents/GitHub/Galaxia/.worktrees/expand-automatedStations`.
-- The branch name is `expand-automatedStations`.
-- The original requested branch name was `expand automatedStations`, but Git does not allow spaces in branch names, so the branch was created with a hyphen.
-- The main checkout later showed `master`; future implementation work should happen in the dedicated worktree unless the owner decides otherwise.
+## Code Shape Observed in 2026
 
-## Verification And Workflow Decisions
-
-- Gradle commands must always run through context-mode wrappers with explicit timeouts; never run Gradle through direct shell/CMD because it can hang.
-- At the end of coding tasks, run `./gradlew agentVerify` through context-mode.
-- A global Gradle init script was created at `C:/Users/Pxx500/.gradle/init.d/agent-verify.gradle` so new repositories and worktrees get an `agentVerify` task even when the repo-local helper is missing.
-- That global task mirrors the repo helper intent: run `spotlessApply`, `test`, and `build` where those tasks exist.
-- `mustRunAfter` does not cause `spotlessApply` to run on every build. It only orders tasks when both are already in the Gradle task graph.
-- Because the owner does not have direct visibility into the worktree, after every gameplay-code change the agent must run `runClient25` so the owner can verify the game manually.
-
-## Existing Project Context Reviewed
-
-The agent reviewed the repo instructions and station-related documents before the long pause. Important source documents included:
-
-- `AI/StationMechanicsArchitecture.md`
-- `AI/Current/StationMechanicsImplementationPlan.md`
-- `AI/Current/StationMechanicsIdea.md`
-- `AI/Current/stationmechanicsphase2.md`
-- `AI/Current/StationMechanicsFollowups.md`
-- `AI/Current/ModuleRegistryArchitecture.md`
-- `AI/Current/ModuleRegistryRefactorImplementationPlan.md`
-- `docs/station-module-operations-design.md`
-- `docs/station-module-operations-next-pr-handoff.md`
-- `docs/generic-module-upgrade-system-proposal.md`
-- `AI/Glossary.md`
-- `AI/LocalizationRules.md`
-- `AI/Current/Rules.md`
-
-Important interpretation: older station mechanics documents contain historical or deferred design material. Current code is allowed to supersede old plan text when they disagree. Do not force code backward to match stale class names, packet tables, or phase notes.
-
-## Current Code Shape Observed
-
-The station system already has a substantial implementation surface:
+The captured station system had the following implementation surface:
 
 - `AutomatedFacility` is the facility runtime owner for automated stations and outposts.
 - `StationLayout` owns the station grid and placed module footprints.
@@ -134,15 +100,9 @@ A conservative first implementation slice would be:
 
 The first slice should avoid full tile-by-tile heat simulation unless the owner chooses a more physical design. Facility-level or cluster-level aggregation is probably enough to learn whether the mechanic is fun.
 
-## Important Architecture Constraints
+## Proposed Ownership
 
-- Deepen existing domain owners before creating feature-local stores or callback SPIs.
-- Put celestial environment data on the celestial/domain model, not in a station-only side table unless proven necessary.
-- Put module thermal behavior on module definitions, tier data, or module components, not in scattered switch statements.
-- Do not add migration or compatibility shims by default. Galaxia is pre-alpha/pre-beta and developer saves are scratch data unless the owner declares a supported public contract.
-- Use `CelestialObjectKey` for runtime references and `CelestialObjectId` for developer-authored fixed registrations.
-- If any visible UI text or translation key is added, consult `AI/LocalizationRules.md` first.
-- If gameplay behavior, persistence, networking, ownership, or cross-module contracts change, default back to TDD through a stable public seam.
+The proposed approach puts celestial environment data on the celestial model and module thermal behavior on existing module definitions, tiers or components, rather than separate feature-local registries. This is a design direction, not an implementation decision.
 
 ## Open Questions To Review Later
 
@@ -157,15 +117,6 @@ The first slice should avoid full tile-by-tile heat simulation unless the owner 
 - How should thermal state be shown in the current station GUI without making the UI too noisy?
 - Should heat be a blocker for Alpha, or an optional Phase 2 system that can be abandoned if it adds more micromanagement than gameplay?
 
-## Possible Decision Path
-
-1. Decide whether the destination is a spec only, a Wayfinder map, or a first implementation slice.
-2. If continuing, choose the thermal environment vocabulary and ownership location.
-3. Choose the first simulation resolution: facility-level, cluster-level, or grid-local.
-4. Choose initial heat producers and cooling modules.
-5. Choose the overheat consequence.
-6. Only then produce implementation tickets or a detailed implementation plan.
-
 ## Non-Decisions
 
 The conversation did not decide to implement:
@@ -179,6 +130,6 @@ The conversation did not decide to implement:
 - a final player-facing heat UI;
 - migrations or save compatibility shims.
 
-## Owner Sentiment
+## Scope Still Open
 
-The owner is considering whether to continue this direction or abandon it. This note should be treated as review material, not momentum pressure. The valuable decision already made is narrower than the whole Phase 2: heat should be environmental, mainly vacuum and hot-body driven, with a per-body thermal profile.
+Whether to continue the broader Phase 2 remains open. The recorded heat direction is narrower: environmental behavior, mainly driven by vacuum and hot bodies, with a per-body thermal profile.

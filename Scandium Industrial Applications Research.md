@@ -72,19 +72,6 @@ If the owner wants a natural No Atmosphere gameplay gate, the closest real inspi
 
 ### Source Scope And Retrieval Limits
 
-Previously verified sources were reused for aerospace, USGS commodity use, Scalmalloy air heat treatment and the original aqueous paper. Their evidence was unchanged. Fresh retrieval confirmed the Infinita, Materion, JX, Springer, RSC, Los Alamos and PubChem final URLs, titles and relevant content. Manufacturer product pages without publication dates are described as undated. Materion's article is dated 28 August 2025. The laser abstract is dated 13 April 2013 and its paywalled full text was not claimed as read.
-
-Los Alamos's older `https://periodic.lanl.gov/21.shtml` redirected successfully to the final linked page. Its broader production claims were not used in place of the newer USGS survey.
-
-Failed or unusable retrievals were reported when encountered:
-
-- American Elements Sc-stabilized zirconia request returned HTTP 403, even though product text was present. It was not treated as a successful verified source
-- RSC Education `https://edu.rsc.org/elements/scandium/2020021.article` returned HTTP 405 with Human Verification. It was not retried
-- Jefferson Lab `https://education.jlab.org/itselemental/ele021.html` returned HTTP 403 with a challenge screen
-- Optica's original Yb:Sc2O3 paper request redirected to a Radware CAPTCHA page. Its HTTP 200 was not treated as paper extraction
-- Several Obscura search navigations exceeded the 30-second deadline. Two later SDS-oriented searches remained running beyond that expectation and were stopped. A product-specific metal/powder SDS was therefore not obtained
-- A Cristal Laser page loaded but did not identify a scandium product. Materion's general optical-coating page likewise did not identify Sc material. Neither was used to substantiate an additional scandium application
-
-No previously failed ScienceDirect, MDPI or ResearchGate retrieval was repeated. No packages were installed, no remote images downloaded, and no code or accepted planning decisions changed. Manufacturer safety documentation and quantitative passivation/ignition behavior remain unresolved. Those gaps do not justify inventing a blanket vacuum requirement.
+Manufacturer product pages without publication dates are described as undated. Materion's article is dated 28 August 2025. The laser abstract is dated 13 April 2013, and its paywalled full text was not read. A product-specific metal or powder SDS was not obtained. Manufacturer safety documentation and quantitative passivation and ignition behavior remain unresolved. These gaps do not justify a blanket vacuum requirement.
 
 [[Sources]]

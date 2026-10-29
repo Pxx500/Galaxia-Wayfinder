@@ -13,16 +13,14 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Star Map Overlap Priority
+# Star Map Overlap Priority
 
-## Question
+## Overlap Rules
 
-Which non-selected body remains visible when two non-parent bodies overlap on the Star Map?
+For ordinary overlaps between non-parent bodies, show the physically larger body and cull the smaller one. The selected object and the system's star remain visible, as required by [[Star Map Visibility Wayfinder]]. Culling uses final screen-space bounds, not orbital perigee.
 
-## Established Input
+Equal-size cases must be deterministic without relying on render order. The compression curve, fade duration and internal rendering algorithm remain open.
 
-[[Star Map Visibility Wayfinder]] already protects the selected object and the system's star. Culling uses final screen-space bounds, not orbital perigee. Those rules are not reopened.
+## Gameplay Flow
 
-## Resolution
-
-On 2026-09-17 the owner selected the physically larger body as visible and the smaller body as culled for ordinary non-parent overlaps. The already accepted selected-object and star exceptions still take precedence. Equal-size cases must remain deterministic under the owning visibility model, without relying on render order. This does not choose a compression curve, fade duration or internal rendering algorithm.
+When bodies overlap on the Star Map, the player sees the larger body while the smaller one is hidden. The selected object and the system's star remain visible even when they overlap other bodies.

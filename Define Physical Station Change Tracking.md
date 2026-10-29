@@ -14,14 +14,10 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Physical Station Change Tracking
+# Physical Station Change Tracking
 
 
-## Question
-
-How can Physical Stations avoid unnecessary connectivity recomputation while keeping construction data compact and inspectable?
-
-## Resolution
+## Connectivity Design
 
 Use a connected construction-path witness, compact section-local coordinates and batched updates. This is accepted design intent, not measured optimization or completed implementation. Room validation and airlock classification remain separately deferred under [[Consolidate Physical Station Architecture]].
 
@@ -69,3 +65,7 @@ No mandatory global spatial index, per-air-block store, local cube-search layer 
 ## Provenance
 
 Owner discussion following `fe27e3e5` on 2026-09-13. The connectivity direction was retained on 2026-09-16 while room redesign was deferred.
+
+## Gameplay Flow
+
+The player connects Station devices through construction. When construction changes, Station services keep their last confirmed state while connectivity is recalculated and stop only if disconnection is confirmed. Reconnecting a detached fragment restores its services once connectivity is established.

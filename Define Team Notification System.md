@@ -16,7 +16,7 @@ tags:
   - wayfinder/deferred
 ---
 
-# Define Team Notification System
+# Team Notification System
 
 ## Question
 
@@ -58,3 +58,7 @@ Stable active-notification identity, renewal, resolution, and bounded expiry are
 - [[Define Alpha Transport Roles]]
 - [[Define Player Flight Interaction Model]]
 - [[Area - Automation and Infrastructure]]
+
+## Gameplay Flow
+
+Players review team notifications in the Star Map and use the affected asset and reason to decide what needs attention. A blocked scheduled action maintains one active notification while it retries, and clears it when the condition resolves. The presentation and configuration of other events remain open.

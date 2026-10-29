@@ -6,60 +6,70 @@ tags:
   - wayfinder/guide
 ---
 
-# Galaxia Wayfinder Guide
+# Editing Guide
 
-## Node Types
+## Decision Notes
 
-- `wayfinder-map` — the canonical low-resolution route toward a destination.
-- `wayfinder-area` — a graph hub grouping related tickets and decisions without owning their detail.
-- `wayfinder-ticket` — one planning question resolved through research, grilling, prototyping, or a prerequisite task.
-- `implementation-issue` — implementation work preserved outside the active planning frontier.
-- `source` — imported or authoritative material; unreviewed source snapshots do not become accepted design merely by existing in the Vault.
-- `glossary` — canonical domain language in [[CONTEXT]].
+Write about the game directly: “Each cluster has its own power input”, not “The owner selected separate power inputs”.
 
-## Ticket Properties
+- Start with a descriptive system heading and one sentence of purpose.
+- Use domain sections, short rules and tables. Avoid a mandatory template of empty headings.
+- Mark proposals, working tuning, deferred ideas and open questions explicitly. A note can contain settled rules while its overall question remains open.
+- Keep rationale when it explains a non-obvious tradeoff.
+- End gameplay notes with **Gameplay Flow**: concrete, connected prose showing what the player does, what changes and why the mechanics fit together. Restate the rules in human terms without inventing behavior or promising results not established by the design.
+- Do not append gameplay prose to indexes, glossaries, raw sources or historical engineering records.
+- Remove repeated caveats, chat narration, task coordination, workstation details and discarded proposal inventories. Preserve meaningful constraints, numbers, exceptions, uncertainty and source attribution.
+- Keep one authoritative home for each rule. Link to it elsewhere instead of copying the specification.
+- Do not retain deferred implementation plans. Derive implementation details when execution starts.
 
-- `status`: `open`, `resolved`, `blocked`, or `deferred`.
-- `ticket_type`: `research`, `grilling`, `prototype`, or `task`.
-- `parent`: the owning Wayfinder map as plain metadata, not a wikilink.
-- `areas`: exactly one primary area hub wikilink.
-- `secondary_areas`: optional plain-text classifications that do not create graph edges.
-- `blocked_by`: concrete prerequisites. A ticket is unblocked when every listed prerequisite is resolved, completed, or explicitly closed. Historical dependencies may remain for provenance.
-- `claimed_by`: the person or session currently working the ticket; empty means unclaimed.
+## Navigation And Metadata
+
+The home page and area hubs organize notes by topic. Their link labels can be shorter than the filenames. Metadata retains planning status and dependencies.
+
+| Type | Purpose |
+| --- | --- |
+| `wayfinder-map` | Destination, design packages and navigation |
+| `wayfinder-area` | Topic index |
+| `wayfinder-ticket` | Decision or investigation and its result |
+| `implementation-issue` | Implementation work outside the planning frontier |
+| `source` | Original input or evidence, not automatic design approval |
+| `glossary` | Canonical terminology in [[CONTEXT]] |
+
+Ticket properties:
+
+| Field | Meaning |
+| --- | --- |
+| `status` | `open`, `resolved`, `blocked` or `deferred` |
+| `ticket_type` | `research`, `grilling`, `prototype` or `task` |
+| `parent` | Map name as plain metadata |
+| `areas` | One primary area wikilink |
+| `secondary_areas` | Optional plain-text classifications |
+| `blocked_by` | Concrete prerequisite notes |
+| `claimed_by` | Current person or session, empty when unclaimed |
+
+Resolved means the question is answered, not that implementation or verification is complete. A nonempty dependency list does not imply blockage if every prerequisite is already closed.
 
 ## Workflow
 
-1. Open [[00 - Galaxia Alpha Command Center|Galaxia Alpha Command Center]].
-2. Follow the Wayfinder to one area and choose an actionable ticket there.
-3. Choose an open, unclaimed ticket whose listed prerequisites are resolved, completed, or explicitly closed. A populated dependency list alone is not a blocker.
-4. Claim it before work by setting `claimed_by`.
-5. Work the independent frontier as a grouped discussion round under the map's Working Rules. Record each accepted answer in its owning ticket and set `status: resolved` only when its question is answered. The owner's multi-ticket workflow overrides the generic one-ticket-per-session limit.
-6. Move the resolved ticket under its primary area's resolved decisions.
-7. Create newly visible tickets and wire their `blocked_by` links; leave imprecise future work in Not Yet Specified.
+1. Find a topic through [[00 - Galaxia Alpha Command Center]] and its current package in [[Galaxia Alpha Wayfinder]].
+2. Choose an open, unclaimed question with no unresolved blockers. Claim it before work.
+3. Check settled decisions before asking new questions. Group independent consequential choices in a discussion round.
+4. Record accepted answers in their owning notes. Resolve only answered questions.
+5. Create newly precise questions, then wire dependencies. Leave imprecise future work as such.
+6. Continue to the next unblocked question. Pause for a required answer, evidence or authorization, not after each isolated answer.
 
-## Naming
+Grouped rounds override the generic skill's one-ticket-per-session limit. Do not invent questions to fill a round or reopen deferred systems without a change in scope.
 
-Windows filenames cannot contain `:`, so implementation notes use `Issue - Title` when a visible prefix is helpful. The canonical distinction is the `type: implementation-issue` property and `#wayfinder/issue` tag, not the filename prefix.
+## Sources And Evidence
 
-## Graph Links
+New material is unreviewed intake linked only through [[Sources]]. Later review classifies it. Original external proposals and reusable research retain their provenance and source meaning.
 
-- Command Center links to the Wayfinder; the Wayfinder links to area hubs and intake indexes.
-- Each ticket has one hard primary-area link.
-- Use hard links between tickets only for blockers or concrete domain dependencies.
-- Keep secondary areas and loose related topics as plain text.
-- Sources form short intake or provenance chains instead of linking to every routed ticket.
+Temporary agent inputs are an inbox, not permanent project documentation. After review, move accepted rules and genuine open proposals into their owning notes with concise provenance. Remove consumed wrappers and one-off task, device, branch and test-session instructions. Archive originals locally when needed for recovery. Do not promote suggestions or implementation tuning into accepted design during cleanup.
 
-## Related Topics
+Dated code observations and execution results describe the inspected revision, not current runtime behavior. Keep useful evidence concise and separate from rules. Consolidation can reconcile explicit decisions and metadata, but cannot approve new gameplay.
 
-- Galaxia Alpha Wayfinder
-- CONTEXT
+## Links And Names
 
-## Authority and Record Status
+Keep existing filenames and incoming heading anchors unless all affected links are updated. Use readable link labels in navigation. Windows filenames cannot contain a colon, so implementation notes may use `Issue - Title`.
 
-Frontmatter is the navigation status. Accepted decisions belong in their owning tickets. Historical source labels and chronological log entries describe their recorded time, not the current frontier or a current implementation certificate. Unreviewed sources remain intake only. Completed execution records are evidence, not instructions to restart their old plans.
-
-Consolidation may repair metadata and reconcile explicit decisions across notes without resolving new gameplay questions. Reports and historical records do not override the owning decision.
-
-Use complete player outcomes to group discussion rounds. Separate new gameplay choices from recipe tuning, code investigation and verification. A resolved contract may still need implementation, while a broad open ticket does not invalidate its settled subcontracts. Present consequential choices together with recommendations. Do not return routine implementation details to the owner as another sequence of isolated design questions.
-
-Keep accepted rules, useful rationale, source provenance and genuine open questions. Replace chronological append logs with the current contract. Do not retain chat instructions, reconciliation requests, private task coordination, workstation paths or test-run diaries in decision notes. Keep detailed source snapshots in Sources and derive implementation plans when execution begins.
+Each ticket has one primary-area link. Other hard links represent concrete dependencies or useful navigation, not arbitrary graph decoration. Keep loose related topics as plain text. Sources remain separate from the active decision map until classified.

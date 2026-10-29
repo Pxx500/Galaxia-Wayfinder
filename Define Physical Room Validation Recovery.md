@@ -14,16 +14,12 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Physical Room Validation Recovery
+# Physical Room Validation Recovery
 
 
 ## Scope
 
 Deferred under [[Consolidate Physical Station Architecture]]. Retain the existing room lifecycle. Manual-approval persistence and asynchronous recovery remain undecided, not prerequisites for the earlier Station integration.
-
-## Question
-
-How do manual room approvals survive startup, incomplete chunk data and construction changes during background validation?
 
 ## Constraints
 
@@ -48,4 +44,8 @@ Rejecting stale validation results is also proposed, not a selected user-visible
 
 ## Provenance
 
-Owner discussion on 2026-09-13, deferred on 2026-09-16. Startup cache rebuilding predates manual room approval and does not silently override it.
+Discussed on 2026-09-13 and deferred on 2026-09-16. Startup cache rebuilding predates manual room approval and does not override it.
+
+## Gameplay Flow
+
+Under the earlier manual-validation direction, the player validates new rooms and revalidates rooms after required boundary destruction. Whether previously approved rooms recover automatically after startup remains open. The current integration retains the existing room lifecycle.

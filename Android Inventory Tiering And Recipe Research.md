@@ -30,7 +30,7 @@ Observed facts:
 - Charging and repair require the exact original dock and physical containment. There is no current service reassignment or autonomous recovery operation
 - The inspected runtime and canonical GTNH data snapshot use different GT versions. Source findings do not establish full-pack compatibility or a complete playable recipe progression
 
-Recommendations and open choices, not accepted design:
+Historical recommendations and open choices, not accepted design. The EV/IV/LuV sequence and custom-pack suggestions below predate the later EV/LuV/UV and native-battery decisions:
 
 - Retain 36 usable player slots for this PR
 - Start with EV, IV and LuV chassis and fixed integrated batteries. Prefer endurance, modest health and maintenance progression over new mining, combat or hazard-immunity bonuses

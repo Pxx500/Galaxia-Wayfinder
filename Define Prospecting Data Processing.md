@@ -15,15 +15,13 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Prospecting Data Processing
+# Prospecting Data Processing
 
-## Accepted Decision
+Prospecting uses a sustained network pipeline: `Prospecting Satellites -> Data Processing -> originating celestial object`. It is not permanent accumulated survey progress. Processing may be centralized or distributed wherever a complete communication route exists. This design does not certify an implemented bonus pipeline.
 
-Prospecting is a sustained network pipeline: `Prospecting Satellites -> Data Processing -> originating celestial object`. It is not permanent accumulated survey progress. Processing may be centralized or distributed anywhere a complete communication route exists. These requirements do not certify an implemented bonus pipeline.
+## Service Economy
 
-## Reopened Service Economy
-
-The owner wants computation and, where appropriate, communication throughput to provide the meaningful investment and operating limits. Cheap permanent satellites producing free input must not make a trivial computer an unlimited extraction upgrade. Diminishing returns are accepted as the benefit-scaling direction. The exact curve and computer specification remain open. This supersedes linear bonus scaling as the target economy.
+Computation and, where appropriate, communication throughput provide meaningful investment and operating limits. Cheap permanent satellites producing free input must not make a trivial computer an unlimited extraction upgrade. Diminishing returns are the accepted benefit-scaling direction. The exact curve and computer specification remain open, superseding linear bonus scaling as the target economy.
 
 Recommended Alpha model, awaiting approval: raw generation, transport and processing have finite throughput. Computing sections provide installed capacity, and higher operating intensity trades worse EU efficiency for more throughput. Apply a diminishing-return curve once to aggregate successfully returned data for the same team and origin. Splitting processing across machines must not repeatedly grant the cheap beginning of the curve.
 
@@ -31,18 +29,18 @@ Tier progression can increase production capacity faster than nominal voltage. A
 
 A logarithmic benefit curve is one candidate. Equal additional bonus steps would require illustrative relative data rates of 1, 3, 7 and 15. These are examples, not chosen rates, bonus percentages or an accepted formula. Costs need not also grow exponentially at every pipeline stage.
 
-This can create choices between more computing capacity and higher EU use, between serving another origin and increasing an existing bonus, and between central power-rich processing and local processing with lower transmission burden. The modular Computer direction adds a closed coolant loop and radiator infrastructure under [[Define Data Processor Machine Topology]]. Exact coolant identities and thermal calibration remain open. A near-star data center is a possible strategy, not an Alpha location requirement. No minigame or new satellite tier is approved by this proposal.
+The proposal creates tradeoffs between capacity and EU use, serving another origin and increasing an existing bonus, or centralized power-rich processing and local processing with less transmission. [[Define Data Processor Machine Topology]] owns the Computer's closed coolant loop and radiator. Coolant identities and thermal calibration remain open. A near-star data center is a possible strategy, not an Alpha location requirement. No minigame or new satellite tier is approved.
 
 The remaining major choice is whether sustaining a given percentage bonus requires more data as the baseline extraction workload at that origin grows. Shared workload normalization is proposed, but its consumer accounting is not yet selected. Satellite generation and capacity progression must be balanced against actual processor and mining value.
 
 ## Data And Processing Ownership
 
-- Each satellite produces a fixed Raw Prospecting Data rate for its orbital body. Raw and processed data are typed network state in small bounded buffers, never physical items or freight.
-- Pool data by `SatelliteDataType + origin CelestialObjectKey`, not individual satellite. All satellites at one origin contribute to its shared raw pool. Processing and successfully returned output aggregate for that origin, without satellite-to-satellite pairing.
-- Data from one object cannot benefit another. Planetary bonus consumers must request exact-origin processed data. Any-origin demand may serve other consumers.
-- Use the Computer's general data-processing capability, not a separate Prospecting-only machine/path. It accepts typed jobs with finite shared throughput and per-job conversion, costs and output rules. Generic producer A and consumer B need not be at the same location. Prospecting specifically preserves its origin constraint. Alpha first needs Raw-to-Processed Prospecting conversion.
-- [[Define Data Processor Machine Topology]] owns the powered controller multiblock, bounded independently powered/cooled clusters and single-block EV/IV/LuV rack hardware. It owns structural capacity, tiers and installation-local configuration. Multiple installations are allowed. No inserted processor-item requirement is implied.
-- Jobs are keyed by type and origin. Active jobs share throughput by default. Players may disable jobs and change priority. Higher priority is served first, while equal-priority jobs share the remainder rather than using insertion order.
+- Each satellite produces a fixed Raw Prospecting Data rate for its orbital body. Raw and processed data are typed network state in small bounded buffers, not items or freight.
+- Pool data by `SatelliteDataType + origin CelestialObjectKey`, not by satellite. Satellites at one origin share a raw pool and aggregate processing and returned output without pairing individual satellites.
+- Data from one object cannot benefit another. Planetary bonus consumers request exact-origin processed data. Any-origin demand may serve other consumers.
+- The general Computer handles typed jobs with finite shared throughput and per-job conversion, costs and outputs. Producers and consumers need not share a location, but prospecting retains its origin constraint. Alpha first needs Raw-to-Processed Prospecting conversion.
+- [[Define Data Processor Machine Topology]] owns the controller, independently powered and cooled bounded clusters, EV/IV/LuV single-block racks, capacity and local configuration. Multiple installations are allowed. No inserted processor item is required.
+- Jobs are keyed by type and origin. Active jobs share throughput by default. Players may disable or reprioritize jobs. Higher priority is served first, while equal-priority jobs share the remainder rather than following insertion order.
 
 ## Previous Linear Working Baseline, Under Review
 
@@ -75,9 +73,9 @@ Network transfer, buffering and processing remain tick-granular. Accumulate succ
 
 ## Presentation And Open Tuning
 
-The body's satellite hover shows pooled raw generation, processed data successfully returned and currently applied bonuses. It does not assume one processor or diagnose the global bottleneck. Players inspect routing, bandwidth, processing and local configuration themselves.
+The body's satellite hover shows pooled raw generation, successfully returned processed data and applied bonuses. It does not assume one processor or diagnose the global bottleneck. Players inspect routing, bandwidth, processing and local configuration themselves.
 
-Buffer sizes, work scheduling, throughput/tier/EU curves, measurement-window length and rounding increment remain tuning. Failure behavior is not an open custom-pause design. The table preserves the previous linear baseline for comparison, not current instructions to implement it unchanged.
+Buffer sizes, work scheduling, throughput/tier/EU curves, measurement-window length and rounding increment remain open tuning. Failure follows the native GT contract, not a custom pause. The table preserves the earlier linear baseline for comparison, not an instruction to implement it unchanged.
 
 ## Implementation Evidence And Provenance
 
@@ -91,3 +89,9 @@ The flow-accounting rules originate in September 2026 satellite-runtime decision
 
 - [[Define Alpha Research and Production Floor]]
 - [[Define Alpha Celestial Knowledge Layers]]
+
+## Gameplay Flow
+
+Prospecting satellites produce raw data for their orbital body. Players route it to a Computer for processing and return the output to a consumer for that same body. Processing can be centralized or distributed, but a complete communication route is needed and bounded buffers apply backpressure when the next stage cannot accept data.
+
+The intended benefit comes from sustained returned throughput, not a permanent accumulated survey. Players can add computing and communication capacity or prioritize jobs for different origins. Diminishing returns are the accepted scaling direction, while the exact curve, workload accounting and balance remain open.

@@ -18,11 +18,7 @@ tags:
 # Resolve Physical Station Controller Succession
 
 
-## Question
-
-Can surviving controllers preserve a Physical Station's identity after its main controller is destroyed?
-
-## Resolution
+## Station Identity
 
 A Physical Station has one durable asset ID across succession between its controllers. Controllers and machines carry that ID as membership, not as a replacement for their individual identities. This supersedes ending Station identity whenever the main controller is destroyed.
 
@@ -52,3 +48,9 @@ No rule to retain a Station after all its controllers are destroyed is accepted.
 ## Implementation Evidence and Provenance
 
 Accepted on 2026-09-13. Read-only inspection on 2026-09-12 found a successor branch in `src/main/java/com/gtnewhorizons/galaxia/registry/celestial/station/TileStation.java:572`, with the backing asset ID transferred at lines 587 through 598. That earlier code does not establish implementation of the later construction-centric model.
+
+## Gameplay Flow
+
+The player connects controllers to a Station through face-connected construction and can transfer the main role with Make Master. If the main controller is destroyed, an eligible controller on the previously active fragment succeeds it. If none is eligible, the Station retains its identity but stays inactive until the player selects a surviving controller.
+
+Disconnected fragments keep their membership but lose Station services until reconnected. Unloading a chunk or temporarily disforming a controller does not trigger succession.

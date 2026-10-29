@@ -21,7 +21,7 @@ The original aluminium-scandium idea has real inspiration in two independent are
 
 ### Aerospace Alloy Evidence And Addition Scale
 
-The [USGS Mineral Commodity Summaries 2026 scandium chapter](https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-scandium.pdf), dated February 2026 and reporting 2025 activity, identifies aerospace alloys and solid oxide fuel cells as principal scandium uses. The previous [2025 chapter](https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-scandium.pdf) names aluminium-scandium alloys and solid oxide fuel cells. Both PDFs were retrieved successfully and parsed, including their document titles.
+The [USGS Mineral Commodity Summaries 2026 scandium chapter](https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-scandium.pdf), dated February 2026 and reporting 2025 activity, identifies aerospace alloys and solid oxide fuel cells as principal scandium uses. The previous [2025 chapter](https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-scandium.pdf) names aluminium-scandium alloys and solid oxide fuel cells.
 
 [APWORKS, the Scalmalloy developer](https://www.apworks.de/scalmalloy), reports aerospace applications and components used in environments including space. This is first-party product evidence, not a claim that every spacecraft uses this alloy. Its listed tensile strength, corrosion performance and applications are specific to Scalmalloy and should not be generalized to every Al-Sc composition.
 
@@ -47,7 +47,7 @@ The preserved proposal's connection between alumina production, red mud and a se
 
 ### The Author's Exact Nitric-Acid Source
 
-The recovered original link is [Shoppert et al., Selective Scandium (Sc) Extraction from Bauxite Residue (Red Mud) Obtained by Alkali Fusion-Leaching Method](https://pmc.ncbi.nlm.nih.gov/articles/PMC8779884/), *Materials* 15(2), 433, 2022. Its PMC copy was fully retrieved and parsed. This is the original experimental paper, not a review.
+The recovered original link is [Shoppert et al., Selective Scandium (Sc) Extraction from Bauxite Residue (Red Mud) Obtained by Alkali Fusion-Leaching Method](https://pmc.ncbi.nlm.nih.gov/articles/PMC8779884/), *Materials* 15(2), 433, 2022. This is the original experimental paper, not a review.
 
 Its specially prepared alkali-fusion residue contained about 140–150 mg/kg Sc. Preparation fused bauxite with NaOH at 300°C, then water-leached, filtered and washed it. Dilute nitric-acid leaching recovered 71.2% of that scandium at pH 2, 80°C and 90 minutes. Acid was added to maintain pH. Filtration separated a scandium-bearing solution from a predominantly iron-oxide residue.
 
@@ -77,7 +77,7 @@ The proposal's dust-unit ratios should not be compared directly with industrial 
 
 ### Original Proposal Provenance
 
-The preserved Discord source describes a Bayer-inspired Al-Sc line, red mud, diluted nitric acid, scandium extraction and aerospace alloy inspiration. Its Google Docs origin is preserved at `https://docs.google.com/document/d/1SW-HysWHLHMK6a7ABwUkXO3V97SE-lSTLvot05xoYOA/edit?tab=t.0`. In the local Markdown copy, “(some data sourced from here)” and “(source)” are placeholders without retained hyperlinks. The original author did provide links. Recovery from the public Google Docs model identified the following, with independent verification of their presence assigned to the parent investigation:
+The preserved Discord source describes a Bayer-inspired Al-Sc line, red mud, diluted nitric acid, scandium extraction and aerospace alloy inspiration. Its Google Docs origin is preserved at `https://docs.google.com/document/d/1SW-HysWHLHMK6a7ABwUkXO3V97SE-lSTLvot05xoYOA/edit?tab=t.0`. In the local Markdown copy, “(some data sourced from here)” and “(source)” are placeholders without retained hyperlinks. The original author did provide links. The public Google Docs model contains the following links:
 
 - Space-Grade Alloy tab `t.jrv0b1me9e7`: [Chemical composition of the Dhofar 007 meteorite, ResearchGate table](https://www.researchgate.net/figure/Chemical-composition-of-the-Dhofar-007-meteorite_tbl1_225659906)
 - Al-Sc Step 4 tab `t.oziaojcis0h5`: [the Shoppert et al. primary paper on PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC8779884/)
@@ -97,8 +97,6 @@ The resolved proposal-review note already accepts one canonical Space-Grade Allo
 
 ### Retrieval Limits
 
-All sources used above as substantive evidence had HTTP 200 or successful browser navigation, a checked final URL/title, and relevant extracted text. Recovered proposal links are separately labelled provenance, with ResearchGate contents unverified. PDF sources were parsed in memory using installed `pypdf` under `C:\Python314\python.exe`. No packages were installed and no remote images were downloaded.
-
-Google browser search returned an automated-traffic challenge. Bing returned unrelated or empty parsed results and was not used as evidence. DuckDuckGo provided discovery links only. A ScienceDirect original-research page at `https://www.sciencedirect.com/science/article/pii/S1383586623007906` returned HTTP 403. The original paper at `https://www.mdpi.com/1996-1944/15/2/433` also returned HTTP 403, and browser navigation then exceeded a 30-second deadline. The recovered ResearchGate table returned HTTP 403 with title “ResearchGate - Temporarily Unavailable”, so its contents were not verified. Those failures remain failures. Later recovery of the author's PMC link provided a readable full-text copy of that same MDPI paper, not proof that the failed publisher retrieval worked. This confirms the dilute-nitric-acid leaching inspiration, but not the proposal's complete chemistry or quantitative game recipe.
+The recovered ResearchGate table's contents were not verified. The PMC copy of the original paper supports the dilute-nitric-acid leaching inspiration, but not the proposal's complete chemistry or quantitative game recipe.
 
 [[Sources]]

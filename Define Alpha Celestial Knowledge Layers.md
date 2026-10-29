@@ -13,9 +13,9 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Alpha Celestial Knowledge Layers
+# Alpha Celestial Knowledge Layers
 
-## Accepted Decision
+## Knowledge and Scanning
 
 For the currently designed Alpha scope, modeled facts are known or unknown. This does not permanently commit all future Alpha content to binary detail.
 
@@ -43,3 +43,9 @@ This is dated source evidence, not runtime verification or a fresh code audit.
 ## Provenance
 
 Owner decision on 2026-09-10 establishes first-level flight planning and later environment/resource disclosure. The 2026-09-17 opening clarification establishes the Luna bootstrap.
+
+## Gameplay Flow
+
+Once the player knows an object, its orbit is available for flight planning, but its deposits remain unknown. A completed detailed satellite scan reveals its environment, atmosphere, relevant hazards and resource profile without a separate research mission.
+
+At the opening, Luna is already known but its resources are not. The Primitive Telescope Satellite achievement supplies its passive celestial-profile survey, not a physical ore scan.

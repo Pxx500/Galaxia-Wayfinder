@@ -15,14 +15,10 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Non-Material Tier Gate Role
+# Non-Material Tier Gate Role
 
 
-## Question
-
-How can research, knowledge and data participate in a Closed Tier Cycle without replacing acquisition and processing of its progression material?
-
-## Resolution
+## Ore-Backed Gates
 
 - Every current Alpha Ore Tier has an [[CONTEXT|Ore-Backed Tier Gate]]. Acquiring and processing the intended off-world material is the primary non-substitutable requirement.
 - Research, knowledge and data may unlock access, advance investigation or enable activities and capabilities within that cycle.
@@ -55,3 +51,7 @@ Owner clarification on 2026-09-11 replaced Galacticraft's mandatory lunar dungeo
 - [[Define Tier Destination Portfolio]]
 - [[Define Player Presence and Automation Tradeoffs]]
 - [[CONTEXT]]
+
+## Gameplay Flow
+
+The player acquires and processes each tier's intended off-world material to advance. A concrete tier may also require knowledge or research for access or production, but those activities do not replace its material requirement. Bosses and dungeons remain optional routes to optional rewards.

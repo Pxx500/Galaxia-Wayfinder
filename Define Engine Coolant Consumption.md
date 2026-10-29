@@ -14,20 +14,14 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Engine Coolant Consumption
+# Engine Coolant Consumption
 
-## Question
+Later engines provisionally use Callisto-derived coolant alongside fuel and oxidizer. Added supply complexity remains a reason to revisit the third-fluid direction. Callisto and its nearby asteroid are the accepted working feedstock sources.
 
-Under the provisional third-fluid engine direction, is Callisto-derived coolant consumed during powered maneuvers or retained in a reusable cooling circuit?
+## Consumption
 
-## Established Input
+Coolant is consumed during powered operation, not retained in a closed circuit or consumed while coasting, waiting or in storage. The 2026-09-16 decision makes repeated extraction and resupply part of its purpose. Exact consumption rates, coolant recipes and engine performance remain balance work.
 
-The owner provisionally accepted Callisto-derived coolant as a third engine fluid alongside fuel and oxidizer for later engines. The added supply complexity remains a reason to revisit that design. Callisto and its nearby asteroid are the accepted working feedstock sources.
+## Gameplay Flow
 
-The transport baseline left consumption rules undecided. Choosing an engine production tier does not answer whether the coolant requires repeated resupply.
-
-## Resolution
-
-On 2026-09-16 the owner confirmed that coolant is consumed, not retained in a closed reusable circuit. Continued extraction and resupply are the intended gameplay purpose, rather than a one-time coolant fill.
-
-Consumption accompanies powered engine operation, not coasting, waiting or storage, as proposed in the accepted discussion round. Exact consumption rates, coolant recipes and engine performance remain balance work. This decision resolves consumption under the provisional third-fluid direction without fixing its numerical balance.
+Under the provisional three-fluid engine direction, players supply fuel, oxidizer and Callisto-derived coolant. Powered maneuvers consume coolant, so continued use needs extraction and resupply from Callisto or its nearby asteroid. Coasting, waiting and storage do not consume it. Rates and recipes remain open.

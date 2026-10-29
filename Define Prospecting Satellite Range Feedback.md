@@ -10,7 +10,7 @@ tags:
   - wayfinder/issue
 ---
 
-# Define Prospecting Satellite Range Feedback
+# Prospecting Satellite Range Feedback
 
 ## Durable Requirement
 
@@ -38,3 +38,7 @@ When disabled, the overlay performs no coverage preparation or rendering. When e
 ## Evidence and Provenance
 
 Inspection on 2026-09-12 identified the inner scan radius in `registry/satellite/SatelliteDiscoveryWorkerSource.java:21` (`PROSPECTING_SCAN_RADIUS`) and its use by `prospectingScope` at line 57. Eligible Prospecting Satellites contribute through `prospectingWorkers` at line 26. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`. The outer visibility radius was not established by this bounded audit. Existing scan authority does not prove that the normal-map overlay is implemented.
+
+## Gameplay Flow
+
+The deferred overlay would let the player enable satellite visibility and scanning coverage on the Star Map. Scanning coverage would take precedence where the fields overlap, with the two meanings distinguishable without color alone.

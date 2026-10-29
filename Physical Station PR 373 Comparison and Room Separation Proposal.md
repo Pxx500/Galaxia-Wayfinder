@@ -25,7 +25,7 @@ The owner objected to repeatedly explaining that ordinary construction blocks do
 
 ### Reviewed Code, Not New Requirements
 
-Reviewed PR head: `ecdba756e3f19705ca890b903d8a1c42afbf9151`. This is a pinned historical inspection, not a claim about later PR revisions. Local review checkout: `C:/Users/Pxx500/Documents/GitHub/Galaxia/worktrees/review-physical-stations-373`.
+Reviewed PR head: `ecdba756e3f19705ca890b903d8a1c42afbf9151`. Findings describe that revision, not later PR changes.
 
 - Ordinary construction blocks report placement and destruction through the GregTech machine-update mechanism. They do not immediately register their position into a Station-owned membership map by inspecting their neighbors.
 - Controllers discover and retain their own geometry. Room, Power Room and Dock behaviors select allowed boundaries and supported devices. Enclosed geometry uses boundary discovery and bounded interior traversal, with existing bitsets, coarse 4 by 4 by 4 cells and fast revalidation. These optimizations predate the PR diff.

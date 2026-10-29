@@ -32,3 +32,7 @@ Multi-stage Rockets and detachable reusable boosters are a possible post-Alpha e
 - [[Define Space Transport Dispatch Model]]
 - [[Deferred]]
 
+## Gameplay Flow
+
+In this possible post-Alpha expansion, players would automate the cycle from launch and booster separation through recovery, servicing, reintegration and relaunch. The specific staging and recovery mechanics remain undefined.
+

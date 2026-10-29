@@ -13,7 +13,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Vehicle Capability and Route Requirements
+# Vehicle Capability and Route Requirements
 
 ## Accepted Decision
 
@@ -46,3 +46,7 @@ Exact formulas, propulsion representation and numerical tuning remain implementa
 Read-only inspection on 2026-09-12 found that `registry/rocketmodules/rocket/analysis/RocketAnalyzer.java:23` partitioned decoupler stages and checked thrust using a fixed mass multiplier. `RocketStage.java:26` used fixed Isp 300 and nominal-capacity-based dry mass. `registry/orbital/OrbitalTransferPlanner.java:124` did not accept vehicle propulsion. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`.
 
 These prototypes do not establish destination-aware gravity, real-propellant or finite-burn feasibility. Their staging does not approve staging for Alpha.
+
+## Gameplay Flow
+
+The player assembles a Rocket, supplies propulsion resources and plans its scheduled actions. Before commitment, the route view shows transfer time and delta-v and explains missing vehicle or endpoint capabilities. Only the scheduled segments and planned replenishment determine the budget.

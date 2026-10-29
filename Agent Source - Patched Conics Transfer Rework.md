@@ -10,7 +10,7 @@ tags:
 
 ## Purpose
 
-This node preserves the complete Patched Conics investigation, implementation experiment, planning decisions, and review outcome as a deferred Wayfinder source. It is linked from [[Deferred]] and is not part of the active Galaxia Alpha planning frontier.
+This deferred source records the Patched Conics investigation and experiment. It is linked from [[Deferred]] and is not active Alpha work.
 
 The work attempted to replace the old Lambert-only interplanetary transfer model and synthetic local-loop visualization with one authoritative three-phase mission:
 
@@ -30,13 +30,9 @@ The visible payoff is doubtful. At Star Map scale the local gravity-well phases 
 
 This is therefore preserved as a reviewed experiment and design source, not accepted integration work. Do not resume or merge it merely because the implementation exists.
 
-## Current Implementation State
+## Experimental Model
 
-- Branch/worktree: `PatchedConics-rebuild` at `C:/Users/Pxx500/Documents/GitHub/Galaxia/.worktrees/PatchedConics-rebuild`.
-- State: implemented and verified in an isolated worktree, but uncommitted, unpushed, and not integrated with `master`.
-- Tracked delta at the last audit: 19 files, approximately 1,152 insertions and 1,592 deletions, plus new untracked transfer-domain and test packages.
-- The implementation is a clean forward cut. It intentionally contains no format versioning, migration path, compatibility shim, or legacy transfer fallback.
-- `TransferScanner` and the old raw `TransferRoute` model are removed from the rebuilt flow.
+The isolated experiment was not integrated into master. It used a forward cut without migration, dual codecs or legacy transfer fallback, and replaced `TransferScanner` and the old raw `TransferRoute` flow.
 
 ### Implemented Physics And Search
 
@@ -67,7 +63,9 @@ This is therefore preserved as a reviewed experiment and design source, not acce
 - Runtime celestial references use `CelestialObjectKey`.
 - The planner renderer samples departure, cruise, and arrival separately around body positions at each sample epoch.
 
-## Accepted Decisions Preserved By The Experiment
+## Decisions Used In The Experiment
+
+These decisions were recorded for the experiment. Reconcile them with current transport decisions before reuse, especially immediate departure and the treatment of surface access.
 
 - Keep an explicit abstraction layer even when astronomical calculations use SI units; literal real-world distances and times are not a gameplay requirement.
 - A body's sprite size is presentation-only and must never influence trajectory physics.
@@ -93,19 +91,16 @@ The original problem looked like a transfer-price correction. In practice, addin
 
 The result is closer to a replacement of the transfer domain than a localized cost fix.
 
-## Review And Verification State
+## Evidence Limits
 
-The rebuilt working tree completed focused transfer, planner, simulator, HAMMER, networking, persistence, and celestial-data tests. A full `agentVerify` run passed Spotless, tests, and build. Two independent final reviews found no reachable defect in the reviewed physics or end-to-end authority flow.
+The isolated rebuild was tested and reviewed but was not manually verified in-game. Remaining uncertainty included:
 
-Remaining uncertainty:
-
-- no manual in-game visual verification was completed;
 - active-flight rendering uses a sampled polyline and may undersample very short local phases;
 - package motion interpolates between precomputed points rather than analytically evaluating the mission every frame;
 - there is no dedicated persistence test that round-trips an active `LogisticsDelivery` containing a full `RailgunTransferEvaluation`;
 - the larger product question remains unanswered: whether this realism creates useful choices that justify its complexity.
 
-The pre-rebuild review findings preserved below explain why the rebuild was necessary; they must not be read as confirmed defects in the final isolated rebuild.
+The pre-rebuild findings below are not confirmed defects in the isolated rebuild.
 
 ## Reactivation Gates
 
@@ -120,23 +115,7 @@ Before this source becomes active work again, decide:
 
 If these answers favor a simpler model, retain the authoritative mode separation and gravity-well cost semantics without reviving the full local-arc visualization.
 
-## Implementation Surfaces
-
-The deferred working tree touches these principal owners:
-
-- `registry/orbital/transfer/` - mission, local conics, mode evaluations, unit scale, and search policy.
-- `registry/orbital/OrbitalTransferPlanner.java` - Lambert geometry and planner entry point.
-- `registry/celestial/CelestialRegistry.java` - authored transfer physics data.
-- `client/gui/orbitalGUI/InterplanetaryTransferSystem.java` and `OrbitalView.java` - simulation modes, preview, and active-flight rendering.
-- `registry/outpost/logistics/HammerDispatchPlanner.java`, `AllowShootingConfig.java`, and `LogisticsDelivery.java` - HAMMER authority and delivery state.
-- `registry/outpost/module/types/ModuleHammer.java` - launch capability ownership.
-- `core/network/LogisticsSyncPacket.java` - forward-only mission codec.
-- `core/persistence/FacilityPersistenceManager.java` - forward-only mission persistence.
-- focused tests under `registry/orbital/transfer/`, orbital GUI, celestial data, networking, and outpost logistics.
-
-## Integrated Design Record
-
-This section incorporates the durable information from the temporary repository planning, review, architecture, and AI notes so those files can be removed without breaking this handoff.
+## Design and Technical Evidence
 
 ### Pre-Rebuild Failure Classes
 
@@ -160,22 +139,6 @@ The reviewed implementation that preceded the isolated rebuild had these materia
 - the historical branch had diverged from current celestial identity, GUI, registry, logistics, and planner ownership.
 
 The isolated rebuild was a replacement architecture intended to remove these failure classes rather than patch them individually.
-
-### Rebuild Plan And Execution Order
-
-The accepted rebuild sequence was:
-
-1. Preserve the historical work and isolate a clean rebuild based on current `master`.
-2. Audit the old feature delta without transplanting stale APIs or compatibility overloads.
-3. Establish dimensional, identity, endpoint, failure, and total-TOF contracts through stable public tests.
-4. Separate Lambert geometry from railgun and spaceship evaluation.
-5. Solve finite local conics and couple both patch boundaries to moving-body epochs.
-6. Correct mode-specific gravity-well costs and HAMMER capability limits.
-7. Stabilize Lambert branch selection, near-180-degree behavior, TOF search, and analytical sampling.
-8. Integrate one mission through server authority, networking, persistence, simulator modes, comparison, and rendering.
-9. Run focused verification, full project verification, one consolidated review, and no more than one fix/re-review cycle.
-
-That sequence reached an implemented and verified state in the isolated worktree. Integration, commits, and PR publication did not happen before the effort was deferred.
 
 ### Unit And Time Abstraction
 

@@ -16,13 +16,9 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Asteroid Automation Contract
+# Asteroid Automation Contract
 
-## Question
-
-What complete Alpha contract governs persistent Star Map asteroid discovery, eligibility for Automated Outposts, extraction, effectively inexhaustible resources, vehicle traffic, logistics, upkeep, and the separation from local asteroid terrain inside Regional Dimensions?
-
-## Resolution
+## Persistent Asteroid Outposts
 
 Persistent Asteroids use the accepted discovery model and zero-gravity Automated Outposts, not player-visitable terrain or Automated Stations. Multiple independent Outposts may extract effectively inexhaustible resources from one asteroid. Construction-supply delivery can precede a Dock, while normal servicing requires its ordinary infrastructure. Shared facility upkeep and transport rules apply without an asteroid-only system.
 
@@ -42,3 +38,9 @@ This closes the asteroid-specific planning contract from existing owner decision
 The common capability relationship is resolved. Numerical orbit criteria for other bodies do not block the already accepted asteroid Outpost model. These decisions do not define numerical resource generation or balance coefficients.
 
 Common upkeep behavior is resolved in [[Define Automated Facility Upkeep Behavior]].
+
+## Gameplay Flow
+
+The player discovers a persistent asteroid and delivers construction materials by Rocket or Spaceship to build an Automated Outpost. Initial construction delivery does not provide completed Dock services, and Hammers still need a receiving installation.
+
+Once the ordinary servicing infrastructure is in place, the player can operate the Outpost under shared upkeep and transport rules. Additional independent Outposts can scale extraction from the same asteroid, each with its own inventory and logistics.

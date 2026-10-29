@@ -15,12 +15,8 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Physical Station Merge Contract
+# Physical Station Merge Contract
 
-
-## Question
-
-How should joining independently identified Physical Stations handle surviving identity, ownership, controllers and logistics references?
 
 ## Deferred Direction
 
@@ -52,3 +48,7 @@ Owner direction on 2026-09-16.
 
 - [[Resolve Physical Station Controller Succession]]
 - [[Define Transport Endpoint Identity and Registration]]
+
+## Gameplay Flow
+
+If the player connects independently identified Stations with construction, the action must not silently choose an identity or merge ownership. The final merge interaction and the treatment of identities and references remain deferred.

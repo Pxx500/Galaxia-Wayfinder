@@ -19,7 +19,7 @@ Imported: 2026-10-10
 
 The initial request was to stop combustion-based generators when oxygen is unavailable. The owner then selected a complete combustion-generator ban in space, including inside oxygenated Stations. Ventilation, exhaust and new direct oxygen-input solutions are not part of this task. This note records current generator behavior and a bounded check of existing non-combustion power near HV. It does not decide the machine-family boundary, design hooks or expand the separate recipe-environment implementation.
 
-On 2026-10-10 the GitHub commits API reported upstream master at `bc7a940f5e6583b5c79d049635d1586c8f4ad764`, committed 2026-10-09 at 20:39:09 UTC. The sibling local checkout remained clean at `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. Its graph was fully reindexed for discovery. The consumption methods, family definitions and registrations below were then checked using successful HTTP 200 reads of immutable source URLs at the current master SHA. No codebase-memory executable, source, dependency, build, server binary or game state was changed. [Inspected commit][commit]
+Inspected GT source revisions were upstream `bc7a940f5e6583b5c79d049635d1586c8f4ad764` and local `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. [Inspected commit][commit]
 
 This is bounded source research, not in-game verification or an audit of every generator in every mod. No Gradle or game tests were needed or run. The absence statements below apply to the inspected fuel and power-conversion paths, not arbitrary mixins or external modpack patches.
 
@@ -94,7 +94,7 @@ The checked ordinary diesel, gas and large/extreme combustion fuel handlers have
 
 Not determined here: the complete family inclusion boundary, generator shutdown versus temporary suspension, retained fuel or buffered EU policy, and absent-Galaxia behavior for generators. No changes to steam, nuclear, plasma, boiler or third-party generator gameplay are accepted by this source note.
 
-The graph also surfaced GT++ semifluid generators and other specialized families. Their combustion coverage was not audited. IC2 reactors, every bundled generator and external mods are outside this bounded pass. No API design or implementation specification is included.
+GT++ semifluid generators and other specialized families also exist. Their combustion coverage was not audited. IC2 reactors, every bundled generator and external mods are outside this bounded pass. No API design or implementation specification is included.
 
 ### Small HV Bootstrap Source Check
 
@@ -108,7 +108,7 @@ Ordinary steam turbines are registered at LV, MV and HV. The HV instance has tie
 
 Practical bootstrap constraints established by source are solar state and energy acceptance, finite battery charge and tier-compatible output, and steam type, tank capacity and supply. Factory demand, recipe cost, solar suitability in Galaxia space, transport and throughput remain unverified. No new solar generator, combustion workaround or gameplay viability calculation is proposed.
 
-One graph source lookup failed with `symbol not found` for the guessed name `gregtech.common.tileentities.storage.MTEBatteryBuffer`. It was reported immediately. A graph search resolved the actual owner as `gregtech.api.metatileentity.implementations.MTEBasicBatteryBuffer`, and the correct graph outline and current remote source were inspected. This was a symbol-name error, not evidence of a broken index or backend.
+The battery buffer owner inspected is `gregtech.api.metatileentity.implementations.MTEBasicBatteryBuffer`.
 
 [commit]: https://github.com/GTNewHorizons/GT5-Unofficial/commit/bc7a940f5e6583b5c79d049635d1586c8f4ad764
 [ordinary-registration]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/bc7a940f5e6583b5c79d049635d1586c8f4ad764/src/main/java/gregtech/loaders/preload/LoaderMetaTileEntities.java#L9118-L9158

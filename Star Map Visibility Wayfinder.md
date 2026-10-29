@@ -6,11 +6,11 @@ tags:
   - wayfinder/map
 ---
 
-# Star Map Visibility Wayfinder
+# Star Map Visibility
 
-## Destination
+## Visibility Model
 
-Define one deterministic visibility policy that keeps dense systems readable across zoom levels while preserving physical-size relationships, stable selection and cross-system consistency. The renderer consumes resolved size and visibility rather than applying independent heuristics.
+Use one deterministic visibility policy to keep dense systems readable across zoom levels while preserving physical-size relationships, stable selection and cross-system consistency. The renderer consumes resolved size and visibility rather than applying independent heuristics.
 
 ## Accepted Contract
 
@@ -35,8 +35,6 @@ Define one deterministic visibility policy that keeps dense systems readable acr
 - Define labels, hitboxes and markers during fade and selected-object overlap
 - Populate authoritative kilometre radii for registered bodies and remove rendering dependence on authored sprite sizes
 
-These are unresolved design questions, not an approved implementation sequence.
-
 ## Dated Integration Evidence
 
 Source inspection on 2026-09-12 found Earth-relative physical radii unused by rendering, authored major-body sprite sizes, perigee-based major-body culling and separate asteroid sizing and decluttering. It was not runtime visual verification.
@@ -46,3 +44,9 @@ That inspection also found transfer-planning code deriving minimum periapsis fro
 ## Out Of Scope
 
 Orbital mechanics, transfer planning, discovery, ore data, gameplay progression, interactive `+n` controls and compatibility handling for the replaced pre-release rendering model.
+
+## Gameplay Flow
+
+As the player zooms out, object sizes compress without reversing their physical size order. Small bodies remain readable through a minimum-size plateau before shrinking and fading. When icons collide, the overlap rules determine which remains visible, while the selected object stays visible and interactive.
+
+A parent can show how many of its immediate children are hidden behind it. This count provides context without becoming a second selection control. The same size model applies when viewing other systems, so discovering another object does not rescale the ones already on screen.

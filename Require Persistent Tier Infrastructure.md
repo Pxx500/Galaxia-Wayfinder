@@ -19,11 +19,7 @@ tags:
 
 Resolved: 2026-07-31
 
-## Question
-
-Must every Valid Tier Route in Galaxia Alpha depend on persistent, location-bound infrastructure, or may an entire Ore Tier be closed only through temporary visits and extraction?
-
-## Resolution
+## Infrastructure Requirement
 
 As the working Alpha rule, every Ore Tier requires the use of at least one piece of **Persistent Tier Infrastructure** within its Closed Tier Cycle. The infrastructure need not be located on a planetary surface and need not take the form of a conventional player base.
 
@@ -64,3 +60,7 @@ Temporary mission equipment, a one-time landing, or an extraction visit that lea
 - Galaxia Alpha Charting Notes
 - CONTEXT
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+The player uses a durable installation or other persistent asset as part of each tier's progression chain. It may be new, upgraded or reused when it provides a meaningful continuing dependency. A temporary visit or disposable extraction trip alone does not meet the default rule.

@@ -13,17 +13,13 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Automated Facility Upkeep Behavior
-
-## Question
-
-How do recurring module upkeep requirements affect an Automated Facility when supplies are missing, and when does an idle module incur upkeep?
+# Automated Facility Upkeep Behavior
 
 ## Established Input
 
 Define Player Presence and Automation Tradeoffs delegates the accepted work-based upkeep and local starvation contract to this decision. These rules are common to Automated Facilities, not an asteroid-only maintenance system.
 
-## Resolution
+## Upkeep and Starvation
 
 Missing upkeep resources temporarily stop only the affected module and produce its warning. Other modules are unaffected except through real operating dependencies. Resource upkeep is charged for actual work, not mere existence.
 
@@ -40,3 +36,7 @@ This describes module availability, not a promise to preserve an interrupted rec
 ## Implementation Evidence
 
 Source inspection on 2026-09-12 found per-module shortage blocking, but upkeep accounting still counted enabled modules rather than actual work. The inspected owners were `AutomatedFacility` and `UpkeepLedger`. Recheck their current behavior when implementing work-based upkeep, including idle Miners blocked by full output.
+
+## Gameplay Flow
+
+The player supplies upkeep resources to working modules. If one module runs short, it stops and warns the player while unrelated modules continue. Supplying its upkeep allows it to work again. An idle Miner with full output storage does not consume resource upkeep just for waiting.

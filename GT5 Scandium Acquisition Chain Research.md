@@ -32,13 +32,13 @@ The previous ore-definition audit only failed to establish acquisition within it
 | GT-New-Horizons-Modpack | `965462fb102acf429818c07388bdf5f50137c662` | `83b3fb26cd9979e0256c7568bdf8c6f87579b532`, committed 2026-10-10 04:04:30 UTC |
 | BloodMagic | `6776676ef209d8c142a1a159519c40d06c7e0bc7` | `10a36f6413b8a7ce6ebf16ca8b04614ff15566cd`, committed 2026-09-29 06:45:57 UTC |
 
-GT and CoreMod were fully reindexed at task start. Blood Magic was indexed after its first lookup reported that it had no index. Code discovery used the graph, with bounded literal searches for material/recipe/config strings. Relevant current files were checked through HTTP 200 immutable source reads. No code, dependency, game, build, test, commit or publication operation occurred. The only task document created is this source note.
+
 
 This is source verification of a configured path, not a running-pack recipe dump or successful meteor summon. All four mods/configuration must actually be loaded, and ore dictionary registration must resolve the expected blocks. No absolute earliest tier across all optional mods is certified.
 
 ### Monazite And Bastnasite: What The Current Chains Produce
 
-The graph traces `RecipeLoader.loadLanthanideRecipes` to `GTNHLanthanides.postInit`, which calls it directly. These are loaded recipe definitions, not unused proposal text. The full current `gtnhlanth/loader/RecipeLoader.java` and `WerkstoffMaterialPool.java` were fetched and checked for scandium references. Neither file contains the name. The output branches below were read explicitly. [Loader invocation][lanth-init] [Recipe owner][lanth-recipes] [Intermediate definitions][lanth-materials]
+`GTNHLanthanides.postInit` directly calls `RecipeLoader.loadLanthanideRecipes`. These are loaded recipe definitions, not unused proposal text. The full current `gtnhlanth/loader/RecipeLoader.java` and `WerkstoffMaterialPool.java` were fetched and checked for scandium references. Neither file contains the name. The output branches below were read explicitly. [Loader invocation][lanth-init] [Recipe owner][lanth-recipes] [Intermediate definitions][lanth-materials]
 
 | Checked branch | Actual output | Exact relevant operation |
 | --- | --- | --- |
@@ -114,10 +114,6 @@ These paths refer to the local revisions listed above, so some line numbers diff
 | Blast generator | `C:/Users/Pxx500/Documents/GitHub/GT5-Unofficial/src/main/java/gregtech/loaders/oreprocessing/ProcessingDust.java`, lines 100 to 118 |
 | Ritual focus consumption | `C:/Users/Pxx500/Documents/GitHub/BloodMagic/src/main/java/WayofTime/alchemicalWizardry/common/rituals/RitualEffectSummonMeteor.java`, lines 50 to 77 |
 
-### Tool Limitations Recorded
-
-The first Blood Magic graph search returned "project not found or not indexed." It was reported immediately, the existing repository was indexed, and graph discovery then succeeded. A guessed plural GT registration method returned "symbol not found" and was resolved to the actual singular `registerCircuitAssembler`. A bounded Blood Magic search included a nonexistent guessed `Rituals.java` path, reported an I/O error, and continued through valid hits in the actual AlchemicalWizardry registration file. No failing MCP backend was silently bypassed or claimed fixed by shell results.
-
 [lanth-init]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/03f76356146f497c6c8f21d9225fe28de57136a1/src/main/java/gtnhlanth/GTNHLanthanides.java#L53-L59
 [lanth-recipes]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/03f76356146f497c6c8f21d9225fe28de57136a1/src/main/java/gtnhlanth/loader/RecipeLoader.java#L1178-L3207
 [lanth-materials]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/03f76356146f497c6c8f21d9225fe28de57136a1/src/main/java/gtnhlanth/common/register/WerkstoffMaterialPool.java
@@ -155,9 +151,9 @@ Accordingly, giving normal Scandium an earlier source does not demonstrably bypa
 
 ### Collection And Current Source
 
-GT and CoreMod were fully reindexed again before graph discovery. Case-insensitive Scandium literal collection over their local `src/main/java` returned 13 GT source lines and zero CoreMod lines. The GT hits were all accounted for below. Graph search likewise found only the Scandium material declarations, loader and GT++ wrapper, with no named CoreMod symbol. Compound-name and formula searches were included in the same bounded pass.
+A case-insensitive Scandium search over the inspected local `src/main/java` returned 13 GT source lines and zero CoreMod lines. GT hits are accounted for below. The bounded pass also checked compound names and formulas.
 
-Fresh GitHub checks confirmed the upstream revisions remain GT `03f76356146f497c6c8f21d9225fe28de57136a1`, CoreMod `9aa0afc8711f3efbe3afc0d11ec44dcbf5b87442` and pack `83b3fb26cd9979e0256c7568bdf8c6f87579b532`. The relevant GT reference files were read again from current immutable HTTP 200 source. Local discovery uses the older clean checkouts listed earlier, so it is not a full literal search of a newly checked-out current tree. Current verification covered the concrete named references, not arbitrary reflective or generated consumers throughout the modpack.
+The upstream revisions checked were GT `03f76356146f497c6c8f21d9225fe28de57136a1`, CoreMod `9aa0afc8711f3efbe3afc0d11ec44dcbf5b87442` and pack `83b3fb26cd9979e0256c7568bdf8c6f87579b532`. Local searches used the earlier listed revisions. Verification covered concrete named references, not arbitrary reflective or generated consumers throughout the modpack.
 
 ### Concrete References Classified
 
@@ -198,7 +194,7 @@ This is a reuse finding, not permission to invent names, compositions, yields or
 
 The bounded evidence supports separating incidental acquisition from meaningful progression demand. The only concrete named fuel handling is generic and conditional, and the rest is registration, rendering, naming, storage or form processing. No important authored recipe bypass caused by earlier normal Scandium supply was demonstrated. Its 1814 K normal metal-processing contract remains a real source fact, but that alone does not establish a high-tier downstream role.
 
-No recipe, material, design decision, code, build, test, commit or publication was added. No new tool failure occurred during this consumer follow-up. Expected zero-match searches were handled as zero matches, not backend failures. The acquisition audit and Blood Magic prerequisites were not repeated or expanded.
+The consumer follow-up did not expand the acquisition audit or Blood Magic prerequisites.
 
 [consumer-id]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/03f76356146f497c6c8f21d9225fe28de57136a1/src/main/java/gregtech/api/enums/MaterialsIDMap.java#L33
 [consumer-storage]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/03f76356146f497c6c8f21d9225fe28de57136a1/src/main/java/gregtech/loaders/preload/LoaderGTBlockFluid.java#L818-L825
@@ -208,7 +204,7 @@ No recipe, material, design decision, code, build, test, commit or publication w
 
 ### Small Residue-Identity Reuse Check
 
-The coordinator additionally checked whether Red Mud or a Bauxite Sludge residue already exists. This was a literal identity check, not a new refinery design.
+The following is a residue-identity check, not a refinery design.
 
 | Requested concept | Result in checked source |
 | --- | --- |

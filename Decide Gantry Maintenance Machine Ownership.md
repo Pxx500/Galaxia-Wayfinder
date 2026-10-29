@@ -17,15 +17,11 @@ tags:
 
 # Decide Gantry Maintenance Machine Ownership
 
-## Question
-
-Should automatic Rocket module repair deepen the existing Module Assembler, use a specialized subtype, or belong to a separate Gantry-connected maintenance machine?
-
-## Resolution
+## Module Repair
 
 Use the existing Module Assembler for material-consuming repair of concrete Rocket modules. The Landing Pad dispatches worn modules through Gantry to available, supplied Assemblers. Healthy modules may bypass repair and travel to the Silo. Several Assemblers may service modules concurrently and return them to the same Silo for reassembly.
 
-The owner selected this workflow in the later Rocket implementation discussion. The old external consultation blocker is superseded. This resolves the machine owner, not the implementation or numerical repair costs.
+This resolves the machine owner, not the implementation or numerical repair costs.
 
 ## Established Constraints
 
@@ -44,9 +40,13 @@ This historical inspection predates the selected workflow and does not describe 
 
 ## Provenance
 
-The 2026-10-18 owner feedback preserved in Rocket Gantry Throughput And Starmap Selection Feedback and Selective Rocket Repair And Visible Landing Showcase Feedback selects existing Assemblers, concurrent servicing and bypass of healthy modules. Sources retains the original records. Demonstration speed, laboratory layout and reported rendering defects are not additional gameplay requirements.
+Source: Rocket implementation feedback, 2026-10-18. Demonstration speed and laboratory layout are not gameplay requirements.
 
 ## Related Topics
 
 - [[Research Current Gantry System]]
 - [[Define Automated Rocket Turnaround and Module Wear]]
+
+## Gameplay Flow
+
+After a Rocket lands, the Landing Pad sends worn modules through Gantry to supplied Module Assemblers for repair. Healthy modules can bypass repair. Multiple Assemblers can work concurrently and return modules to the same Silo for reassembly.

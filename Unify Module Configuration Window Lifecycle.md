@@ -15,11 +15,7 @@ tags:
 
 # Unify Module Configuration Window Lifecycle
 
-## Question
-
-What shared draft, Save, Cancel, and target-switch behavior should module settings windows provide?
-
-## Resolution
+## Editing Lifecycle
 
 Settings editing uses a local draft and an explicit Save. Switching to another module closes the previous configuration and opens the selected module's editor, discarding unsaved changes. No per-module draft retention or additional discard-confirmation flow is required. Typed settings editors retain their own validation and values. Physical operations remain distinct from editing settings.
 
@@ -34,3 +30,7 @@ Source inspection on 2026-09-12 under `src/main/java/com/gtnewhorizons/galaxia/`
 - `ModuleConfigModalController.java:341` and `:361` retarget Miner and Debug widgets in place.
 
 The Recipe Book path provides partial alignment, not proof that every editor meets the contract. The Miner immediate-edit path and differing retarget behavior remain implementation work. No current internal class layout is prescribed by this decision.
+
+## Gameplay Flow
+
+The player edits a module's settings in a draft and saves to apply them. Selecting another module closes the previous editor and discards unsaved changes, then opens the selected module's editor.

@@ -34,3 +34,7 @@ Prevent Galaxia assets from remaining attached to a removed GTNH team identity.
 - Audit Galaxia Concept Map
 - Area - Automation and Infrastructure
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+When an owner disbands a team normally, its Galaxia assets transfer to that owner's replacement singleton team. An administrator-forced disband instead needs a successor owner or explicit authorization to delete the assets.

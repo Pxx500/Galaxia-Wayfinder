@@ -39,7 +39,7 @@ Status inspection does not consume the route-probe cooldown. Actual dispatch pla
 
 ## Current Implementation Evidence
 
-Inspection on 2026-09-12 found per-asset status publication for Automated Facilities in `core/network/AssetStateSync.java:223`, with inspection caches scoped by team and system. Client state is updated and removed per asset at lines 387, 409, and 431. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`. The earlier description of one complete global status map and revision is obsolete implementation detail. Physical Hammer status parity is not established by the inspected Automated Facility branch.
+Inspection on 2026-09-12 found per-asset status publication for Automated Facilities in `core/network/AssetStateSync.java:223`, with inspection caches scoped by team and system. Client state is updated and removed per asset at lines 387, 409, and 431. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`. Physical Hammer status parity was not established by that inspection.
 
 ## Related Topics
 

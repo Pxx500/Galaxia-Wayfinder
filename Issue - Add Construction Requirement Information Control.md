@@ -36,3 +36,7 @@ Expose construction requirements without blocking the primary build action or pr
 - Require Star Map Object Actionability
 - Area - Automation and Infrastructure
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+The player can hover the information control to inspect materials before building. Selecting an applicable primary action creates the Construction Site immediately, even when materials are missing, and the requirements remain available from the site.

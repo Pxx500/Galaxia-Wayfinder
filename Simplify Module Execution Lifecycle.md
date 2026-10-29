@@ -15,10 +15,6 @@ tags:
 
 # Simplify Module Execution Lifecycle
 
-## Question
-
-Should the current distinction between a pending physical operation and active building or refunding remain the gameplay rule for whether a module can continue normal work?
-
 ## Accepted Requirements
 
 - Resource-affecting module changes are server-authoritative and use stable module identity.
@@ -37,8 +33,12 @@ Source inspection on 2026-09-12 under `src/main/java/com/gtnewhorizons/galaxia/`
 
 Evidence: `registry/outpost/AutomatedFacility.java:1445`, `:1462`, and `:1487`, plus `registry/outpost/module/ModuleInstance.java:52` and `:58`.
 
-## Resolution
+## Operation Lifecycle
 
-On 2026-09-12 the owner accepted retaining the existing pending-versus-active operation behavior. Waiting for upgrade materials does not itself stop normal module work. Active building or refunding blocks normal work until completion or cancellation and the associated settlement release the operation gate.
+Waiting for upgrade materials does not itself stop normal module work. Active building or refunding blocks normal work until completion or cancellation and the associated settlement release the operation gate. This behavior was accepted on 2026-09-12.
 
 Feature-cache sharing, callback removal, internal status representation, and code naming are implementation-time choices. They no longer appear as gameplay blockers in this ticket.
+
+## Gameplay Flow
+
+The player can request a module upgrade while it continues normal work as materials accumulate. Once building begins, or while a refund is active, normal work stops until the operation completes or is cancelled and settled.

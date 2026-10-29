@@ -16,7 +16,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Asteroid Belt Physical Travel and Beacons
+# Asteroid Belt Physical Travel and Beacons
 
 ## Question
 
@@ -80,3 +80,9 @@ Asteroid-belt gameplay has two separate layers: persistent Star Map asteroids fo
 - Galaxia Alpha Charting Notes
 - CONTEXT
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+Once the applicable access conditions are met, a player selects a point on the belt and uses `Fly here` to reach coordinates in its planned Regional Dimension. First-visit conditions remain open. There they explore and mine locally generated asteroids, and can place a Beacon to register a reliable return point on the Star Map.
+
+Persistent Star Map asteroids are separate remote infrastructure targets. Eligible vehicles can travel to them, but players cannot stand on them.

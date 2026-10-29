@@ -9,7 +9,7 @@ tags:
   - wayfinder/issue
 ---
 
-# Define Satellite Link Distance Quality
+# Satellite Link Distance Quality
 
 ## Accepted Contract
 
@@ -57,3 +57,9 @@ The same orbital time, endpoint capacities, demand and body keys must yield the 
 ## Implementation Evidence
 
 Read-only inspection on 2026-09-12 found topology candidates ordered by endpoint capacity/geometric distance in `registry/satellite/SatelliteNetworkCalculator.java:258`. `SatelliteDataJobService.java:126` recorded delivered rate rather than 1x/2x/4x airtime use. Paths are under `src/main/java/com/gtnewhorizons/galaxia/`. These paths did not establish the accepted distance-quality contract.
+
+## Gameplay Flow
+
+The player can use relays to improve data delivery over long distances. Direct links still work, but long-range and deep-space links use more bandwidth per delivered unit, and weaker routes can carry overflow when better routes are saturated.
+
+On the Star Map, the player inspects link quality through line patterns, load through color and activity through width, glow and signals. Hovering a link explains its rates and costs, while hovering a body shows the local and long-range rings.

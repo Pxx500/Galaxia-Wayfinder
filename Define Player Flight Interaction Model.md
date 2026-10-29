@@ -13,7 +13,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Player Flight Interaction Model
+# Player Flight Interaction Model
 
 ## Question
 
@@ -61,8 +61,14 @@ A crewed vehicle may visit an eligible Automated Facility without creating physi
 
 Before departure, the mission warns the player when the destination does not allow disembarkation. This is not a blanket ban on crewed traffic to Automated Stations or asteroid Outposts.
 
-Owner accepted this behavior in the Wayfinder conversation on 2026-09-10.
-
 ## Current Implementation Boundary
 
 Read-only inspection on 2026-09-12 found fixed upward acceleration, a speed cap, and altitude-bound removal in `src/main/java/com/gtnewhorizons/galaxia/registry/rocketmodules/rocket/entities/EntityRocket.java:128`. This is not implementation of a persistent Star Map journey, passenger interaction, or offline transit continuation. Accepted player-flight behavior remains design rather than a certified current feature.
+
+Source: project-lead decision, 2026-09-10.
+
+## Gameplay Flow
+
+The player selects a vehicle and destination, reviews the route and warnings, then confirms departure. During the timed journey they stay aboard in the Star Map, where they can inspect and manage other team systems but cannot change the active segment or act in a physical world. The journey continues while they are offline.
+
+At an eligible Automated Facility the player stays aboard while the vehicle performs its stop actions. They can disembark only at a destination with a physical player-accessible space.

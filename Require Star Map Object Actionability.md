@@ -17,11 +17,7 @@ tags:
 
 # Require Star Map Object Actionability
 
-## Question
-
-What minimum gameplay role must every object retained on the Star Map provide?
-
-## Resolution
+## Actionability
 
 Every Star Map Object in Galaxia Alpha must satisfy Star Map Actionability: it must expose at least one meaningful, object-appropriate interaction through its context menu. An object cannot ship only as decoration, an empty menu, or an inert placeholder.
 
@@ -87,3 +83,9 @@ Every Star Map Object in Galaxia Alpha must satisfy Star Map Actionability: it m
 - Galaxia Alpha Charting Notes
 - CONTEXT
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+The player opens a retained object's context menu and finds at least one meaningful action suited to that object. It may involve travel, observation, infrastructure, logistics or extraction without requiring a dedicated dimension.
+
+For an applicable construction action, the player can inspect requirements with the information control or create the Construction Site immediately. The site completes after the required materials are delivered.

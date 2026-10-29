@@ -16,14 +16,10 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Physical Station Room Ownership
+# Physical Station Room Ownership
 
 
-## Question
-
-When connected Station construction contains several controllers, what owns one physical Room's volume, environmental state, devices and energy cost?
-
-## Resolution
+## Room Ownership
 
 A Room is one physical enclosed space, not one copy per controller. Multiple controllers must not duplicate its environmental effects, volume or energy demand. Station membership and Room ownership are separate.
 
@@ -48,3 +44,7 @@ Accepted on 2026-09-13.
 - [[Define Manual Physical Room Validation]]
 - [[Define Airlock Space Classification]]
 - [[Define Physical Room Validation Recovery]]
+
+## Gameplay Flow
+
+The player can connect several controllers to one Station. When they serve the same enclosed Room, it remains one physical space with one environmental state, volume and energy demand rather than a separate copy for each controller.

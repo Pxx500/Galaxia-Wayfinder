@@ -13,7 +13,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Alpha Observation Opening
+# Alpha Observation Opening
 
 ## Accepted Decision
 
@@ -39,3 +39,9 @@ Owner decisions on 2026-09-10 and 2026-09-17, followed by the selected opener na
 
 - [[Define Alpha Celestial Knowledge Layers]]
 - [[Area - Observation and Research]]
+
+## Gameplay Flow
+
+The team launches the Primitive Telescope Satellite from the Silo into Overworld orbit. Successful deployment grants the launch achievement and opens the Star Map, even though the map was locked before the launch.
+
+The player can see authored starting objects, including Luna, but only Overworld resources are initially known. The achievement provides passive Luna profile survey progress, and completing the survey reveals knowledge rather than granting the launch achievement.

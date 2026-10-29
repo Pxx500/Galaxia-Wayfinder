@@ -17,13 +17,9 @@ tags:
 
 # Research Current Gantry System
 
-## Question
+## System and Ownership
 
-What physical machines, ownership boundaries, and module flows currently form Galaxia's Gantry System, and where can automatic Rocket module maintenance integrate without creating a parallel module lifecycle?
-
-## Resolution
-
-The following records source inspection on 2026-09-12. Recheck the current code before implementation. These findings establish integration boundaries, not a maintenance-machine design.
+Source inspection on 2026-09-12 established the following integration boundaries. Recheck the current code before implementation.
 
 - The implemented physical system consists of the Silo, Module Assembler, Gantry segments, and Gantry Terminals. `GantryAPI` coordinates routing but does not own persistent lifecycle state.
 - The Silo owns the Rocket build order, delivered parts, assembled blueprint, and assembly status until it creates the `EntityRocket`. It is the closest existing owner of physical Rocket turnaround.
@@ -31,9 +27,8 @@ The following records source inspection on 2026-09-12. Recheck the current code 
 - Gantry transports `RocketPartInstance` values between connected endpoints. Returning modules to the Assembler collapses them back into a count by module definition rather than preserving a concrete module instance.
 - `RocketPartInstance` currently contains definition, placement, orientation, and serialization data, but no durability, wear, serial identity, or repair state.
 - No maintenance machine currently exists.
-- The Gantry transport prototype has persistence and acknowledgement gaps. Active transit state is not durable across unload, and some rejection or return paths clear source state without confirmed delivery.
-- Automatic maintenance should extend the existing Silo and Gantry module lifecycle. The Silo is the natural turnaround coordinator, Gantry remains transport, and a physical production or maintenance machine performs the actual module work.
-- Before Gantry can safely carry valuable worn module instances, its transport needs durable state and confirmed handoff semantics.
+- Active transit is not durable across unload, and some rejection or return paths clear source state without confirmed delivery. Safe transport of worn modules needs durable state and confirmed handoff.
+- Automatic maintenance should extend this lifecycle: the Silo coordinates turnaround, Gantry transports modules, and a physical machine performs the work.
 
 ## Follow-Up
 

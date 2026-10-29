@@ -13,15 +13,11 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Closed Tier Cycle
+# Closed Tier Cycle
 
 Resolved: 2026-07-31
 
-## Question
-
-What minimum invariant must every Ore Tier satisfy before that tier can count as complete in Galaxia Alpha?
-
-## Resolution
+## Closure Invariant
 
 Every Ore Tier in Galaxia Alpha must satisfy a **Closed Tier Cycle**. This is a completeness invariant, not a tier-specific content specification and not a requirement to repeat one identical gameplay loop ten times.
 
@@ -48,3 +44,9 @@ Every Ore Tier in Galaxia Alpha must satisfy a **Closed Tier Cycle**. This is a 
 - GTNH Ore Progression Baseline
 - CONTEXT
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+The player enters an Ore Tier with a capability from the intended preceding GTNH progression and uses it to complete a Galaxia activity. That activity must be possible without a later-tier capability and produce a defined progression result.
+
+The player then applies, processes or transports that result to where it is consumed, opening the next intended GTNH or Galaxia step. The exact activity and result can differ between tiers.

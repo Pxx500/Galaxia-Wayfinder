@@ -16,13 +16,9 @@ tags:
 # Consolidate Physical Station Architecture
 
 
-## Question
+## Station Architecture
 
-Which construction-centric Station responsibilities remain the working direction while room optimization is paused?
-
-## Resolution
-
-Keep the construction-centric Station model, but retain the existing room implementation and validation lifecycle for this stage. Consolidation was accepted on 2026-09-16.
+Keep the construction-centric Station model and the existing room implementation and validation lifecycle for this stage. Accepted on 2026-09-16.
 
 | Responsibility | Direction | Owner |
 | --- | --- | --- |
@@ -40,7 +36,7 @@ Construction membership, room geometry and pressure connectivity remain distinct
 - [[Define Airlock Space Classification]]
 - [[Define Physical Room Validation Recovery]]
 
-These retain earlier decisions and proposals without requiring the redesign now. No shared-wall or shared-ceiling prohibition, scaffolding-based room separation, surface-only detection or measured optimization claim is accepted.
+These preserve earlier decisions and proposals without requiring the redesign now. No shared-wall or shared-ceiling prohibition, scaffolding-based room separation, surface-only detection or measured optimization claim is accepted.
 
 Later pressure decisions in [[Define Celestial Capability Rules]] do not settle deferred geometry or recovery questions.
 
@@ -49,3 +45,7 @@ Later pressure decisions in [[Define Celestial Capability Rules]] do not settle 
 Physical Station PR 373 merged into master as `b1e42710`. Its merge does not establish integration of the separate construction-centric rework. [[Physical Station PR 373 Review]] preserves historical review evidence.
 
 The comparison note supplies proposals and evidence, not independent authority to add requirements.
+
+## Gameplay Flow
+
+The player connects controllers and functional devices through Station construction. Room geometry and pressure remain separate from that construction membership. The current integration keeps the existing room validation lifecycle while the room redesign remains deferred.

@@ -15,26 +15,19 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Celestial Capability Rules
+# Celestial Capabilities And Environments
 
-
-## Question
-
-Which authored celestial and environmental facts grant or constrain extraction, power, facilities and transport capabilities?
-
-## Resolution
-
-Derive eligibility from physical and domain facts, not per-machine location flags. The model is accepted. Numerical orbit eligibility, solar calibration and implementation remain separate work.
+Celestial and environmental facts determine where extraction, power, facilities, transport and production can operate. Eligibility derives from those facts, not per-machine location flags. Numerical orbit eligibility, solar calibration and implementation remain open.
 
 ## Shared Environmental Authority
 
 `CelestialBodyProperties` is the canonical authored source for temperature, pressure, radiation, atmosphere and related facts. Playable-dimension hazards and runtime views derive from it rather than reauthoring values.
 
-Every Celestial Asset derives Environmental Properties from its associated object, Asset Environments and modules or protections. Machines and transport read the properties they need rather than copying facts or adding location flags.
+Every Celestial Asset derives Environmental Properties from its associated object, Asset Environments and modules or protections. Machines and transport read those properties rather than duplicating facts or adding location flags.
 
 Every dimension registered by Galaxia must resolve to one registered `CelestialObject`, even with an incomplete gameplay profile. Tenebrae's minimal registration does not make it playable. Vanilla biome temperature, such as Mars `0.4F`, is separate from celestial hazard temperature and remains unchanged until its climate behavior is understood.
 
-Body icons, observer-relative sky-body rendering, cubemap skyboxes and decorative enhanced-sky layers are different presentation concerns. An icon is not automatically a sky texture. Existing sky rendering and assets remain outside this cleanup.
+Body icons, observer-relative sky-body rendering, cubemap skyboxes and decorative enhanced-sky layers are separate presentation concerns. An icon is not automatically a sky texture. Existing sky rendering and assets are outside this scope.
 
 ## Surface, Orbit and Facility Eligibility
 
@@ -53,19 +46,19 @@ Body icons, observer-relative sky-body rendering, cubemap skyboxes and decorativ
 
 Gas Siphon is exclusive to Gas Giants and operates as an orbital Celestial Asset module, on a physical Station or Automated Facility. It does not use a fictional surface. A solid planet's useful atmosphere does not make it Siphon-compatible.
 
-Ordinary atmospheric collection is a separate machine/capability and requires a physical dimension, positive authored surface pressure and at least one atmosphere ingredient. Both systems reuse ordinary composition and pressure facts, not a separate deep-resource profile. Pressure may affect throughput or compression cost. Energy, inventory and logistics follow the owning asset.
+Ordinary atmospheric collection is separate and requires a physical dimension, positive authored surface pressure and at least one atmosphere ingredient. Both systems use ordinary composition and pressure facts, not a separate deep-resource profile. Pressure may affect throughput or compression cost. Energy, inventory and logistics follow the owning asset.
 
 Planetary and Gas Giant atmospheres are inexhaustible gameplay sources. Throughput, energy, infrastructure, gas concentration and pressure limit collection, not a global stock or regeneration counter.
 
 ## Solar Resources
 
-Baseline availability follows the system's light source and the object's position. Each object may add one authored Solar Resource Modifier for balance or exceptional conditions, visible in the Star Map.
+Baseline availability follows the system's light source and the object's position. An object may have one authored Solar Resource Modifier for balance or exceptional conditions, visible in the Star Map.
 
-Use Overworld surface daylight as the common solar-output reference of `1.0x` or 100%, with zero solar output at night. Daylight Solar Intensity is instantaneous available output. Average Solar Yield averages output over the local light/dark cycle using that same reference, not a second normalization that makes a full Overworld cycle equal to 100%. Keep daylight intensity, light/dark duration, atmosphere and authored modifier visible in the comparison. This single-reference clarification supersedes the earlier dual-reference presentation.
+Overworld surface daylight is the common `1.0x` or 100% reference, with zero output at night. Daylight Solar Intensity is instantaneous output. Average Solar Yield averages the local light/dark cycle against the same reference, rather than normalizing the full Overworld cycle to 100%. Show daylight intensity, light/dark duration, atmosphere and the modifier in comparisons. This single reference replaces the earlier dual-reference presentation.
 
 Surface generation follows actual illumination and atmospheric effects. Separate day/night durations expose storage needs even at equal average yield. Space avoids ordinary atmospheric loss.
 
-Derive solar output from source distance, atmospheric transmission and illumination through the shared environmental model, not a hardcoded dimension-to-percentage table. Suitable orbital generation should be substantially more productive than Overworld daylight, in addition to avoiding nighttime downtime. The discussed 200% or 300% for Overworld orbit are illustrative calibration targets, not selected constants. Any retained authored Solar Resource Modifier is an explicit adjustment to the derived model, not its replacement.
+Derive output from source distance, atmospheric transmission and illumination, not a dimension-to-percentage table. Suitable orbital generation should substantially exceed Overworld daylight as well as avoid nighttime downtime. The discussed 200% and 300% for Overworld orbit are illustrative calibration targets, not selected constants. The Solar Resource Modifier adjusts the derived model rather than replacing it.
 
 The accepted Alpha orbital convention places the parent planet below the player and the Sun in a fixed horizontal direction. Orbital dimensions retain microgravity and continuous sunlight, without periodic planetary eclipses. Down identifies the planet-facing world direction, not a gravity force. This is a gameplay and rendering convention, not a claim of geostationary orbital mechanics. It does not equalize output across bodies or remove distance and authored modifiers.
 
@@ -81,7 +74,7 @@ Microgravity and No Atmosphere are independent requirements, not generic Station
 
 These are gameplay choices motivated by research, not claims that terrestrial manufacture is physically impossible. Thresholds remain tuning.
 
-The current player-facing progression assumes the required microgravity is available in orbital dimensions. This is content availability, not permission to add an orbit whitelist to recipes. Earlier zero-gravity asteroid Outpost concepts do not by themselves establish an accessible physical production alternative. Validate belt and Outpost content against this assumption when implementing their production capabilities. If another accessible environment truly meets the conditions, the same recipe rule must accept it.
+Current progression assumes the required microgravity is available in orbital dimensions, not that recipes use an orbit whitelist. Earlier zero-gravity asteroid Outpost concepts do not establish an accessible physical production alternative. Validate belt and Outpost production against this assumption. Another accessible environment that meets the condition must also qualify.
 
 An environment restriction may naturally leave only one accessible choice. Do not invent alternatives to meet a quota, or choose a unique pressure or temperature value merely to encode a planet ID.
 
@@ -89,7 +82,7 @@ Galaxia owns tag definitions, classification and evaluation. Extensions register
 
 Recipes may declare an optional requirement independent of `mSpecialValue`. All supplied tags must hold at execution. Recipes without it gain no restriction from this system. Voltage, heat, cleanroom and other requirements remain independent.
 
-The accepted authoring target is a readable `requiresEnvironment(...)` fluent method with named typed constants and IDE completion. A closed enum is not required. GT authors should use neutral references without loading Galaxia classes or wiring evaluators. Exact types and wiring remain implementation choices.
+The accepted authoring target is a readable `requiresEnvironment(...)` fluent method with named typed constants and IDE completion. A closed enum is not required. GT authors use neutral references without loading Galaxia classes or wiring evaluators. Exact types and wiring remain open.
 
 For Alpha, observe the multiblock controller's position, not every block of its structure. If a required environment fails during a recipe, use the machine's native GT failure path and its ordinary consequences. Do not retain work in a custom environment-pause state or resume a canceled operation when conditions return. [[Define Alpha Research and Production Floor#Native GT Machine Failure Semantics]] owns this shared rule.
 
@@ -120,7 +113,7 @@ Exact GT family coverage and an early power route need verification. This is a s
 
 ## Integration Scope and Absent-Galaxia Development
 
-The initial Galaxia-only prototype is no longer the exclusive implementation target. On 2026-10-23 the owner authorized native GT recipe-environment API work, with cleanroom as a native GT use case and unchanged cleanroom gameplay. Prioritize compatibility with MaterialLib-backed GT material unification for material-generated requirements. Galaxia retains its celestial and room-condition definitions. This scoped authorization belongs to the environment integration delivery, not permission for every content task to independently modify GT infrastructure. Existing prototype evidence does not certify the new API or material integration.
+Native GT recipe-environment API work was authorized on 2026-10-23 for the environment integration delivery, with cleanroom as a native GT use case and unchanged cleanroom gameplay. This does not authorize each content task to change GT infrastructure independently. Material-generated requirements target compatibility with MaterialLib-backed GT material unification. Galaxia retains its celestial and room-condition definitions. The existing Galaxia-only prototype does not certify the new API or material integration.
 
 Native GT recipe metadata, fluent authoring and environment-dependent Recipe Families are the eventual direction, not implemented APIs established by these notes. [[Design Lunar Crater Processing Recipe Chain]] owns family-level locks and generated-recipe coverage.
 
@@ -141,3 +134,9 @@ Dated source findings under `src/main/java/com/gtnewhorizons/galaxia/`:
 - At `a9128e9ef21ff05254648190b4f79f94bdc9669d` on 2026-10-08, `GalaxiaAPI.getStationAround` traversed assets/controllers, `TileStationBase.isInside` used stored validation membership, and `TileStation` exposed oxygenation and level. `HazardPressure` treated sealing as pressure-safe rather than exposing actual pressure. These were inputs, not a completed environment query.
 
 [[Recipe Environment Implementation Handoff]] records separate implementation coordination. Neither that handoff nor this resolved ticket certifies completed APIs, generator enforcement or current placement behavior.
+
+## Gameplay Flow
+
+Players choose locations based on their actual conditions. Solid terrain supports surface infrastructure, while eligible orbits support Stations. Asteroid Outposts can provide extraction and docking without becoming Stations. Atmospheric collection and Gas Giant siphoning use distinct capabilities, with infrastructure and throughput limiting an inexhaustible supply.
+
+Production follows the environment rather than a location label. Microgravity enables the selected SiGe and fluoride operations, while SGA processing requires No Atmosphere. Room pressure changes with oxygenation, airlocks and breaches, so a sealed room is not automatically a vacuum. Solar generation likewise depends on illumination and atmosphere, while orbital arrays face the fixed Sun and remain subject to local construction shadows.

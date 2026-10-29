@@ -15,7 +15,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Hammer Satellite Deployment Reach
+# Hammer Satellite Deployment Reach
 
 ## Accepted Decision
 
@@ -33,6 +33,8 @@ The explicit `Deploy to Orbit` mode needs no destination cargo receiver under [[
 
 Exact energy costs, recipes and numerical balance remain content work. Accepted reach does not establish implementation.
 
-## Provenance
+Source: project-lead decision, 2026-10-07.
 
-Direct owner answers on 2026-10-07 accept atmosphere-free surface deployment, local same-orbit reach and whole-star-system Big Hammer reach.
+## Gameplay Flow
+
+A player uses `Deploy to Orbit` to launch a satellite without a cargo receiver. A local Hammer reaches its body's orbit from an atmosphere-free surface, or the same orbit from space. A Big Hammer can reach supported planet and moon orbits throughout the same star system from orbit or an atmosphere-free surface.

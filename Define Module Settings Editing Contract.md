@@ -13,12 +13,8 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Module Settings Editing Contract
+# Module Settings Editing Contract
 
-
-## Question
-
-Which module values are copyable settings rather than physical properties or runtime state?
 
 ## Settings Model
 
@@ -69,3 +65,7 @@ Paths are under `src/main/java/com/gtnewhorizons/galaxia/`. These findings estab
 
 - [[Unify Module Configuration Window Lifecycle]]
 - [[Area - Automation and Infrastructure]]
+
+## Gameplay Flow
+
+The player edits a module's settings in a local draft and saves the complete value. Switching modules discards an unsaved draft. A player can copy settings as independent values or join compatible modules to a shared group, while physical properties and execution progress remain local.

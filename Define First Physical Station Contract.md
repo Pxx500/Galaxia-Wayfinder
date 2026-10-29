@@ -16,37 +16,31 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define First Physical Station Contract
+# First Physical Station
 
+## Role and Registration
 
-## Question
-
-What orbital production supplies the early Rocket-control upgrade while preserving manual lunar travel without it?
-
-## Established Contract
-
-- Physical Stations and Automated Stations are different entities.
-- Alpha includes a player-accessible Physical Station. Building one is not a direct progression permission requirement. The current content assumption places the player-accessible microgravity needed by progression in orbital dimensions, so orbital work follows from the environment requirement.
-- [[Specify Alpha Opening Mission Flow]] permits control-electronics technology before Luna without making it necessary for manual lunar travel. The first Moon mission must not require orbital assembly, refuelling or complex Station logistics.
+- Physical Stations and Automated Stations are different entities. Alpha includes a player-accessible Physical Station, but building one is not a direct progression permission requirement. Under the current content assumption, progression-relevant player-accessible microgravity is found in orbital dimensions. Orbital work follows from that environment requirement, not a Station-completion gate.
+- Control-electronics technology may be available before Luna, but manual lunar travel must not require it, orbital assembly, refuelling or complex Station logistics. See [[Specify Alpha Opening Mission Flow]].
 - Placement follows eligible locations and required capabilities, not a destination-specific Station rule.
 - A Physical Station registers through its controller. It does not use planned asset construction or an asset-level construction inventory. Items and fluids stay in connected physical inventories.
 - The Star Map's Create Station action should eventually link to a localized How to build a station guide, not imply remote creation.
 
 ## Production and Progression Role
 
-The first Station primarily supports production with a defensible environmental benefit or requirement and may have several useful roles. Orbital output supplies an input to a control-electronics upgrade of the same Rocket. It is not an automatic reward for placing a controller.
+The first Station primarily supports production with a defensible environmental benefit or requirement, though it may have several useful roles. Orbital output supplies an input to a control-electronics upgrade of the same Rocket, not an automatic reward for placing a controller.
 
-Rocket recovery and reuse do not depend on the automation upgrade. [[Design Early Orbital Production Recipe Chain]] owns the proposed upgrade recipe and its acceptance status. [[Define Rocket Missions Without Recovery]] owns deliberate mission disposal. [[Define Satellite Manufacturing and Deployment Progression]] owns the satellite consumers.
+Rocket recovery and reuse do not depend on the automation upgrade. The proposed upgrade recipe and its status are in [[Design Early Orbital Production Recipe Chain]]. Deliberate mission disposal and satellite consumers are covered by [[Define Rocket Missions Without Recovery]] and [[Define Satellite Manufacturing and Deployment Progression]].
 
-Both SiGe crystal growth and specialty fluoride optical-fiber production are selected for Alpha and require microgravity. The current player-facing production route therefore requires working in an orbital dimension. The recipe checks the environment, not a completed Station or a list of permitted planet IDs. If another accessible environment actually qualifies, the shared rule must not reject it solely for its location. Selected recipes and remaining feedstock proposals live in [[Design Early Orbital Production Recipe Chain]].
+SiGe crystal growth and specialty fluoride optical-fiber production are selected for Alpha and require microgravity. The current player-facing route therefore requires orbital work. Recipes check the environment, not a completed Station or permitted planet IDs. Another accessible qualifying environment must not be rejected solely for its location. Selected recipes and remaining feedstock proposals are in the orbital production chain.
 
-A Station makes orbital production sustainable through automation infrastructure and a maintained survival environment. A player may initially operate with carried oxygen and manual support. Station construction earns practical value rather than granting an arbitrary unlock. Exact automation services belong to the machinery contract, not an inferred blanket ban on GT machines outside a registered Station.
+A Station makes orbital production sustainable through automation infrastructure and a maintained survival environment. A player may initially operate with carried oxygen and manual support. Exact automation services belong to the machinery contract, not an inferred blanket ban on GT machines outside a registered Station.
 
 [[Define Alpha Research and Production Floor]] retains an early low-yield germanium route from sphalerite, with HV as the working target and ABS as the better later route. Use existing GT machinery unless a concrete process requirement justifies a custom machine.
 
-[[Orbital Manufacturing Research]] supports microgravity benefits, not impossibility of terrestrial production, guaranteed commercial superiority or a measured advantage over lunar gravity. No quality variants or restriction on all semiconductor manufacture follows.
+[[Orbital Manufacturing Research]] supports microgravity benefits, not impossibility of terrestrial production, guaranteed commercial superiority or a measured advantage over lunar gravity. It does not establish quality variants or restrict all semiconductor manufacture.
 
-## Material Boundary
+## Space-Grade Alloy
 
 Space-Grade Alloy is processed infrastructure material, not naturally mined ore or a tier gate. [[Review Crater Nodes Proposal]] owns its identity and bulk-material role. Its No Atmosphere requirement has no gravity requirement, so Luna can qualify. An Overworld vacuum chamber does not satisfy the current location/environment rule. On-demand vacuum is out of scope under [[Define Celestial Capability Rules]].
 
@@ -64,31 +58,23 @@ An explicit deployment mission places a small Station-block structure, controlle
 
 The starter is a basis for expansion, not completed production or refueling services. Carrying it as cargo does not deploy it. Kits may be stored and moved elsewhere. Uncrewed Rockets may deploy them. The placed controller follows ordinary Station registration, lifetime and endpoint identity rules.
 
-## Shared Orbital Space and Placement
+## Orbital Space and Placement
 
-Each planet has one shared orbital dimension, not a private dimension per Station or team. The current orbit model assumes continuous sunlight without planet-shadow outages or an orbital light/dark cycle. This is a gameplay simplification. Solar strength still follows celestial distance and modifiers.
+Each planet has one shared orbital dimension, not a private dimension per Station or team. The simplified orbit model assumes continuous sunlight without planet-shadow outages or a light/dark cycle. Solar strength still follows celestial distance and modifiers.
 
-Teams may choose coordinates or request random initial placement. Different-team controllers need a minimum horizontal X/Z separation, ignoring height. The illustrative 1,000 blocks is not fixed tuning. Same-team Stations may be closer with a visible overlap warning.
-
-Separation applies to deployment, not later manual expansion. It does not guarantee permanent empty space or permit overwriting blocks and inventories.
+Teams choose coordinates or request random initial placement. Different-team controllers need a minimum horizontal X/Z separation, ignoring height. The illustrative 1,000 blocks is not fixed tuning. Same-team Stations may be closer with a visible overlap warning. Separation applies at deployment, not later manual expansion. It neither guarantees permanent empty space nor permits overwriting blocks or inventories.
 
 ## Occupied Deployment Positions
 
-Check only positions the kit will write before placing the first block. If any are occupied, do not begin or consume the kit.
+Before placing the first block, check only positions the kit will write. If any are occupied, do not begin or consume the kit. The Rocket waits near the destination with the kit intact, reports the occupied site through the general notification system and awaits another location. Waiting consumes no fuel or durability.
 
-The Rocket waits near the destination object with its kit intact, reports the occupied site through the general notification system and awaits another location. Waiting consumes no fuel or durability.
-
-No automatic replacement-site search, platform shifting or partial rollback is required. Requested random initial placement is distinct from automatic recovery after failure.
+No automatic replacement-site search, platform shifting or partial rollback is required. A requested random initial placement is not automatic recovery after failure.
 
 ## Open Content and Provenance
 
-### Accepted Scope Resolution
+Kit layout, construction recipe, viable power and route feasibility remain open. Product recipes stay with their production-chain owner. The broader production floor does not block this Station discussion.
 
-Provide the Physical Station workshop as an Alpha capability. Orbital work is naturally required by the currently available progression-relevant microgravity, while a registered Station is not a direct unlock. Its automation and survival services make it the practical long-term choice. Manual lunar travel remains independent of the Rocket automation upgrade.
-
-The Station scope distinction is settled. Kit layout, construction recipe, viable power and route feasibility remain open. Product recipes stay with their production-chain owner. The broader production floor does not block this Station discussion.
-
-Owner decisions on 2026-09-10 established production, kit deployment and shared placement. Later decisions refined the products to microgravity requirements and the upgrade to optional pre-Luna automation.
+The 2026-09-10 decisions established production, kit deployment and shared placement. Later decisions refined the products to microgravity requirements and the upgrade to optional pre-Luna automation.
 
 ## Related Topics
 
@@ -96,3 +82,9 @@ Owner decisions on 2026-09-10 established production, kit deployment and shared 
 - [[Define Alpha Research and Production Floor]]
 - [[Area - Automation and Infrastructure]]
 - [[Area - Observation and Research]]
+
+## Gameplay Flow
+
+The player can travel manually to Luna without the Rocket automation upgrade. To establish an orbital workshop, they craft a Starter Kit, send it aboard a Rocket and explicitly deploy it at a clear site. The deployed structure is a starting point for expansion, not a finished production facility.
+
+The player builds orbital production and survival support around the Station, or initially works with carried oxygen and manual support. Microgravity production supplies an input to the Rocket control-electronics upgrade, while recovery and reuse remain possible without that upgrade.

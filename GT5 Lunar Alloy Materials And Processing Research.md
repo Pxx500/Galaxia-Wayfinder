@@ -23,7 +23,7 @@ This is factual intake for a proposed low, medium and advanced Space-Grade Alloy
 
 Context read: the accepted crater decision, Design Lunar Crater Processing Recipe Chain, the earlier Discord crater proposal and the accepted early orbital content note. The Discord source's asteroidal materials, scandium-rich bauxite, separate alloy identities and recovery assumptions were not adopted. This note does not duplicate the separate real-world scandium research or classify Wayfinder notes.
 
-The local GT checkout was clean at `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. The parent had just rebuilt and verified its graph, so it was reused rather than reindexed again. Graph discovery and caller traces were followed by HTTP 200 reads of the relevant immutable upstream files at `bc7a940f5e6583b5c79d049635d1586c8f4ad764`, current upstream master during this research round. This SHA records an inspected snapshot, not a permanent target version. No production, dependency, server, game or test state was changed. [Inspected commit][commit]
+Local GT was `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. Inspected upstream source was `bc7a940f5e6583b5c79d049635d1586c8f4ad764`. These revisions are snapshots, not permanent target versions. [Inspected commit][commit]
 
 This is not a complete pack-script, external-mod, world-generation or runtime recipe audit. Material declarations and recipe generators establish code support, not in-game availability under every configuration.
 
@@ -52,7 +52,7 @@ The draft's spelling Hematite needs a separate caution. `Materials.Hematite` exi
 
 ### Platinum Refining And A Real Existing Shortcut
 
-The graph identifies `PlatinumSludgeOutputs.convertSmelting` consumers in ProcessingDust, ProcessingOreSmelting, ProcessingRawOre and ProcessingOre. The helper changes smelting outputs associated with platinum into `WerkstoffLoader.PTMetallicPowder`, except the deliberate finished platinum dust/tiny-dust case. Its dust-output conversion also replaces platinum dust-family outputs with that powder. These are active ordinary processing boundaries, not merely a recipe-description convention. [Conversion owner][pt-conversion]
+`PlatinumSludgeOutputs.convertSmelting` has consumers in ProcessingDust, ProcessingOreSmelting, ProcessingRawOre and ProcessingOre. The helper changes smelting outputs associated with platinum into `WerkstoffLoader.PTMetallicPowder`, except the deliberate finished platinum dust/tiny-dust case. Its dust-output conversion also replaces platinum dust-family outputs with that powder. These are active ordinary processing boundaries, not merely a recipe-description convention. [Conversion owner][pt-conversion]
 
 | Existing platinum route | Inputs and output | Machine and requirements |
 | --- | --- | --- |
@@ -120,7 +120,7 @@ These are direct new-recipe output choices with reachable ordinary material cons
 
 For the parallel draft, current `electrolyzerRecipes` supports 2 item inputs, 6 item outputs, 1 fluid input and 1 fluid output. Current `chemicalReactorRecipes` supports 2 item inputs, 2 item outputs, 1 fluid input and 1 fluid output. One fluid input with two item outputs and two item types plus one fluid input fit those map capacities. This checks map shape, not registered recipe execution or actual machine usability. [Electrolyzer capacity][maps] [Chemical Reactor capacity][chemical-map]
 
-One Context Mode literal search for `TitaniumTetrachloride` or direct `Rutile.getDust` in ChemicalRecipes.java returned no matches. `rg` exited 1 and the wrapper reported an error. It was reported immediately. That absence is not evidence that the titanium chain is missing, and no broader titanium-chain audit or code change followed.
+A search for `TitaniumTetrachloride` or direct `Rutile.getDust` in ChemicalRecipes.java found no matches. This does not establish that the titanium chain is missing. A broader titanium-chain audit was not performed.
 
 [commit]: https://github.com/GTNewHorizons/GT5-Unofficial/commit/bc7a940f5e6583b5c79d049635d1586c8f4ad764
 [material-init]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/bc7a940f5e6583b5c79d049635d1586c8f4ad764/src/main/java/gregtech/loaders/materials/MaterialsInit.java
@@ -160,7 +160,7 @@ One Context Mode literal search for `TitaniumTetrachloride` or direct `Rutile.ge
 
 ### Focused Follow-Up: Final Aluminium Reduction
 
-The earlier GT-only limitation is now narrowed by a focused CoreMod check. The local pack checkout was clean at `965462fb102acf429818c07388bdf5f50137c662`, and local NewHorizonsCoreMod was clean at `38b12ce3d59f8061742e47a63c6f1f29b7959313`. Its existing graph located the BlastFurnaceRecipes owner without rebuilding indexes. The GitHub default-branch commits endpoint reported newer CoreMod `9aa0afc8711f3efbe3afc0d11ec44dcbf5b87442`, dated 2026-10-09 at 19:22:55 UTC. HTTP 200 immutable-source inspection confirmed the following recipes are the same in both checked CoreMod revisions. These are real pack-content recipes, not invented replacement reactions. [Current CoreMod source][core-al]
+The local pack revision was `965462fb102acf429818c07388bdf5f50137c662`. CoreMod revisions `38b12ce3d59f8061742e47a63c6f1f29b7959313` and `9aa0afc8711f3efbe3afc0d11ec44dcbf5b87442` contain the same recipes below. These are pack-content recipes, not invented reactions. [CoreMod source][core-al]
 
 | Operation | Inputs | Outputs | Machine | EU/t | Base time | Required heat |
 | --- | --- | --- | --- | ---: | ---: | ---: |
@@ -175,7 +175,7 @@ CoreMod also authors a pure aluminium-dust operation: 1 Aluminium dust to 1 Alum
 
 The efficient GT bauxite branch already produces the normal Alumina identity consumed by these CoreMod reductions. A new enriched-fluid recipe returning aluminium ingots would therefore skip these existing final operations. Using normal bauxite or alumina feedstock preserves the distinction between extraction/refining and ingot production. This closes the normal final-operation source gap, not complete progression, logistics or runtime verification.
 
-The initial pack search failed because there was no top-level `scripts` folder and reported a file-not-found I/O error. It was reported immediately. Bounded follow-up found no `.zs` or `.groovy` files in the inspected config/raw search scope. No script override of these operations was established, and no installed runtime recipe dump or full-pack override audit was performed. These limits should not be presented as proof that every target installation is identical. No checkout, index, recipe or dependency was changed.
+No `.zs` or `.groovy` files were found in the inspected config/raw scope. No script override was established. An installed runtime recipe dump and full-pack override audit were not performed, so target installations may differ.
 
 ### Focused Follow-Up: Sifter Fluid Shape
 

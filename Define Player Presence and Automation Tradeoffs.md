@@ -15,16 +15,12 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Player Presence and Automation Tradeoffs
+# Player Presence and Automation Tradeoffs
 
 Resolved: 2026-07-31
 
 
-## Question
-
-Which activities require player presence, which support automation, and what makes automation a meaningful alternative rather than a free replacement?
-
-## Resolution
+## Presence and Automation
 
 - Presence is an activity-level rule, not a universal Ore Tier or destination requirement.
 - Some activities are player-bound because interaction is the gameplay. The proposed biological destination illustrates exploration, flora gathering, fauna encounters and field research, but its actual content remains unreviewed.
@@ -63,3 +59,7 @@ Resolved on 2026-07-31.
 - [[Define Tier Destination Portfolio]]
 - [[Require Persistent Tier Infrastructure]]
 - [[CONTEXT]]
+
+## Gameplay Flow
+
+The player can perform activities personally, spending time on travel and the risks of being present. Where automation is available, they can instead build and supply infrastructure to save attention, with its own costs and limits. Ordinary physical-machine automation can begin before the working EV target for Automated Facilities.

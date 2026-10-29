@@ -16,7 +16,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define In-Flight Delivery Handling for Unavailable Physical Stations
+# In-Flight Delivery Handling for Unavailable Physical Stations
 
 ## Accepted Decision
 
@@ -64,3 +64,9 @@ Owner decision on 2026-09-10 establishes powered-vehicle cargo retention and Ham
 - [[Define Bulk Repair of Broken Endpoint References]]
 - [[Define Space Transport Dispatch Model]]
 - [[Evaluate Team-Scoped Logistics Ledger]]
+
+## Gameplay Flow
+
+When a Station receiver is temporarily unavailable or a landing pad is occupied, an arriving vehicle waits with its cargo until it can proceed. A full inventory leaves the remainder for a later retry. Waiting near the destination consumes neither fuel nor module wear.
+
+If an exact receiver is destroyed, the player is notified and can assign a replacement for a Rocket or Spaceship. The vehicle first reaches the original destination's vicinity and then travels onward if the normal route checks permit it. A Hammer package cannot wait or redirect and is lost if its exact receiver is permanently destroyed.

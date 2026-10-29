@@ -15,7 +15,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Bulk Repair of Broken Endpoint References
+# Bulk Repair of Broken Endpoint References
 
 ## Accepted Decision
 
@@ -46,3 +46,9 @@ Owner decision in the Wayfinder conversation on 2026-09-10.
 
 - [[Define Transport Endpoint Identity and Registration]]
 - [[Define Space Transport Dispatch Model]]
+
+## Gameplay Flow
+
+When an exact endpoint is destroyed, a player can replace its broken ID across the team's schedules with another endpoint or a symbolic group. The original body and endpoint kind help select a group, while an explicit body override reroutes it elsewhere.
+
+A vehicle already in flight still reaches the original body's vicinity before evaluating travel to the replacement. If it cannot continue under normal flight rules, it waits and reports the problem.

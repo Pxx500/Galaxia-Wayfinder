@@ -15,13 +15,9 @@ tags:
 
 # Require Explicit Interplanetary Logistics
 
-## Question
+## Interplanetary Movement
 
-May players bypass Galaxia's interplanetary travel and infrastructure by teleporting themselves, items, or fluids between celestial destinations?
-
-## Resolution
-
-No. Interplanetary movement of players, items, and fluids uses explicit Galaxia travel and logistics systems. Players provide the infrastructure required by the selected transport and mission. Accepted Unprepared Landing and construction-supply bootstrap rules do not require a pre-existing ordinary destination endpoint. Hammer retains its receiver requirement. These are explicit travel contracts, not teleportation exceptions.
+Interplanetary movement of players, items, and fluids uses explicit Galaxia travel and logistics systems. Players provide the infrastructure required by the selected transport and mission. Accepted Unprepared Landing and construction-supply bootstrap rules do not require a pre-existing ordinary destination endpoint. Hammer retains its receiver requirement. These are explicit travel contracts, not teleportation exceptions.
 
 No default teleportation exception is assumed. A future exception requires a concrete use case and an explicit Wayfinder decision.
 
@@ -46,3 +42,9 @@ Ordinary same-destination AE2 storage, crafting and automation remain available,
 - Define Alpha Transport Roles
 - Area - Travel and Logistics
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+Players move themselves and supplies between celestial destinations using Galaxia travel and logistics. They build the infrastructure their chosen transport needs, with the accepted unprepared landing and construction-supply bootstrap rules providing early access.
+
+Local storage and automation can load and receive cargo, but remote storage links cannot replace the interplanetary transport. Energy is generated locally or supplied through physically transported stores or generation inputs under the current baseline.

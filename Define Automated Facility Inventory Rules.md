@@ -13,13 +13,9 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Automated Facility Inventory Rules
+# Automated Facility Inventory Rules
 
-## Question
-
-Which inventory, resource-preservation, and shared-state rules must remain true for Automated Facilities independently of their internal implementation?
-
-## Resolution
+## Shared Inventory
 
 Automated Facilities own abstract shared inventory. Physical Stations retain world-backed inventory and routing. Their different inventory models must not change resource accounting or team authority.
 
@@ -40,3 +36,9 @@ Automated Facilities own abstract shared inventory. Physical Stations retain wor
 ## Scope
 
 [[Define Automated Facility Fluid Capacity]] now establishes finite fluid capacity with a base allowance and storage-module expansion. The earlier unlimited implementation scope is superseded by that accepted gameplay rule. This does not prescribe inventory classes, state codecs, network framing, or synchronization algorithms.
+
+## Gameplay Flow
+
+The player supplies an Automated Facility through its shared inventory and can filter new insertions without hiding or losing stored resources. Storage modules expand capacity. If capacity unexpectedly falls below stored contents, the player can still extract resources while new insertions wait.
+
+The player can set logistics thresholds without blocking direct transfers or production. Deconstruction refunds that do not fit remain pending until space is available, including across saves.

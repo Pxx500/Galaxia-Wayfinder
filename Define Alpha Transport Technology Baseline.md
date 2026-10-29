@@ -15,7 +15,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Alpha Transport Technology Baseline
+# Alpha Transport Technology Baseline
 
 ## Accepted Working Baseline
 
@@ -57,3 +57,9 @@ Callisto Ice in other belts and synthetic coolant remain unaccepted candidates. 
 ## Provenance
 
 Direct owner decisions on 2026-09-11, extracted as a baseline on 2026-09-12. Transport topology is owned by [[Define Alpha Transport Roles]].
+
+## Gameplay Flow
+
+Players first reach space by Rocket at the HV production stage, then develop local Hammer infrastructure and an IV Spaceship after access to desh. These stages guide recipes and infrastructure rather than imposing abstract transport permissions.
+
+Later material and engine choices may enable harder routes. Exact recipes and route thresholds remain open, including how coolant and lightweight vehicles affect progression.

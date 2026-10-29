@@ -14,16 +14,12 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Manual Physical Room Validation
+# Manual Physical Room Validation
 
 
 ## Scope
 
 Deferred under [[Consolidate Physical Station Architecture]]. Retain the existing room implementation and validation lifecycle. The earlier manual-only direction below is not a requirement for the current integration. Surface tracing, interval traversal and room-separation proposals remain unselected.
-
-## Question
-
-How is an arbitrary-shaped Physical Station Room manually validated, and which later construction changes invalidate approval without automatically discovering rooms again?
 
 ## Retained Design Direction
 
@@ -61,4 +57,8 @@ Establish a correct baseline and measure representative workloads before selecti
 
 ## Provenance
 
-Owner discussion on 2026-09-13, deferred on 2026-09-16. [[Voxel Room Detection Algorithms Research]] and [[Voxel Game Room Validation Research]] supply algorithm evidence, not gameplay policy. The unapproved damage-origin leak-search candidate is owned by [[Define Airlock Space Classification]].
+Discussed on 2026-09-13 and deferred on 2026-09-16. [[Voxel Room Detection Algorithms Research]] and [[Voxel Game Room Validation Research]] provide algorithm evidence, not gameplay policy. [[Define Airlock Space Classification]] owns the unapproved damage-origin leak-search candidate.
+
+## Gameplay Flow
+
+The earlier direction has the player build an enclosed space and select Validate at its controller. Destroying a required boundary invalidates its geometric approval, but does not by itself prove a leak. This manual-only lifecycle is deferred, so the current integration retains the existing room lifecycle.

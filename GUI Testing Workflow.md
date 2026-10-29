@@ -38,6 +38,20 @@ Cosmetic-only edits use the ModularUI2 Preview workflow in AGENTS.md unless they
 
 Start every Galaxia Horizon QA manual client with GUI scale 2, Quake Pro FOV (110 degrees), and clouds disabled. Pass -PhorizonQaManual=true so the Galaxia runClient manual profile applies these options in the isolated game directory before startup. Automated scenarios can deliberately override settings for their own coverage. Keep existing game sessions untouched.
 
+## Shared Star Map Lifecycle
+
+Every Star Map opening replaces the previous GUI and closes its child windows, including openings from ordinary map items. This is shared behavior, not only the android capsule's selection flow. Verify both disposal of the old screen and continued operation of the new screen.
+
+Source: direct Star Map interaction feedback, 2026-10-18.
+
+## Satellite Showcase
+
+A requested visual scenario builds a satellite network across roughly thirty asteroids, showing its growth and final rendering. An API-only test is insufficient for this demonstration. Capture a screenshot of the result.
+
+Publishing selected showcase screenshots as build artifacts or GitHub build summaries remains deferred, not a current CI requirement.
+
+Source: GUI showcase discussion, 2026-09-11.
+
 ## Repository Entry Points
 
 | Need | Location |

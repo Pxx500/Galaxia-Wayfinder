@@ -13,13 +13,9 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Celestial Object and Gameplay Space Mapping
+# Celestial Object and Gameplay Space Mapping
 
-## Question
-
-How do persistent Star Map objects relate to player-accessible dimensions and other gameplay spaces when the mapping is not one to one?
-
-## Resolution
+## Objects and Gameplay Spaces
 
 A Star Map Object and a Dimension are separate concepts. Galaxia does not require one dimension per celestial object or one Star Map object per dimension.
 
@@ -74,3 +70,9 @@ Every retained Star Map Object must satisfy [[Require Star Map Object Actionabil
 - Galaxia Alpha Charting Notes
 - CONTEXT
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+The player may travel directly to a body's dimension, enter a regional space or interact with an object through infrastructure and other map actions. Each retained object needs a meaningful action, even when it has no dimension of its own.
+
+In Frozen Belt, players can explore and mine locally generated asteroids in the regional dimension while managing distinct persistent asteroids on the Star Map. The two layers do not identify matching individual asteroids.

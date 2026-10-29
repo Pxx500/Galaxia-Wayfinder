@@ -15,13 +15,9 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Galacticraft-Equivalent Destination Backfill
+# Galacticraft-Equivalent Destination Backfill
 
-## Question
-
-How can Galaxia begin from a complete editable Galacticraft layout while still delivering retained destinations for which no Galaxia-specific gameplay has been designed by the Alpha cutoff?
-
-## Resolution
+## Scaffold and Backfill
 
 Use the Galacticraft layout first as a Star Map design scaffold, then add minimal Galacticraft-equivalent destination implementations only as a final Alpha backfill where needed.
 
@@ -70,3 +66,7 @@ Use the Galacticraft layout first as a Star Map design scaffold, then add minima
 - Galaxia Alpha Charting Notes
 - CONTEXT
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+Players reach retained backfilled destinations through Galaxia's own playable implementations and obtain the resources needed for their Closed Tier Cycles. A planning-only Star Map entry does not provide that gameplay or count as a completed destination.

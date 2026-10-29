@@ -15,7 +15,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Specify Alpha Opening Mission Flow
+# Alpha Opening Mission Flow
 
 ## Accepted Opening Flow
 
@@ -60,3 +60,9 @@ Read-only inspection on 2026-09-12 found direct opening in `registry/items/speci
 ## Provenance
 
 Owner decisions on 2026-09-10 establish local pre-map launch and authored visibility. Clarifications on 2026-09-17 make orbital automation optional before Luna and physical reuse mission-dependent. The 2026-10-07 decision accepts deliberate missions without recovery. The recipe-chain note records the selected Primitive Telescope Satellite name.
+
+## Gameplay Flow
+
+The team builds the Primitive Telescope Satellite and deploys it from the Silo into Overworld orbit without first opening the Star Map. Successful deployment grants the launch achievement, opens the map and starts passive Luna profile survey progress.
+
+The player can fly manually to Luna and later add automatic control to the same Rocket with upgraded electronics. Recovery depends on the actual mission, fuel and infrastructure. A deliberate mission without recovery warns that the Rocket will disappear, while a feasible landing at an occupied pad waits for the pad instead.

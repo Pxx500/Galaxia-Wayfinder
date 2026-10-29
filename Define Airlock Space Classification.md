@@ -14,7 +14,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Airlock Space Classification
+# Airlock Space Classification
 
 
 ## Scope
@@ -22,10 +22,6 @@ tags:
 Deferred under [[Consolidate Physical Station Architecture]]. The existing room lifecycle remains the baseline. Side classification, geometry redesign and automatic leak detection are not selected for implementation.
 
 [[Define Celestial Capability Rules]] owns the later accepted pressure rules. Those rules settle equalization and proven vacuum breaches, not the unresolved classification cases below.
-
-## Question
-
-How do airlock sides distinguish validated rooms, confirmed exterior and unresolved space, and what pressure behavior applies when an open side is unresolved?
 
 ## Constraints
 
@@ -52,4 +48,8 @@ Immediate equalization between sealed joined rooms and immediate emptying throug
 
 ## Provenance
 
-Owner discussion on 2026-09-13, deferred on 2026-09-16. Later pressure decisions are in [[Define Celestial Capability Rules]]. [[Voxel Game Room Validation Research]] supplies comparison evidence, not adopted policy.
+Discussed on 2026-09-13 and deferred on 2026-09-16. [[Voxel Game Room Validation Research]] supplies comparison evidence, not adopted policy.
+
+## Gameplay Flow
+
+An airlock forms a geometric room boundary whether its door is open or closed. Opening it affects pressure: sealed joined rooms equalize, and a proven breach to vacuum empties the atmosphere. How to handle an open side whose space is unresolved remains deferred.

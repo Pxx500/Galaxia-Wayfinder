@@ -15,17 +15,13 @@ tags:
   - wayfinder/grilling
 ---
 
-# Design Early Orbital Production Recipe Chain
+# Early Orbital Production
 
-## Question And Scope
-
-Which complete recipes connect early germanium and fluoride feedstocks to Rocket automation, functional satellites and Galaxia solar components?
-
-This ticket records accepted production direction and working recipes alongside explicitly unapproved details. It does not establish implemented behavior. Rocket structures, the Station Starter Kit, lunar SGA, Hammers and later propulsion are outside this chain.
+Early germanium and fluoride feedstocks support Rocket automation, functional satellites and Galaxia solar components. Accepted production direction and working recipes appear below with their approval status. This does not establish implemented behavior. Rocket structures, the Station Starter Kit, lunar SGA, Hammers and later propulsion are outside this chain.
 
 [[Define Alpha Research and Production Floor]] owns the required material families and normal GT machinery baseline. [[Define Satellite Manufacturing and Deployment Progression]] owns satellite behavior. [[Define Alpha Technology Knowledge Contract]] owns consumed team-knowledge blueprints.
 
-## Accepted Production Direction
+## Production Direction
 
 - Silicon-germanium supplies Rocket and satellite electronics. Fluoride fibers supply satellites. Neither material is required for the opening Primitive Telescope Satellite or first Station bootstrap
 - SiGe blend must pass through EBF powder treatment before supplying usable crystal-growth melt. A direct blend-to-molten route, including generated melting, is excluded
@@ -38,17 +34,17 @@ This ticket records accepted production direction and working recipes alongside 
 - Primitive Telescope uses four ordinary Glass Lenses. Functional satellites have distinct transmitter and scanning hardware as recorded below. Satellites include solar hardware as well as a battery
 - Space Grade Solar Panel is a shared recipe-component item, not a placeable generator or alternate GT solar cover. Existing GTNH solar recipes and output remain unchanged
 
-The proposed early tier is HV, with MV preparation where sufficient. This does not alter the IV first Spaceship or accepted Hammer tiers. Powder processing and seeded growth are the proposed microgravity-dependent SiGe operations. Ordinary SiGe remelting has no location restriction.
+The proposed early tier is HV, with MV preparation where sufficient. It does not alter the IV first Spaceship or accepted Hammer tiers. Powder processing and seeded growth are proposed as the microgravity-dependent SiGe operations. Ordinary SiGe remelting has no location restriction.
 
 ## Recipe Conventions
 
-Fluid amounts are mB and times are base values before overclocking. Selector circuits, lenses, molds and the wire extrusion die are reusable. Electronic circuits listed as ingredients are consumed. Cells return empty unless filled as outputs. Each recipe has an independent batch size. Accumulation and splitting connect the stages.
+Fluid amounts are mB and times are base values before overclocking. Selector circuits, lenses, molds and the wire extrusion die are reusable. Electronic circuit ingredients are consumed. Cells return empty unless filled as outputs. Batches are independent and can accumulate or split between stages.
 
 All new assembly uses the ordinary GT Assembler, not Galaxia's Rocket Module Assembler. Control Logic Circuit, abbreviated CLC, is a working functional name. Blank SiGe wafers become CLC Wafer, Etched CLC Wafer, CLC Chip and CLC Module. These are equipment ingredients, not replacements for standard GT circuit tiers, ILCs or CPUs. Final names remain open.
 
 ## Existing Silicon Feedstock
 
-These are source-audited existing GTNH 2.8 routes. Other normal routes remain usable.
+These existing GTNH 2.8 routes were source-audited. Other normal routes remain usable.
 
 | Process | Inputs | Outputs | Machine | EU/t | Time |
 | --- | --- | --- | --- | ---: | ---: |
@@ -80,9 +76,9 @@ The 8 mB early germanium yield, independent powder-output rolls, mandatory engra
 | Chip cutting | 1 Etched CLC Wafer + 100 mB Water | 4 CLC Chips | Cutting Machine | 120 | 45 s | Cleanroom, any gravity |
 | Packaging | 4 CLC Chips + 2 Copper plates + 8 fine Copper wires + 144 mB molten Tin | 1 CLC Module | Assembler | 480 | 30 s | Any |
 
-The early reactor's two item slots hold sphalerite and carbon, so it has no selector. A normal MV Ruby plate-to-lens Lathe route supplies the proposed engraving tool. The proposed HCl wash is a fixed operation after engraving, not a quality branch or a replacement for engraving.
+The early reactor's two item slots hold sphalerite and carbon, so it has no selector. A normal MV Ruby plate-to-lens Lathe route supplies the proposed engraving tool. The proposed HCl wash follows engraving and is neither a quality branch nor a replacement for engraving.
 
-The proposed Ash is guaranteed independently of the two SiGe rolls and reuses `Materials.Ash` with `OrePrefixes.dustTiny`. It represents unspecified impurities, not a verified combustion reaction. Poly SiGe and seeds may melt because they have passed through treatment. A byproduct alone would not enforce exclusion of untreated blend melting.
+The proposed guaranteed Ash is independent of the SiGe rolls and reuses `Materials.Ash` with `OrePrefixes.dustTiny`. It represents unspecified impurities, not a verified combustion reaction. Poly SiGe and seeds can melt because they have passed through treatment. A byproduct alone would not prevent untreated blend melting.
 
 At the working yields, one crystal becomes 16 wafers, then 64 CLC Chips or 16 CLC Modules. Alternatively it becomes eight seeds, which can grow later crystals or remelt to 1152 mB total. The first seed takes ten fresh powder operations on average, with nine Poly SiGe on average alongside it. Those products are growth inventory, not powder that retries nucleation.
 
@@ -118,7 +114,7 @@ The machine sequence, two-dust blank, one-dust Lathe return, sixteen-fiber spool
 | Fiber drawing | 1 heated fluoride-glass preform + reusable wire extrusion die | 8 fluoride optical fibers | Extruder | 480 | 30 s | Microgravity |
 | Spool winding | 16 fluoride optical fibers | 1 Fluoride Fiber Spool | Assembler | 120 | 10 s | Any |
 
-Casting creates cold stock for machining. The Lathe prepares a drawing preform and returns reusable mix. The later EBF softens it for drawing. No direct molten-glass-to-fiber bypass, custom machine or quality variants are selected. Softened Preform, Lumen Fiber and Lumen Spool are unapproved names. Earlier material-stage names stay material-based.
+Casting creates cold stock for machining. The Lathe shapes a drawing preform and returns reusable mix, then the EBF softens the preform. No direct molten-glass-to-fiber bypass, custom machine or quality variants are selected. Softened Preform, Lumen Fiber and Lumen Spool are unapproved names. Earlier material-stage names stay material-based.
 
 The returned mix represents reclaimed glass feedstock. With recycling, a fresh nine-unit mix batch yields eight preforms, 64 fibers and one circulating mix unit. Further fresh mix can then yield one preform per unit while retaining that reserve. Operations need not be scaled to match those totals.
 
@@ -154,7 +150,7 @@ Communication uses antennas and transmission hardware, while Prospecting uses op
 
 Use `ItemList.Battery_RE_HV_Lithium` for the named battery. Functional satellites use `ItemList.Sensor_HV` and `ItemList.Emitter_HV`. The accepted Primitive Telescope recipe instead uses an MV Sensor, and the dish recipe uses an MV Emitter. The dish reuses `GalaxiaItemList.SATELLITE_DISH`, registered as `parts/satellite_dish`. Its registration is not an existing production recipe. The pinned HV Assembler has nine item slots. Primitive Telescope uses seven distinct item types, and each functional satellite uses eight, with tin in the fluid slot.
 
-The opening payload remains a limited achievement mission that grants Star Map access and passive Luna resource-scan progress, not a cheap retargetable Prospecting Satellite or physical block scan. The controller adds automation to the same reusable Rocket. Manual Luna flights remain possible without it. Lunar SGA is absent from this pre-Luna bootstrap.
+The opening payload grants Star Map access and passive Luna resource-scan progress, not a retargetable Prospecting Satellite or physical block scan. The controller adds automation to the existing reusable Rocket. Manual Luna flights remain possible without it. Lunar SGA is absent from the pre-Luna bootstrap.
 
 ## Accepted Technology Groups And Proposed Blueprint Costs
 
@@ -195,7 +191,7 @@ Temporarily develop GT-bound content under `com.gtnewhorizons.galaxia.gt5`. New 
 
 Galaxia retains celestial environments, missions, satellite behavior and research mechanics. Keep that integration outside the transfer package. Use normal GT registration and recipe capabilities, without a parallel production system or reverse hard dependency.
 
-The initial environment prototype was hosted in Galaxia. The owner subsequently authorized native GT environment API work in the separate integration delivery, with MaterialLib-backed material compatibility as its priority. This does not move ownership of content definitions or authorize independent GT infrastructure changes by each content task. Coordinate API adoption with that delivery and use its verified dependency target rather than inventing a parallel integration.
+Recipe conditions use the native GT environment API, with MaterialLib-backed material compatibility as the integration priority. Content definitions retain their existing ownership. Use the shared integration's verified dependency target rather than adding a parallel environment API.
 
 Developer worlds may break before Alpha. Transfers need no old-ID preservation, dual registration or save migration. Remove temporary Galaxia definitions when GT replacements become authoritative.
 
@@ -205,7 +201,7 @@ Normal GT recipes supply Copper plates and wire, Aluminium plates and rings, Ste
 
 The existing recipes were audited against GT5-Unofficial `000a4d9b24d77f40a79da7a105bb79ac7efca817` and CoreMod `fe1a49ae577fee5ec4c1cf53d2545b475fb6b5af`. Galaxia registry checks used `a9128e9ef21ff05254648190b4f79f94bdc9669d`. Current checkouts differ. Source presence is not a playable-pack production test.
 
-## Remaining Decisions
+## Open Decisions
 
 - Review unapproved working quantities, power and durations, especially the residue, growth cycle, wash and chip-cutting details
 - Select final CLC and fiber/preform names
@@ -213,3 +209,9 @@ The existing recipes were audited against GT5-Unofficial `000a4d9b24d77f40a79da7
 - Verify early feedstock and component availability, environmental enforcement and complete production throughput
 - Verify transported battery power against actual charge demand and logistics, then design sustained non-combustion supply separately
 - Tune working panel quantities if needed while preserving the ground-made opening payload
+
+## Gameplay Flow
+
+Players can launch the Primitive Telescope Satellite and establish a first workshop without orbital materials. A provisional battery supply can power that workshop while players build the SiGe and fluoride lines. Early low-yield germanium gives access to SiGe before the more efficient ABS route.
+
+In microgravity, treated SiGe powder yields seed and remelting feedstock. Seeded growth produces crystals that players divide between future seeds and wafers for electronics. The fluoride line melts and casts glass, shapes preforms and draws fibers, with recovered material returned to the process. The resulting electronics and fibers support Rocket automation and functional satellites. They also enable solar components, while the placeable generator remains separate equipment.

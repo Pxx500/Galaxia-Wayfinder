@@ -15,27 +15,25 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Alpha Research and Production Floor
+# Alpha Research And Production
 
-## Question
-
-Which research, satellite-data, destination-dependent production and other non-extraction chains must appear in Alpha beyond the accepted acquisition and processing contracts?
+Alpha needs research and production chains that connect obtainable materials to useful progression beyond extraction.
 
 ## Production Machinery Baseline
 
-Galaxia primarily uses GregTech machines and their normal production capabilities. A custom machine needs a concrete process requirement that existing machinery cannot satisfy. Investigate existing capabilities before proposing an exception. A new acquisition recipe does not imply a new machine.
+Galaxia primarily uses GregTech machines and their normal production capabilities. Check existing machinery before proposing a custom machine, which needs a concrete process requirement those machines cannot satisfy. A new acquisition recipe alone does not imply a new machine.
 
 ### Native GT Machine Failure Semantics
 
-GT-like machines use the native failure lifecycle of their underlying GT machine when required power, environment, cooling or another running-operation requirement is lost. Do not introduce a custom retained-progress pause, automatic continuation of a failed operation or refund scheme. Preserve the actual distinction between GT singleblock and multiblock behavior instead of imposing one invented cancellation model on both. The owner made this the general rule on 2026-10-23, superseding previous retained-work proposals.
+When a running GT-like machine loses power, environment, cooling or another required condition, it follows its underlying GT failure lifecycle. Singleblocks and multiblocks retain their actual distinct behavior. There is no custom retained-progress pause, automatic continuation or refund. This general rule was selected on 2026-10-23, replacing retained-work proposals.
 
-Ordinary checks before starting work remain ordinary checks. Missing recipe inputs or protected output capacity do not create a running operation that must be failed. Native save/load and chunk-unload behavior remain native behavior, not an automatic simulated power failure. Already completed products remain ordinary stored inventory. Rocket waiting, android control and time-sliced background calculations are not GT recipe operations and retain their own contracts.
+Missing inputs or output capacity prevent work from starting. Save/load and chunk unloading retain native behavior and do not simulate power failure. Completed products remain stored. Rocket waiting, android control and time-sliced background calculations are not GT recipe operations and retain their own contracts.
 
-Domain accounting follows the owning mechanic. Crater reserve and fracking cost history advance only for successful extraction under [[Review Crater Nodes Proposal]]. This does not restore consumed inputs after a failed operation.
+Crater reserve and fracking history advance only on successful extraction under [[Review Crater Nodes Proposal]]. Failed work does not restore consumed inputs.
 
 ## Accepted Production Minimum
 
-Alpha requires complete silicon-germanium crystal and specialty fluoride optical-fiber chains, each from obtainable feedstock to a product with a concrete use. Both require Microgravity, not an orbital-location flag. Current player-facing progression locates that environment in orbital dimensions. Final satellite assembly need not happen in orbit. [[Define Celestial Capability Rules]] owns consistent environmental eligibility and SGA's separate No Atmosphere requirement.
+Alpha requires complete silicon-germanium crystal and specialty fluoride optical-fiber chains, from obtainable feedstock to useful products. Both require Microgravity, not an orbit flag. Current progression places this environment in orbital dimensions, but final satellite assembly need not occur there. [[Define Celestial Capability Rules]] owns environmental eligibility and SGA's separate No Atmosphere requirement.
 
 | Material family | Required allocation |
 | --- | --- |
@@ -48,9 +46,7 @@ The opening satellite and first Station bootstrap do not require these orbital m
 
 ### Early Germanium Supply
 
-Add a low-yield sphalerite route before the existing IV Alloy Blast Smelter method. HV is the working early target. Inputs, reagents and machinery must actually fit that stage. The recipe-chain ticket records the selected 8 mB early yield and its comparison with the unchanged 36 mB ABS route.
-
-Retain a meaningful reason to upgrade to ABS. Earlier access still needs checking against unrelated GTNH progression during implementation. It does not approve lowering the existing recipe's tier or changing its consumers.
+Add a low-yield sphalerite route before the existing IV Alloy Blast Smelter method. HV is the working early target, and inputs, reagents and machinery must fit that stage. The selected early yield is 8 mB, compared with 36 mB from the unchanged ABS route. Preserve a reason to upgrade and check earlier access against unrelated GTNH progression. The existing recipe's tier and consumers do not change.
 
 ## Related Settled Contracts
 
@@ -59,13 +55,17 @@ Retain a meaningful reason to upgrade to ABS. Earlier access still needs checkin
 - Mandatory bosses and dungeons are excluded from progression. Richer planetary experiments are later work, not a prerequisite for the Alpha blueprint mechanism
 - [[Review Crater Nodes Proposal]] resolves the crater gameplay chain. [[Design Lunar Crater Processing Recipe Chain]] owns current lunar content and open recipe choices
 
-## Remaining Decisions
+## Open Decisions
 
 - Which additional destination-dependent chains are essential to Alpha rather than optional depth?
 - Which reviewed proposals provide a complete input, player activity, output and progression continuation?
 - Which later technologies and recipe groups are needed beyond the two selected initial groups?
 - Complete early orbital feedstock and recipe review in its owning ticket, including practical availability and environment enforcement
 
-This broader production-floor ticket remains open even though its two-material minimum and the technology mechanism are settled.
+The broader production floor remains open even though its two-material minimum and technology mechanism are settled. [[Define Alpha Galaxia-Specific Capability Floor]] indexes the proposed complete industrial package. Recipe tuning and implementation evidence remain with their owners.
 
-The proposed complete industrial floor is indexed in [[Define Alpha Galaxia-Specific Capability Floor]]. Selecting that package can settle the required chains together. Numerical recipe tuning and implementation evidence remain with their owners rather than becoming additional product-floor questions.
+## Gameplay Flow
+
+Players bootstrap a first workshop without orbital materials, then produce silicon-germanium crystals and specialty fluoride optical fibers in microgravity. The crystals support Rocket and satellite electronics, while the fibers support satellites. Final satellite assembly can take place elsewhere.
+
+Early germanium extraction makes the SiGe chain accessible before the more efficient ABS route. Players can later upgrade for better yield. The production chains use normal GT machinery, and lost operating requirements follow the machine's native failure behavior.

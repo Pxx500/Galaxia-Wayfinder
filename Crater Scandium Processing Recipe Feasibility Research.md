@@ -15,8 +15,7 @@ Imported: 2026-10-11
 
 > Current-use note, 2026-10-23: Design Lunar Crater Processing Recipe Chain records the subsequently accepted initial refinery and finishing balance. Proposal labels and numerical examples below describe this earlier source snapshot, not unresolved questions in the current contract.
 
-Read-only evidence for recipe authoring, not approval of quantities, machines or costs. Agent Briefing and the relevant machinery/ownership sections were read. Both repositories were fully reindexed. Local GT was `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. Checked immutable upstream GT source is `2856a652b29ecf17dd5529880d589bea92a83b9f`. CoreMod was clean at `38b12ce3d59f8061742e47a63c6f1f29b7959313`. Cited raw files returned HTTP 200. [GT revision][gt-revision] [CoreMod revision][core-revision]
-The new Context Mode current-head request to GitHub's GT `/commits/master` API failed with `403: rate limit exceeded`. It was reported immediately and not repeated. CoreMod's request was not reached. These are checked revisions, not a fresh latest-head claim. No production edits, builds, tests, commits or publication occurred.
+Source evidence for recipe authoring, not approval of quantities, machines or costs. Local GT was `2259bc64244f9f7fc58e039d8e89ca40dd17c929`, inspected upstream GT was `2856a652b29ecf17dd5529880d589bea92a83b9f`, and CoreMod was `38b12ce3d59f8061742e47a63c6f1f29b7959313`. These are inspected revisions, not a latest-head claim. [GT revision][gt-revision] [CoreMod revision][core-revision]
 
 ### Accepted Shape And Recovery Contract
 
@@ -44,7 +43,7 @@ Two free separator fluid outputs would exceed the ordinary Centrifuge declaratio
 | Quicklime | Existing dust, composition Ca:1 and O:1, electrolyzer generation enabled | Ordinary CaO material, not a new spent-calcium identity |
 | Sodium Hydroxide | Existing dust identity `SodiumHydroxide_GT5U`, composition Na:1, O:1, H:1 | Use dust. No fluid is declared in this builder |
 | Nitric Acid | Existing cell and fluid identity `NitricAcid`, H:1, N:1, O:3 | Existing free acid and packaged-cell forms, not proof of a separate dilute reagent |
-| Scandium Oxide | Proposed Sc2O3 compound | No existing GT/CoreMod identity was established in the preceding compound audit. This task does not register one |
+| Scandium Oxide | Proposed Sc2O3 compound | No existing GT/CoreMod identity was established in the preceding compound audit. No registration is established |
 
 [Calcium][calcium] [Quicklime][quicklime] [NaOH][naoh] [Nitric acid][nitric]
 
@@ -96,7 +95,7 @@ The four-stage route fits ordinary map shapes. Remaining content decisions are i
 
 ### Verification Limits
 
-Checked material definitions/units, generator formulas, map capacity, named comparators and the LCR boundary. No full-modpack, all-conversion, earliest-tier or throughput audit. No material/recipe implementation or game test. Latest-head checking remains limited by the reported 403. Both recovery alternatives are retained.
+Checked material definitions/units, generator formulas, map capacity, named comparators and the LCR boundary. No full-modpack, all-conversion, earliest-tier or throughput audit. No runtime verification. Both recovery alternatives are retained.
 
 [[Sources]]
 

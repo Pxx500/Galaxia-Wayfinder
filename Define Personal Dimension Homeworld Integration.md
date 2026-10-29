@@ -13,13 +13,9 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Personal Dimension Homeworld Integration
+# Personal Dimension Homeworld Integration
 
-## Question
-
-Does Alpha support launching from GTNH Personal Dimensions, and if so, how are the launch origin, homeworld, and safe return represented without treating every arbitrary dimension as a separate Star Map Object?
-
-## Resolution
+## Personal Dimensions
 
 Galaxia Alpha does not support launching from or returning to GTNH Personal Dimensions.
 
@@ -33,3 +29,7 @@ Personal Dimensions are not Star Map Objects and receive no special homeworld or
 - Define Celestial Object and Gameplay Space Mapping
 - Define Destination Access Levels
 - Define Vehicle Capability and Route Requirements
+
+## Gameplay Flow
+
+Players can place a Personal Dimension portal on a celestial body, but cannot launch from or return to the Personal Dimension through Galaxia. Travel between celestial destinations remains subject to Galaxia's interplanetary logistics.

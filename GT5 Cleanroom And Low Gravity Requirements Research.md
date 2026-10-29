@@ -21,9 +21,9 @@ Imported: 2026-10-10
 
 This is research, not an accepted architecture decision or an implementation plan. It covers ordinary recipe-backed singleblocks, common multiblock processing, the EBF as a concrete heat-owning multiblock, cleanroom references and NEI display. It is not an exhaustive audit of custom controllers, every recipe registration or all machines in the modpack.
 
-The GitHub commits API reported upstream `master` at `bc7a940f5e6583b5c79d049635d1586c8f4ad764`, committed 2026-10-09 at 20:39:09 UTC. Relevant source was fetched successfully from immutable raw URLs at that SHA. The local sibling checkout was clean at `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. Its graph was reindexed for discovery, then the findings were checked against the newer remote source. The earlier October 8 audit was treated as a lead, not current evidence. [Inspected commit][commit]
+Inspected GT revisions were upstream `bc7a940f5e6583b5c79d049635d1586c8f4ad764` and local `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. [Inspected commit][commit]
 
-No production files, dependencies, recipe registrations or server binaries were changed. No build or game test was run. These findings establish source-level behavior, not in-game verification.
+These findings establish source-level behavior, not in-game verification.
 
 ### What LOW_GRAVITY Actually Means
 
@@ -77,7 +77,7 @@ Every `MetaTileEntity` already owns a `cleanroomReference` and exposes the `ICle
 
 At each room structure check, the owner first clears its previous receivers, validates the structure, then finds receiver capabilities on tile entities in the interior and attaches itself. It schedules another check with `mUpdate = 100`. An open door reduces efficiency by 200 during the structure check. This is the existing spatial and lifecycle authority to reuse. Do not equate room membership with an airtight habitat, numeric purity threshold or immediate invalidation guarantee. These are different contracts. [Cleanroom structure and receivers][room-receivers]
 
-For Alpha, the parent reports that the user selected the multiblock controller position as the environmental lookup point. Existing room membership already locates the receiver tile. `ProcessingLogic.setMachine` currently accepts `IVoidable`, which is for output handling rather than an environmental/location contract. Although setup supplies `this`, a neutral environment integration should expose controller world/position deliberately rather than pretending every `IVoidable` has a location. [Processing context][processing-context] [Multiblock setup][multi-setup]
+For Alpha, the selected environmental lookup point is the multiblock controller position. Existing room membership already locates the receiver tile. `ProcessingLogic.setMachine` currently accepts `IVoidable`, which is for output handling rather than an environmental/location contract. Although setup supplies `this`, a neutral environment integration should expose controller world/position deliberately rather than pretending every `IVoidable` has a location. [Processing context][processing-context] [Multiblock setup][multi-setup]
 
 ### Feasible Neutral Extension Boundary
 
@@ -112,7 +112,7 @@ The multiblock base sets its active flag from `mMaxProgresstime > 0`, so a retai
 
 ### Bounded Conclusion
 
-Existing GT low gravity is not a zero-gravity API. Existing cleanroom references and metadata display provide reusable ownership and rendering capabilities, but common multiblock enforcement and retained-work pause require new shared behavior. Independent extra metadata plus a neutral, optional evaluator can satisfy absent-Galaxia hidden-and-ignored behavior without a reverse dependency or a global bypass. The API shape, coverage of custom processing paths and reload contract remain design decisions for the parent task.
+Existing GT low gravity is not a zero-gravity API. Existing cleanroom references and metadata display provide reusable ownership and rendering capabilities, but common multiblock enforcement and retained-work pause require new shared behavior. Independent extra metadata plus a neutral, optional evaluator can satisfy absent-Galaxia hidden-and-ignored behavior without a reverse dependency or a global bypass. The API shape, coverage of custom processing paths and reload contract remain design decisions.
 
 [commit]: https://github.com/GTNewHorizons/GT5-Unofficial/commit/bc7a940f5e6583b5c79d049635d1586c8f4ad764
 [constants]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/bc7a940f5e6583b5c79d049635d1586c8f4ad764/src/main/java/gregtech/api/util/GTRecipeConstants.java#L45-L56

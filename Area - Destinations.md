@@ -6,28 +6,26 @@ tags:
   - wayfinder/area
 ---
 
-# Area - Destinations
+# Destinations
 
 Object-native gameplay, available actions, dimensions, regions, and retained celestial content.
 
-## Active Tickets
+## Celestial Model And Environments
 
+- [[Define Celestial Capability Rules|Celestial Capability Rules]]
+- [[Register Tenebrae as a Celestial Object|Tenebrae as a Celestial Object]]
+- [[Define Celestial Object and Gameplay Space Mapping|Celestial Object and Gameplay Space Mapping]]
+- [[Define Destination Role Taxonomy|Destination Role Taxonomy]]
 
-## Resolved Decisions
+## Asteroids And Beacons
 
-- [[Define Belt Beacon Lifetime]]
-- [[Define Celestial Capability Rules]]
-- [[Define Asteroid Automation Contract]]
-- [[Register Tenebrae as a Celestial Object]]
-- [[Define Celestial Object and Gameplay Space Mapping]]
-- [[Define Asteroid Belt Physical Travel and Beacons]]
-- [[Require Star Map Object Actionability]]
-- [[Define Destination Role Taxonomy]]
-- [[Define Destination Access Levels]]
+- [[Define Belt Beacon Lifetime|Belt Beacon Lifetime]]
+- [[Define Asteroid Automation Contract|Asteroid Automation Contract]]
+- [[Define Asteroid Belt Physical Travel and Beacons|Asteroid Belt Physical Travel and Beacons]]
 
-## Related Topics
+## Access And Interaction
 
-- Area - Progression
-- Area - Travel and Logistics
-- Area - Automation and Infrastructure
-- Galaxia Alpha Wayfinder
+- [[Require Star Map Object Actionability|Star Map Object Actionability]]
+- [[Define Destination Access Levels|Destination Access Levels]]
+
+[[00 - Galaxia Alpha Command Center|All topics]] · [[Galaxia Alpha Wayfinder|Open design packages]]

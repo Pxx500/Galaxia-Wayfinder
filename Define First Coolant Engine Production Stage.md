@@ -14,20 +14,14 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define First Coolant Engine Production Stage
+# First Coolant Engine Production Stage
 
-## Question
+The first coolant-dependent engine is intended for use roughly after access to its fuel and Callisto-derived coolant. A nearby asteroid is an alternative coolant feedstock source. The first Spaceship's IV production requirement is a separate decision.
 
-Should the first engine requiring Callisto-derived coolant have a LuV production requirement, or a different authored production stage?
+## Production Stage
 
-## Established Input
+The 2026-09-16 decision sets resource-access ordering, not a voltage tier. Recipe voltage, quantities and engine statistics remain open. [[Inner Planets Progression Gate Research]] records the original GTNH Tier 4 hull's LuV assembly and IV ice-composite and electronics recipes as a comparison, not an accepted Galaxia engine requirement.
 
-The accepted working baseline introduces Callisto-derived coolant for higher-thrust engines and a nearby asteroid as an alternative feedstock source. The first Spaceship's IV production requirement is a separate decision.
+## Gameplay Flow
 
-[[Inner Planets Progression Gate Research]] establishes that the original GTNH Tier 4 hull uses LuV-rated assembly alongside IV-rated ice-composite and electronics recipes. That is a comparison point, not a requirement to copy a hull recipe or assign the coolant engine to LuV.
-
-## Resolution
-
-On 2026-09-16 the owner placed use of the first coolant-dependent engine roughly after access to the relevant fuel and coolant. The accepted production-stage constraint is relative to that resource chain, not an explicitly selected voltage tier.
-
-LuV was the preceding recommendation, but this answer did not fix LuV as a requirement. Final recipe voltage, quantities and engine statistics remain content and balance choices constrained by the resource-access ordering. Do not turn the comparison with the original GTNH hull recipe into an accepted Galaxia engine-tier assignment.
+The first coolant-dependent engine becomes usable roughly after players gain access to its fuel and coolant supply. Its production voltage is not yet selected. The first Spaceship's IV production requirement remains a separate decision.

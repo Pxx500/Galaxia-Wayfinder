@@ -15,9 +15,9 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Automated Rocket Turnaround and Module Wear
+# Automated Rocket Turnaround and Module Wear
 
-## Accepted Decision
+## Rocket Wear and Servicing
 
 Rocket modules accumulate persistent, statistically variable but bounded wear. Routine repair is physical, supplied automation in the existing Gantry ecosystem, not repeated manual work or a Star Map maintenance controller. Schedules declare service visits and check durability to the next service. This is accepted design, not implemented module durability or repair machinery.
 
@@ -35,9 +35,9 @@ Rocket modules accumulate persistent, statistically variable but bounded wear. R
 
 Physical departure rises visibly from the Silo before switching to abstract transit. Arrival materializes above the Landing Pad and visibly descends before disassembly. A landing animation does not replace departure presentation.
 
-Physical machines service concrete Rocket modules using supplied maintenance materials. The landing and Gantry workflow sends modules needing repair to available Module Assemblers, while healthy modules may go directly to the Silo. Module transport preserves concrete worn state and confirms handoff. The flight schedule declares expected service and reads actual durability before departure.
+The landing and Gantry workflow sends worn modules to available Module Assemblers for repair with supplied materials, while healthy modules may go directly to the Silo. Transport preserves concrete worn state and confirms handoff. The flight schedule declares expected service and reads actual durability before departure.
 
-Maintenance deepens the existing Silo, Module Assembler and Gantry ecosystem. [[Decide Gantry Maintenance Machine Ownership]] selects the existing Module Assembler as repair owner. [[Research Current Gantry System]] preserves earlier code evidence, not the current branch's completion status.
+[[Decide Gantry Maintenance Machine Ownership]] selects the existing Module Assembler as repair owner. [[Research Current Gantry System]] is earlier code evidence, not the current branch's completion status.
 
 Repair proceeds toward full durability while materials are available. Full durability is not required to launch, but the next Maintenance Cycle must pass the configured safety policy. An endpoint without service infrastructure may still be a valid stop.
 
@@ -64,7 +64,7 @@ Open choices are material costs including zero-durability restoration, module co
 
 Read-only inspection on 2026-09-12 found definition, placement and radial data but no durability/wear serialization in `registry/rocketmodules/rocket/blueprint/RocketPartInstance.java:7`, under `src/main/java/com/gtnewhorizons/galaxia/`. The Gantry research is dated evidence, not a current code inventory.
 
-Owner discussions establish bounded wear, event-based simulation, physical automation, service declarations and a default safety policy. The 10% reserve's exact relationship to worst-case wear was not settled.
+The 10% reserve's exact relationship to worst-case wear remains unsettled.
 
 ## Related Decisions
 
@@ -73,3 +73,9 @@ Owner discussions establish bounded wear, event-based simulation, physical autom
 - [[Define Space Transport Dispatch Model]]
 - [[Define Team Notification System]]
 - [[Explore Automated Reusable Rocket Staging]]
+
+## Gameplay Flow
+
+The player schedules a service visit and checks expected module wear across the legs leading to it. A Rocket can stop at an endpoint without service, but the default safety policy blocks departure if the next declared service is unreachable or durability is insufficient. The player can disable the policy for a risky or one-way mission and still see the warning.
+
+At a serviced stop, the Rocket lands and its worn modules move through the Gantry to supplied Module Assemblers for repair. Healthy modules can return directly to the Silo. The next departure uses actual durability, so declaring service alone does not bypass the safety check.

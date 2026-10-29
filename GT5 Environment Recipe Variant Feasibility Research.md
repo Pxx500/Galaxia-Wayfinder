@@ -15,11 +15,11 @@ Imported: 2026-10-11
 
 > Current-use note, 2026-10-23: retained-work pause is no longer an accepted requirement. Define Alpha Research and Production Floor now requires native GT failure behavior. The owner also selected first-class Recipe Families in Design Lunar Crater Processing Recipe Chain, not independently registered colliding recipes. The dated findings below remain historical feasibility evidence, not the current contract.
 
-This is read-only feasibility research. It does not approve a new GT capability, material, recipe or lifecycle policy. No production source, dependency, build, test, commit or publication was changed.
+This feasibility research does not approve a new GT capability, material, recipe or lifecycle policy.
 
-The local GT checkout was clean at `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. Its graph was fully reindexed at the start of this investigation. Graph search, snippets and call traces identified the existing owners. GitHub's commits API returned current upstream `03f76356146f497c6c8f21d9225fe28de57136a1`, dated 2026-10-10 19:19:48 UTC. The decisive source excerpts below were fetched successfully with HTTP 200 at that immutable upstream SHA. The local index is discovery evidence, not a claim that its older checkout is current. [Inspected upstream commit][commit]
+Inspected GT revisions were local `2259bc64244f9f7fc58e039d8e89ca40dd17c929` and upstream `03f76356146f497c6c8f21d9225fe28de57136a1`. [Inspected upstream commit][commit]
 
-Context was read from Agent Briefing, Define Celestial Capability Rules and Recipe Environment Implementation Handoff. The accepted boundaries are neutral optional environment metadata, convenient typed authoring constants, Galaxia-owned evaluation and multiblock controller position for Alpha. Unknown or unresolved data while Galaxia is loaded does not satisfy a required tag. It is neither Atmosphere nor No Atmosphere. Absent-Galaxia ignoring of Galaxia-supplied requirements is a separate approved development convenience. The existing SGA No Atmosphere rule is unchanged.
+The accepted boundaries are neutral optional environment metadata, convenient typed authoring constants, Galaxia-owned evaluation and multiblock controller position for Alpha. Unknown or unresolved data while Galaxia is loaded does not satisfy a required tag. It is neither Atmosphere nor No Atmosphere. Absent-Galaxia ignoring of Galaxia-supplied requirements is a separate approved development convenience. The existing SGA No Atmosphere rule is unchanged.
 
 ### Main Finding
 
@@ -121,7 +121,7 @@ Current Galaxia-only content and mixins disappearing when the mod is absent is d
 
 This consolidated pass covered normal BasicMachine, ProcessingLogic, its pattern cache and single-recipe lock branches, SingleRecipeCheck persistence, ParallelHelper, the ordinary RecipeMap backend/query/lookup/builders, NEI and the existing EBF/Sc generator owners. It did not audit every specialized controller, backend, pack script, third-party machine or recipe map. A custom path that bypasses these owners is not certified covered.
 
-No MCP failure occurred in this variant investigation. One narrow graph filename filter returned no nodes, then a qualified-name query found the owner normally. That is a query coverage gap, not a tool outage. There was no runtime validation, build or game test because production code stayed read-only. The conclusions are supported source feasibility and concrete reachable constraints, not a claim that a variant implementation works.
+The findings describe source feasibility and reachable constraints, not a runtime-verified variant implementation.
 
 [[Sources]]
 
@@ -168,7 +168,7 @@ No MCP failure occurred in this variant investigation. One narrow graph filename
 
 The owner clarified that the desired model is one indexed common input signature, a matching recipe family and local environment selection among output profiles. It is not unrestricted top-level recipe multiplication and not output replacement at completion. This clarification makes explicit family ownership a legitimate requirement even where the existing index can already group ordinary variants efficiently. The earlier recommendation identifies the least-change runtime representation, not a reason to reject a first-class family contract.
 
-The graph was fully reindexed again. Local GT stayed clean at `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. The current upstream commits API now returned `2856a652b29ecf17dd5529880d589bea92a83b9f`, dated 2026-10-11 11:04:58 UTC. All new cited lookup, builder, cache, query, recipe-data and NEI excerpts were read successfully with HTTP 200 at that SHA. ProcessingLogic, SingleRecipeCheck, ParallelHelper and ProcessingDust were also byte-compared against the earlier inspected upstream and are unchanged. BasicMachine changed only in the inspected Waila energy-bar placement diff, outside its recipe selection, output, persistence and tick methods. Older citations above remain immutable evidence, not a claim that the old commit is still latest. [Follow-up commit][family-commit]
+The follow-up inspected upstream `2856a652b29ecf17dd5529880d589bea92a83b9f` and local GT `2259bc64244f9f7fc58e039d8e89ca40dd17c929`. ProcessingLogic, SingleRecipeCheck, ParallelHelper and ProcessingDust were unchanged from the earlier inspected upstream. BasicMachine changed only in the inspected Waila energy-bar placement diff, outside recipe selection, output, persistence and tick methods. [Follow-up commit][family-commit]
 
 ### What The Existing Index Already Does
 
@@ -248,7 +248,7 @@ Model 1 can put two complete static recipes on a shared normalized lookup path. 
 
 Recommendation under the clarified intent: do not reject model 2 merely because model 1 is cheaper to integrate. Prefer model 1 only if authoring-level family grouping plus existing shared buckets genuinely satisfies the desired contract. Prefer model 2 when one common-input owner with explicit output-profile identity is itself required. Keep either representation within GT's existing recipe/index owners. There is no source-backed claim that two ordinary variants cause a full-map search, and no benchmark evidence that explicit families are required for performance.
 
-This follow-up stayed read-only, with no tests, benchmarks, new framework or implementation sequence. No MCP failure occurred. The reported index parse gaps are outside these owning Java files. Only this source note was appended and it remains unreviewed.
+The follow-up is source evidence, not a runtime test or benchmark.
 
 [family-commit]: https://github.com/GTNewHorizons/GT5-Unofficial/commit/2856a652b29ecf17dd5529880d589bea92a83b9f
 [family-insertion]: https://github.com/GTNewHorizons/GT5-Unofficial/blob/2856a652b29ecf17dd5529880d589bea92a83b9f/src/main/java/gregtech/api/recipe/lookup/GTRecipeLookup.java#L43-L107

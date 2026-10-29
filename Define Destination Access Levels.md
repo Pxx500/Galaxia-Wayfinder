@@ -15,7 +15,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Destination Access Levels
+# Destination Access Levels
 
 ## Accepted Decision
 
@@ -103,3 +103,9 @@ The inspected planner did not calculate surface ascent, entry or landing from au
 - [[Define Flight Progression Balance Invariants]]
 - [[Define Alpha Transport Roles]]
 - [[Define Team Notification System]]
+
+## Gameplay Flow
+
+The player plans a concrete mission and sees whether its selected transitions are feasible, including separate surface checks when relevant. Environmental advisories compare hazards with the selected vehicle and equipped protection. A critical manual launch requires acknowledgement but may proceed.
+
+Arrival alone does not guarantee operation, export or return. A crewed one-way mission requires acknowledgement, while cargo-only missions show a warning. Local obstructions encountered during execution produce a blocked or waiting state and a team event.

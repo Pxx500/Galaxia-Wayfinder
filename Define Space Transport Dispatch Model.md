@@ -15,36 +15,36 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Space Transport Dispatch Model
+# Space Transport Dispatch Model
 
-## Accepted Decision
+## Vehicle Schedules
 
-Alpha Rockets and Spaceships execute player-authored, vehicle-owned linear schedules. Top-level Travel Blocks connect endpoint Visit Blocks, whose actions are local to that occurrence. Modes are `Run once` and `Loop`. This is the accepted minimal scheduler contract, not an implemented scheduler or central fleet queue.
+Rockets and Spaceships execute player-authored, vehicle-owned linear schedules. Travel Blocks connect endpoint Visit Blocks, whose actions apply to that visit. A schedule can `Run once` or `Loop`.
 
-The Factorio Space Age-inspired tile editor and its scheduler are the actual Rocket system, not optional infrastructure added after a separate opening-only executor. The first satellite deployment uses this same vehicle, resource and action ownership. [[Define Rocket Route Fuel Budgets]] extends places and generated routes, while prepared servicing visits retain the endpoint rules below. An orbital payload-deployment action does not require a fabricated receiver endpoint. The Factorio reference is inspiration, not approval of its entire condition catalogue or circuit-network integration.
+The tile editor and scheduler also serve the first satellite deployment. They are inspired by Factorio Space Age, without adopting its condition catalogue or circuit-network integration. [[Define Rocket Route Fuel Budgets]] extends places and generated routes. Orbital payload deployment needs no receiver endpoint.
 
 ## Schedule Ownership And Execution
 
-- Each persistent vehicle stores its schedule, mode, current block/nested action and execution state. The Star Map observes and edits it.
+- Each persistent vehicle stores its schedule, mode, current block and action, and execution state. Players view and edit it through the Star Map.
 - A visit targets one exact Transport Endpoint or symbolic Endpoint Group. The editor selects a celestial object first, then its team's targets. The body provides environmental/orbital context, not the final prepared transport address.
-- Visit actions include load, unload, refuel and expected maintenance. Repeated visits to one endpoint may have different actions. Different endpoint types may offer different servicing.
-- Schedules have no branches, `if/else`, `goto` or conditional next-action choice. A current action completes and advances or remains current waiting/retrying.
+- Visits can load, unload, refuel and expect maintenance. Repeated visits may have different actions, and endpoint types may offer different services.
+- Schedules have no branches, `if/else`, `goto` or conditional next-action choice. An action either completes and advances or waits and retries.
 - `Run once` stops after the sequence. `Loop` returns to the first block after the last.
-- Evaluate each flight against actual vehicle state, modules, propulsion, endpoint conditions and planned refueling. Costs cover only scheduled actions. An unscheduled return is not assumed.
+- Evaluate flights against actual vehicle state, modules, propulsion, endpoint conditions and planned refueling. Costs cover scheduled actions only, with no assumed return.
 - [[Define Rocket Route Fuel Budgets]] owns route-tile allowances, usable delta-v, fuel-efficiency/speed priorities and forecast guidance.
 - A busy destination pad does not block an otherwise feasible departure. The Rocket reaches the destination and waits before docking with maneuver fuel intact.
 - [[Define Rocket Missions Without Recovery]] owns deliberate terminal disposal and its planning warning. Waiting is not disposal.
 
 ## Cargo Actions And Priorities
 
-Vehicle-directed transfers specify cargo and exact amounts. Endpoint-owned cargo rules participate by default without the vehicle copying, requesting or knowing them. Both sides may configure multiple transfers and compatible actions can execute during one visit.
+Vehicle actions specify cargo and exact amounts. Endpoint cargo rules participate by default without the vehicle copying, requesting or knowing them. Each side may configure multiple transfers, and compatible actions can run in one visit.
 
 - Vehicle actions have policy priority. A dock cannot veto them by configuration, although capacity, supply and other physical limits still apply.
 - Each visit has `Block dock actions`, disabled by default. It is neither a global vehicle setting nor an endpoint-wide rule.
-- Allowing dock actions accepts the dock's completion policy. The vehicle has no separate override for whether those actions hold the visit open.
-- A dock chooses one policy for its whole cargo configuration: `Best effort` transfers what it currently can and completes, while `Wait until complete` holds the visit until its requirements are met. Individual instructions do not select separate policies.
+- Allowing dock actions accepts the dock's completion policy, without a vehicle override for whether they hold the visit open.
+- A dock chooses one policy for its whole cargo configuration. `Best effort` transfers what it can and completes. `Wait until complete` holds the visit until its requirements are met. Individual instructions cannot choose different policies.
 - Exact vehicle transfers remain blocking until their amount is moved. Best effort is dock-owned, not duplicated on both sides.
-- An impossible-to-progress waiting dock service maintains the visit and one active notification. Partial best-effort transfer is completion, not failure.
+- A dock service that cannot progress keeps the visit open with one active notification. A partial best-effort transfer completes rather than failing.
 - Conflicting dock actions yield to vehicle actions with a concrete warning rather than silently changing either configuration.
 - [[Define Bulk Fluid Cargo Contract]] applies the same visit/load/unload semantics to direct fluid freight. Propulsion refueling remains separate.
 
@@ -52,11 +52,11 @@ Vehicle-directed transfers specify cargo and exact amounts. Endpoint-owned cargo
 
 A failed action emits a typed event with one concrete localized reason, such as insufficient fuel. It remains current and retries at a bounded cadence until successful or edited. Maintain one active notification for the vehicle, action and reason, not one per retry. Success clears it and advances.
 
-Blocked, waiting, failed and completed work must be observable to the team through [[Define Team Notification System]]. Exact retry cadence is tuning. Existing Hammer dispatch does not define Rocket/Spaceship behavior automatically.
+The team can observe blocked, waiting, failed and completed work through [[Define Team Notification System]]. Retry cadence remains tuning. Hammer dispatch does not define Rocket or Spaceship behavior.
 
 ## Deferred Scope
 
-Autonomous supply/demand assignment may later create short vehicle-owned schedules for jobs such as moving a resource from A to B. It remains above the same executor, not a replacement ownership model. Alpha does not require that layer or final fleet interaction design.
+Autonomous supply and demand assignment may later create short vehicle-owned schedules using the same executor. Alpha does not require this layer or a final fleet interaction design.
 
 ## Implementation Evidence
 
@@ -68,3 +68,15 @@ Read-only inspection on 2026-09-12 found dimension destination/construction stat
 - [[Define Player Flight Interaction Model]]
 - [[Define Player Presence and Automation Tradeoffs]]
 - [[Define Automated Rocket Turnaround and Module Wear]]
+
+## Destination Selection
+
+Selecting a celestial destination in a schedule opens the actual Star Map rather than a separate planet list. Use the shared destination-selection behavior.
+
+Source: Rocket implementation feedback, 2026-10-18.
+
+## Gameplay Flow
+
+A player gives a Rocket or Spaceship a schedule of visits and travel, chooses whether it runs once or loops, and sets the actions for each visit. The vehicle carries out those actions using its own instructions and any allowed dock rules.
+
+When an action cannot progress, it waits and retries while a notification identifies the problem. A Rocket headed to a busy pad still travels there and waits for docking capacity.

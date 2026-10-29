@@ -32,3 +32,7 @@ The android delivery's scoped denial of ordinary Ender Chest access does not com
 ## Verification Boundary
 
 Demonstrate blocked cross-destination item, fluid and wireless-EU transfers through the supported paths, allowed local networks, and normal Rocket cargo supply and receipt. Record the actual dependency or modpack versions tested. No enforcement is certified by this planning note.
+
+## Gameplay Flow
+
+Players and androids use Galaxia logistics to move items and fluids between celestial destinations, while local storage, crafting and automation remain available. Wireless EU transfer between planets is prohibited, but local power distribution remains available.

@@ -13,16 +13,16 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Destination Role Taxonomy
+# Destination Role Taxonomy
 
-## Question
-
-Which reusable destination roles does Galaxia Alpha need, and what minimum complete gameplay contract distinguishes each role without forcing every destination to require the same player presence, infrastructure, extraction, or automation loop?
-
-## Resolution
+## Destination Contracts
 
 Galaxia does not define a reusable taxonomy that classifies destinations as research, extraction, infrastructure, or similar destination roles.
 
 Each destination is documented through its concrete gameplay, properties, available actions, infrastructure, routes, and progression contribution. Informal descriptive words may still appear in prose, but they do not form a fixed documentation taxonomy or a runtime model.
 
 Code must not store or branch on a destination role, enum, tag, or equivalent classification.
+
+## Gameplay Flow
+
+Players interact with each destination through its own available actions, infrastructure and routes. Its progression contribution comes from those concrete properties rather than a fixed destination role.

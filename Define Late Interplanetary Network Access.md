@@ -13,7 +13,7 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Late Interplanetary Network Access
+# Late Interplanetary Network Access
 
 ## Question
 
@@ -41,6 +41,12 @@ This is bounded code evidence, not runtime verification or approval of the curre
 
 Keep data communication available early while developing and testing physical logistics. Before Alpha completion, select the remote-transfer capability, its progression prerequisites and its transport contract. A fixed bandwidth charge alone cannot limit an unrestricted material network. No final hardware or resource-throughput model is selected.
 
+## Energy Beaming
+
+Candidate for interplanetary power transfer: a scalable multiblock that beams energy to another planet, with transmission losses. Larger installations support greater transfer capacity.
+
+Hardware, receiving equipment, progression tier, range, loss model and operating costs remain open. Develop these details later within the late energy-transfer design. This proposal does not unlock early energy transfer through Communication Satellites.
+
 ## Decisions Needed
 
 - What in-game access and operating model permits the selected late remote transfer without making earlier physical logistics irrelevant prematurely?
@@ -48,3 +54,9 @@ Keep data communication available early while developing and testing physical lo
 - If an exception is selected, what actual hardware and operating costs provide its progression and what quantity does its capacity limit?
 
 Do not infer that allowing data traffic permits arbitrary items, fluids, EU or every AE2 network function.
+
+## Gameplay Flow
+
+Early Communication Satellites let players use data communication and remote control without replacing physical freight. Until a late-transfer contract is selected, players move resources and energy through the accepted physical logistics systems.
+
+Later remote transfer is planned within Alpha, but its access and operating rules remain open. Energy beaming with losses is a candidate, not an established capability.

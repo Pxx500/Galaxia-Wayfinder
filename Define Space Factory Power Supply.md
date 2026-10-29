@@ -15,115 +15,73 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Space Factory Power Supply
+# Space Factory Power
 
-## Question
+Space factories need local generation or physically transported energy and inputs, with solar output determined by their celestial environment.
 
-What practical power options support early orbital and lunar production, and may wireless energy transfer replace transporting or generating power at the destination?
+## Power Sources
 
-## Established Inputs
+Wireless EU transfer between planets is prohibited under [[Require Explicit Interplanetary Logistics]]. Transported ordinary GT batteries and a suitable Battery Buffer are the provisional first-workshop bootstrap. Actual demand and transport capacity remain to be verified.
 
-- [[Define Celestial Capability Rules]] owns the combustion prohibition and solar-resource model. Oxygenated Station rooms do not provide a combustion exception.
-- [[Design Early Orbital Production Recipe Chain]] records transported ordinary GT batteries and a suitable Battery Buffer as the provisional bootstrap. Actual energy demand and transport capacity still need verification.
-- Space Grade Solar Panel remains a recipe-component item. The selected physical generator is a separate panel-block array with a Solar Energy Dynamo adapter. Existing GT wiring and energy consumers remain the baseline.
-- Sustained non-combustion supply remains open. Resolving it is independent of redesigning Rocket missions or android bodies.
+Solar, nuclear reactors and radioisotope thermoelectric generators are selected families for investigation, not blanket approval of every existing machine, recipe or performance value. Combustion remains prohibited under [[Define Celestial Capability Rules]], including in oxygenated Station rooms. Assess the complete supply route and infrastructure, not just the generator.
 
-## Accepted Direction
+Proposed roles are solar for suitable illumination and panel-production investment, nuclear for dense sustained demand, and RTGs for modest remote loads with infrequent supply. These roles and concrete GT machinery remain open. Late interplanetary energy export belongs to [[Define Late Interplanetary Network Access]].
 
-- Solar output varies with the actual celestial environment. Farther orbits receive less solar energy than nearer ones under the shared illumination model. A productive near-star installation is a valid potential strategy. Cheap early cross-dimension energy export must not remove its logistics and progression costs. Late export possibilities belong to [[Define Late Interplanetary Network Access]].
-- Wireless EU transfer between planets is prohibited under the explicit-logistics policy. Generate energy locally or transport suitable energy stores or generator inputs physically.
-- Solar, nuclear reactors and radioisotope thermoelectric generators are the selected families to investigate for space power. This does not approve every existing machine, recipe or performance value in those families.
-- Ground manufacture provides the same solar hardware at a deliberately very high material cost, sufficient to bootstrap orbital solar production but uneconomical for large expansion. Microgravity-derived SiGe and fluoride materials make later manufacture substantially cheaper. Ordinary silicon with very poor yield is the candidate ground route. The illustrative 90% silicon loss is not an accepted recipe quantity.
-- Manufacturing advantage and generation advantage are separate. Even efficiently manufactured orbital panels should retain substantial upfront cost compared with non-passive generation. This is a balance direction, not an approved cost ratio.
-- Do not interpret the space restrictions as a blanket ban on nuclear reactors or every generator. Evaluate the actual generating process and required supporting infrastructure. Existing combustion restrictions remain in force.
+## Solar Manufacture And Yield
 
-## Remaining Decisions
+The Space Grade Solar Panel is a recipe component. Placeable panel blocks and their Solar Energy Dynamo adapter are separate equipment. Ground manufacture produces the same hardware at deliberately high material cost, enough to bootstrap orbital manufacture but uneconomical for large expansion. Microgravity-derived SiGe and fluoride materials make later manufacture substantially cheaper. Poor-yield ordinary silicon is a candidate ground route, not an approved recipe. There are no separate panel grades based on manufacturing location.
 
-### Orbital Solar Walls And Radiators
+Manufacturing and generation are separate advantages. Orbital panels should still have substantial upfront cost relative to non-passive generation, but no cost ratio is selected. Solar output varies with distance, atmospheric effects and illumination under [[Define Celestial Capability Rules]]. Overworld daylight is the 100% reference and night is 0%. Orbit should have a substantial instantaneous advantage and continuous illumination. The 200% and 300% examples are candidates, not selected multipliers. Exact scaling and electrical conversion remain open.
 
-The owner supports directional solar arrays that can form vertical walls in an orbital dimension, together with exposed radiators serving a modular Computer. The intended loop uses locally generated solar EU and regenerated chilled coolant to process satellite data from other celestial bodies. Computer placement is not restricted to orbit.
+## Solar Arrays
 
-The Space Grade Solar Panel remains a recipe-component item used to manufacture placeable panel blocks. The array and its adapter are separate equipment, not a conversion of that item into an existing GT solar cover. Recipes and electrical ratings remain open.
+An array consists of a bounded panel plane and one rear adapter. The initial collector supports a 5 by 5 plane. Higher 9 by 9 and 11 by 11 areas are proposed, with tier assignments and recipes open. Larger installations can use multiple arrays, each with its own adapter and cable connection.
 
-The orbital convention in [[Define Celestial Capability Rules]] is accepted: the parent planet appears below the player, the Sun stays to the side in a fixed horizontal direction, and there are no periodic planetary eclipses. Microgravity remains unchanged. The visible sky, solar collection and radiator exposure must use the same direction. This supports vertical solar walls without tracking equipment. Exact cardinal direction and local shading checks remain open.
+The adapter faces the collection direction and the immediately adjacent panel is the central entry point. Incomplete arrays work. Only panels connected to that entry through a continuous path inside the bounded plane contribute. An isolated corner does not contribute, while a corner connected through other panels does. A path outside the boundary cannot connect panels inside it. Face-adjacent connections are proposed, not finalized. Overlapping collectors must not count a panel twice, but the ownership rule is open.
 
-Solar collecting faces work best facing the Sun. Radiator placement should minimize direct solar exposure. The owner described a perpendicular arrangement and explicitly rejected interpreting this as merely turning the radiator's front away from the Sun. Exact face-orientation and placement checks remain open.
+Panels and adapter align from the environment rather than the player's view. In orbit they face the fixed horizontal Sun, forming a vertical wall. On a planetary surface they face upward, with the adapter below the central panel. Surface panels do not require continuous tracking.
 
-The selected coolant loop is closed. [[Define Data Processor Machine Topology]] owns the radiator multiblock and its environment-temperature-dependent throughput. Space is a 100% reference, not a ceiling, and sufficiently cold atmospheric locations may perform better. A powered chiller restores the same coolant under conditions unsuitable for passive operation. Any circulation EU cost, numerical capacity, placement checks, shadow handling and thermal thresholds remain open.
+Panels are passive blocks, not independently ticking generators, storage or network endpoints. The collector generates and exports power for its connected panels. Cache the connected set and refresh it on relevant structure changes and initialization rather than rediscovering it every generation tick. Existing GT structure-update mechanisms are preferred where suitable, but their coverage for new passive blocks needs verification. Rendering and exposure checks must not reintroduce per-panel per-tick work.
 
-An orbit near the Sun can provide strong solar power without granting unlimited cooling. Radiators still need suitable placement and exposure. Do not implement a blanket planetary radiator ban. A location that really satisfies the same thermal requirements should remain eligible.
+Coverage extends symmetrically from the central panel along both axes of the plane. A 5 by 5 array extends two blocks in each direction. The shadow-check volume uses this footprint and extends forward from the panel plane, not from the adapter.
 
-NASA's thermal-control overview describes external spacecraft heat rejection through radiation and the importance of absorbed solar heat, surface properties and view to the heat sink. It motivates the design, not the selected coolant temperature or a universal space-cooling multiplier: [Thermal Control](https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/).
+## Electrical Output
 
-Orbital illumination evidence checked on 2026-10-22: [ESA's orbit overview](https://www.esa.int/Enabling_Support/Space_Transportation/Types_of_orbits) distinguishes geostationary and Sun-synchronous orbits, including dawn-dusk configurations. Polar or Sun-synchronous placement alone does not establish perpetual sunlight. [NOAA's GOES eclipse information](https://www.ospo.noaa.gov/operations/goes/eclipse.html) records seasonal Earth-shadow intervals of up to 72 minutes per day for geostationary satellites. These facts informed the accepted simplified convention rather than mandate a real-orbit simulation.
+The adapter offers current generation to the ordinary GT energy network. Unused output is not stored for later ticks or accumulated into a burst. At most one tick of current generation may be held for transfer, and total export across connections in a tick cannot exceed that generation. Accepted output depends on demand.
 
-### Proposed Power Roles, Awaiting Approval
+Native GT voltage, amperage, cable losses and overload behavior apply. Low accepted EU/t does not guarantee safety from excessive voltage. Collector tiers select panel area, not an approved artificial output-clipping scheme. Electrical tier mapping, packet representation, fractional output and adapter ratings remain open.
 
-The expensive ground-manufacturing route and efficient microgravity-fed route are accepted above. They do not introduce separate weak and strong panel grades based on manufacturing location.
+GT5 source inspection at revision `6eac02935d42b3ab13d341e4fe090b4403e15f60` found demand-aware energy emission and structure checks driven by updates and initialization. It did not establish that arbitrary new panel blocks notify the collector.
 
-Transported batteries bootstrap the first workshop. Solar rewards suitable illumination and investment in panel production. Nuclear is the candidate for dense sustained factory demand. RTGs are candidates for modest remote loads where avoiding frequent supply is valuable. These roles require checking existing GT machinery, feedstock access and full supply costs. They do not certify generator availability or select EU/t.
+## Sunlight And Cooling
 
-Approve or revise these roles together, then compare complete equipment and recipe packages against actual factory loads.
+In orbit the parent planet appears below, the Sun remains in a fixed horizontal direction and periodic planetary eclipses do not occur. The sky, solar collection and radiator exposure use the same direction. Exact cardinal direction and local shading checks remain open. Panels work best facing the Sun. Radiators should minimize direct solar exposure, with a perpendicular arrangement intended. Exact face and placement checks remain open.
 
-- Select concrete solar recipes and complete bootstrap supply routes without requiring orbital products for the ground-manufactured starter equipment.
-- Define the role and availability of solar, nuclear and RTG options after inspecting existing GT machinery.
+The Computer's coolant loop is closed. Its radiator rejects heat according to environmental temperature, with space as a reference rather than a maximum. A powered chiller restores coolant when passive cooling is unsuitable. A near-Sun orbit can offer strong solar power without unlimited cooling. There is no blanket planetary radiator ban. [[Define Data Processor Machine Topology]] owns the cooling equipment and thermal choices.
 
-### Accepted Solar Array And Adapter
+The simplified orbital convention is a gameplay decision, not a claim that real orbits always stay sunlit. [ESA's orbit overview](https://www.esa.int/Enabling_Support/Space_Transportation/Types_of_orbits), [NOAA's GOES eclipse information](https://www.ospo.noaa.gov/operations/goes/eclipse.html) and [NASA's thermal-control overview](https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/) informed the direction.
 
-One array occupies a bounded panel plane plus one rear adapter, provisionally named Solar Energy Dynamo. Tiered collectors increase the supported area. The initial collector covers 5 by 5 panels. Proposed higher areas are 9 by 9 and 11 by 11, not finalized tier assignments or recipes. The adapter faces the collection direction. Its immediately adjacent block in that direction is the central panel, and its coverage extends symmetrically along the plane according to its tier. Multiple arrays may form a larger installation, with a separate adapter and cable connection behind each section.
+The perpendicular radiator arrangement does not mean merely turning its front away from the Sun.
 
-Incomplete arrays work. Only panels connected to the adapter through a continuous panel path within its tier-bounded plane contribute. A panel isolated in a corner contributes nothing. A connected corner can contribute through intervening panels and does not need direct adjacency to the adapter itself. The central panel is the entry point. A path outside the bounded area does not connect an otherwise isolated panel inside it. Face-adjacent panel connections are the proposed concrete interpretation, rather than diagonal-only contact.
+## Shadow Updates
 
-Panel blocks and the adapter automatically align on placement from the environment, not the player's look direction. In an orbital dimension they face the fixed horizontal Sun, forming a vertical panel plane. On a planetary surface they face upward, with the adapter below the central panel and a horizontal panel plane above it. The surface upward convention does not require continuous Sun tracking.
+The accepted direction is coarse-to-fine, change-driven shadow updates with batching and a shared processing budget. Use a finite forward obstruction distance. The discussed 16 and 32 blocks are alternatives to measure, not selected constants. Generated orbital objects cannot be assumed permanently absent.
 
-The adapter collects and exports the array's energy. It is not a large central power-controller structure and is unrelated to the Computer's controller. Panel ownership where coverage overlaps, recipes and electrical ratings remain open.
+A dimension-qualified, chunk-keyed collector registry finds local candidates. Block changes mark a chunk dirty and expand a bounding box, coalescing repeated changes. Candidate collectors are checked against a bounded sunlight volume in front of their panel plane. An intersection schedules a visibility check, not proof of an obstruction. Deduplicate queued collectors and budget candidate discovery and visibility checks across ticks. Work must be resumable, and changes arriving during processing must not be lost or mistaken for a validated result. Unchanged arrays do not need periodic geometry rescans.
 
-Panel blocks are passive ordinary blocks, not independent ticking machines or energy-network endpoints. They do not generate or store EU themselves and should not require per-panel tile entities. The collector is the ticking generator and electrical endpoint for its connected panels. Placement and removal notifications do not imply panel ticking. Larger collector coverage reduces the number of active generators and cable connections needed for the same panel area, rather than increasing each panel's intrinsic efficiency.
+The proposed delayed-validation behavior retains a running collector's last validated exposure and makes a new collector wait for its first result. It is not yet confirmed. Mutation and opacity hooks, bulk edits, startup, chunk load and unload, unloaded check volumes, the opacity rule and latency remain open. Do not force-load an unlimited ray or assume unloaded space is clear. An overhead Sun is a last-resort reconsideration if the fixed direction proves impractical, not the selected design.
 
-Prefer existing GT structure-check and update mechanisms where suitable. Cache the connected panel set and refresh it on relevant structural changes and initialization, not by repeatedly scanning the world every generation tick. Connectivity checks cover at most the collector's bounded area, such as 25, 81 or 121 positions for the discussed sizes. Reading cached panel capacity to calculate current environmental output is separate from rediscovering the structure. Verify update coverage for passive panel blocks before claiming that GT integration handles all changes. Keep rendering and exposure checks from reintroducing per-panel per-tick work. These are design constraints, not measured performance gains.
+Checked vanilla vertical skylight uses a column height map and cannot by itself establish horizontal visibility. The checked block-update path is conditional, so complete mutation coverage is not established. No performance gain or latency has been measured.
 
-Overlapping collectors must not generate multiple copies of the same panel's output. The exact ownership or placement rule remains open and must preserve the passive-block design. No rewrite of existing GT solar generators is authorized by this new array design.
+## Open Decisions
 
-The adapter provides no accumulated energy storage. At most one tick of current generation may be held for transfer, and unused output must not accumulate into a later burst. Without a connected accepting electrical network, potential output is not banked. Demand below available output leaves the remainder unused. Across all output connections combined, export in one tick must not exceed that tick's available generation. A 1000 EU/t array delivering no more than 1000 EU/t is illustrative, not selected output tuning.
+- Select solar recipes, electrical ratings and a complete starter supply route that does not require orbital products.
+- Evaluate solar, nuclear and RTG equipment against actual loads and complete supply costs.
+- Resolve panel overlap, connection interpretation, shading distance, update coverage and unloaded-state behavior.
+- Calibrate environmental yield and radiator exposure and thermal thresholds.
 
-Any implementation buffer must preserve this behavior rather than stack previously unused generation on top of the next tick's output. Voltage, amperage, fractional output and the relationship between environmental yield and adapter rating still need an explicit GT-compatible contract.
+## Gameplay Flow
 
-The adapter offers current generation to the ordinary energy network and accounts for the portion actually accepted. If generation is 1000 EU/t and demand is 2000 EU/t, only the available 1000 EU/t can be supplied. If generation is 2000 EU/t and demand is 1000 EU/t, only the accepted energy is transferred and the remainder is not stored. These are idealized source-side examples before cable losses and packet granularity, not a replacement electrical protocol. The earlier recommendation of tiered adapters with intentional excess-generation clipping was not approved by this clarification.
+Players can carry batteries to bootstrap a first workshop, then build a more sustained local supply. Ground-made solar hardware can start orbital production, although its high material cost makes large expansion expensive. Production using microgravity-derived materials makes further panels cheaper, while the same hardware still responds to the local environment.
 
-The owner explicitly selected native GT electrical behavior as the integration contract. The descriptions above express player-visible intent, not a required push/pull implementation or arbitrary exact-size energy packets. Use GT's voltage, amperage, demand acceptance, cable losses and overload rules. Do not introduce a parallel electricity model or bypass cable limits to reproduce the illustrative EU/t examples literally. Choose packet representation through implementation research while preserving current-generation availability, demand-limited accepted output and no accumulated burst storage. Any substantive compromise to those gameplay requirements needs a new decision. Collector tiers are selected for supported panel area, not as approval of the earlier artificial output-clipping proposal. Electrical tier mapping remains open.
-
-#### Checked GT Integration Evidence
-
-At GT5 revision 6eac02935d42b3ab13d341e4fe090b4403e15f60, MTEMultiBlockBase.checkStructure uses a structure-change flag or a forced check. onMachineBlockUpdate schedules a delayed check through onPostTick, with an initialization check as well. This supports reusing the update lifecycle rather than adding continuous geometry polling, but does not prove that arbitrary new panel blocks already notify the collector.
-
-IEnergyConnected.Util.emitEnergyToNetwork offers voltage and amperage through injectEnergyUnits and returns accepted amperage. MTECable.transferElectricity uses consumer demand, and PowerNodes.processNodeInject records the amperage actually accepted. The checked path is emission-driven with demand-aware acceptance, not a pure consumer-pull protocol.
-
-PowerNodePath.applyVoltage can burn an overvolted cable before amperage acceptance. PowerNodePath.addAmps tracks actual transferred amperage and an overload accumulator. Therefore low accepted EU/t is not a guarantee of cable safety under excessive voltage. Preserve native electrical behavior rather than treating EU/t alone as voltage and current. Exact solar packet sizing remains open.
-
-### Accepted Directional Shadow Update Design
-
-Preserve the accepted fixed horizontal orbital Sun if a practical shadow implementation is feasible. The owner permits reconsidering an overhead Sun only as a last resort after investigating performance, not as a selected change. Fixed orbital illumination removes time-of-day changes from solar yield, but does not make vanilla vertical skylight represent horizontal visibility.
-
-On 2026-10-23, the owner selected coarse-to-fine, change-driven shadow updates with batching and a shared processing budget. The direction uses a finite forward obstruction-check distance. The discussed 16 and 32 blocks remain alternatives to measure, not a selected constant. Orbital dimensions may eventually contain generated rocks or asteroids, so ungenerated orbital space must not be assumed permanently empty. This replaces the global horizontal obstruction-index proposal as the primary design.
-
-Maintain a chunk-keyed collector registry for local candidate discovery. A relevant block change records the chunk as dirty and expands a bounding box of changed coordinates within that chunk. Repeated changes update one pending entry rather than immediately scanning panels. Store minimum and maximum X, Y and Z, not every changed block. A conservative box may include unchanged space and trigger extra checks, but must not omit actual changed positions. Use dimension-qualified coordinates and remove stale collector registrations through lifecycle handling.
-
-Process dirty chunks by finding candidate collectors and intersecting each changed bounding box with the collector's bounded sunlight-check volume. The volume starts in front of the panel plane, not at the rear adapter, extends by the selected shadow distance, and spans the collector's two in-plane half-widths. For a 5 by 5 array, those half-widths are two blocks. All three coordinate intervals must overlap. Reject on the first disjoint interval before reading world blocks. Testing depth first is a reasonable implementation choice, not a requirement or the main performance gain. A positive intersection only schedules a visibility check, it does not prove that an opaque blocker or an installed panel is present.
-
-Deduplicate collectors in the work queue. Budget both candidate enumeration and actual visibility checks across ticks, using a shared system-wide work limit rather than an independent budget per collector. Checks must be resumable so a large bulk edit does not force all affected arrays to scan in one tick. Empty queues do no geometry work. Do not replace this with synchronized periodic rescans of all unchanged arrays. Generation reads cached exposure and current environmental yield separately from geometry discovery.
-
-Changes arriving while queued work is running must remain represented, rather than being lost when a dirty entry is cleared. A completed check must not be treated as current if relevant newer changes were not considered. Provisional behavior during delayed validation remains to be confirmed: retain a running collector's last validated exposure, while a new collector waits for its first result. No precise latency guarantee or benchmark has been established.
-
-Remaining implementation evidence includes a reliable mutation/opacity-change hook that covers bulk tools such as Matter Manipulator, chunk load/unload and startup initialization. World-access block-update notifications alone are not established as complete: the checked World.markAndNotifyBlock path is conditional on flags and chunk state. Unloaded portions of the bounded check volume must not silently become clear space. Do not force-load an unlimited ray or build a global shadow map for this local rule. Select the unloaded-state policy and opaque-block rule during feasibility review. An overhead Sun remains a last-resort redesign, not approved behavior.
-
-Checked source evidence: GT5 MTESolarGenerator refreshes weather, daylight and vertical sky exposure every 100 ticks and on its first tick. World.canBlockSeeTheSky delegates to Chunk.canBlockSeeTheSky, a comparison with the stored column height map. World.setLightValue dispatches IWorldAccess.markBlockForRenderUpdate, whose vanilla WorldManager implementation is empty. This is a generic lighting/render notification, not a horizontal solar-occlusion event. A lateral obstruction can leave vanilla skylight unchanged. CoverSolarPanel has different behavior and does not require sky visibility in its clear-weather daytime branch, so it is not a general roof-occlusion reference.
-
-### Solar Yield Calibration
-
-[[Define Celestial Capability Rules]] owns the common daylight-Overworld reference. Surface Overworld daylight is 100% and night is 0%. Calculate other environments from source distance, atmospheric effects and illumination rather than hardcoding a percentage for each dimension. Overworld orbit should have a substantial instantaneous advantage as well as continuous illumination. The owner's 200% or 300% examples are calibration candidates, not selected multipliers. A constant orbital multiplier alone is not the intended environmental model.
-
-The yield calculation is distinct from manufacturing cost. Higher output on a suitable orbit does not imply that panel manufacture itself requires that exact orbit. Exact attenuation, distance scaling, shading and electrical conversion remain tuning and implementation work.
-
-## Evidence Needed After The Direction Is Selected
-
-Compare existing GT non-combustion options against the intended introduction stage, available inputs and actual production demand. Assess the complete supply route, including any upstream combustion, instead of assuming a turbine alone supplies a viable factory. Derive implementation details when execution begins.
+In orbit, players assemble panel walls facing the fixed Sun and connect each section through an adapter to ordinary GT wiring. Connected panels contribute even when the array is incomplete. The adapter supplies only current generation, so unused power does not accumulate for a later burst. A nearby Computer can use that power while its radiator rejects heat away from the Sun, or use a powered chiller where passive cooling is unsuitable.

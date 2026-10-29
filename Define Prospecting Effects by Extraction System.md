@@ -15,13 +15,13 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Prospecting Effects by Extraction System
+# Prospecting Effects by Extraction System
 
-## Question
+## Deferred Extraction Effects
 
 Which Galaxia and integrated GT5 extraction systems receive prospecting benefits, and how should speed, output, or other effects differ between physical crater drills, Frackers, Automated Facility miners, GT5 machines, and future extraction systems?
 
-## Established Input
+## Working Baseline
 
 - Prospecting is intended to affect every Galaxia extraction system and to expose an integration path for relevant GT5 extraction machines.
 - The working generic baseline is `+10%` speed and `+5%` expected ore output per sustained satellite-equivalent processed-data stream.
@@ -47,3 +47,7 @@ This proposal does not reopen modular satellites or authorize all-mod machine su
 - Audit Galaxia Concept Map
 - Define Prospecting Data Processing
 - Review Crater Nodes Proposal
+
+## Gameplay Flow
+
+Ordinary extraction does not require a scan or prospecting data. The proposed bounded consumer package would let sustained, exact-origin processed data improve crater extraction speed and Automated Facility miner speed and mineral output. Its scope, coefficients and integration await approval and verification.

@@ -13,7 +13,7 @@ Imported: 2026-10-18
 
 ## Source Snapshot
 
-The owner requested research only before implementation. The investigation compared ways to operate a team-owned android while leaving the biological body and its belongings in a powered capsule. No code, configuration or recipes were changed. No prototype, build, game QA, commit, push or pull request was produced.
+This investigation compares ways to operate a team-owned android while leaving the biological body and its belongings in a powered capsule.
 
 The research found a technically credible approach. Keep the connected real `EntityPlayerMP` as the execution actor for the currently controlled body, while explicitly separating operator identity from body state. This is an architecture recommendation awaiting review, not an implemented feature or blanket GTNH compatibility claim.
 

@@ -16,29 +16,25 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Minimum Galacticraft-Equivalent Destination Contract
+# Minimum Galacticraft-Equivalent Destination Contract
 
-## Question
-
-What is the minimum playable contract for a retained Alpha destination that receives a Galacticraft-equivalent backfill instead of a unique Galaxia-specific gameplay loop?
-
-## Resolution
-
-A Galacticraft-Equivalent Destination is complete enough for Alpha when it provides a functional round-trip extraction destination connected to the intended progression.
+A Galacticraft-Equivalent Destination meets the Alpha minimum when a player can make a functional round trip, extract its required resources and continue the intended progression.
 
 This contract describes a physically visited Galacticraft-equivalent destination. It must not be generalized into a requirement that every Star Map Object own a dimension; regional and non-dimensional objects require role-specific Gameplay Representations.
 
-### Required Capabilities
+## Required Capabilities
 
-- **Travel in:** the player can reach and enter the destination using the capabilities available on its intended Ore Tier route.
-- **Playable dimension:** the destination has a functioning player dimension with the basic terrain, world generation, and environmental rules needed for normal play.
-- **Intended operation:** the player can survive and perform the destination's basic activity using equipment available at the intended progression stage.
-- **Required resource access:** the destination exposes the ores and any other required feedstocks it contributes to its Tier Destination Portfolio. Ore placement alone cannot close a route that also needs biological materials, fluids or other local products.
-- **Complete extraction activity:** the player can locate, acquire, and carry or export the required material through a real gameplay interaction rather than receiving it from a placeholder or debug path.
-- **Travel out:** the player can leave the destination and return the extracted result to the place where its progression processing continues.
-- **Progression continuation:** the extracted and processed result participates in a Valid Tier Route and advances a Closed Tier Cycle without creating a dead end.
+| Stage | Contract |
+| --- | --- |
+| Travel in | Reach and enter using capabilities available on the intended Ore Tier route |
+| Play | Provide a functioning player dimension with basic terrain, world generation and environmental rules. Tier-appropriate equipment must support survival and the basic activity |
+| Extract | Expose the ores and other feedstocks contributed to the portfolio. Players locate and acquire them through real gameplay, not a placeholder or debug path |
+| Travel out | Let players carry or export the result to where progression processing continues |
+| Continue | Use the processed result in a Valid Tier Route and Closed Tier Cycle without a dead end |
 
-### Not Required by This Contract
+Ore placement alone cannot close a route that also requires biological materials, fluids or other local products. A Star Map scaffold or a dimension that merely loads is not enough.
+
+## Not Required By The Minimum
 
 - A unique research mechanic.
 - A destination-specific production chain beyond what its required progression material needs.
@@ -48,14 +44,9 @@ This contract describes a physically visited Galacticraft-equivalent destination
 
 Persistent Tier Infrastructure remains an Ore Tier-level requirement. This minimum contract does not require every Galacticraft-Equivalent Destination to host its own permanent base or unique infrastructure when the tier satisfies that requirement elsewhere.
 
-## Consequences
+Basic Galacticraft-style extraction is an accepted Alpha path when stronger destination design is unavailable. This is a floor, not a target depth, and backfilled destinations can be redesigned later.
 
-- A Star Map-only scaffold entry never satisfies this contract.
-- A destination is not complete merely because its dimension loads; the extraction result must connect to subsequent progression.
-- Basic Galacticraft-style extraction is an accepted Alpha completion path when stronger destination design is unavailable.
-- The contract defines a floor, not a target depth, and backfilled destinations remain eligible for later Galaxia-specific redesign.
-
-## Remaining Fog
+## Open Decisions
 
 - The shared technical and content template used to implement this contract efficiently across multiple destinations.
 - Which environmental facts, terrain assets, world-generation features, and ore parameters vary per backfilled destination.
@@ -72,3 +63,7 @@ Persistent Tier Infrastructure remains an Ore Tier-level requirement. This minim
 - Galaxia Alpha Charting Notes
 - CONTEXT
 - Galaxia Alpha Wayfinder
+
+## Gameplay Flow
+
+The player reaches the destination with tier-appropriate capabilities, survives its conditions and locates and extracts its required resources. They carry or export the result back to where processing continues, then use it to advance a Valid Tier Route.

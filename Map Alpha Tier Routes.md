@@ -18,13 +18,11 @@ tags:
 
 # Map Alpha Tier Routes
 
-## Question
-
-For each Ore Tier from 1 through 10, which retained destinations, prerequisite capabilities, activities, and rewards form at least one Valid Tier Route while preserving meaningful alternatives and every verified GTNH progression gate?
+Each Ore Tier from 1 through 10 needs at least one Valid Tier Route through retained destinations, capabilities, activities and rewards, preserving meaningful alternatives and verified GTNH progression gates. This map remains open and blocked on [[Verify GTNH Ore Tier Gates]].
 
 ## Early Route Working Outline
 
-This is a partial route outline, not verified complete Alpha progression. [[Verify GTNH Ore Tier Gates]] owns version-specific evidence for original GTNH progression.
+This outline is partial, not verified complete Alpha progression. The GTNH evidence describes the original game, not automatically Galaxia policy.
 
 | Step | GTNH 2.8.0 evidence | Accepted Galaxia direction | Still needed |
 | --- | --- | --- | --- |
@@ -37,15 +35,7 @@ The first Physical Station's construction flow and candidate production/refuelin
 
 Several blueprints may use materials from the same planet, and one blueprint may unlock several related recipes. These content groupings must be chosen from actual technologies rather than mechanically matching one blueprint to one planet or one item.
 
-## Settled Inputs
-
-- [[Define Alpha Transport Technology Baseline]] owns the accepted introduction stages, Hammer tier behavior, desh parts, Callisto coolant direction, nearby asteroid alternative, and later europium requirement.
-- [[Define Alpha Technology Knowledge Contract]] owns blueprint acquisition and production checks.
-- Verify GTNH Ore Tier Gates owns dated evidence about original GTNH. Original Rocket tiers and recipes are not automatically Galaxia policy.
-
-## Remaining Route Decisions
-
-### Proposed Review Packages
+## Open Route Work
 
 Review complete route groups rather than individual ores: early expansion through Luna and Mars, industrial solar-system expansion through asteroids and inner planets, outer-system progression, and extrasolar completion. These are planning batches, not runtime destination roles or prescribed itineraries. Confirm their boundaries against the actual material chains.
 
@@ -59,4 +49,10 @@ Each batch must show accessible sources, processing, required non-ore feedstocks
 
 Exact quantities, planetary masses, engine performance, and statistically safe mission limits need implementation-time measurements. They are not a reason to reopen accepted qualitative rules.
 
-The all-tier route cannot be closed before its research prerequisite is complete. Accepted partial baselines are stored in their separate resolved decisions rather than working this blocked ticket as an improvised interview queue.
+[[Define Alpha Transport Technology Baseline]] owns accepted introduction stages, Hammer tier behavior, desh parts, Callisto coolant direction, the nearby asteroid alternative and later europium requirement. [[Define Alpha Technology Knowledge Contract]] owns blueprint acquisition and production checks. [[Verify GTNH Ore Tier Gates]] records version-specific original GTNH evidence. Original Rocket tiers and recipes do not automatically become Galaxia policy, and the all-tier route cannot close before that research prerequisite is complete.
+
+## Gameplay Flow
+
+The accepted opening starts with satellite deployment to open the Star Map, followed by a capability-based journey to Luna. The route under design then connects lunar extraction and material processing to improved vehicle parts and travel to Mars, without a mandatory dungeon or boss gate. The bauxite, ilmenite and plating entries above are evidence from original GTNH for selecting that chain, not a completed Galaxia route.
+
+The concrete vehicle and supply chain, later routes and their balance remain open. Each route needs accessible resources, processing, transport, persistent infrastructure and a downstream use.

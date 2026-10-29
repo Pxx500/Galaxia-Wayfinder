@@ -16,25 +16,22 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Satellite Manufacturing and Deployment Progression
+# Satellite Manufacturing And Deployment
 
-## Accepted Decision
-
-The Primitive Telescope Satellite is a limited scripted opening payload made from starting-world materials. Functional satellites follow orbital-material production. Rocket automation comes from upgraded electronics, not a new inherent reusability class. This is accepted design, not implemented satellite/achievement progression.
+The Primitive Telescope Satellite is a limited scripted opening payload made from starting-world materials. Functional satellites follow orbital-material production. Rocket automation comes from upgraded electronics, not a new inherent reusability class. This accepted design does not certify implemented satellite or achievement progression.
 
 ## Galaxia Achievement Ownership And Sharing
 
 Galaxia uses its own achievement system. Achievements belong to teams, not individual players, and are distinct from Minecraft's personal achievements.
 
-Only explicitly designated special scripted achievements are copied when a member changes teams. The previous team retains the copied achievement and its benefits, while the receiving team gains them. Ordinary achievements are not copied with members. This rule does not automatically transfer Technology Knowledge, blueprints or all celestial knowledge.
+Only designated special scripted achievements are copied when a member changes teams. The previous team retains the achievement and its benefits, while the receiving team gains them. Ordinary achievements are not copied. Technology Knowledge, blueprints and all celestial knowledge do not automatically transfer.
 
 ## Opening Achievement And Survey
 
 - Successful Overworld-orbit deployment grants the persistent launch achievement to the team. Its members share the team achievement regardless of whether they are online. Building the item or starting launch does not count.
 - The achievement unlocks the team's Star Map and provides passive progress toward Luna's celestial resource/profile knowledge. The achievement is granted before the scan finishes. Initially only Overworld resources are known. Luna is already known as an object.
 - This is planetary knowledge, not scanning physical blocks, generated terrain or Minecraft ore deposits.
-- The opening launch achievement is one of the special scripted achievements copied on a member's team change. The previous team keeps it and its benefits, and the receiving team gains them. This intentional duplication is not a unique-resource transfer or a personal achievement record.
-- Do not erase known results or restart completed surveys on membership changes. The sharing decision does not automatically transfer every technology or blueprint.
+- The opening achievement is a special scripted achievement copied on a member's team change. Both teams retain its benefits. Known results are not erased and completed surveys do not restart.
 - The payload remains an item and launch objective. It requires no registered orbital asset, ordinary satellite worker or managed satellite lifecycle.
 
 ### Accepted Survey Timing And Partial Progress Sharing
@@ -49,9 +46,9 @@ When the opening achievement copies between teams, preserve the greater compatib
 
 ### Current Alpha Scope And Lifecycle
 
-Alpha currently uses one basic Communication Satellite type and one basic Prospecting Satellite type. This is a content-type limit, not a limit of one deployed satellite per role. Their baseline recipes remain in [[Design Early Orbital Production Recipe Chain]]. The Primitive Telescope opening payload is separate.
+Alpha uses one basic Communication Satellite type and one basic Prospecting Satellite type, with no limit of one deployed satellite per role. [[Design Early Orbital Production Recipe Chain]] owns their baseline recipes. The opening payload is separate.
 
-Once deployed, a functional satellite remains on its orbit indefinitely. It cannot be returned, recovered or refitted. The team can deprecate it, which removes its gameplay contributions and is equivalent to destruction from the player's perspective. Deprecation returns no satellite item, modules or materials. No lifetime expiry, satellite servicing or recovery mission is required by this lifecycle.
+Functional satellites remain in orbit indefinitely and cannot be returned, recovered or refitted. A team can deprecate one, removing its contributions without returning the item, modules or materials. There is no lifetime expiry, servicing or recovery mission in this lifecycle.
 
 Modular construction, tiered chassis and modules, a Satellite Assembler and mutual satellite bonuses are deferred in [[Define Modular Satellite Construction]]. They can be reconsidered closer to the end of Alpha once actual services, data processing and consumers justify them, but are not promised Alpha content.
 
@@ -71,14 +68,18 @@ With a satellite in the payload slot, the Hammer exposes a localized `Deploy to 
 
 ## Proposals And Open Tuning
 
-The deferred modular-construction ticket preserves future component-based construction ideas without blocking current basic satellites. The opening achievement payload and deployment reach remain separate contracts.
-
-The opener's detailed presentation remains content work. The default duration and partial-progress sharing are selected above. Proposed elaborations include a fixed non-retargetable task without recurring prospecting-bonus data, persistent results without maintenance, and warning that duplicate launches are unnecessary rather than imposing a global one-item crafting limit. These remaining details are not all settled by acceptance of the achievement mission.
+The opener's detailed presentation remains content work. Unapproved elaborations include a fixed non-retargetable task without recurring prospecting-bonus data, persistent results without maintenance, and a warning that duplicate launches are unnecessary rather than a global one-item crafting limit.
 
 Numerical Hammer deployment costs and detailed mission accounting remain balance work. Concrete orbital feedstock, processing, payload and electronics recipes live in their recipe owner rather than this note.
 
-## Implementation Boundary And Provenance
+## Evidence And Provenance
 
 Existing team knowledge and membership-transfer hooks do not establish the Galaxia achievement system or the scripted Luna survey. Keep team achievement records and celestial knowledge as distinct domain responsibilities, not a fake satellite or scattered flags.
 
 Owner clarification on 2026-10-17 establishes Galaxia's own team-owned achievements and limits copying on team changes to designated special scripted achievements, including the opener. This supersedes the earlier personal-achievement wording. The 2026-09-17 discussion establishes the scripted opener, optional pre-Luna automation and both orbital chains. The 2026-10-07 answers resolve Hammer deployment origin/reach. Later recipe decisions name Primitive Telescope Satellite.
+
+## Gameplay Flow
+
+Players build the Primitive Telescope Satellite from starting-world materials and deploy it to Overworld orbit. Successful deployment immediately unlocks the team's Star Map and starts the passive Luna profile survey. The survey advances during active server time, including when players are offline, but is not a prerequisite for travel to Luna.
+
+Later, players produce SiGe and fluoride materials in microgravity to build functional Communication and Prospecting Satellites. An upgraded controller adds automatic flight to the existing Rocket, while manual Luna travel remains possible without it. Functional satellites remain in orbit until deprecated, with no recovery or servicing. A Hammer can deploy a payload without a receiver when its deployment option is selected and the route meets the separate reach rules.

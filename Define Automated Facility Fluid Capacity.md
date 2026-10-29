@@ -13,18 +13,16 @@ tags:
   - wayfinder/grilling
 ---
 
-# Define Automated Facility Fluid Capacity
+# Automated Facility Fluid Capacity
 
-## Question
+## Fluid Capacity
 
-Should Automated Facility fluid storage have finite, infrastructure-expandable capacity in Alpha?
-
-## Established Input
-
-[[Define Automated Facility Inventory Rules]] owns shared inventory and resource preservation. This decision establishes its fluid-capacity requirement.
-
-## Resolution
-
-Accepted on 2026-09-17: Automated Facilities have finite fluid capacity, increased by storage modules. Each facility also has nonzero base fluid capacity before adding those modules, just as it has base item capacity. This avoids requiring storage expansion before it can accept the resources needed to get started.
+Automated Facilities have finite fluid capacity, increased by storage modules. Each facility also has nonzero base fluid capacity before adding those modules, just as it has base item capacity. This avoids requiring storage expansion before it can accept the resources needed to get started.
 
 Exact base capacity, module increments and tank organization remain tuning and implementation choices. The existing shared-inventory and resource-preservation rules remain in force. This abstract base capacity is not a grant of invisible storage to physical world-backed Stations.
+
+[[Define Automated Facility Inventory Rules]] owns shared inventory and resource preservation. Fluid capacity was accepted on 2026-09-17.
+
+## Gameplay Flow
+
+The player can supply fluids to a new Automated Facility using its base capacity. When operations need more space, the player adds storage modules to expand that capacity.

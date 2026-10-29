@@ -16,7 +16,7 @@ tags:
   - wayfinder/deferred
 ---
 
-# Define Modular Satellite Construction
+# Modular Satellite Construction
 
 ## Question
 
@@ -55,3 +55,7 @@ Future module choices must work within that lifecycle, including finite observat
 ## Ownership
 
 [[Design Early Orbital Production Recipe Chain]] owns current basic satellite and orbital-material recipes. [[Design Lunar Crater Processing Recipe Chain]] owns Sc supply and candidate components. [[Define Satellite Manufacturing and Deployment Progression]] owns functional-satellite lifecycle and the opening boundary. [[Define Prospecting Data Processing]] owns the sustained origin-bound data pipeline.
+
+## Gameplay Flow
+
+For the current Alpha scope, players deploy basic Communication and Prospecting Satellites, with no limit of one instance of each. Deployed functional satellites remain in orbit until deprecated and cannot be recovered or refitted. Modular construction is deferred, so no component-selection workflow is yet promised.
